@@ -1,4 +1,4 @@
-package com.mycompany.app;
+package es.deusto.spq;
 
 /**
  * Hello world!
@@ -8,6 +8,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "eyeyey" );
+        System.out.println( "Hello World!" );
     }
 }
