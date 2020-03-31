@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class JLabelFoto extends JLabel implements MouseListener{
-//Explorador de archivos, si le sirve a alguien que lo use. (2)
+//Explorador de archivos, si le sirve a alguien que lo use.
 	
 	private JLabel label;
 	private static final long serialVersionUID = 1L;

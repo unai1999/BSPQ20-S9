@@ -32,7 +32,7 @@ import javax.swing.JTextField;
 
 public class ventanaInformacion {
 
-	//prueba
+	//prueba (2)
 	private JFrame frame;
 	private JTextField tFComent;
 	private JTextArea tAComent;
