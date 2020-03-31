@@ -31,6 +31,7 @@ public class Cliente implements ActionListener{
     JFrame frame;
     JPanel panel;
     JButton b;
+    JTextField tf;
 
     private Thread thread;
 	private final AtomicBoolean running = new AtomicBoolean(false);
@@ -47,11 +48,13 @@ public class Cliente implements ActionListener{
         frame.setSize(350, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        panel = new JPanel();    
+        panel = new JPanel();  
+       
         
         frame.add(panel);
         
-        
+        tf = new JTextField();  
+        panel.add(tf);
 
        
         // Creating login button

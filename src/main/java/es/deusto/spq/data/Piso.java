@@ -1,12 +1,16 @@
-package es.deusto.spq.clases;
+package es.deusto.spq.data;
 
 import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Piso{
+
+    @PrimaryKey
+    protected long id;
 
     protected String nombre;
     protected Double coste;
