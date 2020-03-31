@@ -21,6 +21,7 @@ public class Piso {
 		this.valoracion = valoracion;
 		this.foto = foto;
 	}
+	
 	public Piso(Piso piso) {
 		this.id = piso.id;
 		this.nombre = piso.nombre;
