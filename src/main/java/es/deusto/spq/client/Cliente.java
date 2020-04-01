@@ -20,6 +20,9 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.GenericType;
+
+import es.deusto.spq.data.Piso;
 
 
 
@@ -78,6 +81,14 @@ public class Cliente implements ActionListener{
 		}
 
 		
+    }
+    public Piso getPiso(String id){
+        Piso piso = null;
+        WebTarget pisoWebTarget = webTarget.path("/" + id);
+        GenericType<Piso> genericType = new GenericType<Piso>(){}; 
+        piso = pisoWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+	
+        return piso;
     }
     
     public void getInfo(){

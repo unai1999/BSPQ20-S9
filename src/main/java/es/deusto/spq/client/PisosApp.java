@@ -32,7 +32,7 @@ import javax.swing.SwingUtilities;
 //import javax.ws.rs.core.Response.StatusType;
 
 import es.deusto.spq.Piso;
-import es.deusto.spq.TextPrompt;
+import es.deusto.spq.GUI.TextPrompt;
 
 import java.util.ArrayList;
 import javax.swing.JLabel;

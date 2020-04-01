@@ -2,6 +2,9 @@ package es.deusto.spq;
 
 import java.util.ArrayList;
 
+
+//IMPLEMENTAR JDO Y METERLA A DATA
+//estoy usando data.Piso para hacer pruebas
 public class Piso {
 	
 	private int id;

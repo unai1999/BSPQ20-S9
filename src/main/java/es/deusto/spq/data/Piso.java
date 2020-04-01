@@ -24,6 +24,7 @@ public class Piso{
         this.coste = coste;
     }
 
+    
     public String getNombre() {
         return nombre;
     }
@@ -43,6 +44,14 @@ public class Piso{
     @Override
     public String toString() {
         return "Piso [coste=" + coste + ", nombre=" + nombre + "]";
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     
