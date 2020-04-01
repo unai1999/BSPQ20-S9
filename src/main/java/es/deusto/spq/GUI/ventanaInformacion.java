@@ -1,4 +1,4 @@
-package es.deusto.spq.ventanas;
+package es.deusto.spq.GUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
