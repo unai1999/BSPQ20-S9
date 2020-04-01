@@ -2,6 +2,9 @@ package es.deusto.spq.data;
 
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
+
+import java.util.List;
+
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 
@@ -10,11 +13,14 @@ import javax.jdo.annotations.InheritanceStrategy;
 public class Piso{
 
     @PrimaryKey
-    protected long id;
+    private long id;
 
-    protected String nombre;
-    protected Double coste;
+    private String nombre;
+    private Double coste;
 
+    private List<Imagen> imagenes; //Array de imagenes que tendra el piso para posteriormente mostrarlas en GUI
+    
+    private boolean alquilado;
     public Piso(){
 
     }
@@ -53,6 +59,22 @@ public class Piso{
     public void setId(long id) {
         this.id = id;
     }
+
+	public List<Imagen> getImagenes() {
+		return imagenes;
+	}
+
+	public void setImagenes(List<Imagen> imagenes) {
+		this.imagenes = imagenes;
+	}
+
+	public boolean isAlquilado() {
+		return alquilado;
+	}
+
+	public void setAlquilado(boolean alquilado) {
+		this.alquilado = alquilado;
+	}
 
     
 
