@@ -13,7 +13,7 @@ import javax.jdo.annotations.InheritanceStrategy;
 public class Piso{
 
     @PrimaryKey
-    private long id;
+    private int id;
 
     private String nombre;
     private Double coste;
@@ -64,16 +64,12 @@ public class Piso{
         this.coste = coste;
     }
 
-    @Override
-    public String toString() {
-        return "Piso [coste=" + coste + ", nombre=" + nombre + "]";
-    }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -92,6 +88,13 @@ public class Piso{
 	public void setAlquilado(boolean alquilado) {
 		this.alquilado = alquilado;
 	}
+
+    @Override
+    public String toString() {
+        return "Piso [alquilado=" + alquilado + ", coste=" + coste + ", id=" + id + ", imagenes=" + imagenes
+                + ", localizacion=" + localizacion + ", nombre=" + nombre + ", valoracion=" + valoracion + "]";
+    }
+
 
     
 
