@@ -17,8 +17,10 @@ public class Piso{
 
     private String nombre;
     private Double coste;
+    private String localizacion;
+    private int valoracion;
 
-    private List<Imagen> imagenes; //Array de imagenes que tendra el piso para posteriormente mostrarlas en GUI
+	private List<Imagen> imagenes; //Array de imagenes que tendra el piso para posteriormente mostrarlas en GUI
     
     private boolean alquilado;
     public Piso(){
@@ -29,8 +31,23 @@ public class Piso{
         this.nombre = nombre;
         this.coste = coste;
     }
-
     
+    public String getLocalizacion() {
+		return localizacion;
+	}
+
+	public void setLocalizacion(String localizacion) {
+		this.localizacion = localizacion;
+	}
+
+	public int getValoracion() {
+		return valoracion;
+	}
+
+	public void setValoracion(int valoracion) {
+		this.valoracion = valoracion;
+	}
+
     public String getNombre() {
         return nombre;
     }
