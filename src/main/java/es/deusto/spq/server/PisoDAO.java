@@ -97,7 +97,7 @@ public class PisoDAO{
     	return pisos;
     }
     
-    public Piso getPisoById(long id) {
+    public Piso getPisoById(int id) {
     	List<Piso> pisos = getPisos();
     	for (Piso p : pisos) {
     		if (p.getId() == id) {

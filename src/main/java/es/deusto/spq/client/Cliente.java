@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.swing.JButton;
@@ -23,6 +25,7 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.GenericType;
 
 import es.deusto.spq.data.Piso;
+import es.deusto.spq.server.*;
 
 
 
@@ -41,6 +44,8 @@ public class Cliente implements ActionListener{
 
     public Cliente(String hostname, String port) {    
 
+
+        DAOFactory.getInstance().createPisoDAO().crearAlgunosDatos();
 
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
@@ -77,18 +82,29 @@ public class Cliente implements ActionListener{
 		JButton target = (JButton) e.getSource();
 		if (target == this.b) {
             System.out.println("BUTTON PRESSED");
-			this.getInfo();
+			this.getPisos();
 		}
 
 		
     }
     public Piso getPiso(String id){
         Piso piso = null;
-        WebTarget pisoWebTarget = webTarget.path("/" + id);
+        WebTarget pisoWebTarget = webTarget.path("pisos/" + id);
         GenericType<Piso> genericType = new GenericType<Piso>(){}; 
         piso = pisoWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
-	
+       
         return piso;
+    }
+
+    public List<Piso> getPisos(){
+        List<Piso> pisos = new ArrayList<Piso>();
+        WebTarget pisosWebTarget = webTarget.path("pisos");
+        GenericType<List<Piso>> genericType = new GenericType<List<Piso>>(){}; 
+        pisos = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+        for (Piso p : pisos){
+            System.out.println(p);
+        }
+        return pisos;
     }
     
     public void getInfo(){

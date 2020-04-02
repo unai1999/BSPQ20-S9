@@ -23,9 +23,11 @@ public class AppServer {
 		
 	}
 	@GET
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<Piso> getPisos(){
 		List<Piso> pisos = new ArrayList<Piso>();
 
+		pisos = DAOFactory.getInstance().createPisoDAO().getPisos();
 		
 		return pisos;
 	}
@@ -40,12 +42,12 @@ public class AppServer {
 
 	
 	@GET
-	@Path("/{code}")
+	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Piso getPiso(@PathParam("code") int cod){
+	public Piso getPiso(@PathParam("id") int id){
 
 		Piso p = null;
-		p = DAOFactory.getInstance().createPisoDAO().getPiso(cod);
+		p = DAOFactory.getInstance().createPisoDAO().getPiso(id);
 
 
 		return p;
