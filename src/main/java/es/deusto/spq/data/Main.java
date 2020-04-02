@@ -10,7 +10,11 @@ import javax.jdo.Query;
 import javax.jdo.JDOHelper;
 import javax.jdo.Transaction;
 
+import es.deusto.spq.server.PisoDAO;
+
 public class Main{
+	
+	public static PisoDAO db;
 
 
     @SuppressWarnings("unchecked")

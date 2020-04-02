@@ -110,9 +110,9 @@ public class PisosApp extends JFrame {
             JLabel labelImagen = new JLabel();
             labelImagen.setBounds(200, y + 10, 400, 50);
             getContentPane().add(labelImagen);
-            labelImagen.setIcon(new ImageIcon(pisosBuscados.get(i).getFoto()));
+            labelImagen.setIcon(new ImageIcon(pisosBuscados.get(i).getFoto())); // Hay que hacer el get de la lista de fotos del piso 
             y += 15;
-            JLabel label2= new JLabel("Precio: " + pisosBuscados.get(i).getPrecio());
+            JLabel label2= new JLabel("Precio: " + pisosBuscados.get(i).getCoste()); 
             label2.setBounds(10, y, 100, 50);
             Font font2 = new Font("Arial", Font.ITALIC, 10);
             label2.setFont(font2);
@@ -165,7 +165,7 @@ public class PisosApp extends JFrame {
             public void run() {
             	comentarios.add("aa");
             	comentarios.add("bb");
-            	pisos.add(new Piso(1, "aa b", 123.3f, "bb", comentarios, 3.2f, "descarga.png"));
+            	pisos.add(new Piso(1, "aa b", 123.3f, "bb", comentarios, 3.2f, "descarga.png")); // No tenemos constructor con esos parámetros, mejor constructor por defecto y usar despues los setters
             	pisos.add(new Piso(2, "cc", 100.3f, "dd", comentarios, 7.2f, "descarga.png"));
                 new PisosApp(pisos, pisos);
             }
