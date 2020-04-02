@@ -30,12 +30,11 @@ import javax.swing.JTextPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JTextField;
 
-public class ventanaInformacion {
+public class VentanaInformacion {
 
-	//prueba (3)
-	private JFrame frame;
+	private JFrame jFInfo;
 	private JTextField tFComent;
-	private JTextArea tAComent;
+	private JTextArea tAComent, tADesc;
 	private JScrollPane scroll;
 	private final static String LINEA_NUEVA = "\n";
 
@@ -44,8 +43,8 @@ public class ventanaInformacion {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ventanaInformacion window = new ventanaInformacion();
-					window.frame.setVisible(true);
+					VentanaInformacion window = new VentanaInformacion();
+					window.jFInfo.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -54,7 +53,7 @@ public class ventanaInformacion {
 	}
 
 	
-	public ventanaInformacion() {
+	public VentanaInformacion() {
 		initialize();
 	}
 
@@ -62,15 +61,16 @@ public class ventanaInformacion {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 500, 500);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
-		frame.getContentPane();
-		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		jFInfo = new JFrame();
+		jFInfo.setTitle("Información");
+		jFInfo.setBounds(100, 100, 500, 500);
+		jFInfo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jFInfo.setResizable(false);
+		jFInfo.getContentPane();
+		jFInfo.getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelPrincipal = new JPanel();
-		frame.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
+		jFInfo.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
 		panelPrincipal.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelBotones = new JPanel();
@@ -109,25 +109,39 @@ public class ventanaInformacion {
 		lblDescTitulo.setBounds(10, 11, 70, 14);
 		panel.add(lblDescTitulo);
 		
-		JLabel lblDesc = new JLabel("Piso en las plamas...");
-		lblDesc.setBounds(10, 26, 332, 34);
-		panel.add(lblDesc);
-		
 		JLabel lblCosteTitulo = new JLabel("Coste:");
-		lblCosteTitulo.setBounds(10, 81, 40, 14);
+		lblCosteTitulo.setBounds(13, 70, 40, 14);
 		panel.add(lblCosteTitulo);
 		
 		JLabel lblCoste = new JLabel("70€");
-		lblCoste.setBounds(63, 81, 49, 14);
+		lblCoste.setBounds(63, 70, 49, 14);
 		panel.add(lblCoste);
 		
 		JLabel lblHabTitulo = new JLabel("Nº de Habitaciones:");
-		lblHabTitulo.setBounds(146, 81, 116, 14);
+		lblHabTitulo.setBounds(136, 70, 116, 14);
 		panel.add(lblHabTitulo);
 		
 		JLabel lblHab = new JLabel("4");
-		lblHab.setBounds(272, 81, 40, 14);
+		lblHab.setBounds(262, 70, 40, 14);
 		panel.add(lblHab);
+		
+		JPanel panelDesc = new JPanel();
+		panelDesc.setBounds(0, 25, 322, 34);
+		panel.add(panelDesc);
+		panelDesc.setLayout(new BorderLayout(0, 0));
+		
+		tADesc = new JTextArea();
+		scroll = new JScrollPane(tADesc);
+		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		panelDesc.add(scroll, BorderLayout.CENTER);
+		
+		JLabel lblLocTit = new JLabel("Localización:");
+		lblLocTit.setBounds(10, 94, 86, 14);
+		panel.add(lblLocTit);
+		
+		JLabel lblLoc = new JLabel("Barakaldo");
+		lblLoc.setBounds(95, 94, 64, 14);
+		panel.add(lblLoc);
 		
 		JPanel panelFotos = new JPanel();
 		panelFotos.setBounds(19, 265, 459, 144);
