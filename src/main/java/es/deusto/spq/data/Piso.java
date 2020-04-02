@@ -32,7 +32,16 @@ public class Piso{
         this.coste = coste;
     }
     
-    public String getLocalizacion() {
+    public Piso(Piso piso) {
+		this.nombre = piso.nombre;
+		this.coste = piso.coste;
+		this.localizacion = piso.localizacion;
+		this.valoracion = piso.valoracion;
+		this.imagenes = piso.imagenes;
+		this.alquilado = piso.alquilado;
+	}
+
+	public String getLocalizacion() {
 		return localizacion;
 	}
 
