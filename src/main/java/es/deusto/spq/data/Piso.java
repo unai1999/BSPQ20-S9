@@ -32,6 +32,7 @@ public class Piso{
         this.coste = coste;
     }
     
+    
     public Piso(Piso piso) {
 		this.nombre = piso.nombre;
 		this.coste = piso.coste;
