@@ -179,7 +179,7 @@ public class VentanaListaPisos extends JFrame {
 								 dispose();
 							}
 						}
-					}else {
+					}else if(text.contains("Valora")) {
 						line = line - 2; 
 						start = textoPisos.getLineStartOffset( line );
 						end = textoPisos.getLineEndOffset( line );
