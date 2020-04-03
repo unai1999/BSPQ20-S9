@@ -19,6 +19,8 @@ public class Piso{
     private Double coste;
     private String localizacion;
     private int valoracion;
+    private String desc;
+    private int nHab;
 
 	private List<Imagen> imagenes; //Array de imagenes que tendra el piso para posteriormente mostrarlas en GUI
     
@@ -104,6 +106,24 @@ public class Piso{
         return "Piso [alquilado=" + alquilado + ", coste=" + coste + ", id=" + id + ", imagenes=" + imagenes
                 + ", localizacion=" + localizacion + ", nombre=" + nombre + ", valoracion=" + valoracion + "]";
     }
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public int getnHab() {
+		return nHab;
+	}
+
+	public void setnHab(int nHab) {
+		this.nHab = nHab;
+	}
+
+	
 
 
     

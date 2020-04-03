@@ -12,6 +12,7 @@ import java.awt.FlowLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
@@ -19,13 +20,21 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.border.MatteBorder;
+
+import es.deusto.spq.data.Imagen;
+import es.deusto.spq.data.Piso;
+
 import java.awt.Font;
+import java.util.ArrayList;
+import java.util.List;
 
 public class VentanaComparar {
 
 	private JFrame jFComp;
 	private JScrollPane scroll;
 	private JTextArea tADesc1, tADesc2;
+	private Piso piso1, piso2;
+	private List<Imagen> listaImagenes;
 
 	/**
 	 * Launch the application.
@@ -47,13 +56,31 @@ public class VentanaComparar {
 	 * Create the application.
 	 */
 	public VentanaComparar() {
-		initialize();
+		listaImagenes = new ArrayList<Imagen>();
+		listaImagenes.add(new Imagen("1", "descarga.png"));
+		piso1 = new Piso();
+		piso1.setNombre("aaaa");
+    	piso1.setId(1);
+    	piso1.setCoste(3.0);
+    	piso1.setDesc("Piso en barakaldo");
+    	piso1.setnHab(4);
+    	piso1.setImagenes(listaImagenes);
+    	piso1.setLocalizacion("bbb");
+		piso2 = new Piso();
+		piso2.setNombre("bbbb");
+    	piso2.setId(1);
+    	piso2.setCoste(3.0);
+    	piso2.setDesc("Piso en cruces");
+    	piso2.setnHab(2);
+    	piso2.setImagenes(listaImagenes);
+    	piso2.setLocalizacion("ccc");
+		initialize(piso1, piso2);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Piso piso1, Piso piso2) {
 		jFComp = new JFrame();
 		jFComp.setTitle("Comparación");
 		jFComp.setBounds(100, 100, 600, 465);
@@ -77,8 +104,9 @@ public class VentanaComparar {
 		pPComp1.add(pComp1, BorderLayout.CENTER);
 		pComp1.setLayout(null);
 		
-		JLabel lblFoto1 = new JLabel("Foto1");
+		JLabel lblFoto1 = new JLabel();
 		lblFoto1.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black));
+		lblFoto1.setIcon(new ImageIcon(piso1.getImagenes().get(0).getUrl()));
 		lblFoto1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFoto1.setBounds(62, 11, 95, 95);
 		pComp1.add(lblFoto1);
@@ -105,7 +133,7 @@ public class VentanaComparar {
 		lblPrecioTit1.setBounds(10, 70, 49, 14);
 		subPInfo1.add(lblPrecioTit1);
 		
-		JLabel lblPrecio1 = new JLabel("20€");
+		JLabel lblPrecio1 = new JLabel(piso1.getCoste() + "€");
 		lblPrecio1.setBounds(79, 70, 49, 14);
 		subPInfo1.add(lblPrecio1);
 		
@@ -113,7 +141,7 @@ public class VentanaComparar {
 		lblNHabTit1.setBounds(10, 87, 97, 22);
 		subPInfo1.add(lblNHabTit1);
 		
-		JLabel lblHab1 = new JLabel("4");
+		JLabel lblHab1 = new JLabel(piso1.getnHab() + "");
 		lblHab1.setBounds(120, 87, 35, 14);
 		subPInfo1.add(lblHab1);
 		
@@ -121,7 +149,7 @@ public class VentanaComparar {
 		lblLocTit1.setBounds(10, 112, 86, 14);
 		subPInfo1.add(lblLocTit1);
 		
-		JLabel lblLoc1 = new JLabel("Barakaldo");
+		JLabel lblLoc1 = new JLabel(piso1.getLocalizacion());
 		lblLoc1.setBounds(100, 112, 69, 14);
 		subPInfo1.add(lblLoc1);
 		
@@ -130,7 +158,7 @@ public class VentanaComparar {
 		subPInfo1.add(panelDesc1);
 		panelDesc1.setLayout(new BorderLayout(0, 0));
 		
-		tADesc1 = new JTextArea();
+		tADesc1 = new JTextArea(piso1.getDesc());
 		tADesc1.setEditable(false);
 		scroll = new JScrollPane(tADesc1);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -150,7 +178,8 @@ public class VentanaComparar {
 		pPComp2.add(pComp2, BorderLayout.CENTER);
 		pComp2.setLayout(null);
 		
-		JLabel lblFoto2 = new JLabel("Foto2");
+		JLabel lblFoto2 = new JLabel();
+		lblFoto2.setIcon(new ImageIcon(piso2.getImagenes().get(0).getUrl()));
 		lblFoto2.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black));
 		lblFoto2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFoto2.setBounds(64, 11, 95, 95);
@@ -186,7 +215,7 @@ public class VentanaComparar {
 		lblNHabTit2.setBounds(10, 87, 97, 24);
 		subPInfo2.add(lblNHabTit2);
 		
-		JLabel lblHab2 = new JLabel("4");
+		JLabel lblHab2 = new JLabel(piso2.getnHab() +"");
 		lblHab2.setBounds(120, 87, 35, 14);
 		subPInfo2.add(lblHab2);
 		
@@ -194,7 +223,7 @@ public class VentanaComparar {
 		lblLocTit2.setBounds(10, 112, 86, 14);
 		subPInfo2.add(lblLocTit2);
 		
-		JLabel lblLoc2 = new JLabel("Barakaldo");
+		JLabel lblLoc2 = new JLabel(piso2.getLocalizacion());
 		lblLoc2.setBounds(100, 112, 69, 14);
 		subPInfo2.add(lblLoc2);
 		
@@ -203,7 +232,7 @@ public class VentanaComparar {
 		subPInfo2.add(panelDesc2);
 		panelDesc2.setLayout(new BorderLayout(0, 0));
 		
-		tADesc2 = new JTextArea();
+		tADesc2 = new JTextArea(piso2.getDesc());
 		tADesc2.setEditable(false);
 		scroll = new JScrollPane(tADesc2);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);

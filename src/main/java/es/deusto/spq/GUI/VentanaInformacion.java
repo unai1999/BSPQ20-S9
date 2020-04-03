@@ -14,9 +14,16 @@ import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+
+import es.deusto.spq.data.Imagen;
+import es.deusto.spq.data.Piso;
+import es.deusto.spq.data.Usuario;
+
 import java.awt.Color;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -37,6 +44,9 @@ public class VentanaInformacion {
 	private JTextArea tAComent, tADesc;
 	private JScrollPane scroll;
 	private final static String LINEA_NUEVA = "\n";
+	private Piso piso;
+	private Usuario usuario;
+	private List<Imagen> listaImagenes;
 
 
 	public static void main(String[] args) {
@@ -54,13 +64,24 @@ public class VentanaInformacion {
 
 	
 	public VentanaInformacion() {
-		initialize();
+		listaImagenes = new ArrayList<Imagen>();
+		listaImagenes.add(new Imagen("1", "descarga.png"));
+		piso = new Piso();
+		piso.setNombre("aaaa");
+    	piso.setId(1);
+    	piso.setCoste(3.0);
+    	piso.setDesc("Piso en barakaldo");
+    	piso.setnHab(4);
+    	piso.setImagenes(listaImagenes);
+    	piso.setLocalizacion("bbb");
+		usuario = new Usuario("eneko98", "Eneko", "Valero", "enekovalero@gmail.com", "123456");
+		initialize(piso, usuario);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Piso piso, Usuario usuario) {
 		jFInfo = new JFrame();
 		jFInfo.setTitle("Información");
 		jFInfo.setBounds(100, 100, 500, 500);
@@ -113,7 +134,8 @@ public class VentanaInformacion {
 		lblCosteTitulo.setBounds(13, 70, 40, 14);
 		panel.add(lblCosteTitulo);
 		
-		JLabel lblCoste = new JLabel("70€");
+		JLabel lblCoste = new JLabel();
+		lblCoste.setText(piso.getCoste()+ "€");
 		lblCoste.setBounds(63, 70, 49, 14);
 		panel.add(lblCoste);
 		
@@ -121,7 +143,8 @@ public class VentanaInformacion {
 		lblHabTitulo.setBounds(136, 70, 116, 14);
 		panel.add(lblHabTitulo);
 		
-		JLabel lblHab = new JLabel("4");
+		JLabel lblHab = new JLabel();
+		lblHab.setText(String.valueOf(piso.getnHab()));
 		lblHab.setBounds(262, 70, 40, 14);
 		panel.add(lblHab);
 		
@@ -131,6 +154,8 @@ public class VentanaInformacion {
 		panelDesc.setLayout(new BorderLayout(0, 0));
 		
 		tADesc = new JTextArea();
+		tADesc.setEditable(false);
+		tADesc.setText(piso.getDesc());
 		scroll = new JScrollPane(tADesc);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		panelDesc.add(scroll, BorderLayout.CENTER);
@@ -139,7 +164,8 @@ public class VentanaInformacion {
 		lblLocTit.setBounds(10, 94, 86, 14);
 		panel.add(lblLocTit);
 		
-		JLabel lblLoc = new JLabel("Barakaldo");
+		JLabel lblLoc = new JLabel();
+		lblLoc.setText(piso.getLocalizacion());
 		lblLoc.setBounds(95, 94, 64, 14);
 		panel.add(lblLoc);
 		
@@ -148,23 +174,27 @@ public class VentanaInformacion {
 		panelInfo.add(panelFotos);
 		panelFotos.setLayout(null);
 		
-		JLabel lblFoto1 = new JLabel("Foto1");
+		JLabel lblFoto1 = new JLabel();
 		lblFoto1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFoto1.setIcon(new ImageIcon(piso.getImagenes().get(0).getUrl()));
 		lblFoto1.setBounds(0, 0, 119, 145);
 		panelFotos.add(lblFoto1);
 		
-		JLabel lblFoto2 = new JLabel("Foto2");
+		JLabel lblFoto2 = new JLabel();
+		lblFoto1.setIcon(new ImageIcon(piso.getImagenes().get(1).getUrl()));
 		lblFoto2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFoto2.setBounds(101, 0, 119, 145);
 		panelFotos.add(lblFoto2);
 		
-		JLabel lblFoto3 = new JLabel("Foto3");
+		JLabel lblFoto3 = new JLabel();
 		lblFoto3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFoto1.setIcon(new ImageIcon(piso.getImagenes().get(2).getUrl()));
 		lblFoto3.setBounds(209, 0, 119, 145);
 		panelFotos.add(lblFoto3);
 		
-		JLabel lblFoto4 = new JLabel("Foto4");
+		JLabel lblFoto4 = new JLabel();
 		lblFoto4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFoto1.setIcon(new ImageIcon(piso.getImagenes().get(3).getUrl()));
 		lblFoto4.setBounds(338, 0, 119, 145);
 		panelFotos.add(lblFoto4);
 		
@@ -177,8 +207,9 @@ public class VentanaInformacion {
 		lblUsTitulo.setHorizontalAlignment(SwingConstants.LEFT);
 		panelUs.add(lblUsTitulo);
 		
-		JLabel lblNewLabel = new JLabel("Eneko");
-		panelUs.add(lblNewLabel);
+		JLabel lblUs = new JLabel();
+		lblUs.setText(usuario.getNickname());
+		panelUs.add(lblUs);
 		
 		JPanel panelComentarios = new JPanel();
 		panelComentarios.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -191,7 +222,6 @@ public class VentanaInformacion {
 		scroll = new JScrollPane(tAComent);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		panelComentarios.add(scroll, BorderLayout.CENTER);
-		//panelComentarios.add(scrollPane);
 		
 		JPanel subPComent = new JPanel();
 		panelComentarios.add(subPComent, BorderLayout.NORTH);
