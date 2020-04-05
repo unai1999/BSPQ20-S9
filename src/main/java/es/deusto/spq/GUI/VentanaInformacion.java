@@ -1,23 +1,19 @@
 package es.deusto.spq.GUI;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import java.awt.FlowLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.BorderFactory;
+import javax.swing.SwingUtilities;
 import javax.swing.JButton;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -25,20 +21,13 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
-import es.deusto.spq.data.Imagen;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 
 import java.awt.Color;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
 import java.awt.Font;
-import javax.swing.BoxLayout;
-import java.awt.CardLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JLayeredPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JTextField;
 
@@ -49,9 +38,9 @@ public class VentanaInformacion {
 	private JTextArea tAComent, tADesc;
 	private JScrollPane scroll;
 	private final static String LINEA_NUEVA = "\n";
-//	private Piso piso;
-//	private static Usuario usuario;
-	private WebTarget webTarget;
+	private static Client client;
+	private static WebTarget webTarget;
+
 
 
 //	public static void main(String[] args) {
@@ -69,8 +58,8 @@ public class VentanaInformacion {
 //	}
 
 	
-	public VentanaInformacion(Piso piso, Usuario user) {
-		initialize(piso, user);
+	public VentanaInformacion(Piso piso, Usuario user, String hostname, String port) {
+		initialize(piso, user, hostname, port);
 		jFInfo.setVisible(true);
 	}
 	
@@ -78,10 +67,10 @@ public class VentanaInformacion {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(Piso piso, Usuario usuario) {
+	private void initialize(Piso piso, Usuario usuario, String hostname, String port) {
 		
-		Client client = ClientBuilder.newClient();
-    	webTarget = client.target("http://localhost:8080/alquilerapp");
+		client = ClientBuilder.newClient();
+        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
     	
 		jFInfo = new JFrame();
 		jFInfo.setTitle("Información");
@@ -188,7 +177,6 @@ public class VentanaInformacion {
 		
 		JLabel lblFoto1 = new JLabel();
 		lblFoto1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFoto1.setIcon(new ImageIcon(piso.getImagenes().get(0).getUrl()));
 		lblFoto1.setBounds(0, 0, 119, 131);
 		panelFotos.add(lblFoto1);
 		
@@ -207,7 +195,15 @@ public class VentanaInformacion {
 		lblFoto4.setBounds(338, 0, 119, 131);
 		panelFotos.add(lblFoto4);
 		
-		if(piso.getImagenes().size() == 2) {
+		if(piso.getImagenes() != null) {
+		if(piso.getImagenes().size() == 1) {
+			lblFoto1.setIcon(new ImageIcon(piso.getImagenes().get(0).getUrl()));
+			lblFoto2.setText("Sin imagen");
+			lblFoto3.setText("Sin imagen");
+			lblFoto4.setText("Sin imagen");
+		}
+		else if(piso.getImagenes().size() == 2) {
+			lblFoto1.setIcon(new ImageIcon(piso.getImagenes().get(0).getUrl()));
 			lblFoto2.setIcon(new ImageIcon(piso.getImagenes().get(1).getUrl()));
 			lblFoto3.setText("Sin imagen");
 			lblFoto4.setText("Sin imagen");
@@ -223,7 +219,12 @@ public class VentanaInformacion {
 			lblFoto4.setIcon(new ImageIcon(piso.getImagenes().get(3).getUrl()));
 			
 		}
-		
+		}else {
+			lblFoto1.setText("Sin imagen");
+			lblFoto2.setText("Sin imagen");
+			lblFoto3.setText("Sin imagen");
+			lblFoto4.setText("Sin imagen");
+		}
 		
 		JPanel panelUs = new JPanel();
 		panelUs.setBounds(342, 30, 136, 35);
@@ -280,8 +281,9 @@ public class VentanaInformacion {
 				System.out.println("aaa");
 				List<Piso> pisos = new ArrayList<Piso>();
 				jFInfo.dispose();
+				
 				pisos = getPisos();
-				new VentanaListaPisos(pisos, pisos);
+				new VentanaListaPisos(pisos, pisos, hostname, port, usuario);
 				
 			}
 		});
@@ -311,6 +313,7 @@ public class VentanaInformacion {
 		
 		
 	}
+   
 	public List<Piso> getPisos(){
         List<Piso> pisos = new ArrayList<Piso>();
         WebTarget pisosWebTarget = webTarget.path("pisos");

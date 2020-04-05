@@ -24,7 +24,8 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
-import es.deusto.spq.data.Imagen;
+
+import es.deusto.spq.client.Cliente;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 import java.util.ArrayList;
@@ -42,15 +43,10 @@ public class VentanaListaPisos extends JFrame {
 	private JScrollPane scroll;
 	private static Client client;
 	private static WebTarget webTarget;
-	private static List<Imagen> listaImagenes;
-
 
 	private Usuario u1;
 	
-    
-
-    public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2) {
-    	u1 = new Usuario("eneko98", "Eneko", "Valero", "enekovalero@gmail.com", "123456");
+    public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2, String hostname, String port, Usuario u1) {
     	
         setSize(620, 480);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -73,7 +69,7 @@ public class VentanaListaPisos extends JFrame {
         			}
         		}
         		dispose();
-        		new VentanaListaPisos(pisos, pisosBuscados);
+        		new VentanaListaPisos(pisos, pisosBuscados, hostname, port, u1);
         		
         	}
         });
@@ -85,29 +81,25 @@ public class VentanaListaPisos extends JFrame {
         getContentPane().add(labelFotoUsuario);
         labelFotoUsuario.setIcon(new ImageIcon("descarga.png"));
         
+        JButton botonVolverAtras = new JButton("Inicio");
+        botonVolverAtras.setBounds(480, 417, 120, 23);
+        getContentPane().add(botonVolverAtras);
+        
         JPanel panelListaPisos= new JPanel();
-        panelListaPisos.setBounds(10, 46, 594, 509);
+        panelListaPisos.setBounds(10, 46, 594, 350);
         getContentPane().add(panelListaPisos);
         JTextArea textoPisos = new JTextArea();
         textoPisos.setColumns(50);
+        textoPisos.setRows(20);
         textoPisos.setEditable(false);
         Font font1 = new Font("Arial", Font.ITALIC, 12);
         textoPisos.setFont(font1);
-        textoPisos.setBounds(10, 30, 490, 425);
+        textoPisos.setBounds(10, 46, 594, 229);
         scroll = new JScrollPane(textoPisos);
-        scroll.setBounds(10, 55, 490, 425);
+        scroll.setBounds(10, 46, 594, 229);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		panelListaPisos.add(scroll);
         
-        JButton botonVolverAtras = new JButton("Inicio");
-        botonVolverAtras.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        		dispose();
-        		new VentanaListaPisos(pisos, pisos);
-        	}
-        });
-        botonVolverAtras.setBounds(480, 417, 120, 23);
-        getContentPane().add(botonVolverAtras);
         
         if(pisos2.size() > 0) {
         for(int i = 0; i < pisos2.size(); i++) {
@@ -131,15 +123,15 @@ public class VentanaListaPisos extends JFrame {
 					int start = textoPisos.getLineStartOffset( line );
 					int end = textoPisos.getLineEndOffset( line );
 					String text = textoPisos.getDocument().getText(start, end - start);
-					
 					if(text.contains("piso")) {
 						String[] partes = text.split(":");
 						String nombre = partes[1];
 						nombre = nombre.toLowerCase();
 						nombre = nombre.replaceAll("\n", "");
 						for(int i = 0; i < pisos.size(); i++) {
-							if(nombre.contentEquals(pisos.get(i).getNombre())) {
-								new VentanaInformacion(pisos.get(i), u1);
+							if(nombre.contentEquals(pisos.get(i).getNombre().toLowerCase())) {
+								System.out.println(pisos.get(i));
+								new VentanaInformacion(pisos.get(i), u1, hostname, port);
 								dispose();
 							}
 						}
@@ -154,8 +146,8 @@ public class VentanaListaPisos extends JFrame {
 						nombre = nombre.toLowerCase();
 						nombre = nombre.replaceAll("\n", "");
 						for(int i = 0; i < pisos.size(); i++) {
-							if(nombre.contentEquals(pisos.get(i).getNombre())) {
-								new VentanaInformacion(pisos.get(i), u1);
+							if(nombre.contentEquals(pisos.get(i).getNombre().toLowerCase())) {
+								new VentanaInformacion(pisos.get(i), u1, hostname, port);
 								 dispose();
 							}
 						}
@@ -169,8 +161,8 @@ public class VentanaListaPisos extends JFrame {
 						nombre = nombre.toLowerCase();
 						nombre = nombre.replaceAll("\n", "");
 						for(int i = 0; i < pisos.size(); i++) {
-							if(nombre.contentEquals(pisos.get(i).getNombre())) {
-								new VentanaInformacion(pisos.get(i), u1);
+							if(nombre.contentEquals(pisos.get(i).getNombre().toLowerCase())) {
+								new VentanaInformacion(pisos.get(i), u1, hostname, port);
 								 dispose();
 							}
 						}
@@ -192,7 +184,12 @@ public class VentanaListaPisos extends JFrame {
         	      
         	    }
 		});
-        
+        botonVolverAtras.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		dispose();
+        		new Cliente(hostname, port);
+        	}
+        });
         
         setResizable(false);
         setVisible(true);
@@ -203,49 +200,22 @@ public class VentanaListaPisos extends JFrame {
 		client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
 	}
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable(){
-        
-            @Override
-            public void run() {
-            	
-//            	listaImagenes = new ArrayList<Imagen>();
-//        		listaImagenes.add(new Imagen("1", "descarga.png"));
-//        		listaImagenes.add(new Imagen("2", "descarga.png"));
-//        		listaImagenes.add(new Imagen("3", "descarga.png"));
-				String hostname = args[0];
-				String port = args[1];
-				init(hostname, port);
-            	List<Piso> pisos = new ArrayList<Piso>();
-            	pisos = getPisos();
-//            	Piso piso1 = new Piso();
-//            	piso1.setNombre("aaaa");
-//            	piso1.setId(1);
-//            	piso1.setCoste(3.0);
-//            	piso1.setDesc("Piso en barakaldo");
-//            	piso1.setAlquilado(false);
-//            	piso1.setnHab(4);
-//            	piso1.setLocalizacion("bbb");
-//            	piso1.setValoracion(3);
-//            	piso1.setImagenes(listaImagenes);
-//            	pisos.add(piso1);
+//    public static void main(String[] args) {
+//        SwingUtilities.invokeLater(new Runnable(){
+//        
+//            @Override
+//            public void run() {
 //            	
-//            	Piso piso2 = new Piso();
-//            	piso2.setNombre("aaaa b");
-//            	piso2.setId(2);
-//            	piso2.setCoste(5.0);
-//            	piso2.setDesc("Piso en Bilbao");
-//            	piso2.setAlquilado(false);
-//            	piso2.setnHab(5);
-//            	piso2.setLocalizacion("cccc");
-//            	piso2.setValoracion(4);
-//            	piso2.setImagenes(listaImagenes);
-//            	pisos.add(piso2);
-      
-                new VentanaListaPisos(pisos, pisos);
-            }
-        });
-    }
+//				String hostname = args[0];
+//				String port = args[1];
+//				init(hostname, port);
+//            	List<Piso> pisos = new ArrayList<Piso>();
+//            	pisos = getPisos();
+//      
+//                new VentanaListaPisos(pisos, pisos, hostname, port, u1);
+//            }
+//        });
+//    }
     public static List<Piso> getPisos(){
         List<Piso> pisos = new ArrayList<Piso>();
         WebTarget pisosWebTarget = webTarget.path("pisos");
