@@ -13553,3 +13553,638 @@ org.datanucleus.exceptions.NucleusUserException: Encontro el Meta-Data de la cla
 14:33:11,091 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (Persistable) : es.deusto.spq.data.Piso
 14:33:11,091 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.spq.data.Piso" ha terminado
 14:33:11,091 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer ha terminado con exito para 1 clases. Tiempos : input=182 ms, enhance=69 ms, total=251 ms. Compruebe el LOG para los detalles
+14:18:03,938 (main) DEBUG [DataNucleus.General] - Using PluginRegistry org.datanucleus.plugin.NonManagedPluginRegistry
+14:18:03,991 (main) DEBUG [DataNucleus.General] - Registering bundle org.sonatype.inject version 2.3.0 at URL file:/C:/Users/monte/.m2/repository/org/sonatype/sisu/sisu-inject-bean/2.3.0/sisu-inject-bean-2.3.0.jar.
+14:18:04,028 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/monte/.m2/repository/org/sonatype/sisu/sisu-inject-bean/2.3.0/sisu-inject-bean-2.3.0.jar!/plugin.xml.
+14:18:04,042 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus version 5.2.2 at URL file:/C:/Users/monte/.m2/repository/org/datanucleus/datanucleus-core/5.2.2/datanucleus-core-5.2.2.jar.
+14:18:04,049 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/monte/.m2/repository/org/datanucleus/datanucleus-core/5.2.2/datanucleus-core-5.2.2.jar!/plugin.xml.
+14:18:04,060 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.api.jdo version 5.2.3 at URL file:/C:/Users/monte/.m2/repository/org/datanucleus/datanucleus-api-jdo/5.2.3/datanucleus-api-jdo-5.2.3.jar.
+14:18:04,071 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/monte/.m2/repository/org/datanucleus/datanucleus-api-jdo/5.2.3/datanucleus-api-jdo-5.2.3.jar!/plugin.xml.
+14:18:04,077 (main) DEBUG [DataNucleus.General] - Registering bundle org.datanucleus.store.rdbms version 5.2.2 at URL file:/C:/Users/monte/.m2/repository/org/datanucleus/datanucleus-rdbms/5.2.2/datanucleus-rdbms-5.2.2.jar.
+14:18:04,084 (main) DEBUG [DataNucleus.General] - Leyendo extension-points y extensiones del archivo de plug-in jar:file:/C:/Users/monte/.m2/repository/org/datanucleus/datanucleus-rdbms/5.2.2/datanucleus-rdbms-5.2.2.jar!/plugin.xml.
+14:18:04,133 (main) DEBUG [DataNucleus.Persistence] - Tipos de Java inicializando ...
+14:18:04,230 (main) DEBUG [DataNucleus.Persistence] - Soporte para tipos de Java listo : tipos soportados = [B, [C, [D, [F, [I, [J, [Ljava.lang.Boolean;, [Ljava.lang.Byte;, [Ljava.lang.Character;, [Ljava.lang.Double;, [Ljava.lang.Enum;, [Ljava.lang.Float;, [Ljava.lang.Integer;, [Ljava.lang.Long;, [Ljava.lang.Number;, [Ljava.lang.Object;, [Ljava.lang.Short;, [Ljava.lang.String;, [Ljava.math.BigDecimal;, [Ljava.math.BigInteger;, [Ljava.util.Date;, [Ljava.util.Locale;, [S, [Z, boolean, byte, char, double, float, int, java.awt.Color, java.awt.image.BufferedImage, java.lang.Boolean, java.lang.Byte, java.lang.Character, java.lang.Class, java.lang.Double, java.lang.Enum, java.lang.Float, java.lang.Integer, java.lang.Long, java.lang.Number, java.lang.Short, java.lang.String, java.lang.StringBuffer, java.lang.StringBuilder, java.math.BigDecimal, java.math.BigInteger, java.net.URI, java.net.URL, java.sql.Date, java.sql.Time, java.sql.Timestamp, java.time.Duration, java.time.Instant, java.time.LocalDate, java.time.LocalDateTime, java.time.LocalTime, java.time.MonthDay, java.time.OffsetDateTime, java.time.OffsetTime, java.time.Period, java.time.Year, java.time.YearMonth, java.time.ZonedDateTime, java.time.ZoneId, java.time.ZoneOffset, java.util.ArrayList, java.util.Arrays$ArrayList, java.util.BitSet, java.util.Calendar, java.util.Collection, java.util.Currency, java.util.Date, java.util.GregorianCalendar, java.util.HashMap, java.util.HashSet, java.util.Hashtable, java.util.LinkedHashMap, java.util.LinkedHashSet, java.util.LinkedList, java.util.List, java.util.Locale, java.util.Map, java.util.Optional, java.util.PriorityQueue, java.util.Properties, java.util.Queue, java.util.Set, java.util.SortedMap, java.util.SortedSet, java.util.Stack, java.util.TimeZone, java.util.TreeMap, java.util.TreeSet, java.util.UUID, java.util.Vector, long, short
+14:18:04,230 (main) DEBUG [DataNucleus.Persistence] - Inicializando TypeConverters ...
+14:18:04,308 (main) DEBUG [DataNucleus.Persistence] - TypeConverters listo
+14:18:04,309 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for byte[] to : java.nio.ByteBuffer
+14:18:04,309 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for char[] to : java.nio.ByteBuffer
+14:18:04,309 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for double[] to : java.nio.ByteBuffer
+14:18:04,309 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for float[] to : java.nio.ByteBuffer
+14:18:04,309 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for int[] to : java.nio.ByteBuffer
+14:18:04,309 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for long[] to : java.nio.ByteBuffer
+14:18:04,309 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigDecimal; to : java.nio.ByteBuffer
+14:18:04,310 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for [Ljava.math.BigInteger; to : java.nio.ByteBuffer
+14:18:04,310 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for short[] to : java.nio.ByteBuffer
+14:18:04,310 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for boolean[] to : java.nio.ByteBuffer
+14:18:04,310 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.Color to : java.lang.String,int[]
+14:18:04,310 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.awt.image.BufferedImage to : byte[],java.nio.ByteBuffer
+14:18:04,310 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.io.Serializable to : java.lang.String,byte[],java.nio.ByteBuffer
+14:18:04,310 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Boolean to : java.lang.Character,java.lang.Integer
+14:18:04,310 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Character to : java.lang.String
+14:18:04,310 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Class to : java.lang.String
+14:18:04,311 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Integer to : java.lang.String
+14:18:04,311 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.Long to : java.lang.String
+14:18:04,311 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuffer to : java.lang.String
+14:18:04,311 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.lang.StringBuilder to : java.lang.String
+14:18:04,311 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigDecimal to : java.lang.String,java.lang.Double
+14:18:04,311 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.math.BigInteger to : java.lang.String,java.lang.Long
+14:18:04,311 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URI to : java.lang.String
+14:18:04,311 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.net.URL to : java.lang.String
+14:18:04,311 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Date to : java.lang.String,java.lang.Long,java.util.Date
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Time to : java.lang.String,java.lang.Long,java.util.Date
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.sql.Timestamp to : java.lang.String,java.lang.Long,java.util.Date
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Duration to : java.lang.String,java.lang.Double,java.lang.Long
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Instant to : java.lang.String,java.sql.Timestamp,java.lang.Long,java.util.Date
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDate to : java.lang.String,java.util.Date,java.sql.Date
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalDateTime to : java.lang.String,java.sql.Timestamp,java.util.Date
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.LocalTime to : java.lang.String,java.sql.Time,java.lang.Long,java.util.Date
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.MonthDay to : java.lang.String,java.util.Date,int[],java.sql.Date
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetDateTime to : java.lang.String,java.sql.Timestamp,java.util.Date
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.OffsetTime to : java.lang.String,java.sql.Time,java.lang.Long
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Period to : java.lang.String,int[]
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.Year to : java.lang.String,java.lang.Integer
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.YearMonth to : java.lang.String,java.util.Date,int[],java.sql.Date
+14:18:04,312 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZonedDateTime to : java.lang.String,java.sql.Timestamp
+14:18:04,313 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneId to : java.lang.String
+14:18:04,313 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.time.ZoneOffset to : java.lang.String
+14:18:04,313 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.BitSet to : java.lang.String
+14:18:04,313 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Calendar to : java.lang.String,[Ljava.lang.Object;,java.sql.Timestamp,java.util.Date
+14:18:04,313 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Currency to : java.lang.String
+14:18:04,313 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Date to : java.lang.String,java.lang.Long
+14:18:04,313 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.Locale to : java.lang.String
+14:18:04,313 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.TimeZone to : java.lang.String
+14:18:04,313 (main) DEBUG [DataNucleus.Persistence] - TypeConverter(s) available for java.util.UUID to : java.lang.String
+14:18:04,316 (main) DEBUG [DataNucleus.MetaData] - MetaDataManager : Input=(XML,Annotations), XML-Validation=false, XML-Suffices=(persistence=*.jdo, orm=orm, query=*.jdoquery), JDO-listener=false
+14:18:04,316 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (versión 5.2.2) para el API "JDO" utilisando el JRE "{2}"
+14:18:04,316 (main) DEBUG [DataNucleus.Enhancer] - DataNucleus Enhancer : Classpath
+14:18:04,317 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\datanucleus\datanucleus-maven-plugin\5.0.2\datanucleus-maven-plugin-5.0.2.jar
+14:18:04,317 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\codehaus\plexus\plexus-utils\3.0.8\plexus-utils-3.0.8.jar
+14:18:04,317 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\apache\maven\maven-artifact\3.0.4\maven-artifact-3.0.4.jar
+14:18:04,317 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\apache\maven\maven-plugin-api\3.0.4\maven-plugin-api-3.0.4.jar
+14:18:04,317 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\apache\maven\maven-model\3.0.4\maven-model-3.0.4.jar
+14:18:04,317 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\sonatype\sisu\sisu-inject-plexus\2.3.0\sisu-inject-plexus-2.3.0.jar
+14:18:04,317 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\codehaus\plexus\plexus-component-annotations\1.5.5\plexus-component-annotations-1.5.5.jar
+14:18:04,318 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\sonatype\sisu\sisu-inject-bean\2.3.0\sisu-inject-bean-2.3.0.jar
+14:18:04,318 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\sonatype\sisu\sisu-guice\3.1.0\sisu-guice-3.1.0-no_aop.jar
+14:18:04,318 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\sonatype\sisu\sisu-guava\0.9.9\sisu-guava-0.9.9.jar
+14:18:04,318 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\codehaus\plexus\plexus-container-default\1.5.5\plexus-container-default-1.5.5.jar
+14:18:04,318 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\codehaus\plexus\plexus-classworlds\2.2.2\plexus-classworlds-2.2.2.jar
+14:18:04,318 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\apache\xbean\xbean-reflect\3.4\xbean-reflect-3.4.jar
+14:18:04,318 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\log4j\log4j\1.2.12\log4j-1.2.12.jar
+14:18:04,325 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\commons-logging\commons-logging-api\1.1\commons-logging-api-1.1.jar
+14:18:04,326 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\com\google\collections\google-collections\1.0\google-collections-1.0.jar
+14:18:04,326 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\junit\junit\3.8.2\junit-3.8.2.jar
+14:18:04,328 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\git\BSPQ20-S9\target\classes
+14:18:04,328 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\datanucleus\datanucleus-core\5.2.2\datanucleus-core-5.2.2.jar
+14:18:04,328 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\datanucleus\datanucleus-api-jdo\5.2.3\datanucleus-api-jdo-5.2.3.jar
+14:18:04,328 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\datanucleus\datanucleus-rdbms\5.2.2\datanucleus-rdbms-5.2.2.jar
+14:18:04,328 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\datanucleus\javax.jdo\3.2.0-m13\javax.jdo-3.2.0-m13.jar
+14:18:04,329 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\javax\transaction\transaction-api\1.1\transaction-api-1.1.jar
+14:18:04,329 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\mysql\mysql-connector-java\8.0.15\mysql-connector-java-8.0.15.jar
+14:18:04,329 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\com\google\protobuf\protobuf-java\3.6.1\protobuf-java-3.6.1.jar
+14:18:04,329 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\jersey\core\jersey-server\2.29\jersey-server-2.29.jar
+14:18:04,329 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\jersey\core\jersey-client\2.29\jersey-client-2.29.jar
+14:18:04,329 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\jakarta\ws\rs\jakarta.ws.rs-api\2.1.5\jakarta.ws.rs-api-2.1.5.jar
+14:18:04,330 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\jersey\media\jersey-media-jaxb\2.29\jersey-media-jaxb-2.29.jar
+14:18:04,330 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.4\jakarta.annotation-api-1.3.4.jar
+14:18:04,330 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\hk2\external\jakarta.inject\2.5.0\jakarta.inject-2.5.0.jar
+14:18:04,330 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\javax\validation\validation-api\2.0.1.Final\validation-api-2.0.1.Final.jar
+14:18:04,331 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\jersey\containers\jersey-container-servlet\2.29\jersey-container-servlet-2.29.jar
+14:18:04,331 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\jersey\containers\jersey-container-servlet-core\2.29\jersey-container-servlet-core-2.29.jar
+14:18:04,331 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\jersey\core\jersey-common\2.29\jersey-common-2.29.jar
+14:18:04,331 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\hk2\osgi-resource-locator\1.0.3\osgi-resource-locator-1.0.3.jar
+14:18:04,331 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\jersey\inject\jersey-hk2\2.29\jersey-hk2-2.29.jar
+14:18:04,332 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\hk2\hk2-locator\2.5.0\hk2-locator-2.5.0.jar
+14:18:04,333 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\hk2\external\aopalliance-repackaged\2.5.0\aopalliance-repackaged-2.5.0.jar
+14:18:04,333 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\hk2\hk2-api\2.5.0\hk2-api-2.5.0.jar
+14:18:04,333 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\hk2\hk2-utils\2.5.0\hk2-utils-2.5.0.jar
+14:18:04,339 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\javassist\javassist\3.22.0-CR2\javassist-3.22.0-CR2.jar
+14:18:04,339 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\jersey\media\jersey-media-json-jackson\2.29\jersey-media-json-jackson-2.29.jar
+14:18:04,339 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\org\glassfish\jersey\ext\jersey-entity-filtering\2.29\jersey-entity-filtering-2.29.jar
+14:18:04,340 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.9.9\jackson-annotations-2.9.9.jar
+14:18:04,340 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.9.9\jackson-databind-2.9.9.jar
+14:18:04,340 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.9.9\jackson-core-2.9.9.jar
+14:18:04,340 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\com\fasterxml\jackson\module\jackson-module-jaxb-annotations\2.9.9\jackson-module-jaxb-annotations-2.9.9.jar
+14:18:04,340 (main) DEBUG [DataNucleus.Enhancer] - >>  C:\Users\monte\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar
+14:18:04,341 (main) DEBUG [DataNucleus.Enhancer] - Reading fileListFile: C:\Users\monte\AppData\Local\Temp\enhancer-7944262679827391651.flf
+14:18:04,345 (main) DEBUG [DataNucleus.Enhancer] - Enhancing classes
+14:18:04,416 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata de las clases "[es.deusto.spq.client.App$1, es.deusto.spq.client.App, es.deusto.spq.client.Cliente$1, es.deusto.spq.client.Cliente$2, es.deusto.spq.client.Cliente$3, es.deusto.spq.client.Cliente, es.deusto.spq.data.Contrato, es.deusto.spq.data.Imagen, es.deusto.spq.data.Main, es.deusto.spq.data.Pago, es.deusto.spq.data.Piso, es.deusto.spq.data.Propietario, es.deusto.spq.data.Usuario, es.deusto.spq.GUI.JLabelFoto, es.deusto.spq.GUI.TextPrompt$Show, es.deusto.spq.GUI.TextPrompt, es.deusto.spq.GUI.VentanaComparar$1, es.deusto.spq.GUI.VentanaComparar, es.deusto.spq.GUI.VentanaInformacion$1, es.deusto.spq.GUI.VentanaInformacion$2, es.deusto.spq.GUI.VentanaInformacion$3, es.deusto.spq.GUI.VentanaInformacion$4, es.deusto.spq.GUI.VentanaInformacion$5, es.deusto.spq.GUI.VentanaInformacion, es.deusto.spq.GUI.VentanaListaPisos$1, es.deusto.spq.GUI.VentanaListaPisos$2, es.deusto.spq.GUI.VentanaListaPisos$3, es.deusto.spq.GUI.VentanaListaPisos$4, es.deusto.spq.GUI.VentanaListaPisos$5, es.deusto.spq.GUI.VentanaListaPisos$6, es.deusto.spq.GUI.VentanaListaPisos, es.deusto.spq.server.AppServer, es.deusto.spq.server.DAOFactory, es.deusto.spq.server.PisoDAO]" ...
+14:18:04,423 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App$1" en /META-INF/package.jdo
+14:18:04,424 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App$1" en /WEB-INF/package.jdo
+14:18:04,424 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App$1" en /package.jdo
+14:18:04,424 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App$1" en /es/package.jdo
+14:18:04,425 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App$1" en /es/deusto/package.jdo
+14:18:04,425 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App$1" en /es/deusto/spq/package.jdo
+14:18:04,425 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App$1" en /es/deusto/spq/client/package.jdo
+14:18:04,426 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App$1" en /es/deusto/spq/client/App$1.jdo
+14:18:04,426 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App$1"
+14:18:04,426 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.client.App$1" no tener Meta-Data
+14:18:04,426 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.client.App$1" no tiene MetaData o annotaciones.
+14:18:04,428 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App" en /META-INF/package.jdo
+14:18:04,430 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App" en /WEB-INF/package.jdo
+14:18:04,431 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App" en /package.jdo
+14:18:04,431 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App" en /es/package.jdo
+14:18:04,432 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App" en /es/deusto/package.jdo
+14:18:04,432 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App" en /es/deusto/spq/package.jdo
+14:18:04,433 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App" en /es/deusto/spq/client/package.jdo
+14:18:04,433 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App" en /es/deusto/spq/client/App.jdo
+14:18:04,433 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.App"
+14:18:04,433 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.client.App" no tener Meta-Data
+14:18:04,433 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.client.App" no tiene MetaData o annotaciones.
+14:18:04,445 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$1" en /META-INF/package.jdo
+14:18:04,445 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$1" en /WEB-INF/package.jdo
+14:18:04,446 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$1" en /package.jdo
+14:18:04,446 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$1" en /es/package.jdo
+14:18:04,446 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$1" en /es/deusto/package.jdo
+14:18:04,447 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$1" en /es/deusto/spq/package.jdo
+14:18:04,447 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$1" en /es/deusto/spq/client/package.jdo
+14:18:04,448 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$1" en /es/deusto/spq/client/Cliente$1.jdo
+14:18:04,448 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$1"
+14:18:04,448 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.client.Cliente$1" no tener Meta-Data
+14:18:04,448 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.client.Cliente$1" no tiene MetaData o annotaciones.
+14:18:04,449 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$2" en /META-INF/package.jdo
+14:18:04,450 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$2" en /WEB-INF/package.jdo
+14:18:04,450 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$2" en /package.jdo
+14:18:04,454 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$2" en /es/package.jdo
+14:18:04,454 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$2" en /es/deusto/package.jdo
+14:18:04,455 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$2" en /es/deusto/spq/package.jdo
+14:18:04,456 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$2" en /es/deusto/spq/client/package.jdo
+14:18:04,456 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$2" en /es/deusto/spq/client/Cliente$2.jdo
+14:18:04,456 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$2"
+14:18:04,456 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.client.Cliente$2" no tener Meta-Data
+14:18:04,456 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.client.Cliente$2" no tiene MetaData o annotaciones.
+14:18:04,458 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$3" en /META-INF/package.jdo
+14:18:04,458 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$3" en /WEB-INF/package.jdo
+14:18:04,458 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$3" en /package.jdo
+14:18:04,459 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$3" en /es/package.jdo
+14:18:04,459 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$3" en /es/deusto/package.jdo
+14:18:04,459 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$3" en /es/deusto/spq/package.jdo
+14:18:04,460 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$3" en /es/deusto/spq/client/package.jdo
+14:18:04,461 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$3" en /es/deusto/spq/client/Cliente$3.jdo
+14:18:04,461 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente$3"
+14:18:04,461 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.client.Cliente$3" no tener Meta-Data
+14:18:04,461 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.client.Cliente$3" no tiene MetaData o annotaciones.
+14:18:04,463 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente" en /META-INF/package.jdo
+14:18:04,463 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente" en /WEB-INF/package.jdo
+14:18:04,464 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente" en /package.jdo
+14:18:04,464 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente" en /es/package.jdo
+14:18:04,465 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente" en /es/deusto/package.jdo
+14:18:04,465 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente" en /es/deusto/spq/package.jdo
+14:18:04,466 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente" en /es/deusto/spq/client/package.jdo
+14:18:04,466 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente" en /es/deusto/spq/client/Cliente.jdo
+14:18:04,466 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.client.Cliente"
+14:18:04,466 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.client.Cliente" no tener Meta-Data
+14:18:04,466 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.client.Cliente" no tiene MetaData o annotaciones.
+14:18:04,467 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Contrato" en /META-INF/package.jdo
+14:18:04,468 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Contrato" en /WEB-INF/package.jdo
+14:18:04,468 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Contrato" en /package.jdo
+14:18:04,468 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Contrato" en /es/package.jdo
+14:18:04,469 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Contrato" en /es/deusto/package.jdo
+14:18:04,470 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Contrato" en /es/deusto/spq/package.jdo
+14:18:04,470 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Contrato" en /es/deusto/spq/data/package.jdo
+14:18:04,471 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Contrato" en /es/deusto/spq/data/Contrato.jdo
+14:18:04,471 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Contrato"
+14:18:04,471 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.data.Contrato" no tener Meta-Data
+14:18:04,471 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.data.Contrato" no tiene MetaData o annotaciones.
+14:18:04,472 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Imagen" en /META-INF/package.jdo
+14:18:04,473 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Imagen" en /WEB-INF/package.jdo
+14:18:04,474 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Imagen" en /package.jdo
+14:18:04,474 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Imagen" en /es/package.jdo
+14:18:04,474 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Imagen" en /es/deusto/package.jdo
+14:18:04,476 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Imagen" en /es/deusto/spq/package.jdo
+14:18:04,476 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Imagen" en /es/deusto/spq/data/package.jdo
+14:18:04,477 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Imagen" en /es/deusto/spq/data/Imagen.jdo
+14:18:04,477 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Imagen"
+14:18:04,477 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.data.Imagen" no tener Meta-Data
+14:18:04,477 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.data.Imagen" no tiene MetaData o annotaciones.
+14:18:04,479 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Main" en /META-INF/package.jdo
+14:18:04,480 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Main" en /WEB-INF/package.jdo
+14:18:04,481 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Main" en /package.jdo
+14:18:04,481 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Main" en /es/package.jdo
+14:18:04,482 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Main" en /es/deusto/package.jdo
+14:18:04,482 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Main" en /es/deusto/spq/package.jdo
+14:18:04,482 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Main" en /es/deusto/spq/data/package.jdo
+14:18:04,482 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Main" en /es/deusto/spq/data/Main.jdo
+14:18:04,482 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Main"
+14:18:04,482 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.data.Main" no tener Meta-Data
+14:18:04,482 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.data.Main" no tiene MetaData o annotaciones.
+14:18:04,484 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Pago" en /META-INF/package.jdo
+14:18:04,485 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Pago" en /WEB-INF/package.jdo
+14:18:04,485 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Pago" en /package.jdo
+14:18:04,485 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Pago" en /es/package.jdo
+14:18:04,485 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Pago" en /es/deusto/package.jdo
+14:18:04,486 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Pago" en /es/deusto/spq/package.jdo
+14:18:04,486 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Pago" en /es/deusto/spq/data/package.jdo
+14:18:04,486 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Pago" en /es/deusto/spq/data/Pago.jdo
+14:18:04,486 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Pago"
+14:18:04,487 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.data.Pago" no tener Meta-Data
+14:18:04,487 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.data.Pago" no tiene MetaData o annotaciones.
+14:18:04,575 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.spq.data.Piso" tiene anotaciones de JDO y vamos a usarlas.
+14:18:04,583 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Propietario" en /META-INF/package.jdo
+14:18:04,583 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Propietario" en /WEB-INF/package.jdo
+14:18:04,584 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Propietario" en /package.jdo
+14:18:04,584 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Propietario" en /es/package.jdo
+14:18:04,584 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Propietario" en /es/deusto/package.jdo
+14:18:04,584 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Propietario" en /es/deusto/spq/package.jdo
+14:18:04,585 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Propietario" en /es/deusto/spq/data/package.jdo
+14:18:04,585 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Propietario" en /es/deusto/spq/data/Propietario.jdo
+14:18:04,585 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Propietario"
+14:18:04,585 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.data.Propietario" no tener Meta-Data
+14:18:04,585 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.data.Propietario" no tiene MetaData o annotaciones.
+14:18:04,586 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Usuario" en /META-INF/package.jdo
+14:18:04,586 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Usuario" en /WEB-INF/package.jdo
+14:18:04,587 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Usuario" en /package.jdo
+14:18:04,587 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Usuario" en /es/package.jdo
+14:18:04,587 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Usuario" en /es/deusto/package.jdo
+14:18:04,588 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Usuario" en /es/deusto/spq/package.jdo
+14:18:04,588 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Usuario" en /es/deusto/spq/data/package.jdo
+14:18:04,588 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Usuario" en /es/deusto/spq/data/Usuario.jdo
+14:18:04,588 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.data.Usuario"
+14:18:04,588 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.data.Usuario" no tener Meta-Data
+14:18:04,588 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.data.Usuario" no tiene MetaData o annotaciones.
+14:18:04,594 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.JLabelFoto" en /META-INF/package.jdo
+14:18:04,595 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.JLabelFoto" en /WEB-INF/package.jdo
+14:18:04,595 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.JLabelFoto" en /package.jdo
+14:18:04,595 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.JLabelFoto" en /es/package.jdo
+14:18:04,596 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.JLabelFoto" en /es/deusto/package.jdo
+14:18:04,596 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.JLabelFoto" en /es/deusto/spq/package.jdo
+14:18:04,596 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.JLabelFoto" en /es/deusto/spq/GUI/package.jdo
+14:18:04,597 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.JLabelFoto" en /es/deusto/spq/GUI/JLabelFoto.jdo
+14:18:04,597 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.JLabelFoto"
+14:18:04,597 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.JLabelFoto" no tener Meta-Data
+14:18:04,597 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.JLabelFoto" no tiene MetaData o annotaciones.
+14:18:04,598 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt$Show" en /META-INF/package.jdo
+14:18:04,598 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt$Show" en /WEB-INF/package.jdo
+14:18:04,598 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt$Show" en /package.jdo
+14:18:04,598 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt$Show" en /es/package.jdo
+14:18:04,599 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt$Show" en /es/deusto/package.jdo
+14:18:04,599 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt$Show" en /es/deusto/spq/package.jdo
+14:18:04,599 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt$Show" en /es/deusto/spq/GUI/package.jdo
+14:18:04,599 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt$Show" en /es/deusto/spq/GUI/TextPrompt$Show.jdo
+14:18:04,599 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt$Show"
+14:18:04,599 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.TextPrompt$Show" no tener Meta-Data
+14:18:04,600 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.TextPrompt$Show" no tiene MetaData o annotaciones.
+14:18:04,601 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt" en /META-INF/package.jdo
+14:18:04,601 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt" en /WEB-INF/package.jdo
+14:18:04,602 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt" en /package.jdo
+14:18:04,602 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt" en /es/package.jdo
+14:18:04,602 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt" en /es/deusto/package.jdo
+14:18:04,602 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt" en /es/deusto/spq/package.jdo
+14:18:04,603 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt" en /es/deusto/spq/GUI/package.jdo
+14:18:04,603 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt" en /es/deusto/spq/GUI/TextPrompt.jdo
+14:18:04,603 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.TextPrompt"
+14:18:04,603 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.TextPrompt" no tener Meta-Data
+14:18:04,603 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.TextPrompt" no tiene MetaData o annotaciones.
+14:18:04,604 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar$1" en /META-INF/package.jdo
+14:18:04,605 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar$1" en /WEB-INF/package.jdo
+14:18:04,605 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar$1" en /package.jdo
+14:18:04,605 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar$1" en /es/package.jdo
+14:18:04,606 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar$1" en /es/deusto/package.jdo
+14:18:04,606 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar$1" en /es/deusto/spq/package.jdo
+14:18:04,606 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar$1" en /es/deusto/spq/GUI/package.jdo
+14:18:04,607 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar$1" en /es/deusto/spq/GUI/VentanaComparar$1.jdo
+14:18:04,607 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar$1"
+14:18:04,607 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaComparar$1" no tener Meta-Data
+14:18:04,607 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaComparar$1" no tiene MetaData o annotaciones.
+14:18:04,608 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar" en /META-INF/package.jdo
+14:18:04,608 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar" en /WEB-INF/package.jdo
+14:18:04,609 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar" en /package.jdo
+14:18:04,609 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar" en /es/package.jdo
+14:18:04,609 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar" en /es/deusto/package.jdo
+14:18:04,609 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar" en /es/deusto/spq/package.jdo
+14:18:04,609 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar" en /es/deusto/spq/GUI/package.jdo
+14:18:04,610 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar" en /es/deusto/spq/GUI/VentanaComparar.jdo
+14:18:04,610 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaComparar"
+14:18:04,610 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaComparar" no tener Meta-Data
+14:18:04,610 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaComparar" no tiene MetaData o annotaciones.
+14:18:04,611 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$1" en /META-INF/package.jdo
+14:18:04,611 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$1" en /WEB-INF/package.jdo
+14:18:04,611 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$1" en /package.jdo
+14:18:04,611 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$1" en /es/package.jdo
+14:18:04,612 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$1" en /es/deusto/package.jdo
+14:18:04,612 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$1" en /es/deusto/spq/package.jdo
+14:18:04,612 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$1" en /es/deusto/spq/GUI/package.jdo
+14:18:04,612 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$1" en /es/deusto/spq/GUI/VentanaInformacion$1.jdo
+14:18:04,612 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$1"
+14:18:04,613 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaInformacion$1" no tener Meta-Data
+14:18:04,613 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaInformacion$1" no tiene MetaData o annotaciones.
+14:18:04,614 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$2" en /META-INF/package.jdo
+14:18:04,614 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$2" en /WEB-INF/package.jdo
+14:18:04,614 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$2" en /package.jdo
+14:18:04,615 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$2" en /es/package.jdo
+14:18:04,615 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$2" en /es/deusto/package.jdo
+14:18:04,615 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$2" en /es/deusto/spq/package.jdo
+14:18:04,615 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$2" en /es/deusto/spq/GUI/package.jdo
+14:18:04,616 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$2" en /es/deusto/spq/GUI/VentanaInformacion$2.jdo
+14:18:04,616 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$2"
+14:18:04,616 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaInformacion$2" no tener Meta-Data
+14:18:04,616 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaInformacion$2" no tiene MetaData o annotaciones.
+14:18:04,617 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$3" en /META-INF/package.jdo
+14:18:04,617 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$3" en /WEB-INF/package.jdo
+14:18:04,617 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$3" en /package.jdo
+14:18:04,618 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$3" en /es/package.jdo
+14:18:04,618 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$3" en /es/deusto/package.jdo
+14:18:04,618 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$3" en /es/deusto/spq/package.jdo
+14:18:04,618 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$3" en /es/deusto/spq/GUI/package.jdo
+14:18:04,619 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$3" en /es/deusto/spq/GUI/VentanaInformacion$3.jdo
+14:18:04,619 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$3"
+14:18:04,619 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaInformacion$3" no tener Meta-Data
+14:18:04,619 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaInformacion$3" no tiene MetaData o annotaciones.
+14:18:04,620 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$4" en /META-INF/package.jdo
+14:18:04,620 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$4" en /WEB-INF/package.jdo
+14:18:04,621 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$4" en /package.jdo
+14:18:04,621 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$4" en /es/package.jdo
+14:18:04,621 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$4" en /es/deusto/package.jdo
+14:18:04,621 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$4" en /es/deusto/spq/package.jdo
+14:18:04,623 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$4" en /es/deusto/spq/GUI/package.jdo
+14:18:04,623 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$4" en /es/deusto/spq/GUI/VentanaInformacion$4.jdo
+14:18:04,623 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$4"
+14:18:04,623 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaInformacion$4" no tener Meta-Data
+14:18:04,623 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaInformacion$4" no tiene MetaData o annotaciones.
+14:18:04,624 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$5" en /META-INF/package.jdo
+14:18:04,624 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$5" en /WEB-INF/package.jdo
+14:18:04,625 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$5" en /package.jdo
+14:18:04,625 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$5" en /es/package.jdo
+14:18:04,625 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$5" en /es/deusto/package.jdo
+14:18:04,625 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$5" en /es/deusto/spq/package.jdo
+14:18:04,626 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$5" en /es/deusto/spq/GUI/package.jdo
+14:18:04,626 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$5" en /es/deusto/spq/GUI/VentanaInformacion$5.jdo
+14:18:04,626 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion$5"
+14:18:04,626 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaInformacion$5" no tener Meta-Data
+14:18:04,626 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaInformacion$5" no tiene MetaData o annotaciones.
+14:18:04,627 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion" en /META-INF/package.jdo
+14:18:04,628 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion" en /WEB-INF/package.jdo
+14:18:04,628 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion" en /package.jdo
+14:18:04,628 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion" en /es/package.jdo
+14:18:04,628 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion" en /es/deusto/package.jdo
+14:18:04,629 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion" en /es/deusto/spq/package.jdo
+14:18:04,629 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion" en /es/deusto/spq/GUI/package.jdo
+14:18:04,629 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion" en /es/deusto/spq/GUI/VentanaInformacion.jdo
+14:18:04,629 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaInformacion"
+14:18:04,629 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaInformacion" no tener Meta-Data
+14:18:04,629 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaInformacion" no tiene MetaData o annotaciones.
+14:18:04,630 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$1" en /META-INF/package.jdo
+14:18:04,631 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$1" en /WEB-INF/package.jdo
+14:18:04,631 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$1" en /package.jdo
+14:18:04,631 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$1" en /es/package.jdo
+14:18:04,632 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$1" en /es/deusto/package.jdo
+14:18:04,632 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$1" en /es/deusto/spq/package.jdo
+14:18:04,632 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$1" en /es/deusto/spq/GUI/package.jdo
+14:18:04,632 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$1" en /es/deusto/spq/GUI/VentanaListaPisos$1.jdo
+14:18:04,633 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$1"
+14:18:04,633 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaListaPisos$1" no tener Meta-Data
+14:18:04,633 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaListaPisos$1" no tiene MetaData o annotaciones.
+14:18:04,634 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$2" en /META-INF/package.jdo
+14:18:04,635 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$2" en /WEB-INF/package.jdo
+14:18:04,635 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$2" en /package.jdo
+14:18:04,635 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$2" en /es/package.jdo
+14:18:04,635 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$2" en /es/deusto/package.jdo
+14:18:04,636 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$2" en /es/deusto/spq/package.jdo
+14:18:04,636 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$2" en /es/deusto/spq/GUI/package.jdo
+14:18:04,636 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$2" en /es/deusto/spq/GUI/VentanaListaPisos$2.jdo
+14:18:04,636 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$2"
+14:18:04,636 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaListaPisos$2" no tener Meta-Data
+14:18:04,636 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaListaPisos$2" no tiene MetaData o annotaciones.
+14:18:04,638 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$3" en /META-INF/package.jdo
+14:18:04,638 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$3" en /WEB-INF/package.jdo
+14:18:04,639 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$3" en /package.jdo
+14:18:04,639 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$3" en /es/package.jdo
+14:18:04,639 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$3" en /es/deusto/package.jdo
+14:18:04,639 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$3" en /es/deusto/spq/package.jdo
+14:18:04,639 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$3" en /es/deusto/spq/GUI/package.jdo
+14:18:04,640 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$3" en /es/deusto/spq/GUI/VentanaListaPisos$3.jdo
+14:18:04,640 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$3"
+14:18:04,640 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaListaPisos$3" no tener Meta-Data
+14:18:04,640 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaListaPisos$3" no tiene MetaData o annotaciones.
+14:18:04,641 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$4" en /META-INF/package.jdo
+14:18:04,641 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$4" en /WEB-INF/package.jdo
+14:18:04,641 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$4" en /package.jdo
+14:18:04,641 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$4" en /es/package.jdo
+14:18:04,642 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$4" en /es/deusto/package.jdo
+14:18:04,642 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$4" en /es/deusto/spq/package.jdo
+14:18:04,642 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$4" en /es/deusto/spq/GUI/package.jdo
+14:18:04,642 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$4" en /es/deusto/spq/GUI/VentanaListaPisos$4.jdo
+14:18:04,642 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$4"
+14:18:04,642 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaListaPisos$4" no tener Meta-Data
+14:18:04,642 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaListaPisos$4" no tiene MetaData o annotaciones.
+14:18:04,643 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$5" en /META-INF/package.jdo
+14:18:04,643 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$5" en /WEB-INF/package.jdo
+14:18:04,644 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$5" en /package.jdo
+14:18:04,644 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$5" en /es/package.jdo
+14:18:04,644 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$5" en /es/deusto/package.jdo
+14:18:04,644 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$5" en /es/deusto/spq/package.jdo
+14:18:04,645 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$5" en /es/deusto/spq/GUI/package.jdo
+14:18:04,645 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$5" en /es/deusto/spq/GUI/VentanaListaPisos$5.jdo
+14:18:04,645 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$5"
+14:18:04,645 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaListaPisos$5" no tener Meta-Data
+14:18:04,645 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaListaPisos$5" no tiene MetaData o annotaciones.
+14:18:04,646 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$6" en /META-INF/package.jdo
+14:18:04,646 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$6" en /WEB-INF/package.jdo
+14:18:04,646 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$6" en /package.jdo
+14:18:04,647 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$6" en /es/package.jdo
+14:18:04,647 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$6" en /es/deusto/package.jdo
+14:18:04,647 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$6" en /es/deusto/spq/package.jdo
+14:18:04,647 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$6" en /es/deusto/spq/GUI/package.jdo
+14:18:04,648 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$6" en /es/deusto/spq/GUI/VentanaListaPisos$6.jdo
+14:18:04,648 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos$6"
+14:18:04,648 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaListaPisos$6" no tener Meta-Data
+14:18:04,648 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaListaPisos$6" no tiene MetaData o annotaciones.
+14:18:04,651 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos" en /META-INF/package.jdo
+14:18:04,652 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos" en /WEB-INF/package.jdo
+14:18:04,652 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos" en /package.jdo
+14:18:04,652 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos" en /es/package.jdo
+14:18:04,652 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos" en /es/deusto/package.jdo
+14:18:04,652 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos" en /es/deusto/spq/package.jdo
+14:18:04,653 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos" en /es/deusto/spq/GUI/package.jdo
+14:18:04,653 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos" en /es/deusto/spq/GUI/VentanaListaPisos.jdo
+14:18:04,653 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.GUI.VentanaListaPisos"
+14:18:04,653 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.GUI.VentanaListaPisos" no tener Meta-Data
+14:18:04,653 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.GUI.VentanaListaPisos" no tiene MetaData o annotaciones.
+14:18:04,661 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.spq.server.AppServer" tiene anotaciones pero no hay ningún AnnotationReader registrado para este tipo de anotaciones. Por favor compruebe el CLASSPATH y las anotaciones para validez.
+14:18:04,661 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.AppServer" en /META-INF/package.jdo
+14:18:04,662 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.AppServer" en /WEB-INF/package.jdo
+14:18:04,662 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.AppServer" en /package.jdo
+14:18:04,662 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.AppServer" en /es/package.jdo
+14:18:04,662 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.AppServer" en /es/deusto/package.jdo
+14:18:04,663 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.AppServer" en /es/deusto/spq/package.jdo
+14:18:04,663 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.AppServer" en /es/deusto/spq/server/package.jdo
+14:18:04,663 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.AppServer" en /es/deusto/spq/server/AppServer.jdo
+14:18:04,663 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.AppServer"
+14:18:04,663 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.spq.server.AppServer" tiene anotaciones pero no hay ningún AnnotationReader registrado para este tipo de anotaciones. Por favor compruebe el CLASSPATH y las anotaciones para validez.
+14:18:04,663 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.server.AppServer" no tener Meta-Data
+14:18:04,663 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.server.AppServer" no tiene MetaData o annotaciones.
+14:18:04,664 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.DAOFactory" en /META-INF/package.jdo
+14:18:04,665 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.DAOFactory" en /WEB-INF/package.jdo
+14:18:04,665 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.DAOFactory" en /package.jdo
+14:18:04,665 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.DAOFactory" en /es/package.jdo
+14:18:04,665 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.DAOFactory" en /es/deusto/package.jdo
+14:18:04,665 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.DAOFactory" en /es/deusto/spq/package.jdo
+14:18:04,666 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.DAOFactory" en /es/deusto/spq/server/package.jdo
+14:18:04,666 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.DAOFactory" en /es/deusto/spq/server/DAOFactory.jdo
+14:18:04,666 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.DAOFactory"
+14:18:04,666 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.server.DAOFactory" no tener Meta-Data
+14:18:04,666 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.server.DAOFactory" no tiene MetaData o annotaciones.
+14:18:04,667 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.PisoDAO" en /META-INF/package.jdo
+14:18:04,667 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.PisoDAO" en /WEB-INF/package.jdo
+14:18:04,668 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.PisoDAO" en /package.jdo
+14:18:04,668 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.PisoDAO" en /es/package.jdo
+14:18:04,668 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.PisoDAO" en /es/deusto/package.jdo
+14:18:04,668 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.PisoDAO" en /es/deusto/spq/package.jdo
+14:18:04,668 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.PisoDAO" en /es/deusto/spq/server/package.jdo
+14:18:04,669 (main) DEBUG [DataNucleus.MetaData] - No encontramos el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.PisoDAO" en /es/deusto/spq/server/PisoDAO.jdo
+14:18:04,669 (main) DEBUG [DataNucleus.MetaData] - No hemos encontrado el MetaData del tipo "jdo" por la clase "es.deusto.spq.server.PisoDAO"
+14:18:04,669 (main) DEBUG [DataNucleus.MetaData] - Registrando la clase "es.deusto.spq.server.PisoDAO" no tener Meta-Data
+14:18:04,669 (main) DEBUG [DataNucleus.MetaData] - La clase "es.deusto.spq.server.PisoDAO" no tiene MetaData o annotaciones.
+14:18:04,669 (main) DEBUG [DataNucleus.MetaData] - Populación del MetaData ...
+14:18:04,669 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.spq.data.Piso" : Populando Meta-Data
+14:18:04,670 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.spq.data.Piso" campo "nombre" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+14:18:04,670 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.spq.data.Piso" campo "coste" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+14:18:04,670 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.spq.data.Piso" campo "localizacion" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+14:18:04,670 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.spq.data.Piso" campo "valoracion" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+14:18:04,670 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.spq.data.Piso" campo "desc" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+14:18:04,670 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.spq.data.Piso" campo "nHab" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+14:18:04,670 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.spq.data.Piso" campo "imagenes" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+14:18:04,670 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.spq.data.Piso" campo "alquilado" : añadiendo el Meta-Data por el campo como no estaba en la definición de Meta-Data.
+14:18:04,676 (main) DEBUG [DataNucleus.MetaData] - Member with collection of elementType=es.deusto.spq.data.Imagen not explicitly marked as embedded, so defaulting to embedded since not persistable
+14:18:04,676 (main) DEBUG [DataNucleus.MetaData] - Inicialisación del MetaData ...
+14:18:04,677 (main) DEBUG [DataNucleus.MetaData] - Clase "es.deusto.spq.data.Piso" : Inicializando Meta-Data
+14:18:04,679 (main) DEBUG [DataNucleus.MetaData] - MetaData Management : Carga de Metadata ya ha terminado
+14:18:04,684 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.spq.data.Piso" empezando ...
+14:18:04,705 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no implementa el interfaz "org.datanucleus.enhancement.Persistable"!
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el campo "dnStateManager" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el campo "dnInheritedFieldCount" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el campo "dnFlags" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el campo "dnFieldNames" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnReplaceField" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnGetStateManager" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnIsTransactional" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnNewInstance" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnNewInstance" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnProvideFields" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "___dn$loadClass" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnGetManagedFieldCount" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnIsDirty" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnReplaceStateManager" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnReplaceFlags" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnIsDetached" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnMakeDirty" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnIsDeleted" pero lo necesita
+14:18:04,706 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnProvideField" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnPreSerialize" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnGetObjectId" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnGetVersion" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnGetTransactionalObjectId" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnIsNew" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnCopyKeyFieldsToObjectId" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnCopyKeyFieldsToObjectId" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnCopyField" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnCopyKeyFieldsFromObjectId" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnCopyKeyFieldsFromObjectId" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnGetExecutionContext" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnCopyFields" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "__dnGetInheritedFieldCount" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnNewObjectIdInstance" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnNewObjectIdInstance" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnIsPersistent" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "dnReplaceFields" pero lo necesita
+14:18:04,707 (main) DEBUG [DataNucleus.Enhancer] - La clase "es.deusto.spq.data.Piso" no tiene el metodo "__dnFieldNamesInit" pero lo necesita
+14:18:04,720 (main) DEBUG [DataNucleus.Enhancer] - Agregando el interfaz: org.datanucleus.enhancement.Persistable
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de set del campo "es.deusto.spq.data.Piso.nombre"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de set del campo "es.deusto.spq.data.Piso.coste"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de get del campo "es.deusto.spq.data.Piso.nombre"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de set del campo "es.deusto.spq.data.Piso.nombre"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de get del campo "es.deusto.spq.data.Piso.coste"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de set del campo "es.deusto.spq.data.Piso.coste"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de get del campo "es.deusto.spq.data.Piso.localizacion"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de set del campo "es.deusto.spq.data.Piso.localizacion"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de get del campo "es.deusto.spq.data.Piso.valoracion"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de set del campo "es.deusto.spq.data.Piso.valoracion"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de get del campo "es.deusto.spq.data.Piso.imagenes"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de set del campo "es.deusto.spq.data.Piso.imagenes"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de get del campo "es.deusto.spq.data.Piso.alquilado"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.<init> : ignorando enhance de set del campo "es.deusto.spq.data.Piso.alquilado"
+14:18:04,728 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.getLocalizacion, cambiando el uso del campo "es.deusto.spq.data.Piso.localizacion" para utilisar "dnGetlocalizacion()"
+14:18:04,729 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.setLocalizacion, cambiando el uso del campo "es.deusto.spq.data.Piso.localizacion" para utilisar "dnSetlocalizacion()"
+14:18:04,729 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.getValoracion, cambiando el uso del campo "es.deusto.spq.data.Piso.valoracion" para utilisar "dnGetvaloracion()"
+14:18:04,729 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.setValoracion, cambiando el uso del campo "es.deusto.spq.data.Piso.valoracion" para utilisar "dnSetvaloracion()"
+14:18:04,729 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.getNombre, cambiando el uso del campo "es.deusto.spq.data.Piso.nombre" para utilisar "dnGetnombre()"
+14:18:04,729 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.setNombre, cambiando el uso del campo "es.deusto.spq.data.Piso.nombre" para utilisar "dnSetnombre()"
+14:18:04,729 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.getCoste, cambiando el uso del campo "es.deusto.spq.data.Piso.coste" para utilisar "dnGetcoste()"
+14:18:04,729 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.setCoste, cambiando el uso del campo "es.deusto.spq.data.Piso.coste" para utilisar "dnSetcoste()"
+14:18:04,729 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.getId, cambiando el uso del campo "es.deusto.spq.data.Piso.id" para utilisar "dnGetid()"
+14:18:04,729 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.setId, cambiando el uso del campo "es.deusto.spq.data.Piso.id" para utilisar "dnSetid()"
+14:18:04,730 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.getImagenes, cambiando el uso del campo "es.deusto.spq.data.Piso.imagenes" para utilisar "dnGetimagenes()"
+14:18:04,730 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.setImagenes, cambiando el uso del campo "es.deusto.spq.data.Piso.imagenes" para utilisar "dnSetimagenes()"
+14:18:04,730 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.isAlquilado, cambiando el uso del campo "es.deusto.spq.data.Piso.alquilado" para utilisar "dnGetalquilado()"
+14:18:04,730 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.setAlquilado, cambiando el uso del campo "es.deusto.spq.data.Piso.alquilado" para utilisar "dnSetalquilado()"
+14:18:04,730 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.toString, cambiando el uso del campo "es.deusto.spq.data.Piso.alquilado" para utilisar "dnGetalquilado()"
+14:18:04,730 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.toString, cambiando el uso del campo "es.deusto.spq.data.Piso.coste" para utilisar "dnGetcoste()"
+14:18:04,730 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.toString, cambiando el uso del campo "es.deusto.spq.data.Piso.id" para utilisar "dnGetid()"
+14:18:04,730 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.toString, cambiando el uso del campo "es.deusto.spq.data.Piso.imagenes" para utilisar "dnGetimagenes()"
+14:18:04,730 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.toString, cambiando el uso del campo "es.deusto.spq.data.Piso.localizacion" para utilisar "dnGetlocalizacion()"
+14:18:04,730 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.toString, cambiando el uso del campo "es.deusto.spq.data.Piso.nombre" para utilisar "dnGetnombre()"
+14:18:04,731 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.toString, cambiando el uso del campo "es.deusto.spq.data.Piso.valoracion" para utilisar "dnGetvaloracion()"
+14:18:04,731 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.getDesc, cambiando el uso del campo "es.deusto.spq.data.Piso.desc" para utilisar "dnGetdesc()"
+14:18:04,731 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.setDesc, cambiando el uso del campo "es.deusto.spq.data.Piso.desc" para utilisar "dnSetdesc()"
+14:18:04,731 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.getnHab, cambiando el uso del campo "es.deusto.spq.data.Piso.nHab" para utilisar "dnGetnHab()"
+14:18:04,731 (main) DEBUG [DataNucleus.Enhancer] - Enhancing metodo original es.deusto.spq.data.Piso.setnHab, cambiando el uso del campo "es.deusto.spq.data.Piso.nHab" para utilisar "dnSetnHab()"
+14:18:04,732 (main) DEBUG [DataNucleus.Enhancer] - Agregando el campo "org.datanucleus.enhancement.StateManager dnStateManager"
+14:18:04,732 (main) DEBUG [DataNucleus.Enhancer] - Agregando el campo "byte dnFlags"
+14:18:04,732 (main) DEBUG [DataNucleus.Enhancer] - Agregando el campo "[Ljava.lang.String; dnFieldNames"
+14:18:04,732 (main) DEBUG [DataNucleus.Enhancer] - Agregando el campo "int dnInheritedFieldCount"
+14:18:04,733 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void <clinit>()"
+14:18:04,735 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyKeyFieldsFromObjectId(org.datanucleus.enhancement.Persistable$ObjectIdFieldConsumer fc, java.lang.Object oid)"
+14:18:04,735 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyKeyFieldsFromObjectId(java.lang.Object oid)"
+14:18:04,735 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyKeyFieldsToObjectId(java.lang.Object oid)"
+14:18:04,735 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyKeyFieldsToObjectId(org.datanucleus.enhancement.Persistable$ObjectIdFieldSupplier fs, java.lang.Object oid)"
+14:18:04,736 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnGetObjectId()"
+14:18:04,736 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnGetVersion()"
+14:18:04,736 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnPreSerialize()"
+14:18:04,745 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "org.datanucleus.enhancement.ExecutionContextReference dnGetExecutionContext()"
+14:18:04,745 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "org.datanucleus.enhancement.StateManager dnGetStateManager()"
+14:18:04,745 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnGetTransactionalObjectId()"
+14:18:04,745 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsDeleted()"
+14:18:04,745 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsDirty()"
+14:18:04,745 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsNew()"
+14:18:04,745 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsPersistent()"
+14:18:04,745 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsTransactional()"
+14:18:04,746 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnMakeDirty(java.lang.String fieldName)"
+14:18:04,746 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnNewObjectIdInstance()"
+14:18:04,746 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Object dnNewObjectIdInstance(java.lang.Object key)"
+14:18:04,746 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnProvideFields([I indices)"
+14:18:04,746 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnReplaceFields([I indices)"
+14:18:04,746 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnReplaceFlags()"
+14:18:04,747 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnReplaceStateManager(org.datanucleus.enhancement.StateManager sm)"
+14:18:04,747 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnIsDetached()"
+14:18:04,747 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "org.datanucleus.enhancement.Persistable dnNewInstance(org.datanucleus.enhancement.StateManager sm)"
+14:18:04,747 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "org.datanucleus.enhancement.Persistable dnNewInstance(org.datanucleus.enhancement.StateManager sm, java.lang.Object obj)"
+14:18:04,747 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnReplaceField(int index)"
+14:18:04,748 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnProvideField(int index)"
+14:18:04,748 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyField(es.deusto.spq.data.Piso obj, int index)"
+14:18:04,748 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnCopyFields(java.lang.Object obj, [I indices)"
+14:18:04,748 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "[Ljava.lang.String; __dnFieldNamesInit()"
+14:18:04,748 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "int __dnGetInheritedFieldCount()"
+14:18:04,748 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "int dnGetManagedFieldCount()"
+14:18:04,749 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Class ___dn$loadClass(java.lang.String className)"
+14:18:04,750 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "boolean dnGetalquilado(es.deusto.spq.data.Piso objPC)"
+14:18:04,750 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetalquilado(es.deusto.spq.data.Piso objPC, boolean val)"
+14:18:04,750 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.Double dnGetcoste(es.deusto.spq.data.Piso objPC)"
+14:18:04,750 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetcoste(es.deusto.spq.data.Piso objPC, java.lang.Double val)"
+14:18:04,750 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.String dnGetdesc(es.deusto.spq.data.Piso objPC)"
+14:18:04,750 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetdesc(es.deusto.spq.data.Piso objPC, java.lang.String val)"
+14:18:04,751 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "int dnGetid(es.deusto.spq.data.Piso objPC)"
+14:18:04,751 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetid(es.deusto.spq.data.Piso objPC, int val)"
+14:18:04,752 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.util.List dnGetimagenes(es.deusto.spq.data.Piso objPC)"
+14:18:04,752 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetimagenes(es.deusto.spq.data.Piso objPC, java.util.List val)"
+14:18:04,752 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.String dnGetlocalizacion(es.deusto.spq.data.Piso objPC)"
+14:18:04,752 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetlocalizacion(es.deusto.spq.data.Piso objPC, java.lang.String val)"
+14:18:04,752 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "int dnGetnHab(es.deusto.spq.data.Piso objPC)"
+14:18:04,752 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetnHab(es.deusto.spq.data.Piso objPC, int val)"
+14:18:04,752 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "java.lang.String dnGetnombre(es.deusto.spq.data.Piso objPC)"
+14:18:04,752 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetnombre(es.deusto.spq.data.Piso objPC, java.lang.String val)"
+14:18:04,752 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "int dnGetvaloracion(es.deusto.spq.data.Piso objPC)"
+14:18:04,753 (main) DEBUG [DataNucleus.Enhancer] - Agregando el metodo "void dnSetvaloracion(es.deusto.spq.data.Piso objPC, int val)"
+14:18:04,754 (main) INFO  [DataNucleus.Enhancer] - Escribiendo el archivo de clase "C:\Users\monte\git\BSPQ20-S9\target\classes\es\deusto\spq\data\Piso.class" con definicion enhanced
+14:18:04,755 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (Persistable) : es.deusto.spq.data.Piso
+14:18:04,755 (main) DEBUG [DataNucleus.Enhancer] - Enhance de la clase "es.deusto.spq.data.Piso" ha terminado
+14:18:04,756 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer ha terminado con exito para 1 clases. Tiempos : input=334 ms, enhance=76 ms, total=410 ms. Compruebe el LOG para los detalles
