@@ -1,18 +1,14 @@
 package es.deusto.spq.GUI;
 
 
-import static javax.swing.JOptionPane.ERROR_MESSAGE;
+
 
 import java.util.List;
-import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
-import javax.jdo.PersistenceManagerFactory;
-import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,33 +17,19 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.text.BadLocationException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
-//import javax.ws.rs.ProcessingException;
-//import javax.ws.rs.client.Client;
-//import javax.ws.rs.client.ClientBuilder;
-//import javax.ws.rs.client.Entity;
-//import javax.ws.rs.client.WebTarget;
-//import javax.ws.rs.core.GenericType;
-//import javax.ws.rs.core.MediaType;
-//import javax.ws.rs.core.Response;
-//import javax.ws.rs.core.Response.Status;
-//import javax.ws.rs.core.Response.StatusType;
 import javax.ws.rs.core.MediaType;
-
 import es.deusto.spq.data.Imagen;
 import es.deusto.spq.data.Piso;
-import es.deusto.spq.server.PisoDAO;
-
+import es.deusto.spq.data.Usuario;
 import java.util.ArrayList;
 import javax.swing.JLabel;
-import javax.swing.DropMode;
+
 
 
 
@@ -57,14 +39,18 @@ public class VentanaListaPisos extends JFrame {
 
     
     private JTextField textBuscarPiso;
-	private TextPrompt placeholder;
 	private JScrollPane scroll;
 	private Client client;
-	private WebTarget webTarget;
+	private static WebTarget webTarget;
+	private static List<Imagen> listaImagenes;
+
+
+	private Usuario u1;
 	
     
 
-    public VentanaListaPisos(ArrayList<Piso> pisos, ArrayList<Piso> pisosBuscados) {
+    public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2) {
+    	u1 = new Usuario("eneko98", "Eneko", "Valero", "enekovalero@gmail.com", "123456");
     	
     	client = ClientBuilder.newClient();
     	webTarget = client.target("http://localhost:8080/alquilerapp");
@@ -76,7 +62,7 @@ public class VentanaListaPisos extends JFrame {
         
         textBuscarPiso = new JTextField();
         textBuscarPiso.setBounds(10, 11, 397, 20);
-        placeholder = new TextPrompt("Introduce cuidad para buscar piso", textBuscarPiso);
+        new TextPrompt("Introduce cuidad para buscar piso", textBuscarPiso);
         getContentPane().add(textBuscarPiso);
         
         
@@ -127,9 +113,9 @@ public class VentanaListaPisos extends JFrame {
         botonVolverAtras.setBounds(480, 417, 120, 23);
         getContentPane().add(botonVolverAtras);
         
-        if(pisosBuscados.size() > 0) {
-        for(int i = 0; i < pisosBuscados.size(); i++) {
-        	textoPisos.append("Nombre del piso:" + pisosBuscados.get(i).getNombre().toUpperCase() + "\n" + "Precio: " + pisosBuscados.get(i).getCoste()+ "\n"+ "Valoración: " + pisosBuscados.get(i).getValoracion()+ "/5"+ "\n\n");
+        if(pisos2.size() > 0) {
+        for(int i = 0; i < pisos2.size(); i++) {
+        	textoPisos.append("Nombre del piso:" + pisos2.get(i).getNombre().toUpperCase() + "\n" + "Precio: " + pisos2.get(i).getCoste()+ "\n"+ "Valoración: " + pisos2.get(i).getValoracion()+ "/5"+ "\n\n");
          
         }
         }else {
@@ -140,8 +126,10 @@ public class VentanaListaPisos extends JFrame {
         	getContentPane().add(labelNoPisos);
         }
         textoPisos.addMouseListener(new MouseAdapter() {
-            @Override
+
+			@Override
        	    public void mousePressed(MouseEvent e) {
+			if(e.getClickCount() == 2) {
           	 try {
 					int line = textoPisos.getLineOfOffset( textoPisos.getCaretPosition() );
 					int start = textoPisos.getLineStartOffset( line );
@@ -155,9 +143,7 @@ public class VentanaListaPisos extends JFrame {
 						nombre = nombre.replaceAll("\n", "");
 						for(int i = 0; i < pisos.size(); i++) {
 							if(nombre.contentEquals(pisos.get(i).getNombre())) {
-								//Piso piso = getPiso(pisos.get(i).getId());
-								//System.out.println(piso.getNombre());
-								//new VentanaInformacion(piso);
+								new VentanaInformacion(pisos.get(i), u1);
 								dispose();
 							}
 						}
@@ -173,9 +159,7 @@ public class VentanaListaPisos extends JFrame {
 						nombre = nombre.replaceAll("\n", "");
 						for(int i = 0; i < pisos.size(); i++) {
 							if(nombre.contentEquals(pisos.get(i).getNombre())) {
-								//Piso piso = getPiso(pisos.get(i).getId());
-								//System.out.println(piso.getNombre());
-								//new VentanaInformacion(piso);
+								new VentanaInformacion(pisos.get(i), u1);
 								 dispose();
 							}
 						}
@@ -190,21 +174,17 @@ public class VentanaListaPisos extends JFrame {
 						nombre = nombre.replaceAll("\n", "");
 						for(int i = 0; i < pisos.size(); i++) {
 							if(nombre.contentEquals(pisos.get(i).getNombre())) {
-								//Piso piso = getPiso(pisos.get(i).getId());
-								//System.out.println(piso.getNombre());
-								//new VentanaInformacion(piso);
+								new VentanaInformacion(pisos.get(i), u1);
 								 dispose();
-								
 							}
 						}
 						
 					}
 				} catch (BadLocationException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					
 				}
        	    }
-          	
+			}
 			});
         
         
@@ -222,16 +202,49 @@ public class VentanaListaPisos extends JFrame {
         setVisible(true);
         
     }
-    public Piso getPiso(long id){
-        Piso piso = null;
-        WebTarget pisoWebTarget = webTarget.path("pisos/" + id);
-        GenericType<Piso> genericType = new GenericType<Piso>(){}; 
-        piso = pisoWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable(){
+        
+            @Override
+            public void run() {
+            	
+//            	listaImagenes = new ArrayList<Imagen>();
+//        		listaImagenes.add(new Imagen("1", "descarga.png"));
+//        		listaImagenes.add(new Imagen("2", "descarga.png"));
+//        		listaImagenes.add(new Imagen("3", "descarga.png"));
+        		
+            	List<Piso> pisos = new ArrayList<Piso>();
+            	pisos = getPisos();
+//            	Piso piso1 = new Piso();
+//            	piso1.setNombre("aaaa");
+//            	piso1.setId(1);
+//            	piso1.setCoste(3.0);
+//            	piso1.setDesc("Piso en barakaldo");
+//            	piso1.setAlquilado(false);
+//            	piso1.setnHab(4);
+//            	piso1.setLocalizacion("bbb");
+//            	piso1.setValoracion(3);
+//            	piso1.setImagenes(listaImagenes);
+//            	pisos.add(piso1);
+//            	
+//            	Piso piso2 = new Piso();
+//            	piso2.setNombre("aaaa b");
+//            	piso2.setId(2);
+//            	piso2.setCoste(5.0);
+//            	piso2.setDesc("Piso en Bilbao");
+//            	piso2.setAlquilado(false);
+//            	piso2.setnHab(5);
+//            	piso2.setLocalizacion("cccc");
+//            	piso2.setValoracion(4);
+//            	piso2.setImagenes(listaImagenes);
+//            	pisos.add(piso2);
       
-        return piso;
+                new VentanaListaPisos(pisos, pisos);
+            }
+        });
     }
-    
-    public List<Piso> getPisos(){
+    public static List<Piso> getPisos(){
         List<Piso> pisos = new ArrayList<Piso>();
         WebTarget pisosWebTarget = webTarget.path("pisos");
         GenericType<List<Piso>> genericType = new GenericType<List<Piso>>(){}; 
@@ -241,35 +254,13 @@ public class VentanaListaPisos extends JFrame {
         }
         return pisos;
     }
+//  public Piso getPiso(long id){
+//  Piso piso = null;
+//  WebTarget pisoWebTarget = webTarget.path("pisos/" + id);
+//  GenericType<Piso> genericType = new GenericType<Piso>(){}; 
+//  piso = pisoWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+//
+//  return piso;
+//}
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable(){
-        
-            @Override
-            public void run() {
-            	ArrayList<Piso> pisos = new ArrayList<Piso>();
-            	Piso piso1 = new Piso();
-            	piso1.setNombre("aaaa");
-            	piso1.setId(1);
-            	piso1.setCoste(3.0);
-            	piso1.setAlquilado(false);
-            	piso1.setLocalizacion("bbb");
-            	piso1.setValoracion(3);
-            	pisos.add(piso1);
-            	
-            	Piso piso2 = new Piso();
-            	piso2.setNombre("aaaa b");
-            	piso2.setId(2);
-            	piso2.setCoste(5.0);
-            	piso2.setAlquilado(false);
-            	piso2.setLocalizacion("cccc");
-            	piso2.setValoracion(4);
-            	pisos.add(piso2);
-            	
-            	
-                new VentanaListaPisos(pisos, pisos);
-            }
-        });
-    }
-   
 }

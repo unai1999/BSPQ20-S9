@@ -19,6 +19,11 @@ import java.util.List;
 
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.MediaType;
 
 import es.deusto.spq.data.Imagen;
 import es.deusto.spq.data.Piso;
@@ -44,44 +49,40 @@ public class VentanaInformacion {
 	private JTextArea tAComent, tADesc;
 	private JScrollPane scroll;
 	private final static String LINEA_NUEVA = "\n";
-	private Piso piso;
-	private Usuario usuario;
-	private List<Imagen> listaImagenes;
+//	private Piso piso;
+//	private static Usuario usuario;
+	private WebTarget webTarget;
 
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaInformacion window = new VentanaInformacion();
-					window.jFInfo.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VentanaInformacion window = new VentanaInformacion(piso, usuario);
+//					window.jFInfo.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	
-	public VentanaInformacion() {
-		listaImagenes = new ArrayList<Imagen>();
-		listaImagenes.add(new Imagen("1", "descarga.png"));
-		piso = new Piso();
-		piso.setNombre("aaaa");
-    	piso.setId(1);
-    	piso.setCoste(3.0);
-    	piso.setDesc("Piso en barakaldo");
-    	piso.setnHab(4);
-    	piso.setImagenes(listaImagenes);
-    	piso.setLocalizacion("bbb");
-		usuario = new Usuario("eneko98", "Eneko", "Valero", "enekovalero@gmail.com", "123456");
-		initialize(piso, usuario);
+	public VentanaInformacion(Piso piso, Usuario user) {
+		initialize(piso, user);
+		jFInfo.setVisible(true);
 	}
+	
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(Piso piso, Usuario usuario) {
+		
+		Client client = ClientBuilder.newClient();
+    	webTarget = client.target("http://localhost:8080/alquilerapp");
+    	
 		jFInfo = new JFrame();
 		jFInfo.setTitle("Información");
 		jFInfo.setBounds(100, 100, 500, 500);
@@ -103,10 +104,21 @@ public class VentanaInformacion {
 		btnContactar.setFocusPainted(false);
 		panelBotones.add(btnContactar, BorderLayout.EAST);
 		
+		btnContactar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				jFInfo.dispose();
+				// aqui implementaremos la funcionalidad para que se pueda contactar con el dueño de la casa
+				
+			}
+		});
+		
 		JButton btnAtras = new JButton("Atrás");
 		btnAtras.setHorizontalAlignment(SwingConstants.RIGHT);
 		btnAtras.setFocusPainted(false);
 		panelBotones.add(btnAtras, BorderLayout.WEST);
+		
 		
 		JPanel panelSec = new JPanel();
 		panelPrincipal.add(panelSec, BorderLayout.CENTER);
@@ -170,33 +182,48 @@ public class VentanaInformacion {
 		panel.add(lblLoc);
 		
 		JPanel panelFotos = new JPanel();
-		panelFotos.setBounds(19, 265, 459, 144);
+		panelFotos.setBounds(19, 265, 459, 131);
 		panelInfo.add(panelFotos);
 		panelFotos.setLayout(null);
 		
 		JLabel lblFoto1 = new JLabel();
 		lblFoto1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFoto1.setIcon(new ImageIcon(piso.getImagenes().get(0).getUrl()));
-		lblFoto1.setBounds(0, 0, 119, 145);
+		lblFoto1.setBounds(0, 0, 119, 131);
 		panelFotos.add(lblFoto1);
 		
 		JLabel lblFoto2 = new JLabel();
-		lblFoto1.setIcon(new ImageIcon(piso.getImagenes().get(1).getUrl()));
 		lblFoto2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFoto2.setBounds(101, 0, 119, 145);
+		lblFoto2.setBounds(101, 0, 119, 131);
 		panelFotos.add(lblFoto2);
 		
 		JLabel lblFoto3 = new JLabel();
 		lblFoto3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFoto1.setIcon(new ImageIcon(piso.getImagenes().get(2).getUrl()));
-		lblFoto3.setBounds(209, 0, 119, 145);
+		lblFoto3.setBounds(209, 0, 119, 131);
 		panelFotos.add(lblFoto3);
 		
 		JLabel lblFoto4 = new JLabel();
 		lblFoto4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFoto1.setIcon(new ImageIcon(piso.getImagenes().get(3).getUrl()));
-		lblFoto4.setBounds(338, 0, 119, 145);
+		lblFoto4.setBounds(338, 0, 119, 131);
 		panelFotos.add(lblFoto4);
+		
+		if(piso.getImagenes().size() == 2) {
+			lblFoto2.setIcon(new ImageIcon(piso.getImagenes().get(1).getUrl()));
+			lblFoto3.setText("Sin imagen");
+			lblFoto4.setText("Sin imagen");
+			
+		}else if(piso.getImagenes().size() == 3) {
+			lblFoto2.setIcon(new ImageIcon(piso.getImagenes().get(1).getUrl()));
+			lblFoto3.setIcon(new ImageIcon(piso.getImagenes().get(2).getUrl()));
+			lblFoto4.setText("Sin imagen");
+			
+		}else {
+			lblFoto2.setIcon(new ImageIcon(piso.getImagenes().get(1).getUrl()));
+			lblFoto3.setIcon(new ImageIcon(piso.getImagenes().get(2).getUrl()));
+			lblFoto4.setIcon(new ImageIcon(piso.getImagenes().get(3).getUrl()));
+			
+		}
+		
 		
 		JPanel panelUs = new JPanel();
 		panelUs.setBounds(342, 30, 136, 35);
@@ -242,6 +269,34 @@ public class VentanaInformacion {
 		JLabel lblEsc = new JLabel("Escribe un comentario...");
 		panelEsc.add(lblEsc, BorderLayout.NORTH);
 		
+		JButton btnReservar = new JButton("Reservar");
+		btnReservar.setBounds(215, 398, 89, 23);
+		panelInfo.add(btnReservar);
+		
+		btnAtras.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("aaa");
+				List<Piso> pisos = new ArrayList<Piso>();
+				jFInfo.dispose();
+				pisos = getPisos();
+				new VentanaListaPisos(pisos, pisos);
+				
+			}
+		});
+		
+		btnReservar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				jFInfo.dispose();
+				// aqui implementaremos la funcionalidad para reservar
+				
+				
+			}
+		});
+		
 		tFComent.addActionListener(new ActionListener() {
 			
 			@Override
@@ -256,4 +311,14 @@ public class VentanaInformacion {
 		
 		
 	}
+	public List<Piso> getPisos(){
+        List<Piso> pisos = new ArrayList<Piso>();
+        WebTarget pisosWebTarget = webTarget.path("pisos");
+        GenericType<List<Piso>> genericType = new GenericType<List<Piso>>(){}; 
+        pisos = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+        for (Piso p : pisos){
+            System.out.println(p);
+        }
+        return pisos;
+    }
 }
