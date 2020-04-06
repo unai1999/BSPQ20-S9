@@ -20,10 +20,14 @@ public class Piso{
     private String localizacion;
     private int valoracion;
     private String desc;
+    private int numeroInquilinos;
     private int nHab;
 
 	private List<Imagen> imagenes; //Array de imagenes que tendra el piso para posteriormente mostrarlas en GUI
     
+	private List<Usuario> inquilinos; 
+	private Propietario propiertario;
+	
     private boolean alquilado;
     public Piso(){
 
@@ -42,6 +46,16 @@ public class Piso{
 		this.valoracion = piso.valoracion;
 		this.imagenes = piso.imagenes;
 		this.alquilado = piso.alquilado;
+		this.numeroInquilinos = piso.numeroInquilinos;
+	}
+
+    
+	public int getNumeroInquilinos() {
+		return numeroInquilinos;
+	}
+
+	public void setNumeroInquilinos(int numeroInquilinos) {
+		this.numeroInquilinos = numeroInquilinos;
 	}
 
 	public String getLocalizacion() {
@@ -121,6 +135,28 @@ public class Piso{
 
 	public void setnHab(int nHab) {
 		this.nHab = nHab;
+	}
+
+	public List<Usuario> getInquilinos() {
+		return inquilinos;
+	}
+
+	public void setInquilinos(List<Usuario> inquilinos) {
+		if(this.getInquilinos().size() <= this.numeroInquilinos) {
+			this.inquilinos = inquilinos;
+		}
+		else {
+			System.out.println("Piso completo");
+		}
+		
+	}
+
+	public Propietario getPropiertario() {
+		return propiertario;
+	}
+
+	public void setPropiertario(Propietario propiertario) {
+		this.propiertario = propiertario;
 	}
 
 	
