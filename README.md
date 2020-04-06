@@ -19,14 +19,14 @@
 - Base de datos MySQL
 >Arranque de servidor MySQL
 
->Introducir sentencia SQL situada en src/sql
+>Introducir sentencia SQL situada en src/sql (Solo la primera vez)
 
 - Compilación del proyecto
 ```shell
 mvn clean compile
 ```
 
-- Creación de esquemas de la base de datos (Revisar)
+- Creación de esquemas de la base de datos (Solo la primera vez)
 ```shell
 mvn datanucleus:schema-create
 ```
