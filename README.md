@@ -31,7 +31,7 @@ mvn clean compile
 mvn datanucleus:schema-create
 ```
 
-- Arranque de servidor Jersey
+- Arranque de servidor Jetty
 ```shell
 mvn jetty:run
 ```
@@ -45,7 +45,8 @@ mvn exec:java -Pclient
 
 ## Documentación
 
-###### La aplicación permite visualizar pisos..........
+###### La aplicación permite a los usuarios poder visualizar una lista de pisos además de obtener la información de cada piso y en caso de que fuera necesario alquilarlo. Asimismo, los usuarios podrán gestionar sus cuentas pudiendo actualizar los datos si fuera necesario.
+
 
 ---
 
