@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
+import javax.jdo.annotations.NotPersistent;
 
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
@@ -25,7 +26,9 @@ public class Piso{
 
 	private List<Imagen> imagenes; //Array de imagenes que tendra el piso para posteriormente mostrarlas en GUI
     
+	@NotPersistent
 	private List<Usuario> inquilinos; 
+	@NotPersistent
 	private Propietario propiertario;
 	
     private boolean alquilado;
@@ -142,15 +145,15 @@ public class Piso{
 		return inquilinos;
 	}
 
-	public void setInquilinos(List<Usuario> inquilinos) {
-		if(this.getInquilinos().size() <= this.numeroInquilinos) {
-			this.inquilinos = inquilinos;
-		}
-		else {
-			System.out.println("Piso completo");
-		}
-		
-	}
+//	public void setInquilinos(List<Usuario> inquilinos) {
+//		if(this.getInquilinos().size() <= this.numeroInquilinos) {
+//			this.inquilinos = inquilinos;
+//		}
+//		else {
+//			System.out.println("Piso completo");
+//		}
+//		
+//	}
 
 	public Propietario getPropiertario() {
 		return propiertario;
