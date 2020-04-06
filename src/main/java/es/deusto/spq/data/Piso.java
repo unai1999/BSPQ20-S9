@@ -137,6 +137,7 @@ public class Piso{
 		this.nHab = nHab;
 	}
 
+
 	public List<Usuario> getInquilinos() {
 		return inquilinos;
 	}
@@ -158,10 +159,5 @@ public class Piso{
 	public void setPropiertario(Propietario propiertario) {
 		this.propiertario = propiertario;
 	}
-
-	
-
-
-    
 
 }

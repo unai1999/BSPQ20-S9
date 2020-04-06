@@ -1,16 +1,14 @@
 package es.deusto.spq.client;
 
-import java.awt.Color;
-import java.awt.Dimension;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -121,6 +119,7 @@ public class Cliente {
 	            	pisos = getPisos();
 	                new VentanaListaPisos(pisos, pisos, hostname, port, u1);
 	                frame.dispose();
+	                
 				}else {
 					frame.dispose();
 					new Cliente(hostname, port);
@@ -173,7 +172,7 @@ public class Cliente {
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-               Cliente c = new Cliente(hostname,port);
+               new Cliente(hostname,port);
             }
         });
 	}

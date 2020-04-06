@@ -17,13 +17,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.SwingUtilities;
 import javax.swing.text.BadLocationException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.data.Piso;
@@ -41,12 +35,8 @@ public class VentanaListaPisos extends JFrame {
     
     private JTextField textBuscarPiso;
 	private JScrollPane scroll;
-	private static Client client;
-	private static WebTarget webTarget;
-
-	private Usuario u1;
 	
-    public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2, String hostname, String port, Usuario u1) {
+	public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2, String hostname, String port, Usuario u1) {
     	
         setSize(620, 480);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -59,20 +49,6 @@ public class VentanaListaPisos extends JFrame {
         
         
         JButton btnBuscar = new JButton("Buscar");
-        btnBuscar.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		String cuidad = textBuscarPiso.getText();
-        		ArrayList<Piso> pisosBuscados = new ArrayList<Piso>();
-        		for(int i = 0 ; i < pisos.size(); i++) {
-        			if(pisos.get(i).getLocalizacion().equals(cuidad)) {
-        				pisosBuscados.add(new Piso(pisos.get(i)));
-        			}
-        		}
-        		dispose();
-        		new VentanaListaPisos(pisos, pisosBuscados, hostname, port, u1);
-        		
-        	}
-        });
         btnBuscar.setBounds(432, 10, 100, 23);
         getContentPane().add(btnBuscar);
         
@@ -81,9 +57,17 @@ public class VentanaListaPisos extends JFrame {
         getContentPane().add(labelFotoUsuario);
         labelFotoUsuario.setIcon(new ImageIcon("descarga.png"));
         
-        JButton botonVolverAtras = new JButton("Inicio");
+        JButton botonVolverAtras = new JButton("Salir");
         botonVolverAtras.setBounds(480, 417, 120, 23);
         getContentPane().add(botonVolverAtras);
+        
+        JButton botonComparar = new JButton("Comparar Pisos");
+        botonComparar.setBounds(259, 417, 140, 23);
+		getContentPane().add(botonComparar);
+		
+		JButton botonInicio = new JButton("Inicio");
+		botonInicio.setBounds(40, 417, 120, 23);
+		getContentPane().add(botonInicio);
         
         JPanel panelListaPisos= new JPanel();
         panelListaPisos.setBounds(10, 46, 594, 350);
@@ -96,10 +80,9 @@ public class VentanaListaPisos extends JFrame {
         textoPisos.setFont(font1);
         textoPisos.setBounds(10, 46, 594, 229);
         scroll = new JScrollPane(textoPisos);
-        scroll.setBounds(10, 46, 594, 229);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		panelListaPisos.add(scroll);
-        
+		
         
         if(pisos2.size() > 0) {
         for(int i = 0; i < pisos2.size(); i++) {
@@ -190,49 +173,40 @@ public class VentanaListaPisos extends JFrame {
         		new Cliente(hostname, port);
         	}
         });
+        btnBuscar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		String cuidad = textBuscarPiso.getText();
+        		ArrayList<Piso> pisosBuscados = new ArrayList<Piso>();
+        		for(int i = 0 ; i < pisos.size(); i++) {
+        			if(pisos.get(i).getLocalizacion().equals(cuidad)) {
+        				pisosBuscados.add(new Piso(pisos.get(i)));
+        			}
+        		}
+        		dispose();
+        		new VentanaListaPisos(pisos, pisosBuscados, hostname, port, u1);
+        		
+        	}
+        });
+        botonInicio.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                new VentanaListaPisos(pisos, pisos, hostname, port, u1);
+                dispose();
+			}
+		});
+        botonComparar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new VentanaComparar(pisos.get(0), pisos.get(1), hostname, port, u1);
+				dispose();
+				
+			}
+		});
         
         setResizable(false);
         setVisible(true);
         
     }
-
-	public static void init(String hostname, String port){
-		client = ClientBuilder.newClient();
-        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
-	}
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(new Runnable(){
-//        
-//            @Override
-//            public void run() {
-//            	
-//				String hostname = args[0];
-//				String port = args[1];
-//				init(hostname, port);
-//            	List<Piso> pisos = new ArrayList<Piso>();
-//            	pisos = getPisos();
-//      
-//                new VentanaListaPisos(pisos, pisos, hostname, port, u1);
-//            }
-//        });
-//    }
-    public static List<Piso> getPisos(){
-        List<Piso> pisos = new ArrayList<Piso>();
-        WebTarget pisosWebTarget = webTarget.path("pisos");
-        GenericType<List<Piso>> genericType = new GenericType<List<Piso>>(){}; 
-        pisos = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
-        for (Piso p : pisos){
-            System.out.println(p);
-        }
-        return pisos;
-    }
-//  public Piso getPiso(long id){
-//  Piso piso = null;
-//  WebTarget pisoWebTarget = webTarget.path("pisos/" + id);
-//  GenericType<Piso> genericType = new GenericType<Piso>(){}; 
-//  piso = pisoWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
-//
-//  return piso;
-//}
-
+  
 }
