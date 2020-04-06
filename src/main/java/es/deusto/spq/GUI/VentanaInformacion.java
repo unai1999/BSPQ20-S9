@@ -7,7 +7,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,24 +37,8 @@ public class VentanaInformacion {
 	private JTextArea tAComent, tADesc;
 	private JScrollPane scroll;
 	private final static String LINEA_NUEVA = "\n";
-	private static Client client;
-	private static WebTarget webTarget;
-
-
-
-//	public static void main(String[] args) {
-//		
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					VentanaInformacion window = new VentanaInformacion(piso, usuario);
-//					window.jFInfo.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	private Client client;
+	private WebTarget webTarget;
 
 	
 	public VentanaInformacion(Piso piso, Usuario user, String hostname, String port) {
@@ -278,7 +261,6 @@ public class VentanaInformacion {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("aaa");
 				List<Piso> pisos = new ArrayList<Piso>();
 				jFInfo.dispose();
 				

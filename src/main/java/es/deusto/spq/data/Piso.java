@@ -122,10 +122,6 @@ public class Piso{
 	public void setnHab(int nHab) {
 		this.nHab = nHab;
 	}
-
-	
-
-
-    
+  
 
 }

@@ -1,17 +1,16 @@
 package es.deusto.spq.GUI;
 
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import java.awt.BorderLayout;
-import javax.swing.JSeparator;
-import java.awt.FlowLayout;
+
 
 import javax.swing.BorderFactory;
-import javax.swing.Box;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -20,67 +19,48 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.border.MatteBorder;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.MediaType;
 
-import es.deusto.spq.data.Imagen;
 import es.deusto.spq.data.Piso;
+import es.deusto.spq.data.Usuario;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JButton;
 
 public class VentanaComparar {
 
 	private JFrame jFComp;
 	private JScrollPane scroll;
 	private JTextArea tADesc1, tADesc2;
-	private Piso piso1, piso2;
-	private List<Imagen> listaImagenes;
+	private WebTarget webTarget;
+	private  Client client;
+	
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaComparar window = new VentanaComparar();
-					window.jFComp.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
-	public VentanaComparar() {
-		listaImagenes = new ArrayList<Imagen>();
-		listaImagenes.add(new Imagen("1", "descarga.png"));
-		piso1 = new Piso();
-		piso1.setNombre("aaaa");
-    	piso1.setId(1);
-    	piso1.setCoste(3.0);
-    	piso1.setDesc("Piso en barakaldo");
-    	piso1.setnHab(4);
-    	piso1.setImagenes(listaImagenes);
-    	piso1.setLocalizacion("bbb");
-		piso2 = new Piso();
-		piso2.setNombre("bbbb");
-    	piso2.setId(1);
-    	piso2.setCoste(3.0);
-    	piso2.setDesc("Piso en cruces");
-    	piso2.setnHab(2);
-    	piso2.setImagenes(listaImagenes);
-    	piso2.setLocalizacion("ccc");
-		initialize(piso1, piso2);
+	public VentanaComparar(Piso piso1, Piso piso2, String hostname, String port, Usuario u1) {
+		initialize(piso1, piso2, hostname, port, u1);
+		jFComp.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(Piso piso1, Piso piso2) {
+	private void initialize(Piso piso1, Piso piso2, String hostname, String port, Usuario u1) {
+		client = ClientBuilder.newClient();
+        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+        
 		jFComp = new JFrame();
 		jFComp.setTitle("Comparación");
 		jFComp.setBounds(100, 100, 600, 465);
@@ -106,7 +86,11 @@ public class VentanaComparar {
 		
 		JLabel lblFoto1 = new JLabel();
 		lblFoto1.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black));
-		lblFoto1.setIcon(new ImageIcon(piso1.getImagenes().get(0).getUrl()));
+		if(piso1.getImagenes() != null ) {
+			lblFoto1.setIcon(new ImageIcon(piso1.getImagenes().get(0).getUrl()));
+		}else {
+			lblFoto1.setText("No hay imagen");
+		}
 		lblFoto1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFoto1.setBounds(62, 11, 95, 95);
 		pComp1.add(lblFoto1);
@@ -179,7 +163,11 @@ public class VentanaComparar {
 		pComp2.setLayout(null);
 		
 		JLabel lblFoto2 = new JLabel();
-		lblFoto2.setIcon(new ImageIcon(piso2.getImagenes().get(0).getUrl()));
+		if(piso2.getImagenes() != null) {
+			lblFoto2.setIcon(new ImageIcon(piso2.getImagenes().get(0).getUrl()));
+		}else {
+			lblFoto2.setText("No hay Imagen");
+		}
 		lblFoto2.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black));
 		lblFoto2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFoto2.setBounds(64, 11, 95, 95);
@@ -207,7 +195,7 @@ public class VentanaComparar {
 		lblPrecioTit2.setBounds(10, 72, 49, 14);
 		subPInfo2.add(lblPrecioTit2);
 		
-		JLabel lblPrecio2 = new JLabel("20€");
+		JLabel lblPrecio2 = new JLabel(piso2.getCoste() + "€");
 		lblPrecio2.setBounds(83, 72, 49, 14);
 		subPInfo2.add(lblPrecio2);
 		
@@ -243,5 +231,31 @@ public class VentanaComparar {
 		lblComp.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblComp.setBounds(221, 14, 141, 41);
 		panelPrincipal.add(lblComp);
+		
+		JButton botonInicio = new JButton("Inicio");
+		botonInicio.setBounds(257, 413, 89, 23);
+		panelPrincipal.add(botonInicio);
+		botonInicio.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				List<Piso> pisos = new ArrayList<Piso>();
+				jFComp.dispose();
+				
+				pisos = getPisos();
+				new VentanaListaPisos(pisos, pisos, hostname, port, u1);
+			}
+		});
 	}
+	
+	public List<Piso> getPisos(){
+        List<Piso> pisos = new ArrayList<Piso>();
+        WebTarget pisosWebTarget = webTarget.path("pisos");
+        GenericType<List<Piso>> genericType = new GenericType<List<Piso>>(){}; 
+        pisos = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+        for (Piso p : pisos){
+            System.out.println(p);
+        }
+        return pisos;
+    }
 }
