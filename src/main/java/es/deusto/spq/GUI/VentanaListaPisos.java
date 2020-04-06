@@ -40,7 +40,7 @@ public class VentanaListaPisos extends JFrame {
     
     private JTextField textBuscarPiso;
 	private JScrollPane scroll;
-	private Client client;
+	private static Client client;
 	private static WebTarget webTarget;
 	private static List<Imagen> listaImagenes;
 
@@ -51,10 +51,6 @@ public class VentanaListaPisos extends JFrame {
 
     public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2) {
     	u1 = new Usuario("eneko98", "Eneko", "Valero", "enekovalero@gmail.com", "123456");
-    	
-    	client = ClientBuilder.newClient();
-    	webTarget = client.target("http://localhost:8080/alquilerapp");
-    	
     	
         setSize(620, 480);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -203,6 +199,10 @@ public class VentanaListaPisos extends JFrame {
         
     }
 
+	public static void init(String hostname, String port){
+		client = ClientBuilder.newClient();
+        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+	}
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable(){
         
@@ -213,7 +213,9 @@ public class VentanaListaPisos extends JFrame {
 //        		listaImagenes.add(new Imagen("1", "descarga.png"));
 //        		listaImagenes.add(new Imagen("2", "descarga.png"));
 //        		listaImagenes.add(new Imagen("3", "descarga.png"));
-        		
+				String hostname = args[0];
+				String port = args[1];
+				init(hostname, port);
             	List<Piso> pisos = new ArrayList<Piso>();
             	pisos = getPisos();
 //            	Piso piso1 = new Piso();
