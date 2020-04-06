@@ -136,9 +136,7 @@ public class Piso{
 	public void setnHab(int nHab) {
 		this.nHab = nHab;
 	}
-<<<<<<< HEAD
-  
-=======
+
 
 	public List<Usuario> getInquilinos() {
 		return inquilinos;
@@ -161,11 +159,5 @@ public class Piso{
 	public void setPropiertario(Propietario propiertario) {
 		this.propiertario = propiertario;
 	}
-
-	
-
-
-    
->>>>>>> branch 'master' of https://github.com/unai1999/BSPQ20-S9.git
 
 }
