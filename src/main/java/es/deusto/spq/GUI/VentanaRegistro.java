@@ -1,21 +1,19 @@
 package es.deusto.spq.GUI;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.regex.Pattern;
-
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+import es.deusto.spq.GUI.*;
 
 public class VentanaRegistro {
 
@@ -120,53 +118,17 @@ public class VentanaRegistro {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				validarUsuario(tFUs, "Debes introducir un usuario");
-				validarContrasenya(tFPass1, "Introduce una contraseña valida (8 o más caracteres)");
-				validarConfContrasenya(tFPass1, tFPass2, "Las contraseñas no coinciden");
-				validarEmail(tFEmail, "Introduce un email valido");
+				MetodosGUI mGUI = new MetodosGUI();
+				mGUI.validarUsuario(tFUs, "Debes introducir un usuario");
+				mGUI.validarContrasenya(tFPass1, "Introduce una contraseña valida (8 o más caracteres)");
+				mGUI.validarConfContrasenya(tFPass1, tFPass2, "Las contraseñas no coinciden");
+				mGUI.validarEmail(tFEmail, "Introduce un email valido");
 				
 			}
 		});
 	}
 	
-	public boolean validarUsuario(JTextField tFUs, String mensaje){
-		  if (tFUs.getText().equals("")) {
-			  return mensajeError(tFUs, mensaje);
-		  }else {
-			  return true;
-		  }  
-	}
-		
-	public boolean validarContrasenya(JTextField tFPass1, String mensaje){
-		  if (tFPass1.getText().equals("") || tFPass1.getText().length() < 8) {
-			  return mensajeError( tFPass1, mensaje );
-		  }else {
-			  return true; 
-		  }  
-	}
-	private boolean validarConfContrasenya(JTextField tFPass1, JTextField tFPass2, String mensaje) {
-		if(tFPass1.getText().equals(tFPass2.getText())) {
-			return true;
-		}else{
-			mensajeError(tFPass2, mensaje);
-		}
-		return false;
-	}
-
-	private void validarEmail(JTextField tFemail, String mensaje) {
-		String regex = "^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$";
-		if (Pattern.matches(regex, tFemail.getText())) {
-		}else{
-			mensajeError(tFemail, mensaje);
-		}
-	}
-
-	private boolean mensajeError(JTextField tF, String mensaje) {
-		JOptionPane.showMessageDialog(null, mensaje); 
-		tF.requestFocus();
-		return false;
-	}
-
+	
 	public void setVisible(boolean b) {
 		frame.setVisible(true);
 	}

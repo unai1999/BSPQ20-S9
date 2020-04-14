@@ -11,6 +11,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import es.deusto.spq.GUI.MetodosGUI;
 
 public class VentanaLogin {
 
@@ -119,8 +120,9 @@ public class VentanaLogin {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				
+				MetodosGUI mGUI = new MetodosGUI();
+				mGUI.validarUsuario(tFLogin, "Introduce un usuario");
+				mGUI.validarContrasenya(tFCont, "Introduce una contraseña valida (8 o más caracteres)");
 			}
 		});
 	}
