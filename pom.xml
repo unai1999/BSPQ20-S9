@@ -83,6 +83,12 @@
 			<artifactId>log4j</artifactId>
 			<version>[1.2.17, )</version>
 		</dependency>
+		<!--para enviar el email de recuperacion de contraseña-->
+		<!-- <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency> -->
 	</dependencies>
 
 	<build>
@@ -104,6 +110,7 @@
 					<log4jConfiguration>${config.files.dir}/log4j.properties</log4jConfiguration>
 					<verbose>true</verbose>
 					<props>${config.files.dir}/datanucleus.properties</props>
+					<fork>false</fork>
 				</configuration>
 				<executions>
 					<execution>
