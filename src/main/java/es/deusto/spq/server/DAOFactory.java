@@ -16,4 +16,9 @@ public class DAOFactory{
         return new PisoDAO();
 
     }
+
+    public ForoDAO createForoDAO(){
+
+        return new ForoDAO();
+    }
 }
