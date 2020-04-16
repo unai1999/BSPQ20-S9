@@ -13,6 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import es.deusto.spq.data.Piso;
+import es.deusto.spq.server.DAOFactory;
+
 
 public class VentanaFormularioPisos {
 	
@@ -123,13 +126,33 @@ public class VentanaFormularioPisos {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				MetodosGUI mGUI = new MetodosGUI();
-				
+				mGUI.comprobarVacio(tfNombrePiso);
+				mGUI.comprobarVacio(tfCiudad);
+				mGUI.comprobarVacio(tfNumHuespedes);
+				mGUI.comprobarVacio(tfNumHabs);
+				mGUI.comprobarVacio(tfCoste);
+				if (mGUI.comprobarVacio(tfNombrePiso) && mGUI.comprobarVacio(tfCiudad)
+						&& mGUI.comprobarVacio(tfNumHuespedes) && mGUI.comprobarVacio(tfNumHabs)
+						&& mGUI.comprobarVacio(tfCoste)) {
+					Piso pisoNuevo = new Piso();
+					pisoNuevo.setNombre(tfNombrePiso.getText());
+					pisoNuevo.setLocalizacion(tfCiudad.getText());
+					pisoNuevo.setCoste(Double.parseDouble(tfCoste.getText()));
+					pisoNuevo.setAlquilado(false);
+					pisoNuevo.setValoracion(0);
+					pisoNuevo.setNumeroInquilinos(Integer.parseInt(tfNumHuespedes.getText()));
+					pisoNuevo.setnHab(Integer.parseInt(tfNumHabs.getText()));
+					String idS = tfNumHuespedes.getText() + tfNumHabs.getText() + tfCoste.getText();
+					int id = Integer.parseInt(idS);
+					pisoNuevo.setId(id);
+					DAOFactory.getInstance().createPisoDAO().guardar(pisoNuevo);
+				}
 			}
 		});
 		
 	}
 	
-	public void setVisible( boolean b) {
+	public void setVisible(boolean b) {
 		frame.setVisible(true);
 	}
 

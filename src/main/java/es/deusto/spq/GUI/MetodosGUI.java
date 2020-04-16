@@ -43,5 +43,15 @@ public class MetodosGUI {
 		tF.requestFocus();
 		return false;
 	}
+	
+	public boolean comprobarVacio(JTextField tf) {
+		if(tf.getText().equals("")) {
+			return mensajeError(tf, "Debes rellenar todos los campos");
+		} else {
+			return true;
+		}
+	}
+	
+	
 
 }
