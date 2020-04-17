@@ -55,7 +55,7 @@ public class VentanaListaPisos extends JFrame {
         JLabel labelFotoUsuario = new JLabel("");
         labelFotoUsuario.setBounds(562, 10, 25, 25);
         getContentPane().add(labelFotoUsuario);
-        labelFotoUsuario.setIcon(new ImageIcon("descarga.png"));
+        labelFotoUsuario.setIcon(new ImageIcon("resources/descarga.png"));
         
         JButton botonVolverAtras = new JButton("Salir");
         botonVolverAtras.setBounds(480, 417, 120, 23);

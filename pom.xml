@@ -83,6 +83,12 @@
 			<artifactId>log4j</artifactId>
 			<version>[1.2.17, )</version>
 		</dependency>
+		<!--para enviar el email de recuperacion de contraseña-->
+		<!-- <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency> -->
 	</dependencies>
 
 	<build>
@@ -134,7 +140,7 @@
 						<artifactId>exec-maven-plugin</artifactId>
 						<version>1.2.1</version>
 						<configuration>
-							<mainClass>es.deusto.spq.client.Cliente</mainClass>
+							<mainClass>es.deusto.spq.GUI.FormularioForo</mainClass>
 							<arguments>
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
