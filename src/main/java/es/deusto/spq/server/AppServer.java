@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -45,7 +46,7 @@ public class AppServer {
 	@GET
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Piso getPiso(@PathParam("id") int id){
+	public Piso getPiso(@PathParam("id") final int id){
 
 		Piso p = null;
 		p = DAOFactory.getInstance().createPisoDAO().getPiso(id);
@@ -54,14 +55,26 @@ public class AppServer {
 		return p;
 	}
 
-	// @Path("/foro/submit")
-	// @POST
-	// @Consumes(MediaType.APPLICATION_JSON)
-	// public Response crearPost(Post post){
+	@Path("/foro/submit")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response crearPost(final Post post){
 
-	// 	DAOFactory.getInstance().createForoDAO().guardar(post);
-	// 	return Response.status(Response.Status.OK).build();
+		DAOFactory.getInstance().createForoDAO().guardar(post);
+		return Response.status(Response.Status.OK).build();
 
-	// }
+	}
+
+	@Path("/resetPassword")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	//@Produces(MediaType.APPLICATION_JSON)
+	public Response actualizarPassword(final String password){
+	//TODO actualizar en la base de datos
+	return Response.status(Response.Status.OK).build();
+
+
+
+	}
 
 }

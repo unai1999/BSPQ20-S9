@@ -6,12 +6,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import es.deusto.spq.GUI.MetodosGUI;
+import es.deusto.spq.server.SendEmail;
 
 public class VentanaLogin {
 
@@ -104,6 +106,24 @@ public class VentanaLogin {
 		btnEnviar.setFocusPainted(false);
 		btnEnviar.setBounds(309, 380, 89, 23);
 		panelPrincipal.add(btnEnviar);
+
+		btnEnviar.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String generatedCode = SendEmail.enviarMail(tFCorreo.getText());
+				String inputCode = JOptionPane.showInputDialog(frame, "Introduce el código recibido: ");
+
+				if(generatedCode.equals(inputCode)){
+					new VentanaResetPassword();
+				}else{
+					JOptionPane.showMessageDialog(null, "Wrong code", "oops", JOptionPane.ERROR_MESSAGE);
+				}
+
+			}
+
+		
+		});
 		
 		btnRegistrarse.addActionListener(new ActionListener() {
 			
