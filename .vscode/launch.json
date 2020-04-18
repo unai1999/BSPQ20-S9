@@ -1,0 +1,70 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - VentanaResetPassword",
+            "request": "launch",
+            "mainClass": "es.deusto.spq.GUI.VentanaResetPassword",
+            "projectName": "alquiler-app"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SendEmail",
+            "request": "launch",
+            "mainClass": "es.deusto.spq.server.SendEmail",
+            "projectName": "alquiler-app"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MapsTest",
+            "request": "launch",
+            "mainClass": "es.deusto.spq.server.MapsTest",
+            "projectName": "alquiler-app"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-FormularioForo<alquiler-app>",
+            "request": "launch",
+            "mainClass": "es.deusto.spq.GUI.FormularioForo",
+            "projectName": "alquiler-app"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-VentanaLogin<alquiler-app>",
+            "request": "launch",
+            "mainClass": "es.deusto.spq.GUI.VentanaLogin",
+            "projectName": "alquiler-app"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-VentanaRegistro<alquiler-app>",
+            "request": "launch",
+            "mainClass": "es.deusto.spq.GUI.VentanaRegistro",
+            "projectName": "alquiler-app"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-App<alquiler-app>",
+            "request": "launch",
+            "mainClass": "es.deusto.spq.client.App",
+            "projectName": "alquiler-app"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Cliente<alquiler-app>",
+            "request": "launch",
+            "mainClass": "es.deusto.spq.client.Cliente",
+            "projectName": "alquiler-app"
+        }
+    ]
+}

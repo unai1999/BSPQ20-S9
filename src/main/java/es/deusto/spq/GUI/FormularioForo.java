@@ -7,9 +7,10 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.ResponseBuilder;
+
 import javax.ws.rs.core.Response.Status;
 
+import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Post;
 
 import java.awt.*;
@@ -22,8 +23,6 @@ public class FormularioForo extends JFrame {
      *
      */
     private static final long serialVersionUID = 1L;
-    Client client;
-    WebTarget webTarget;
 
     JPanel panel, pA, pB;
     JLabel lTitulo, lContenido;
@@ -33,8 +32,6 @@ public class FormularioForo extends JFrame {
 
     public FormularioForo(final String hostname, final String port) {
 
-        client = ClientBuilder.newClient();
-        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
 
         panel = new JPanel(new FlowLayout());
         panel.setLayout(null);
@@ -80,10 +77,8 @@ public class FormularioForo extends JFrame {
 
     public void publicarPost() {
 
-        final WebTarget publicarTarget = webTarget.path("pisos/foro/submit");
-        final Post post = new Post(tTitulo.getText(), "Autor", tContenido.getText());
-        final Entity<Post> entity = Entity.entity(post, MediaType.APPLICATION_JSON);
-        final Response response = publicarTarget.request().post(entity);
+        
+        Response response = Controller.getInstance().publicarPost(tTitulo.getText(), "Autor", tContenido.getText());
         // Post p = response.readEntity(Post.class);
         if (response.getStatus() == Status.OK.getStatusCode()) {
             JOptionPane.showMessageDialog(null, "Post creado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);

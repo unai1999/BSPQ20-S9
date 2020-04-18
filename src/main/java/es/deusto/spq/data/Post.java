@@ -7,19 +7,15 @@ import javax.jdo.annotations.PrimaryKey;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
-import java.util.concurrent.ThreadLocalRandom;
+
 
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
-import javax.jdo.annotations.NotPersistent;
+
 
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Post {
-
-    @PrimaryKey
-    int id;
 
     private String titulo;
     private String autor; //Usuario?
@@ -30,7 +26,7 @@ public class Post {
 
     public Post(String titulo, String autor, String contenido) {
        
-        this.id = 4;
+    
         this.titulo = titulo;
         this.autor = autor;
         this.contenido = contenido;
@@ -78,6 +74,10 @@ public class Post {
 
     public void setLikes(int likes) {
         this.likes = likes;
+    }
+
+    public void incLikes(){
+        this.likes++;
     }
 
     public String getFecha() {
