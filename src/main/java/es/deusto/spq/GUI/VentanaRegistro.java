@@ -150,31 +150,29 @@ public class VentanaRegistro {
 				if(!mGUI.validarNombre(tFNombre.getText())) {
 					mGUI.mensajeError(tFNombre, "Escribe un nombre");
 				}
-				if(!mGUI.validarNombre(tFApellido.getText())) {
+				else if(!mGUI.validarNombre(tFApellido.getText())) {
 					mGUI.mensajeError(tFApellido, "Escribe un apellido");
 				}
-				if(mGUI.validarUsuario(tFUs.getText())) {
+				else if(mGUI.validarUsuario(tFUs.getText())) {
 					mGUI.mensajeError(tFUs, "Introduce un usuario (debe contener 5 o más caracteres)");
 				}
-				if(!mGUI.validarContrasenya(password1)) {
+				else if(!mGUI.validarContrasenya(password1)) {
 					mGUI.mensajeError(tFPass1, "Introduce una contraseña valida (8 o más caracteres)");
 				}
-				if(!mGUI.validarConfContrasenya(password1, password2)) {
+				else if(!mGUI.validarConfContrasenya(password1, password2)) {
 					mGUI.mensajeError(tFPass2, "Las Contraseñas no coinciden");
 				}
-				if(!mGUI.validarEmail(tFEmail.getText())) {
+				else if(!mGUI.validarEmail(tFEmail.getText())) {
 					mGUI.mensajeError(tFEmail, "Escribe un Email valido");
+				}else {
+					Usuario usuario = new Usuario(tFUs.getText(), tFNombre.getText(), tFApellido.getText(), tFEmail.getText(), password1, password2);
+					Response response = Controller.getInstance().registrarUsuario(usuario);
+				        if (response.getStatus() == Status.OK.getStatusCode()) {
+				            JOptionPane.showMessageDialog(null, "Usuario creado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+				        } else {
+				            JOptionPane.showMessageDialog(null, "ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
+				        }
 				}
-				
-				
-				
-//				Usuario usuario = new Usuario(tFUs.getText(), tFNombre.getText(), tFApellido.getText(), tFEmail.getText(), tFPass1.getText(), tFPass2.getText());
-//				Response response = Controller.getInstance().registrarUsuario(usuario);
-//			        if (response.getStatus() == Status.OK.getStatusCode()) {
-//			            JOptionPane.showMessageDialog(null, "Usuario creado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-//			        } else {
-//			            JOptionPane.showMessageDialog(null, "ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
-//			        }
 			}
 		});
 	}
