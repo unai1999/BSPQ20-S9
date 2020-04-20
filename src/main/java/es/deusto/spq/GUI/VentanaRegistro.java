@@ -12,16 +12,23 @@ import java.awt.event.ActionListener;
 import java.util.regex.Pattern;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import javax.swing.JTextField;
 import es.deusto.spq.GUI.*;
+import es.deusto.spq.client.Controller;
+import es.deusto.spq.data.Usuario;
+import javax.swing.JPasswordField;
 
 public class VentanaRegistro {
 
 	private JFrame frame;
 	private JTextField tFUs;
 	private JTextField tFEmail;
-	private JTextField tFPass1;
-	private JTextField tFPass2;
+	private JPasswordField tFPass1;
+	private JPasswordField tFPass2;
+	private JTextField tFNombre;
+	private JTextField tFApellido;
 
 	/**
 	 * Launch the application.
@@ -65,27 +72,27 @@ public class VentanaRegistro {
 		
 		JLabel lblEmail = new JLabel("Email:");
 		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblEmail.setBounds(80, 220, 78, 22);
+		lblEmail.setBounds(79, 300, 78, 22);
 		panelPrincipal.add(lblEmail);
 		
 		JLabel lblContr = new JLabel("Contraseña:");
 		lblContr.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblContr.setBounds(75, 282, 78, 22);
+		lblContr.setBounds(79, 346, 78, 22);
 		panelPrincipal.add(lblContr);
 		
 		JLabel lblConfContr = new JLabel("Confirmar Contraseña:");
 		lblConfContr.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblConfContr.setBounds(77, 339, 146, 22);
+		lblConfContr.setBounds(79, 390, 146, 22);
 		panelPrincipal.add(lblConfContr);
 		
 		JButton btnAtras = new JButton("Atrás");
 		btnAtras.setFocusPainted(false);
-		btnAtras.setBounds(80, 434, 89, 23);
+		btnAtras.setBounds(79, 453, 89, 23);
 		panelPrincipal.add(btnAtras);
 		
 		JButton btnRegistrar = new JButton("Registrarse");
 		btnRegistrar.setFocusPainted(false);
-		btnRegistrar.setBounds(304, 434, 108, 23);
+		btnRegistrar.setBounds(301, 453, 108, 23);
 		panelPrincipal.add(btnRegistrar);
 		
 		JLabel lblTit = new JLabel("REGISTRO");
@@ -101,29 +108,71 @@ public class VentanaRegistro {
 		
 		tFEmail = new JTextField();
 		tFEmail.setColumns(10);
-		tFEmail.setBounds(246, 222, 133, 20);
+		tFEmail.setBounds(246, 302, 133, 20);
 		panelPrincipal.add(tFEmail);
 		
-		tFPass1 = new JTextField();
+		tFPass1 = new JPasswordField();
 		tFPass1.setColumns(10);
-		tFPass1.setBounds(246, 284, 133, 20);
+		tFPass1.setBounds(246, 348, 133, 20);
 		panelPrincipal.add(tFPass1);
 		
-		tFPass2 = new JTextField();
+		tFPass2 = new JPasswordField();
 		tFPass2.setColumns(10);
-		tFPass2.setBounds(246, 341, 133, 20);
+		tFPass2.setBounds(246, 392, 133, 20);
 		panelPrincipal.add(tFPass2);
 		
+		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNombre.setBounds(79, 210, 78, 22);
+		panelPrincipal.add(lblNombre);
+		
+		tFNombre = new JTextField();
+		tFNombre.setColumns(10);
+		tFNombre.setBounds(246, 212, 133, 20);
+		panelPrincipal.add(tFNombre);
+		
+		JLabel lblApellido = new JLabel("Apellido:");
+		lblApellido.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblApellido.setBounds(79, 253, 78, 22);
+		panelPrincipal.add(lblApellido);
+		
+		tFApellido = new JTextField();
+		tFApellido.setColumns(10);
+		tFApellido.setBounds(246, 255, 133, 20);
+		panelPrincipal.add(tFApellido);
+		
 		btnRegistrar.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				MetodosGUI mGUI = new MetodosGUI();
-				mGUI.validarUsuario(tFUs, "Debes introducir un usuario");
-				mGUI.validarContrasenya(tFPass1, "Introduce una contraseña valida (8 o más caracteres)");
-				mGUI.validarConfContrasenya(tFPass1, tFPass2, "Las contraseñas no coinciden");
-				mGUI.validarEmail(tFEmail, "Introduce un email valido");
-				
+				String password1 = new String(tFPass1.getPassword());
+				String password2 = new String(tFPass2.getPassword());
+				if(!mGUI.validarNombre(tFNombre.getText())) {
+					mGUI.mensajeError(tFNombre, "Escribe un nombre");
+				}
+				else if(!mGUI.validarNombre(tFApellido.getText())) {
+					mGUI.mensajeError(tFApellido, "Escribe un apellido");
+				}
+				else if(mGUI.validarUsuario(tFUs.getText())) {
+					mGUI.mensajeError(tFUs, "Introduce un usuario (debe contener 5 o más caracteres)");
+				}
+				else if(!mGUI.validarContrasenya(password1)) {
+					mGUI.mensajeError(tFPass1, "Introduce una contraseña valida (8 o más caracteres)");
+				}
+				else if(!mGUI.validarConfContrasenya(password1, password2)) {
+					mGUI.mensajeError(tFPass2, "Las Contraseñas no coinciden");
+				}
+				else if(!mGUI.validarEmail(tFEmail.getText())) {
+					mGUI.mensajeError(tFEmail, "Escribe un Email valido");
+				}else {
+					Usuario usuario = new Usuario(tFUs.getText(), tFNombre.getText(), tFApellido.getText(), tFEmail.getText(), password1);
+					Response response = Controller.getInstance().registrarUsuario(usuario);
+				        if (response.getStatus() == Status.OK.getStatusCode()) {
+				            JOptionPane.showMessageDialog(null, "Usuario creado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+				        } else {
+				            JOptionPane.showMessageDialog(null, "ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
+				        }
+				}
 			}
 		});
 	}

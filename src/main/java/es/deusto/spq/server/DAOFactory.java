@@ -21,4 +21,10 @@ public class DAOFactory{
 
         return new ForoDAO();
     }
+    
+    public UsuarioDAO createUsuarioDAO(){
+
+        return new UsuarioDAO();
+    }
+    
 }

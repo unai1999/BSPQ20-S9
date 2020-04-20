@@ -2,17 +2,17 @@ package es.deusto.spq.server;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 import es.deusto.spq.data.*;
+import es.deusto.spq.server.*;
 
 
 @Path("/pisos")
@@ -45,7 +45,7 @@ public class AppServer {
 	@GET
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Piso getPiso(@PathParam("id") int id){
+	public Piso getPiso(@PathParam("id") final int id){
 
 		Piso p = null;
 		p = DAOFactory.getInstance().createPisoDAO().getPiso(id);
@@ -54,14 +54,49 @@ public class AppServer {
 		return p;
 	}
 
-	// @Path("/foro/submit")
-	// @POST
-	// @Consumes(MediaType.APPLICATION_JSON)
-	// public Response crearPost(Post post){
 
-	// 	DAOFactory.getInstance().createForoDAO().guardar(post);
-	// 	return Response.status(Response.Status.OK).build();
+	@Path("/foro/submit")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response crearPost(final Post post){
+	 	DAOFactory.getInstance().createForoDAO().guardar(post);
+	 	return Response.status(Response.Status.OK).build();
 
-	// }
+	 }
+	
+	@Path("/registrar")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response registrarUsuario(Usuario usuario){
+	 	DAOFactory.getInstance().createUsuarioDAO().guardar(usuario);
+	 	return Response.status(Response.Status.OK).build();
+
+	 }
+	
+	@Path("/login")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response buscarUsuario(String usuario, String password){
+	 	Usuario u = DAOFactory.getInstance().createUsuarioDAO().getUsuario(usuario);
+	 	if(u == null) {
+	 		return Response.status(Response.Status.NOT_FOUND).build();
+	 	}//else if(u.getPw1()) {
+	 	
+//	 	}
+	 	return Response.status(Response.Status.OK).build();
+	 }
+
+
+	@Path("/resetPassword")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	//@Produces(MediaType.APPLICATION_JSON)
+	public Response actualizarPassword(final String password){
+	//TODO actualizar en la base de datos
+	return Response.status(Response.Status.OK).build();
+
+
+
+	}
 
 }

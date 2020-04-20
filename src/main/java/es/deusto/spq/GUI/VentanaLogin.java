@@ -6,18 +6,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import es.deusto.spq.GUI.MetodosGUI;
+import es.deusto.spq.server.SendEmail;
+import javax.swing.JPasswordField;
 
 public class VentanaLogin {
 
 	private JFrame frame;
 	private JTextField tFLogin;
-	private JTextField tFCont;
+	private JPasswordField tFCont;
 	private JTextField tFCorreo;
 
 	/**
@@ -70,7 +73,7 @@ public class VentanaLogin {
 		lblContrasenya.setBounds(123, 199, 90, 30);
 		panelPrincipal.add(lblContrasenya);
 		
-		tFCont = new JTextField();
+		tFCont = new JPasswordField();
 		tFCont.setColumns(10);
 		tFCont.setBounds(293, 205, 140, 20);
 		panelPrincipal.add(tFCont);
@@ -104,6 +107,24 @@ public class VentanaLogin {
 		btnEnviar.setFocusPainted(false);
 		btnEnviar.setBounds(309, 380, 89, 23);
 		panelPrincipal.add(btnEnviar);
+
+		btnEnviar.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String generatedCode = SendEmail.enviarMail(tFCorreo.getText());
+				String inputCode = JOptionPane.showInputDialog(frame, "Introduce el código recibido: ");
+
+				if(generatedCode.equals(inputCode)){
+					new VentanaResetPassword();
+				}else{
+					JOptionPane.showMessageDialog(null, "Wrong code", "oops", JOptionPane.ERROR_MESSAGE);
+				}
+
+			}
+
+		
+		});
 		
 		btnRegistrarse.addActionListener(new ActionListener() {
 			
@@ -121,8 +142,14 @@ public class VentanaLogin {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				MetodosGUI mGUI = new MetodosGUI();
-				mGUI.validarUsuario(tFLogin, "Introduce un usuario");
-				mGUI.validarContrasenya(tFCont, "Introduce una contraseña valida (8 o más caracteres)");
+				if(mGUI.validarUsuario(tFLogin.getText())) {
+					mGUI.mensajeError(tFLogin, "Introduce un usuario valido");
+				}
+				String password1 = new String(tFCont.getPassword());
+				if(!mGUI.validarContrasenya(password1)){
+					mGUI.mensajeError(tFCont, "Introduce una contraseña valida (8 o más caracteres)");
+				}
+				
 			}
 		});
 	}

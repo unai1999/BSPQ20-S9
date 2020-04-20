@@ -1,7 +1,15 @@
 package es.deusto.spq.data;
 
+import javax.jdo.annotations.Inheritance;
+import javax.jdo.annotations.InheritanceStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+@PersistenceCapable
+@Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Usuario {
-	
+
+	@PrimaryKey
 	private String nickname;  		//La usamos como primaryKey
 	
 	private String nombre;	
@@ -10,8 +18,7 @@ public class Usuario {
 	private String email;
 	
 	
-	private String pw;				//TODO encriptar pw.
-	
+	private String pw1;				//TODO encriptar pw.
 	private Piso piso;				//Si el usuario solo puede tener un piso alquilado.
 	private boolean tienePiso;		
 	
@@ -44,16 +51,16 @@ public class Usuario {
 	 * @param nombre
 	 * @param apellidos
 	 * @param email
-	 * @param pw
+	 * @param pw1
+	 * @param pw2
 	 */
-	public Usuario(String nickname, String nombre, String apellidos, String email, String pw) {
+	public Usuario(String nickname, String nombre, String apellidos, String email, String pw1) {
 		this.setNickname(nickname);
 		this.setNombre(nombre);
 		this.setApellidos(apellidos);
 		this.setEmail(email);
-		this.setPw(pw);		
+		this.setPw1(pw1);
 	}
-
 
 
 	public String getNickname() {
@@ -104,13 +111,16 @@ public class Usuario {
 
 
 
-	public String getPw() {
-		return pw;
+	public String getPw1() {
+		return pw1;
 	}
 
 
 
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setPw1(String pw1) {
+		this.pw1 = pw1;
 	}
+
+	
+	
 }

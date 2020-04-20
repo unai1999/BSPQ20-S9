@@ -6,35 +6,43 @@ import javax.swing.JTextField;
 
 public class MetodosGUI {
 
-	public boolean validarUsuario(JTextField tFUs, String mensaje){
-		  if (tFUs.getText().equals("")) {
-			  return mensajeError(tFUs, mensaje);
+	public boolean validarNombre(String nombre) {
+		if(nombre.equals("")) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+	public boolean validarUsuario(String usuario){
+		  if (usuario.equals("") && usuario.length() >= 5 ) {
+			  return false;
 		  }else {
 			  return true;
 		  }  
 	}
 		
-	public boolean validarContrasenya(JTextField tFPass1, String mensaje){
-		  if (tFPass1.getText().equals("") || tFPass1.getText().length() < 8) {
-			  return mensajeError( tFPass1, mensaje );
+	public boolean validarContrasenya(String pass1){
+		  if (pass1.equals("") || pass1.length() < 8) {
+			  return false;
 		  }else {
-			  return true; 
+			  return true;
 		  }  
 	}
-	public boolean validarConfContrasenya(JTextField tFPass1, JTextField tFPass2, String mensaje) {
-		if(tFPass1.getText().equals(tFPass2.getText())) {
+	public boolean validarConfContrasenya(String pass1, String pass2) {
+		if(pass1.equals(pass2)) {
 			return true;
 		}else{
-			mensajeError(tFPass2, mensaje);
+			return false;
 		}
-		return false;
+		
 	}
 
-	public void validarEmail(JTextField tFemail, String mensaje) {
+	public boolean validarEmail(String email) {
 		String regex = "^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$";
-		if (Pattern.matches(regex, tFemail.getText())) {
+		if (Pattern.matches(regex, email)) {
+			return true;
 		}else{
-			mensajeError(tFemail, mensaje);
+			return false;
 		}
 	}
 
@@ -51,7 +59,4 @@ public class MetodosGUI {
 			return true;
 		}
 	}
-	
-	
-
 }

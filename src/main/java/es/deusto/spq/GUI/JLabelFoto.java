@@ -4,7 +4,7 @@ import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
-import java.sql.SQLException;
+
 
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
