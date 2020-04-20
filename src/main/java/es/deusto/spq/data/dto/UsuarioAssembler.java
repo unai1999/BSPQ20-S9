@@ -15,7 +15,6 @@ public class UsuarioAssembler {
 		usuarioDTO.setNickname(usuario.getNickname());
 		usuarioDTO.setNombre(usuario.getNombre());
 		usuarioDTO.setPw1(usuario.getPw1());
-		usuarioDTO.setPw2(usuario.getPw2());
 		usuarioDTO.setTienePiso(usuario.isTienePiso());
 		
 		return usuarioDTO;
