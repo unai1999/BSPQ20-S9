@@ -19,7 +19,6 @@ public class Usuario {
 	
 	
 	private String pw1;				//TODO encriptar pw.
-	private String pw2;
 	private Piso piso;				//Si el usuario solo puede tener un piso alquilado.
 	private boolean tienePiso;		
 	
@@ -55,14 +54,6 @@ public class Usuario {
 	 * @param pw1
 	 * @param pw2
 	 */
-	public Usuario(String nickname, String nombre, String apellidos, String email, String pw1, String pw2) {
-		this.setNickname(nickname);
-		this.setNombre(nombre);
-		this.setApellidos(apellidos);
-		this.setEmail(email);
-		this.setPw1(pw1);
-		this.setPw2(pw2);
-	}
 	public Usuario(String nickname, String nombre, String apellidos, String email, String pw1) {
 		this.setNickname(nickname);
 		this.setNombre(nombre);
@@ -70,7 +61,6 @@ public class Usuario {
 		this.setEmail(email);
 		this.setPw1(pw1);
 	}
-
 
 
 	public String getNickname() {
@@ -131,17 +121,6 @@ public class Usuario {
 		this.pw1 = pw1;
 	}
 
-
-
-	public String getPw2() {
-		return pw2;
-	}
-
-
-
-	public void setPw2(String pw2) {
-		this.pw2 = pw2;
-	}
 	
 	
 }

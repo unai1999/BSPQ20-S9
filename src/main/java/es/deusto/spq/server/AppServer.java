@@ -72,6 +72,19 @@ public class AppServer {
 	 	return Response.status(Response.Status.OK).build();
 
 	 }
+	
+	@Path("/login")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response buscarUsuario(String usuario, String password){
+	 	Usuario u = DAOFactory.getInstance().createUsuarioDAO().getUsuario(usuario);
+	 	if(u == null) {
+	 		return Response.status(Response.Status.NOT_FOUND).build();
+	 	}//else if(u.getPw1()) {
+	 	
+//	 	}
+	 	return Response.status(Response.Status.OK).build();
+	 }
 
 
 	@Path("/resetPassword")
