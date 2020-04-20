@@ -165,7 +165,7 @@ public class VentanaRegistro {
 				else if(!mGUI.validarEmail(tFEmail.getText())) {
 					mGUI.mensajeError(tFEmail, "Escribe un Email valido");
 				}else {
-					Usuario usuario = new Usuario(tFUs.getText(), tFNombre.getText(), tFApellido.getText(), tFEmail.getText(), password1, password2);
+					Usuario usuario = new Usuario(tFUs.getText(), tFNombre.getText(), tFApellido.getText(), tFEmail.getText(), password1);
 					Response response = Controller.getInstance().registrarUsuario(usuario);
 				        if (response.getStatus() == Status.OK.getStatusCode()) {
 				            JOptionPane.showMessageDialog(null, "Usuario creado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
