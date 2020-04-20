@@ -39,6 +39,7 @@ public class VentanaListaPisos extends JFrame {
 	public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2, String hostname, String port, Usuario u1) {
     	
         setSize(620, 480);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
         
@@ -163,7 +164,7 @@ public class VentanaListaPisos extends JFrame {
         	 @Override
         	    public void mousePressed(MouseEvent e) {
         		 dispose();
-        		 // aqui deberia redirigir a la ventana con el perfil
+        		 new VentanaInfoUsuario(hostname, port, u1);
         	      
         	    }
 		});

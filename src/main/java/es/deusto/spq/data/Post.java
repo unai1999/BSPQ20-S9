@@ -42,7 +42,16 @@ public class Post {
         this.comentarios = new ArrayList<Comentario>();
     }
 
-    public void addComentario(Comentario c){
+    public Post(Post post) {
+		this.autor = post.autor;
+		this.comentarios = post.comentarios;
+		this.contenido = post.contenido;
+		this.fecha = post.fecha;
+		this.likes = post.likes;
+		this.titulo = post.titulo;
+	}
+
+	public void addComentario(Comentario c){
         this.comentarios.add(c);
     }
 
