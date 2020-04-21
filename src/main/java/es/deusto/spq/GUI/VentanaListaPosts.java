@@ -17,18 +17,29 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.text.BadLocationException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.MediaType;
 
+import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 
 public class VentanaListaPosts extends JFrame{
 	
-
+	private Client client;
+	private WebTarget webTarget;
+	
 	private JScrollPane scroll;
 	private JTextField textBuscarPost;
 	private static final long serialVersionUID = 1L;
 	
-	public VentanaListaPosts(List<Post> posts, List<Post> posts2) {
+	public VentanaListaPosts(List<Post> posts, List<Post> posts2, String hostname, String port) {
 		
+		client = ClientBuilder.newClient();
+	    webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+	    
 		setSize(620, 480);
 		setTitle("Lista de posts");
 		setLocationRelativeTo(null);
@@ -87,7 +98,7 @@ public class VentanaListaPosts extends JFrame{
         			}
         		}
         		dispose();
-        		new VentanaListaPosts(posts, postsBuscados);
+        		new VentanaListaPosts(posts, postsBuscados, hostname, port);
 				
 			}
 		});
@@ -176,6 +187,7 @@ public class VentanaListaPosts extends JFrame{
 		
 	}
 	public static void main(String[] args) {
+		
 		List<Post> posts = new ArrayList<Post>();
 		Post p1 = new Post("aaa", "bbb", "ccc");
 		Post p2 = new Post("ddd", "eee", "fff");
@@ -183,6 +195,8 @@ public class VentanaListaPosts extends JFrame{
 		p2.setLikes(20);
 		posts.add(p1);
 		posts.add(p2);
-		new VentanaListaPosts(posts, posts);
+		new VentanaListaPosts(posts, posts, args[0], args[1]);
 	}
+	
+
 }

@@ -33,6 +33,17 @@ public class AppServer {
 		return pisos;
 	}
 	
+	@Path("/post")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Post> getPosts(){
+		List<Post> posts = new ArrayList<Post>();
+
+		posts = DAOFactory.getInstance().createPostDAO().getPosts();
+		
+		return posts;
+	}
+	
 	@Path("/1")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -73,18 +84,18 @@ public class AppServer {
 
 	 }
 	
-	@Path("/login")
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response buscarUsuario(String usuario, String password){
-	 	Usuario u = DAOFactory.getInstance().createUsuarioDAO().getUsuario(usuario);
-	 	if(u == null) {
-	 		return Response.status(Response.Status.NOT_FOUND).build();
-	 	}//else if(u.getPw1()) {
-	 	
-//	 	}
-	 	return Response.status(Response.Status.OK).build();
-	 }
+//	@Path("/login")
+//	@POST
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response buscarUsuario(String usuario, String password){
+//	 	Usuario u = DAOFactory.getInstance().createUsuarioDAO().getUsuario(usuario);
+//	 	if(u == null) {
+//	 		return Response.status(Response.Status.NOT_FOUND).build();
+//	 	}//else if(u.getPw1()) {
+//	 	
+////	 	}
+//	 	return Response.status(Response.Status.OK).build();
+//	 }
 
 
 	@Path("/resetPassword")

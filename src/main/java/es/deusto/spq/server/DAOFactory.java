@@ -26,5 +26,8 @@ public class DAOFactory{
 
         return new UsuarioDAO();
     }
-    
+    public PostDAO createPostDAO(){
+
+        return new PostDAO();
+    }
 }

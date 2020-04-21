@@ -24,7 +24,9 @@ import javax.ws.rs.core.GenericType;
 
 import es.deusto.spq.GUI.TextPrompt;
 import es.deusto.spq.GUI.VentanaListaPisos;
+import es.deusto.spq.GUI.VentanaListaPosts;
 import es.deusto.spq.data.Piso;
+import es.deusto.spq.data.Post;
 import es.deusto.spq.data.Usuario;
 import es.deusto.spq.server.*;
 import javax.swing.JTextArea;
@@ -45,11 +47,13 @@ public class Cliente {
 	private JTextField textFieldApellido;
 	private JTextField textFieldEmail;
 	private JPasswordField textFieldPassword;
+	private JButton btnNewButton;
 
     public Cliente(String hostname, String port) {    
 
 
         DAOFactory.getInstance().createPisoDAO().crearAlgunosDatos();
+        DAOFactory.getInstance().createPostDAO().crearPosts();
 
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
@@ -106,6 +110,21 @@ public class Cliente {
         textArea.setBounds(51, 2, 198, 32);
         panel.add(textArea);
         textArea.setEditable(false);
+        
+        btnNewButton = new JButton("Posts");
+        btnNewButton.setBounds(10, 225, 89, 23);
+        panel.add(btnNewButton);
+        
+        btnNewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				List<Post> posts = new ArrayList<Post>();
+            	posts = getPost();
+            	new VentanaListaPosts(posts, posts, hostname, port);
+				
+			}
+		});
         
         b.addActionListener(new ActionListener() {
 			
@@ -164,6 +183,17 @@ public class Cliente {
             JOptionPane.showMessageDialog(null, "ERROR");
             
 		}
+    }
+    
+	public List<Post> getPost(){
+        List<Post> posts = new ArrayList<Post>();
+        WebTarget pisosWebTarget = webTarget.path("pisos/post");
+        GenericType<List<Post>> genericType = new GenericType<List<Post>>(){}; 
+        posts = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+        for (Post p : posts){
+            System.out.println(p);
+        }
+        return posts;
     }
 
     public static void main(String[] args) {
