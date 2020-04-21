@@ -27,6 +27,7 @@ public class Controller {
         String hostname;
         String port;
         Properties props = new Properties();
+        
         try {
             props.load(Controller.class.getClassLoader().getResourceAsStream("server.properties"));
             hostname = props.getProperty("server.hostname");
@@ -43,6 +44,7 @@ public class Controller {
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
 
     }
+    
     public static Controller getInstance(){
         if(instance == null){
             instance = new Controller();
@@ -57,6 +59,7 @@ public class Controller {
          Entity<Post> entity = Entity.entity(post, MediaType.APPLICATION_JSON);
          Response response = publicarTarget.request().post(entity);
          return response;
+         
     }
 
     public Response resetPassword(String user, String newPassword){

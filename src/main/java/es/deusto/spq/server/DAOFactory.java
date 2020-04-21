@@ -10,7 +10,7 @@ public class DAOFactory{
     public static DAOFactory getInstance(){
         return instance;
     }
-
+// Revisar este metodo crear instancia
     public PisoDAO createPisoDAO(){
 
         return new PisoDAO();
