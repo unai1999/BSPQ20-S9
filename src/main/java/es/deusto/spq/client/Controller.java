@@ -10,6 +10,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 import es.deusto.spq.data.Usuario;
 
@@ -73,5 +74,12 @@ public class Controller {
          Entity<Usuario> entity = Entity.entity(usuario, MediaType.APPLICATION_JSON);
          Response response = publicarTarget.request().post(entity);
          return response;
+    }
+    
+    public Response guardarNuevoPiso(Piso piso) {
+    	WebTarget publicarTarget = webTarget.path("pisos/newPiso");
+    	Entity<Piso> entity = Entity.entity(piso, MediaType.APPLICATION_JSON);
+    	Response response = publicarTarget.request().post(entity);
+    	return response;
     }
 }

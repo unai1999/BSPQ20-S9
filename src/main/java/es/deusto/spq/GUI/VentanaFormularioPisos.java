@@ -9,10 +9,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
+import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.server.DAOFactory;
 
@@ -145,7 +149,12 @@ public class VentanaFormularioPisos {
 					String idS = tfNumHuespedes.getText() + tfNumHabs.getText() + tfCoste.getText();
 					int id = Integer.parseInt(idS);
 					pisoNuevo.setId(id);
-					DAOFactory.getInstance().createPisoDAO().guardar(pisoNuevo);
+					Response response = Controller.getInstance().guardarNuevoPiso(pisoNuevo);
+					if (response.getStatus() == Status.OK.getStatusCode()) {
+						JOptionPane.showMessageDialog(null, "Piso guardado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+					} else {
+						JOptionPane.showMessageDialog(null, "ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
+					}
 				}
 			}
 		});
