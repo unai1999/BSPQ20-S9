@@ -103,7 +103,7 @@ public class VentanaInfoUsuario extends JFrame {
 		textFieldNick.setEditable(false);
 		textFieldNick.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		
-		textFieldPass = new JTextField(u1.getPw());
+		textFieldPass = new JTextField(u1.getPw1());
 		textFieldPass.setBounds(169, 270, 250, 23);
 		getContentPane().add(textFieldPass);
 		textFieldPass.setColumns(10);
