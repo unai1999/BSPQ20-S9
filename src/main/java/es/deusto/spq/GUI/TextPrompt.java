@@ -65,10 +65,10 @@ public class TextPrompt extends JLabel
 	 *
 	 *  @param alpha value in the range of 0 - 1.0.
 	 */
-	public void changeAlpha(float alpha)
-	{
-		changeAlpha( (int)(alpha * 255) );
-	}
+//	public void changeAlpha(float alpha)
+//	{
+//		changeAlpha( (int)(alpha * 255) );
+//	}
 
 	/**
 	 *  Convenience method to change the alpha value of the current foreground
@@ -76,18 +76,18 @@ public class TextPrompt extends JLabel
 	 *
 	 *  @param alpha value in the range of 0 - 255.
 	 */
-	public void changeAlpha(int alpha)
-	{
-		alpha = alpha > 255 ? 255 : alpha < 0 ? 0 : alpha;
-
-		Color foreground = getForeground();
-		int red = foreground.getRed();
-		int green = foreground.getGreen();
-		int blue = foreground.getBlue();
-
-		Color withAlpha = new Color(red, green, blue, alpha);
-		super.setForeground( withAlpha );
-	}
+//	public void changeAlpha(int alpha)
+//	{
+//		alpha = alpha > 255 ? 255 : alpha < 0 ? 0 : alpha;
+//
+//		Color foreground = getForeground();
+//		int red = foreground.getRed();
+//		int green = foreground.getGreen();
+//		int blue = foreground.getBlue();
+//
+//		Color withAlpha = new Color(red, green, blue, alpha);
+//		super.setForeground( withAlpha );
+//	}
 
 	/**
 	 *  Convenience method to change the style of the current Font. The style
@@ -96,20 +96,20 @@ public class TextPrompt extends JLabel
 	 *
 	 *  @param style value representing the the new style of the Font.
 	 */
-	public void changeStyle(int style)
-	{
-		setFont( getFont().deriveFont( style ) );
-	}
+//	public void changeStyle(int style)
+//	{
+//		setFont( getFont().deriveFont( style ) );
+//	}
 
 	/**
 	 *  Get the Show property
 	 *
 	 *  @return the Show property.
 	 */
-	public Show getShow()
-	{
-		return show;
-	}
+//	public Show getShow()
+//	{
+//		return show;
+//	}
 
 	/**
 	 *  Set the prompt Show property to control when the promt is shown.
@@ -133,10 +133,10 @@ public class TextPrompt extends JLabel
 	 *
 	 *  @return the showPromptOnce property.
 	 */
-	public boolean getShowPromptOnce()
-	{
-		return showPromptOnce;
-	}
+//	public boolean getShowPromptOnce()
+//	{
+//		return showPromptOnce;
+//	}
 
 	/**
 	 *  Show the prompt once. Once the component has gained/lost focus
@@ -145,10 +145,10 @@ public class TextPrompt extends JLabel
 	 *  @param showPromptOnce  when true the prompt will only be shown once,
 	 *                         otherwise it will be shown repeatedly.
 	 */
-	public void setShowPromptOnce(boolean showPromptOnce)
-	{
-		this.showPromptOnce = showPromptOnce;
-	}
+//	public void setShowPromptOnce(boolean showPromptOnce)
+//	{
+//		this.showPromptOnce = showPromptOnce;
+//	}
 
 	/**
 	 *	Check whether the prompt should be visible or not. The visibility

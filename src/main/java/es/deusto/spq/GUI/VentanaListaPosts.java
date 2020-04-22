@@ -71,8 +71,7 @@ public class VentanaListaPosts extends JFrame{
 			for(int i = 1; i < posts2.size(); i++) {
 				textoPost.append("Titulo: " + posts2.get(i).getTitulo().toUpperCase() + "\n" + "Descripción: " + posts2.get(i).getContenido() +"\n" + "Autor: " + posts2.get(i).getAutor() + "\n" + "Likes: " + posts2.get(i).getLikes() +"\n\n");
 			}
-		}else if (posts2.size() == 0) {
-			System.out.println("aa");
+		}else {
         	scroll.setVisible(false);
         	panelListaPost.setVisible(false);
         	JLabel labelNoPost = new JLabel("No se encontró ningun post.");

@@ -53,11 +53,11 @@ public class MetodosGUITest {
 		
 	}
 	//Test Funcional: saca un popup cuando se ejecuta en terminal
-//	@Test
-//	public void validarEmailTest() {
-//		assertTrue(mGUI.validarEmail("enekovalero@gmail.com"));
-//		assertFalse(mGUI.validarEmail("eneko"));
-//	}
+	@Test
+	public void validarEmailTest() {
+		assertTrue(mGUI.validarEmail("enekovalero@gmail.com"));
+		assertFalse(mGUI.validarEmail("eneko"));
+	}
 	//Test Funcional: saca un popup cuando se ejecuta en terminal
 //	@Test
 //	public void mensajeErrorTest() {
