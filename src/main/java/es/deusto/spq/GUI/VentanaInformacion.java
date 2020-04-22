@@ -16,10 +16,6 @@ import java.util.List;
 import javax.swing.border.LineBorder;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
-
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 
@@ -38,7 +34,7 @@ public class VentanaInformacion {
 	private JScrollPane scroll;
 	private final static String LINEA_NUEVA = "\n";
 	private Client client;
-	private WebTarget webTarget;
+	private MetodosGUI m = new MetodosGUI();
 
 	
 	public VentanaInformacion(Piso piso, Usuario user, String hostname, String port) {
@@ -53,7 +49,6 @@ public class VentanaInformacion {
 	private void initialize(Piso piso, Usuario usuario, String hostname, String port) {
 		
 		client = ClientBuilder.newClient();
-        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
     	
 		jFInfo = new JFrame();
 		jFInfo.setTitle("Información");
@@ -264,7 +259,7 @@ public class VentanaInformacion {
 				List<Piso> pisos = new ArrayList<Piso>();
 				jFInfo.dispose();
 				
-				pisos = getPisos();
+				pisos = m.getPisos(client.target(String.format("http://%s:%s/rest", hostname, port)));
 				new VentanaListaPisos(pisos, pisos, hostname, port, usuario);
 				
 			}
@@ -296,14 +291,4 @@ public class VentanaInformacion {
 		
 	}
    
-	public List<Piso> getPisos(){
-        List<Piso> pisos = new ArrayList<Piso>();
-        WebTarget pisosWebTarget = webTarget.path("pisos");
-        GenericType<List<Piso>> genericType = new GenericType<List<Piso>>(){}; 
-        pisos = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
-        for (Piso p : pisos){
-            System.out.println(p);
-        }
-        return pisos;
-    }
 }

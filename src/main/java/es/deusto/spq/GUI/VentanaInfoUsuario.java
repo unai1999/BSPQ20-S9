@@ -28,12 +28,11 @@ public class VentanaInfoUsuario extends JFrame {
 	private JTextField textFieldEmail;
 	private JTextField textFieldNick;
 	private JTextField textFieldPass;
-	private WebTarget webTarget;
+	private MetodosGUI m = new MetodosGUI();
 
 	public VentanaInfoUsuario(String hostname, String port, Usuario u1) {
 		
 		Client client = ClientBuilder.newClient();
-        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
         
 		setSize(480, 400);
 		setTitle("Perfil de usuario");
@@ -154,7 +153,7 @@ public class VentanaInfoUsuario extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				List<Piso> pisos = new ArrayList<Piso>();
-				pisos = getPisos();
+				pisos = m.getPisos(client.target(String.format("http://%s:%s/rest", hostname, port)));
 				dispose();
 				new VentanaListaPisos(pisos, pisos, hostname, port, u1);
 				
@@ -163,14 +162,4 @@ public class VentanaInfoUsuario extends JFrame {
 	        
 	}
 	
-	public List<Piso> getPisos(){
-        List<Piso> pisos = new ArrayList<Piso>();
-        WebTarget pisosWebTarget = webTarget.path("pisos");
-        GenericType<List<Piso>> genericType = new GenericType<List<Piso>>(){}; 
-        pisos = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
-        for (Piso p : pisos){
-            System.out.println(p);
-        }
-        return pisos;
-    }
 }

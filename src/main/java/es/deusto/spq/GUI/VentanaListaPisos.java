@@ -1,8 +1,6 @@
 package es.deusto.spq.GUI;
 
 
-
-
 import java.util.List;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -18,14 +16,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.text.BadLocationException;
+
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 import es.deusto.spq.GUI.TextPrompt;
-import java.util.ArrayList;
 import javax.swing.JLabel;
-
-
 
 
 public class VentanaListaPisos extends JFrame {
@@ -35,9 +31,11 @@ public class VentanaListaPisos extends JFrame {
     
     private JTextField textBuscarPiso;
 	private JScrollPane scroll;
+	private MetodosGUI m = new MetodosGUI();
 	
 	public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2, String hostname, String port, Usuario u1) {
     	
+		
         setSize(620, 480);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -102,59 +100,39 @@ public class VentanaListaPisos extends JFrame {
 			@Override
        	    public void mousePressed(MouseEvent e) {
 			if(e.getClickCount() == 2) {
-          	 try {
-					int line = textoPisos.getLineOfOffset( textoPisos.getCaretPosition() );
+				try {
+					int line = textoPisos.getLineOfOffset( textoPisos.getCaretPosition());
 					int start = textoPisos.getLineStartOffset( line );
 					int end = textoPisos.getLineEndOffset( line );
 					String text = textoPisos.getDocument().getText(start, end - start);
+					
 					if(text.contains("piso")) {
-						String[] partes = text.split(":");
-						String nombre = partes[1];
-						nombre = nombre.toLowerCase();
-						nombre = nombre.replaceAll("\n", "");
-						for(int i = 0; i < pisos.size(); i++) {
-							if(nombre.contentEquals(pisos.get(i).getNombre().toLowerCase())) {
-								System.out.println(pisos.get(i));
-								new VentanaInformacion(pisos.get(i), u1, hostname, port);
-								dispose();
-							}
-						}
+						dispose();
+						new VentanaInformacion(m.obtenerPiso(text, pisos), u1, hostname, port);
 						
 					}else if(text.contains("Precio")) {
 						line = line - 1;
 						start = textoPisos.getLineStartOffset( line );
 						end = textoPisos.getLineEndOffset( line );
 						text = textoPisos.getDocument().getText(start, end - start);
-						String[] partes = text.split(":");
-						String nombre = partes[1];
-						nombre = nombre.toLowerCase();
-						nombre = nombre.replaceAll("\n", "");
-						for(int i = 0; i < pisos.size(); i++) {
-							if(nombre.contentEquals(pisos.get(i).getNombre().toLowerCase())) {
-								new VentanaInformacion(pisos.get(i), u1, hostname, port);
-								 dispose();
-							}
-						}
+						dispose();
+						new VentanaInformacion(m.obtenerPiso(text, pisos), u1, hostname, port);
 					}else if(text.contains("Valora")) {
-						line = line - 2; 
+						line = line - 2;
 						start = textoPisos.getLineStartOffset( line );
 						end = textoPisos.getLineEndOffset( line );
 						text = textoPisos.getDocument().getText(start, end - start);
-						String[] partes = text.split(":");
-						String nombre = partes[1];
-						nombre = nombre.toLowerCase();
-						nombre = nombre.replaceAll("\n", "");
-						for(int i = 0; i < pisos.size(); i++) {
-							if(nombre.contentEquals(pisos.get(i).getNombre().toLowerCase())) {
-								new VentanaInformacion(pisos.get(i), u1, hostname, port);
-								 dispose();
-							}
-						}
-						
+						dispose();
+						new VentanaInformacion(m.obtenerPiso(text, pisos), u1, hostname, port);
 					}
 				} catch (BadLocationException e1) {
-					
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
+				
+				
+				;
+				
        	    }
 			}
 			});
@@ -176,15 +154,8 @@ public class VentanaListaPisos extends JFrame {
         });
         btnBuscar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		String cuidad = textBuscarPiso.getText();
-        		ArrayList<Piso> pisosBuscados = new ArrayList<Piso>();
-        		for(int i = 0 ; i < pisos.size(); i++) {
-        			if(pisos.get(i).getLocalizacion().equals(cuidad)) {
-        				pisosBuscados.add(new Piso(pisos.get(i)));
-        			}
-        		}
         		dispose();
-        		new VentanaListaPisos(pisos, pisosBuscados, hostname, port, u1);
+        		new VentanaListaPisos(pisos, m.buscarPisos(textBuscarPiso, pisos), hostname, port, u1);
         		
         	}
         });
@@ -209,5 +180,6 @@ public class VentanaListaPisos extends JFrame {
         setVisible(true);
         
     }
+	
   
 }
