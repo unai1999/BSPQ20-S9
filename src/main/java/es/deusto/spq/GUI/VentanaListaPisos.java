@@ -1,6 +1,7 @@
 package es.deusto.spq.GUI;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -16,9 +17,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.text.BadLocationException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.data.Piso;
+import es.deusto.spq.data.Post;
 import es.deusto.spq.data.Usuario;
 import es.deusto.spq.GUI.TextPrompt;
 import javax.swing.JLabel;
@@ -32,9 +36,11 @@ public class VentanaListaPisos extends JFrame {
     private JTextField textBuscarPiso;
 	private JScrollPane scroll;
 	private MetodosGUI m = new MetodosGUI();
+	private Client client;
 	
 	public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2, String hostname, String port, Usuario u1) {
     	
+		client = ClientBuilder.newClient();
 		
         setSize(620, 480);
         setLocationRelativeTo(null);
@@ -69,7 +75,7 @@ public class VentanaListaPisos extends JFrame {
 		getContentPane().add(botonInicio);
         
         JPanel panelListaPisos= new JPanel();
-        panelListaPisos.setBounds(10, 46, 594, 350);
+        panelListaPisos.setBounds(10, 46, 594, 330);
         getContentPane().add(panelListaPisos);
         JTextArea textoPisos = new JTextArea();
         textoPisos.setColumns(50);
@@ -81,6 +87,10 @@ public class VentanaListaPisos extends JFrame {
         scroll = new JScrollPane(textoPisos);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		panelListaPisos.add(scroll);
+		
+		JButton botonListaPosts = new JButton("Lista posts");
+		botonListaPosts.setBounds(259, 390, 140, 23);
+		getContentPane().add(botonListaPosts);
 		
         
         if(pisos2.size() > 0) {
@@ -137,7 +147,17 @@ public class VentanaListaPisos extends JFrame {
 			}
 			});
         
-        
+        botonListaPosts.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				List<Post> posts = new ArrayList<Post>();
+				posts = m.getPost(client.target(String.format("http://%s:%s/rest", hostname, port)));
+				new VentanaListaPosts(posts, posts, hostname, port);
+				
+			}
+		});
         labelFotoUsuario.addMouseListener (new MouseAdapter() {
         	 @Override
         	    public void mousePressed(MouseEvent e) {
@@ -180,6 +200,4 @@ public class VentanaListaPisos extends JFrame {
         setVisible(true);
         
     }
-	
-  
 }

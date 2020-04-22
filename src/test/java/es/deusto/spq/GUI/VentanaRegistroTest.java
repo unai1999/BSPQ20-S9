@@ -8,7 +8,7 @@ public class VentanaRegistroTest {
 	
 	@Test
 	public void comprobarVentana() {
-		VentanaRegistro v1 = new VentanaRegistro();
+		VentanaRegistro v1 = new VentanaRegistro("", "");
 		assertTrue(v1 != null);
 	}
 

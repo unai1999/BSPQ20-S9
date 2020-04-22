@@ -246,7 +246,7 @@
 						<version>1.2.1</version>
 						<configuration>
 							<!-- <mainClass>es.deusto.spq.GUI.FormularioForo</mainClass> -->
-							<mainClass>es.deusto.spq.client.Cliente</mainClass>
+							<mainClass>es.deusto.spq.GUI.VentanaLogin</mainClass>
 							<arguments>
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
