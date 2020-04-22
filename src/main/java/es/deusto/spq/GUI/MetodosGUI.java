@@ -24,7 +24,8 @@ public class MetodosGUI {
 		}
 	}
 	public boolean validarUsuario(String usuario){
-		  if (usuario.equals("") && usuario.length() >= 5 ) {
+		
+		 if (usuario.equals("") || usuario.length() <= 5 ){
 			  return false;
 		  }else {
 			  return true;
@@ -62,7 +63,7 @@ public class MetodosGUI {
 		return false;
 	}
 	
-	public boolean comprobarVacio(JTextField tf) { //Falta por comprobar
+	public boolean comprobarVacio(JTextField tf) { 
 		if(tf.getText().equals("")) {
 			return mensajeError(tf, "Debes rellenar todos los campos");
 		} else {
