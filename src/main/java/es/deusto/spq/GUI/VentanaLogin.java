@@ -1,20 +1,23 @@
 package es.deusto.spq.GUI;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
-import es.deusto.spq.GUI.MetodosGUI;
-import es.deusto.spq.server.SendEmail;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
+import es.deusto.spq.client.Controller;
+import es.deusto.spq.server.SendEmail;
 
 public class VentanaLogin {
 
@@ -142,13 +145,26 @@ public class VentanaLogin {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				MetodosGUI mGUI = new MetodosGUI();
-				if(mGUI.validarUsuario(tFLogin.getText())) {
-					mGUI.mensajeError(tFLogin, "Introduce un usuario valido");
-				}
+				
 				String password1 = new String(tFCont.getPassword());
-				if(!mGUI.validarContrasenya(password1)){
-					mGUI.mensajeError(tFCont, "Introduce una contraseña valida (8 o más caracteres)");
+				// if(mGUI.validarUsuario(tFLogin.getText())) {
+				// 	mGUI.mensajeError(tFLogin, "Introduce un usuario valido");
+				// }
+				// String password1 = new String(tFCont.getPassword());
+				// if(!mGUI.validarContrasenya(password1)){
+				// 	mGUI.mensajeError(tFCont, "Introduce una contraseña valida (8 o más caracteres)");
+				if(false){
+				}else{
+					Response r = Controller.getInstance().login(tFLogin.getText(), password1);
+					System.out.println(r);
+					if(r.getStatus() == Status.OK.getStatusCode()){
+						JOptionPane.showMessageDialog(null, "Login", "Successful", JOptionPane.INFORMATION_MESSAGE);
+					}else{
+						JOptionPane.showMessageDialog(null, "Login", "Error", JOptionPane.ERROR_MESSAGE);
+					}
 				}
+
+				
 				
 			}
 		});

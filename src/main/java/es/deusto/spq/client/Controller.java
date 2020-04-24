@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 import es.deusto.spq.data.Usuario;
+import es.deusto.spq.data.dto.UsuarioLogin;
 
 public class Controller {
 
@@ -58,19 +59,22 @@ public class Controller {
          Post post = new Post(titulo, autor, contenido);
          Entity<Post> entity = Entity.entity(post, MediaType.APPLICATION_JSON);
          Response response = publicarTarget.request().post(entity);
+         
          return response;
          
     }
 
-    public Response resetPassword(String user, String newPassword){
-         WebTarget publicarTarget = webTarget.path("pisos/resetPassword");
-         Entity<String> entity = Entity.entity(newPassword, MediaType.APPLICATION_JSON);
-         Response response = publicarTarget.request().put(entity);
+    public Response resetPassword(String nick, String newPassword){
+         WebTarget resetTrget = webTarget.path("pisos/reset");
+         UsuarioLogin ul = new UsuarioLogin(nick, newPassword);
+         System.out.println(ul);
+         Entity<UsuarioLogin> entity = Entity.entity(ul, MediaType.APPLICATION_JSON);
+         Response response = resetTrget.request().post(entity);
          return response;
     }
     
     public Response registrarUsuario(Usuario usuario) {
-    	 WebTarget publicarTarget = webTarget.path("pisos/foro/submit");
+    	 WebTarget publicarTarget = webTarget.path("pisos/registrar");
          Entity<Usuario> entity = Entity.entity(usuario, MediaType.APPLICATION_JSON);
          Response response = publicarTarget.request().post(entity);
          return response;
@@ -81,5 +85,15 @@ public class Controller {
     	Entity<Piso> entity = Entity.entity(piso, MediaType.APPLICATION_JSON);
     	Response response = publicarTarget.request().post(entity);
     	return response;
+    }
+
+    public Response login(String u, String p){
+        WebTarget loginTarget = webTarget.path("pisos/login");
+        UsuarioLogin ul = new UsuarioLogin(u, p);
+        System.out.println(ul);
+        Entity<UsuarioLogin> entity = Entity.entity(ul, MediaType.APPLICATION_JSON);
+        Response response = loginTarget.request().post(entity);
+         
+        return response;
     }
 }

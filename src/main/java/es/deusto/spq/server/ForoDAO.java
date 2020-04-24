@@ -1,9 +1,6 @@
 package es.deusto.spq.server;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.jdo.Extent;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;

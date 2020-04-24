@@ -20,10 +20,7 @@ import javax.swing.text.BadLocationException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
 
-import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 
 public class VentanaListaPosts extends JFrame{

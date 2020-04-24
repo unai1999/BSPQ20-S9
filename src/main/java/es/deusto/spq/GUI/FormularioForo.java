@@ -1,17 +1,12 @@
 package es.deusto.spq.GUI;
 
 import javax.swing.*;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
+
 import javax.ws.rs.core.Response;
 
 import javax.ws.rs.core.Response.Status;
 
 import es.deusto.spq.client.Controller;
-import es.deusto.spq.data.Post;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,7 +25,7 @@ public class FormularioForo extends JFrame {
     JTextArea tContenido;
     JButton bEnviar;
 
-    public FormularioForo(final String hostname, final String port) {
+    public FormularioForo() {
 
 
         panel = new JPanel(new FlowLayout());
@@ -50,7 +45,6 @@ public class FormularioForo extends JFrame {
 
         bEnviar.addActionListener(new ActionListener() {
 			
-			@SuppressWarnings("deprecation")
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
@@ -89,13 +83,12 @@ public class FormularioForo extends JFrame {
 
     }
 
-    public static void main(final String[] args) {
-        final String hostname = args[0];
-        final String port = args[1];
+    public static void main(String[] args) {
+        
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-               new FormularioForo(hostname,port);
+               new FormularioForo();
             }
         });
     }

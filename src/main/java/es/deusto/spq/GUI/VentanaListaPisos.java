@@ -21,7 +21,6 @@ import javax.swing.text.BadLocationException;
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
-import es.deusto.spq.GUI.TextPrompt;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 

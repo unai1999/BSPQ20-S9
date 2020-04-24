@@ -5,14 +5,14 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import es.deusto.spq.data.*;
-import es.deusto.spq.server.*;
+import es.deusto.spq.data.dto.UsuarioLogin;
+import es.deusto.spq.server.DAOFactory;
 
 
 @Path("/pisos")
@@ -82,32 +82,37 @@ public class AppServer {
 	 	DAOFactory.getInstance().createUsuarioDAO().guardar(usuario);
 	 	return Response.status(Response.Status.OK).build();
 
-	 }
-	
-//	@Path("/login")
-//	@POST
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	public Response buscarUsuario(String usuario, String password){
-//	 	Usuario u = DAOFactory.getInstance().createUsuarioDAO().getUsuario(usuario);
-//	 	if(u == null) {
-//	 		return Response.status(Response.Status.NOT_FOUND).build();
-//	 	}//else if(u.getPw1()) {
-//	 	
-////	 	}
-//	 	return Response.status(Response.Status.OK).build();
-//	 }
+	}
 
-
-	@Path("/resetPassword")
+	@Path("/reset")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	//@Produces(MediaType.APPLICATION_JSON)
-	public Response actualizarPassword(final String password){
-	//TODO actualizar en la base de datos
-	return Response.status(Response.Status.OK).build();
+	@Produces(MediaType.TEXT_PLAIN)
+	public Response actualizarPassword(UsuarioLogin ul){
 
-
-
+		DAOFactory.getInstance().createUsuarioDAO().actualizarPassword(ul.getNick(), ul.getPassword());		
+		return Response.status(Response.Status.OK).build();
 	}
+
+	@Path("/login")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response login(UsuarioLogin ul){
+		Usuario u = DAOFactory.getInstance().createUsuarioDAO().getUsuario(ul.getNick());
+
+	 	if(u == null) {
+	 		return Response.status(Response.Status.NOT_FOUND).build();
+	 	}else if(!u.getPw1().equals(ul.getPassword())) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+	 	}else{
+			return Response.status(Response.Status.OK).build();
+		 	}
+		
+		
+			 
+	 }
+
+
+	
 
 }

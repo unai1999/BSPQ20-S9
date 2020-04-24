@@ -6,6 +6,12 @@ import javax.swing.JTextField;
 
 public class MetodosGUI {
 
+	enum Resp {
+        MISSMATCH,
+        LENGTH,
+        VALID
+    }
+
 	public boolean validarNombre(String nombre) {
 		if(nombre.equals("")) {
 			return false;
@@ -59,4 +65,20 @@ public class MetodosGUI {
 			return true;
 		}
 	}
+
+	public static Resp validate(String p1, String p2){
+
+        Resp r = Resp.VALID;
+        if (p1.equals(p2)) {
+            if(p1.length() < 4){
+                r = Resp.LENGTH;
+                return r;
+            }else{
+                return r;
+            }           
+        } else {
+            r = Resp.MISSMATCH;
+            return r;
+        }
+    }
 }

@@ -4,14 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.when;
 
 import javax.ws.rs.client.Client;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
+
 import javax.ws.rs.client.WebTarget;
 
 import junit.framework.JUnit4TestAdapter;

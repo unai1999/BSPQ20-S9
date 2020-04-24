@@ -37,8 +37,48 @@ public class UsuarioDAO {
 				if (tx != null && tx.isActive()) {
 		    		tx.rollback();
 		    	}
-	    	return usuario;
 			}
+			return usuario;
+		}
+
+		public Usuario getUsuarioFromEmail(String email) {
+	    	Usuario usuario = null;
+	    	Transaction tx = pm.currentTransaction();
+	    	try {
+				tx.begin();
+				Extent<Usuario> extent = pm.getExtent(Usuario.class, true);
+				for (Usuario u : extent) {
+					if (u.getEmail().equals(email)){
+						usuario = u;
+						break;
+					}
+				}
+				tx.commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if (tx != null && tx.isActive()) {
+		    		tx.rollback();
+		    	}
+			}
+			return usuario;
+		}
+		
+		public Usuario getUsuarioFromId(String nick) {
+	    	Usuario usuario = null;
+	    	Transaction tx = pm.currentTransaction();
+	    	try {
+				tx.begin();
+				usuario = pm.getObjectById(Usuario.class, nick);
+				tx.commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if (tx != null && tx.isActive()) {
+		    		tx.rollback();
+		    	}
+			}
+			return usuario;
 	    }
 	    
 	    public void guardar(Object o) {
@@ -55,5 +95,26 @@ public class UsuarioDAO {
 					tx.rollback();
 				}
 			}
-	    }
+		}
+		
+		public void actualizarPassword(String email, String newPassword){
+
+			Usuario u = getUsuarioFromEmail(email);
+			System.out.println("----------DAO--------");
+			Transaction tx = pm.currentTransaction();
+	    	try {
+				tx.begin();
+				System.out.println("  * Guardando un objeto: " + u);
+				u.setPw1(newPassword);
+				pm.makePersistent(u);
+				tx.commit();
+			} catch (Exception e) {
+				System.out.println("  $ Error guardando un objeto: " + e.getMessage());
+			} finally {
+				if (tx != null && tx.isActive()) {
+					tx.rollback();
+				}
+			}
+
+		}
 }

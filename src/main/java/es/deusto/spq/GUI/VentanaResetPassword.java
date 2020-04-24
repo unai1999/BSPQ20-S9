@@ -11,22 +11,24 @@ import es.deusto.spq.client.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 public class VentanaResetPassword extends JFrame implements ActionListener {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     JPanel panel;
     JLabel passwprd_label1, password_label2, message;
    
     JPasswordField password1_text, password2_text;
     JButton submit, cancel;
 
-    enum Resp {
-        MISSMATCH,
-        LENGTH,
-        VALID
-    }
+    // enum Resp {
+    //     MISSMATCH,
+    //     LENGTH,
+    //     VALID
+    // }
 
     VentanaResetPassword() {
         
@@ -75,7 +77,7 @@ public class VentanaResetPassword extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         String password1 = new String(password1_text.getPassword());
         String password2 = new String(password2_text.getPassword());
-        Resp r = validate(password1, password2);
+        MetodosGUI.Resp r = MetodosGUI.validate(password1, password2);
         message.setOpaque(true);
         switch(r) {
             case MISSMATCH:
@@ -90,8 +92,9 @@ public class VentanaResetPassword extends JFrame implements ActionListener {
             case VALID:
             message.setText("Password reset :)");
             message.setForeground(Color.GREEN);
-            Response response = Controller.getInstance().resetPassword("user", password1);
+            Response response = Controller.getInstance().resetPassword("e@e.es", password1);
             this.dispose();
+
             if(response.getStatus() == Status.OK.getStatusCode()){
                 JOptionPane.showMessageDialog(null, "Password Reset", "Congratulations!", JOptionPane.INFORMATION_MESSAGE);
             }else{
@@ -103,20 +106,20 @@ public class VentanaResetPassword extends JFrame implements ActionListener {
         
     }
 
-    public Resp validate(String p1, String p2){
+    // public Resp validate(String p1, String p2){
 
-        Resp r = Resp.VALID;
-        if (p1.equals(p2)) {
-            if(p1.length() < 4){
-                r = Resp.LENGTH;
-                return r;
-            }else{
-                return r;
-            }           
-        } else {
-            r = Resp.MISSMATCH;
-            return r;
-        }
-    }
+    //     Resp r = Resp.VALID;
+    //     if (p1.equals(p2)) {
+    //         if(p1.length() < 4){
+    //             r = Resp.LENGTH;
+    //             return r;
+    //         }else{
+    //             return r;
+    //         }           
+    //     } else {
+    //         r = Resp.MISSMATCH;
+    //         return r;
+    //     }
+    // }
 
 }

@@ -9,13 +9,11 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.regex.Pattern;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.swing.JTextField;
-import es.deusto.spq.GUI.*;
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Usuario;
 import javax.swing.JPasswordField;
@@ -153,7 +151,7 @@ public class VentanaRegistro {
 				else if(!mGUI.validarNombre(tFApellido.getText())) {
 					mGUI.mensajeError(tFApellido, "Escribe un apellido");
 				}
-				else if(mGUI.validarUsuario(tFUs.getText())) {
+				else if(!mGUI.validarUsuario(tFUs.getText())) {
 					mGUI.mensajeError(tFUs, "Introduce un usuario (debe contener 5 o más caracteres)");
 				}
 				else if(!mGUI.validarContrasenya(password1)) {
