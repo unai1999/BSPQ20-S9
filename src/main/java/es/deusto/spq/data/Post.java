@@ -47,6 +47,9 @@ public class Post {
 		this.titulo = post.titulo;
 	}
 
+	public Post() {
+	}
+
 	public void addComentario(Comentario c){
         this.comentarios.add(c);
     }

@@ -41,8 +41,8 @@ public class VentanaComparar {
 	private JFrame jFComp;
 	private JScrollPane scroll;
 	private JTextArea tADesc1, tADesc2;
-	private WebTarget webTarget;
 	private  Client client;
+	private MetodosGUI m = new MetodosGUI();
 	
 
 
@@ -59,7 +59,6 @@ public class VentanaComparar {
 	 */
 	private void initialize(Piso piso1, Piso piso2, String hostname, String port, Usuario u1) {
 		client = ClientBuilder.newClient();
-        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
         
 		jFComp = new JFrame();
 		jFComp.setTitle("Comparación");
@@ -242,20 +241,10 @@ public class VentanaComparar {
 				List<Piso> pisos = new ArrayList<Piso>();
 				jFComp.dispose();
 				
-				pisos = getPisos();
+				pisos = m.getPisos(client.target(String.format("http://%s:%s/rest", hostname, port)));
 				new VentanaListaPisos(pisos, pisos, hostname, port, u1);
 			}
 		});
 	}
 	
-	public List<Piso> getPisos(){
-        List<Piso> pisos = new ArrayList<Piso>();
-        WebTarget pisosWebTarget = webTarget.path("pisos");
-        GenericType<List<Piso>> genericType = new GenericType<List<Piso>>(){}; 
-        pisos = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
-        for (Piso p : pisos){
-            System.out.println(p);
-        }
-        return pisos;
-    }
 }

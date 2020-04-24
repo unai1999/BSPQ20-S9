@@ -51,7 +51,6 @@ public class Usuario {
 	 * @param apellidos
 	 * @param email
 	 * @param pw1
-	 * @param pw2
 	 */
 	public Usuario(String nickname, String nombre, String apellidos, String email, String pw1) {
 		this.setNickname(nickname);
@@ -61,6 +60,10 @@ public class Usuario {
 		this.setPw1(pw1);
 	}
 
+	public Usuario(String nickname,String pw1) {
+		this.setNickname(nickname);
+		this.setPw1(pw1);
+	}
 
 	public String getNickname() {
 		return nickname;

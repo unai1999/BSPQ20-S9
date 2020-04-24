@@ -1,20 +1,20 @@
 package es.deusto.spq.GUI;
 
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 import javax.swing.JTextField;
-import es.deusto.spq.client.Controller;
+import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 import javax.swing.JPasswordField;
 
@@ -27,34 +27,39 @@ public class VentanaRegistro {
 	private JPasswordField tFPass2;
 	private JTextField tFNombre;
 	private JTextField tFApellido;
+	private Client client;
+	MetodosGUI mGUI = new MetodosGUI();
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaRegistro window = new VentanaRegistro();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VentanaRegistro window = new VentanaRegistro();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
-	public VentanaRegistro() {
-		initialize();
+	public VentanaRegistro(String hostname, String port) {
+		initialize(hostname, port);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String hostname, String port) {
+		
+		client = ClientBuilder.newClient();
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 500, 575);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -142,7 +147,6 @@ public class VentanaRegistro {
 		btnRegistrar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				MetodosGUI mGUI = new MetodosGUI();
 				String password1 = new String(tFPass1.getPassword());
 				String password2 = new String(tFPass2.getPassword());
 				if(!mGUI.validarNombre(tFNombre.getText())) {
@@ -164,19 +168,19 @@ public class VentanaRegistro {
 					mGUI.mensajeError(tFEmail, "Escribe un Email valido");
 				}else {
 					Usuario usuario = new Usuario(tFUs.getText(), tFNombre.getText(), tFApellido.getText(), tFEmail.getText(), password1);
-					Response response = Controller.getInstance().registrarUsuario(usuario);
-				        if (response.getStatus() == Status.OK.getStatusCode()) {
-				            JOptionPane.showMessageDialog(null, "Usuario creado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-				        } else {
-				            JOptionPane.showMessageDialog(null, "ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
-				        }
+					List<Piso> pisos = new ArrayList<Piso>();
+					pisos = mGUI.getPisos(client.target(String.format("http://%s:%s/rest", hostname, port)));
+					frame.dispose();
+					new VentanaListaPisos(pisos, pisos, hostname, port, usuario);
+//					Response response = Controller.getInstance().registrarUsuario(usuario);
+//				        if (response.getStatus() == Status.OK.getStatusCode()) {
+//				            JOptionPane.showMessageDialog(null, "Usuario creado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+//				        } else {
+//				            JOptionPane.showMessageDialog(null, "ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
+//				        }
 				}
 			}
 		});
-	}
-	
-	
-	public void setVisible(boolean b) {
 		frame.setVisible(true);
 	}
 }

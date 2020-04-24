@@ -1,8 +1,7 @@
 package es.deusto.spq.GUI;
 
 
-
-
+import java.util.ArrayList;
 import java.util.List;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -18,13 +17,14 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.text.BadLocationException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+
 import es.deusto.spq.client.Cliente;
 import es.deusto.spq.data.Piso;
+import es.deusto.spq.data.Post;
 import es.deusto.spq.data.Usuario;
-import java.util.ArrayList;
 import javax.swing.JLabel;
-
-
 
 
 public class VentanaListaPisos extends JFrame {
@@ -34,9 +34,13 @@ public class VentanaListaPisos extends JFrame {
     
     private JTextField textBuscarPiso;
 	private JScrollPane scroll;
+	private MetodosGUI m = new MetodosGUI();
+	private Client client;
 	
 	public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2, String hostname, String port, Usuario u1) {
     	
+		client = ClientBuilder.newClient();
+		
         setSize(620, 480);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -70,7 +74,7 @@ public class VentanaListaPisos extends JFrame {
 		getContentPane().add(botonInicio);
         
         JPanel panelListaPisos= new JPanel();
-        panelListaPisos.setBounds(10, 46, 594, 350);
+        panelListaPisos.setBounds(10, 46, 594, 330);
         getContentPane().add(panelListaPisos);
         JTextArea textoPisos = new JTextArea();
         textoPisos.setColumns(50);
@@ -82,6 +86,10 @@ public class VentanaListaPisos extends JFrame {
         scroll = new JScrollPane(textoPisos);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		panelListaPisos.add(scroll);
+		
+		JButton botonListaPosts = new JButton("Lista posts");
+		botonListaPosts.setBounds(259, 390, 140, 23);
+		getContentPane().add(botonListaPosts);
 		
         
         if(pisos2.size() > 0) {
@@ -101,64 +109,54 @@ public class VentanaListaPisos extends JFrame {
 			@Override
        	    public void mousePressed(MouseEvent e) {
 			if(e.getClickCount() == 2) {
-          	 try {
-					int line = textoPisos.getLineOfOffset( textoPisos.getCaretPosition() );
+				try {
+					int line = textoPisos.getLineOfOffset( textoPisos.getCaretPosition());
 					int start = textoPisos.getLineStartOffset( line );
 					int end = textoPisos.getLineEndOffset( line );
 					String text = textoPisos.getDocument().getText(start, end - start);
+					
 					if(text.contains("piso")) {
-						String[] partes = text.split(":");
-						String nombre = partes[1];
-						nombre = nombre.toLowerCase();
-						nombre = nombre.replaceAll("\n", "");
-						for(int i = 0; i < pisos.size(); i++) {
-							if(nombre.contentEquals(pisos.get(i).getNombre().toLowerCase())) {
-								System.out.println(pisos.get(i));
-								new VentanaInformacion(pisos.get(i), u1, hostname, port);
-								dispose();
-							}
-						}
+						dispose();
+						new VentanaInformacion(m.obtenerPiso(text, pisos), u1, hostname, port);
 						
 					}else if(text.contains("Precio")) {
 						line = line - 1;
 						start = textoPisos.getLineStartOffset( line );
 						end = textoPisos.getLineEndOffset( line );
 						text = textoPisos.getDocument().getText(start, end - start);
-						String[] partes = text.split(":");
-						String nombre = partes[1];
-						nombre = nombre.toLowerCase();
-						nombre = nombre.replaceAll("\n", "");
-						for(int i = 0; i < pisos.size(); i++) {
-							if(nombre.contentEquals(pisos.get(i).getNombre().toLowerCase())) {
-								new VentanaInformacion(pisos.get(i), u1, hostname, port);
-								 dispose();
-							}
-						}
+						dispose();
+						new VentanaInformacion(m.obtenerPiso(text, pisos), u1, hostname, port);
 					}else if(text.contains("Valora")) {
-						line = line - 2; 
+						line = line - 2;
 						start = textoPisos.getLineStartOffset( line );
 						end = textoPisos.getLineEndOffset( line );
 						text = textoPisos.getDocument().getText(start, end - start);
-						String[] partes = text.split(":");
-						String nombre = partes[1];
-						nombre = nombre.toLowerCase();
-						nombre = nombre.replaceAll("\n", "");
-						for(int i = 0; i < pisos.size(); i++) {
-							if(nombre.contentEquals(pisos.get(i).getNombre().toLowerCase())) {
-								new VentanaInformacion(pisos.get(i), u1, hostname, port);
-								 dispose();
-							}
-						}
-						
+						dispose();
+						new VentanaInformacion(m.obtenerPiso(text, pisos), u1, hostname, port);
 					}
 				} catch (BadLocationException e1) {
-					
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
+				
+				
+				;
+				
        	    }
 			}
 			});
         
-        
+        botonListaPosts.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				List<Post> posts = new ArrayList<Post>();
+				posts = m.getPost(client.target(String.format("http://%s:%s/rest", hostname, port)));
+				new VentanaListaPosts(posts, posts, hostname, port);
+				
+			}
+		});
         labelFotoUsuario.addMouseListener (new MouseAdapter() {
         	 @Override
         	    public void mousePressed(MouseEvent e) {
@@ -175,15 +173,8 @@ public class VentanaListaPisos extends JFrame {
         });
         btnBuscar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		String cuidad = textBuscarPiso.getText();
-        		ArrayList<Piso> pisosBuscados = new ArrayList<Piso>();
-        		for(int i = 0 ; i < pisos.size(); i++) {
-        			if(pisos.get(i).getLocalizacion().equals(cuidad)) {
-        				pisosBuscados.add(new Piso(pisos.get(i)));
-        			}
-        		}
         		dispose();
-        		new VentanaListaPisos(pisos, pisosBuscados, hostname, port, u1);
+        		new VentanaListaPisos(pisos, m.buscarPisos(textBuscarPiso, pisos), hostname, port, u1);
         		
         	}
         });
@@ -208,5 +199,4 @@ public class VentanaListaPisos extends JFrame {
         setVisible(true);
         
     }
-  
 }

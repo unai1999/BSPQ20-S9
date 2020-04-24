@@ -17,6 +17,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import es.deusto.spq.client.Controller;
+
+
+import es.deusto.spq.server.DAOFactory;
 import es.deusto.spq.server.SendEmail;
 
 public class VentanaLogin {
@@ -26,14 +29,18 @@ public class VentanaLogin {
 	private JPasswordField tFCont;
 	private JTextField tFCorreo;
 
+	MetodosGUI mGUI = new MetodosGUI();
+
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		String hostname = args[0];
+		String port = args[1];
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaLogin window = new VentanaLogin();
+					VentanaLogin window = new VentanaLogin(hostname, port);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,14 +52,20 @@ public class VentanaLogin {
 	/**
 	 * Create the application.
 	 */
-	public VentanaLogin() {
-		initialize();
+	public VentanaLogin(String hostname, String port) {
+		initialize(hostname, port);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String hostname, String port) {
+		
+		DAOFactory.getInstance().createPisoDAO().crearAlgunosDatos();
+        DAOFactory.getInstance().createPostDAO().crearPosts();
+
+        
+        
 		frame = new JFrame();
 		frame.setBounds(100, 100, 637, 456);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -134,8 +147,7 @@ public class VentanaLogin {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				VentanaRegistro vReg = new VentanaRegistro();
-				vReg.setVisible(true);
+				new VentanaRegistro(hostname, port);
 				
 			}
 		});
@@ -145,15 +157,14 @@ public class VentanaLogin {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				MetodosGUI mGUI = new MetodosGUI();
-				
 				String password1 = new String(tFCont.getPassword());
-				// if(mGUI.validarUsuario(tFLogin.getText())) {
-				// 	mGUI.mensajeError(tFLogin, "Introduce un usuario valido");
-				// }
-				// String password1 = new String(tFCont.getPassword());
-				// if(!mGUI.validarContrasenya(password1)){
-				// 	mGUI.mensajeError(tFCont, "Introduce una contraseña valida (8 o más caracteres)");
-				if(false){
+				if(mGUI.validarUsuario(tFLogin.getText())) {
+					mGUI.mensajeError(tFLogin, "Introduce un usuario valido");
+				}
+				
+				if(!mGUI.validarContrasenya(password1)){
+					mGUI.mensajeError(tFCont, "Introduce una contraseña valida (8 o más caracteres)");
+				
 				}else{
 					Response r = Controller.getInstance().login(tFLogin.getText(), password1);
 					System.out.println(r);
@@ -164,6 +175,16 @@ public class VentanaLogin {
 					}
 				}
 
+
+				//TODO los metodos que estan en metodosGUI son del controller
+				// if(mGUI.validarUsuario(tFLogin.getText()) && mGUI.validarContrasenya(password1)) {
+				// 	List<Piso> pisos = new ArrayList<Piso>();
+				// 	pisos = mGUI.getPisos(client.target(String.format("http://%s:%s/rest", hostname, port)));
+				// 	String password = new String(tFCont.getPassword());
+				// 	Usuario u1 = new Usuario(tFLogin.getText(), password);
+				// 	frame.dispose();
+				// 	new VentanaListaPisos(pisos, pisos, hostname, port, u1);
+				// }
 				
 				
 			}
