@@ -43,6 +43,8 @@ public class VentanaVerMensaje extends JFrame {
 		JLabel titulo = new JLabel();
 		titulo.setText(m.getTitulo());
         titulo.setBounds(23, 20, 200, 20);
+        
+        
         getContentPane().add(titulo);
 		
         

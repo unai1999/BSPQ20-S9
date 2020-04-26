@@ -1,6 +1,7 @@
 package es.deusto.spq.data.dto;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,6 +23,8 @@ public class PisoAssemblerTest {
 		
      @Before
      public void setUp() {
+    	 
+    	 piso = new Piso();
     	 piso.setCoste(50.0);   
     	 piso.setDesc("Piso bonito");
     	 piso.setLocalizacion("calle");
@@ -29,6 +32,7 @@ public class PisoAssemblerTest {
     	 piso.setNombre("Piso");
     	 piso.setNumeroInquilinos(3);
     	 piso.setValoracion(5);
+    	 
     	 as = new PisoAssembler();
      }
      
@@ -39,5 +43,7 @@ public class PisoAssemblerTest {
     	
     	assertEquals(pisoDTO.getNombre(), piso.getNombre()); 
     	 
+    	//assertFalse(piso.getCoste() == pisoDTO.getCoste());
+    	
      }
 }

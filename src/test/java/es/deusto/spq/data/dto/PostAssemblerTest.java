@@ -22,6 +22,7 @@ public class PostAssemblerTest {
 		
      @Before
      public void setUp() {
+    	 post = new Post();
     	 post.setContenido("Post 100");
     	 post.setFecha("12/02/2020");
     	 post.setLikes(1232);
