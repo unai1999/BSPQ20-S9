@@ -47,7 +47,7 @@ public class VentanaMensajes extends JFrame{
         
         
 		
-        lista.setBounds(0,  100, ancho, 480);    
+        lista.setBounds(0,  100, 620, 353);    
        
         mensajes =  user.getMensajes();
         

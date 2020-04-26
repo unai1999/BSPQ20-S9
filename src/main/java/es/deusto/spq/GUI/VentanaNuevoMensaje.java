@@ -34,24 +34,24 @@ public class VentanaNuevoMensaje extends JFrame {
 		
 		 
 		JLabel titulo = new JLabel();
-		titulo.setText("Titulo");
-        titulo.setBounds(23, 20, 200, 20);
+		titulo.setText("Titulo:");
+        titulo.setBounds(23, 20, 82, 20);
         getContentPane().add(titulo);
         
         
         JTextArea tAtitulo = new JTextArea("Introduce el titulo");
-        tAtitulo.setBounds(223, 20, 300 , 20);
+        tAtitulo.setBounds(129, 20, 300 , 20);
 	    getContentPane().add(tAtitulo);
 	    
 	    
 		JLabel cuerpo = new JLabel();
 	    cuerpo.setText("Mensaje");
-	    cuerpo.setBounds(23,  100, 200 , 20);
+	    cuerpo.setBounds(23,  119, 200 , 20);
 	    getContentPane().add(cuerpo);
 	    
 	   
 		JTextArea tCuerpo = new JTextArea("Introduce el mensaje");
-		tCuerpo.setBounds(10, 150, ancho-10, 200);
+		tCuerpo.setBounds(10, 150, 583, 200);
 		getContentPane().add(tCuerpo);
         
         JButton botonEnviar = new JButton("Enviar");
