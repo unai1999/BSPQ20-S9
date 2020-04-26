@@ -1,6 +1,7 @@
 package es.deusto.spq.GUI;
 
-import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -8,10 +9,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.ws.rs.client.Client;
 
 import es.deusto.spq.data.Mensaje;
@@ -84,6 +82,15 @@ public class VentanaMensajes extends JFrame{
 		});
 		
 		
+		btnNuevoMensaje.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				new VentanaNuevoMensaje(hostname, port);
+				
+			}
+		});
 	}
 	
 	public static void main(String[] args) {
