@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import es.deusto.spq.data.Piso;
-import es.deusto.spq.data.PostTest;
+
 import junit.framework.JUnit4TestAdapter;
 
 public class PisoAssemblerTest {
@@ -16,7 +16,7 @@ public class PisoAssemblerTest {
 	PisoAssembler as;
 	
 	 public static junit.framework.Test suite() {
-         return new JUnit4TestAdapter(PostTest.class);
+         return new JUnit4TestAdapter(PisoAssemblerTest.class);
      }
 
 		

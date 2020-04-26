@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.deusto.spq.data.PostTest;
+
 import es.deusto.spq.data.Usuario;
 import junit.framework.JUnit4TestAdapter;
 
@@ -17,7 +17,7 @@ public class UsuarioAssemblerTest {
 	UsuarioAssembler as;
 	
 	 public static junit.framework.Test suite() {
-         return new JUnit4TestAdapter(PostTest.class);
+         return new JUnit4TestAdapter(UsuarioAssemblerTest.class);
      }
 
      @Before

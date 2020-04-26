@@ -6,10 +6,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import es.deusto.spq.data.Post;
-import es.deusto.spq.data.PostTest;
 import junit.framework.JUnit4TestAdapter;
 
-public class PostAssemblerDTO {
+public class PostAssemblerTest {
 
 	
 	Post post;
@@ -17,7 +16,7 @@ public class PostAssemblerDTO {
 	PostAssembler as;
 	
 	 public static junit.framework.Test suite() {
-         return new JUnit4TestAdapter(PostTest.class);
+         return new JUnit4TestAdapter(PostAssemblerTest.class);
      }
 	
 		
