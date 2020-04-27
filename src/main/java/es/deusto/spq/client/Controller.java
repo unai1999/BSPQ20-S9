@@ -29,10 +29,10 @@ public class Controller {
     //Usuario?
 
     public void setUsuario(Usuario u){
-        this.usuarioActual = u;
+        instance.usuarioActual = u;
     }
     public Usuario getUsuario(){
-        return usuarioActual;
+        return instance.usuarioActual;
     }
     public Controller() {
 
@@ -133,7 +133,7 @@ public class Controller {
 
     public List<MensajePrivado> getMensajes(String usuario){
         List<MensajePrivado> mensajes = new ArrayList<MensajePrivado>();
-        String path = "mensajes/" + usuario;
+        String path = "pisos/mensajes/" + usuario;
         WebTarget pisosWebTarget = webTarget.path(path);
         GenericType<List<MensajePrivado>> genericType = new GenericType<List<MensajePrivado>>(){}; 
         mensajes = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
@@ -142,11 +142,12 @@ public class Controller {
 
     public Response enviarMensaje(MensajePrivado mp){
 
-        WebTarget publicarTarget = webTarget.path("mensajes/enviar");
+        WebTarget publicarTarget = webTarget.path("pisos/mensajes/enviar");
         Entity<MensajePrivado> entity = Entity.entity(mp, MediaType.APPLICATION_JSON);
         Response response = publicarTarget.request().post(entity);
-        
         return response;
         
    }
+
+   
 }

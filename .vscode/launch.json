@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - VentanaFormularioPisos",
+            "request": "launch",
+            "mainClass": "es.deusto.spq.GUI.VentanaFormularioPisos",
+            "projectName": "alquiler-app"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - VentanaNuevoMensaje",
+            "request": "launch",
+            "mainClass": "es.deusto.spq.GUI.VentanaNuevoMensaje",
+            "projectName": "alquiler-app"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - VentanaResetPassword",
             "request": "launch",
             "mainClass": "es.deusto.spq.GUI.VentanaResetPassword",

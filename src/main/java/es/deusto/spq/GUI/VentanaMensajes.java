@@ -10,11 +10,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-
 import es.deusto.spq.client.Controller;
-import es.deusto.spq.data.Mensaje;
 import es.deusto.spq.data.MensajePrivado;
 import es.deusto.spq.data.Usuario;
 
@@ -50,12 +46,14 @@ public class VentanaMensajes extends JFrame{
         lista.setBounds(0,  100, 620, 353);    
        
         
-        
-        for(MensajePrivado m : mensajes) {
+        if(!mensajes.isEmpty()){
+			for(MensajePrivado m : mensajes) {
         	
-        	listaModelo.addElement(" " + m.getOrigen() + ":  " + m.getContenido()+ "             ");
-        	
-        }
+				listaModelo.addElement(" " + m.getOrigen() + ":  " + m.getContenido()+ "             ");
+				
+			}
+		}
+       
         
         lista.setModel(listaModelo);
 		

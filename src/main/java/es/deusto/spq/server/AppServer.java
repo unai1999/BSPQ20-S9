@@ -90,6 +90,7 @@ public class AppServer {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response enviarMensaje(MensajePrivado mp){
+		
 	 	DAOFactory.getInstance().createMensajeDAO().guardar(mp);
 	 	return Response.status(Response.Status.OK).build();
 

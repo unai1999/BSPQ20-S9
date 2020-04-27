@@ -19,7 +19,6 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import es.deusto.spq.client.Controller;
-import es.deusto.spq.data.Mensaje;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 import es.deusto.spq.server.SendEmail;

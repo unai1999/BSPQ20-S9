@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.ws.rs.client.Client;
+import javax.ws.rs.core.Response;
 
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.MensajePrivado;
@@ -69,7 +70,7 @@ public class VentanaNuevoMensaje extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				MensajePrivado m = new MensajePrivado(Controller.getInstance().getUsuario().getNickname(),tAtitulo.getText(), tCuerpo.getText());
-				Controller.getInstance().enviarMensaje(m);
+				Response r = Controller.getInstance().enviarMensaje(m);
 				System.out.println("Mensaje enviado");
 			}
 		});

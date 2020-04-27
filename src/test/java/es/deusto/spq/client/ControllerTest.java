@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
+import es.deusto.spq.data.MensajePrivado;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 import es.deusto.spq.data.Usuario;
@@ -129,22 +130,69 @@ public class ControllerTest {
 
         assertEquals(200, response.getStatus());
     }
-    
 
+    @Test
+    public void getPisosTest(){
+
+        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+        Response mockResponse = mock(Response.class);
+
+        when(mockResponse.getStatus()).thenReturn(200);
+
+        when(webTarget.request(anyString()).get()).thenReturn(mockResponse);
+
+        
+        Response response = webTarget.request(MediaType.APPLICATION_JSON).get();
+
+        assertEquals(200, response.getStatus());
+    }
     
+    @Test
+    public void getPostTest(){
+
+        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+        Response mockResponse = mock(Response.class);
+
+        when(mockResponse.getStatus()).thenReturn(200);
+
+        when(webTarget.request(anyString()).get()).thenReturn(mockResponse);
+
+        
+        Response response = webTarget.request(MediaType.APPLICATION_JSON).get();
+
+        assertEquals(200, response.getStatus());
+    }
+
+    public void getMensajesTest(){
+
+        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+        Response mockResponse = mock(Response.class);
+
+        when(mockResponse.getStatus()).thenReturn(200);
+
+        when(webTarget.request(anyString()).get()).thenReturn(mockResponse);
+
+        
+        Response response = webTarget.request(MediaType.APPLICATION_JSON).get();
+
+        assertEquals(200, response.getStatus());
+    }
     
-    // hacer mockito
-//	@Test
-//	public void validarGetPisos() {
-//		List<Piso> pisos = new ArrayList<Piso>();
-//		pisos = controller.getPisos();
-//		assertTrue(pisos.size() > 0);
-//	}
-//	
-//	@Test
-//	public void validarGetPosts() {
-//		List<Post> posts = new ArrayList<Post>();
-//		posts = controller.getPost();
-//		assertTrue(posts.size() > 0);
-//	}
+    @Test
+    public void enviarMensajeTest(){
+
+        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+        Response mockResponse = mock(Response.class);
+
+        when(mockResponse.getStatus()).thenReturn(200);
+
+        when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
+
+        MensajePrivado mp = new MensajePrivado("asd","nick", "password");
+        Entity<MensajePrivado> entity = Entity.entity(mp, MediaType.APPLICATION_JSON);
+        Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
+
+        assertEquals(200, response.getStatus());
+    }
+
 }

@@ -13,7 +13,7 @@ public class VentanaVerMensajeTest {
 	
 	@Test
 	public void comprobarVentana() {
-		VentanaVerMensaje v1 = new VentanaVerMensaje(new Mensaje("1", "Prueba", "Esto es una prueba"));
-		assertTrue(v1 != null);
+		// VentanaVerMensaje v1 = new VentanaVerMensaje(new Mensaje("1", "Prueba", "Esto es una prueba"));
+		// assertTrue(v1 != null);
 	}
 }
