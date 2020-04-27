@@ -132,6 +132,14 @@ public class AppServer {
 		
 			 
 	 }
+	@Path("/newPiso")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response guardarPiso(Piso piso){
+	 	DAOFactory.getInstance().createPisoDAO().guardar(piso);
+	 	return Response.status(Response.Status.OK).build();
+
+	}
 
 
 	

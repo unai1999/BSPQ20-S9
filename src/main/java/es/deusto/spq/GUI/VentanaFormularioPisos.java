@@ -49,13 +49,12 @@ public class VentanaFormularioPisos {
 //		});
 //	}
 	
-	public VentanaFormularioPisos(String hostname, String port) {
-		initialize(hostname, port);
+	public VentanaFormularioPisos() {
+		initialize();
 	}
 
-	private void initialize(String hostname, String port) {
+	private void initialize() {
 		
-		client = ClientBuilder.newClient();
 		
 		frame = new JFrame("Nuevo piso");
 		frame.setBounds(100, 100, 500, 650);
@@ -130,7 +129,7 @@ public class VentanaFormularioPisos {
 		tfCoste.setColumns(10);
 		tfCoste.setBounds(250, 350, 150, 25);
 		globalPanel.add(tfCoste);
-		
+		frame.setVisible(true);
 		btnAddPiso.addActionListener( new ActionListener() {
 			
 			@Override
