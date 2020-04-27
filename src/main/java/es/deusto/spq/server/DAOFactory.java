@@ -30,4 +30,9 @@ public class DAOFactory{
 
         return new PostDAO();
     }
+
+    public MensajeDAO createMensajeDAO(){
+
+        return new MensajeDAO();
+    }
 }
