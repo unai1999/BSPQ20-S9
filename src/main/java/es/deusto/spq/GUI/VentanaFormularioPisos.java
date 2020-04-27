@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
@@ -29,28 +31,32 @@ public class VentanaFormularioPisos {
 	private JTextField tfNumHuespedes;
 	private JTextField tfNumHabs;
 	private JTextField tfCoste;
+	private Client client;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			
-			@Override
-			public void run() {
-				try {
-					VentanaFormularioPisos window = new VentanaFormularioPisos();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			
+//			@Override
+//			public void run() {
+//				try {
+//					VentanaFormularioPisos window = new VentanaFormularioPisos();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//				
+//			}
+//		});
+//	}
 	
-	public VentanaFormularioPisos() {
-		initialize();
+	public VentanaFormularioPisos(String hostname, String port) {
+		initialize(hostname, port);
 	}
 
-	private void initialize() {
+	private void initialize(String hostname, String port) {
+		
+		client = ClientBuilder.newClient();
+		
 		frame = new JFrame("Nuevo piso");
 		frame.setBounds(100, 100, 500, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

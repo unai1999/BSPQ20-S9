@@ -145,6 +145,14 @@ public class VentanaRegistro {
 		tFApellido.setBounds(246, 255, 133, 20);
 		panelPrincipal.add(tFApellido);
 		
+		btnAtras.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new VentanaLogin();
+				
+			}
+		});
 		btnRegistrar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -171,9 +179,11 @@ public class VentanaRegistro {
 					Usuario usuario = new Usuario(tFUs.getText(), tFNombre.getText(), tFApellido.getText(), tFEmail.getText(), password1);
 					Response response = Controller.getInstance().registrarUsuario(usuario);
 				        if (response.getStatus() == Status.OK.getStatusCode()) {
+				        	
 				            JOptionPane.showMessageDialog(null, "Usuario creado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-				            frame.dispose();
 				            new VentanaLogin();
+				            frame.dispose();
+				            
 				        } else {
 				            JOptionPane.showMessageDialog(null, "ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
 				        }

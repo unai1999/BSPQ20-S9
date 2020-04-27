@@ -49,7 +49,6 @@ public class VentanaMensajes extends JFrame{
 		
         lista.setBounds(0,  100, 620, 353);    
        
-        mensajes =  user.getMensajes();
         
         
         for(MensajePrivado m : mensajes) {
