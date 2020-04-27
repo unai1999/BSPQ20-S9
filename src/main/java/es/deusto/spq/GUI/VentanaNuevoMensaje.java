@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.ws.rs.client.Client;
 
@@ -22,6 +23,8 @@ public class VentanaNuevoMensaje extends JFrame {
 	
 	private int ancho = 620;
 	private int alto = 480;
+	
+	private JScrollPane scroll;
 	
 	public VentanaNuevoMensaje(String hostname, String port) {
 		

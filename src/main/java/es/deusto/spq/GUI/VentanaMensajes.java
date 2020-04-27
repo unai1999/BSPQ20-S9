@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 
 import es.deusto.spq.data.Mensaje;
 import es.deusto.spq.data.Usuario;
@@ -24,6 +25,7 @@ public class VentanaMensajes extends JFrame{
 	private int ancho = 620;
 	private int alto = 480;
 	
+	
 	private static JList<String> lista = new JList<String>();
 	private static DefaultListModel<String> listaModelo = new DefaultListModel<String>();
 	private static ArrayList<Mensaje> mensajes = new ArrayList<>();
@@ -31,7 +33,7 @@ public class VentanaMensajes extends JFrame{
 	public VentanaMensajes(String hostname, String port, Usuario user) {
 		
 //		client = ClientBuilder.newClient();
-//	    client.target(String.format("http://%s:%s/rest", hostname, port));
+//		client.target(String.format("http://%s:%s/rest", hostname, port));
 	    
 		setSize(ancho, alto);
 		setTitle("Lista de mensajes");
@@ -60,6 +62,8 @@ public class VentanaMensajes extends JFrame{
         
         lista.setModel(listaModelo);
 		
+        
+        
         getContentPane().add(lista);
         
 		setVisible(true);
