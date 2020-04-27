@@ -8,7 +8,7 @@ public class VentanaLoginTest {
 	
 	@Test
 	public void ComprobarVentana() {
-		VentanaLogin v1 = new VentanaLogin("", "");
+		VentanaLogin v1 = new VentanaLogin();
 		assertTrue(v1 != null);
 		
 	}

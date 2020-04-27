@@ -20,9 +20,9 @@ public class VentanaListaPostsTest {
 		posts.add(p2);
 		List<Post> posts2 = new ArrayList<Post>();
 		
-		VentanaListaPosts v1 = new VentanaListaPosts(posts, posts, "aaa", "aaa");
+		VentanaListaPosts v1 = new VentanaListaPosts(posts, posts);
 		assertTrue(v1 != null);
-		VentanaListaPosts v2 = new VentanaListaPosts(posts2, posts2, "aaa", "aaa");
+		VentanaListaPosts v2 = new VentanaListaPosts(posts2, posts2);
 		assertTrue(v2 != null);
 	}
 }

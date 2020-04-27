@@ -19,9 +19,9 @@ public class VentanaListaPisosTest {
 		pisos.add(p1);
 		Usuario u1 = new Usuario("aa", "bb", "cc", "cd", "dd");
 		List<Piso> pisos2 = new ArrayList<Piso>();
-		VentanaListaPisos v1 = new VentanaListaPisos(pisos, pisos, "aaa", "aaa", u1);
+		VentanaListaPisos v1 = new VentanaListaPisos(pisos, pisos, u1);
 		assertTrue(v1 != null);
-		VentanaListaPisos v2 = new VentanaListaPisos(pisos2, pisos2, "aaa", "aaa", u1);
+		VentanaListaPisos v2 = new VentanaListaPisos(pisos2, pisos2, u1);
 		assertTrue(v2 != null);
 	}
 }

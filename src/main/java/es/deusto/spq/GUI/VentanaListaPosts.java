@@ -23,16 +23,13 @@ import es.deusto.spq.data.Post;
 
 public class VentanaListaPosts extends JFrame{
 	
-	private Client client;
+
 	private JScrollPane scroll;
 	private JTextField textBuscarPost;
 	private static final long serialVersionUID = 1L;
 	private MetodosGUI m = new MetodosGUI();
 	
-	public VentanaListaPosts(List<Post> posts, List<Post> posts2, String hostname, String port) {
-		
-		client = ClientBuilder.newClient();
-	    client.target(String.format("http://%s:%s/rest", hostname, port));
+	public VentanaListaPosts(List<Post> posts, List<Post> posts2) {
 	    
 		setSize(620, 480);
 		setTitle("Lista de posts");
@@ -84,7 +81,7 @@ public class VentanaListaPosts extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-        		new VentanaListaPosts(posts, m.buscarPosts(textBuscarPost, posts), hostname, port);
+        		new VentanaListaPosts(posts, m.buscarPosts(textBuscarPost, posts));
 				
 			}
 		});

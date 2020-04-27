@@ -23,7 +23,7 @@ public class VentanaMensajesTest {
 		Usuario user = new Usuario("Nombre", "pw");
 		user.setMensajes(mensajes);
 		
-		VentanaMensajes v1 = new VentanaMensajes("aaaa", "aaaa", user);
+		VentanaMensajes v1 = new VentanaMensajes(user);
 		
 		assertTrue(v1 != null);
 	}

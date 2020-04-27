@@ -1,6 +1,5 @@
 package es.deusto.spq.client;
 
-import org.glassfish.jersey.message.internal.MediaTypes;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -133,4 +132,19 @@ public class ControllerTest {
     
 
     
+    
+    // hacer mockito
+//	@Test
+//	public void validarGetPisos() {
+//		List<Piso> pisos = new ArrayList<Piso>();
+//		pisos = controller.getPisos();
+//		assertTrue(pisos.size() > 0);
+//	}
+//	
+//	@Test
+//	public void validarGetPosts() {
+//		List<Post> posts = new ArrayList<Post>();
+//		posts = controller.getPost();
+//		assertTrue(posts.size() > 0);
+//	}
 }
