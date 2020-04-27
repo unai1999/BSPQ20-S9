@@ -69,9 +69,12 @@ public class VentanaNuevoMensaje extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
 				MensajePrivado m = new MensajePrivado("aaaaaaaa",tAtitulo.getText(), tCuerpo.getText());
 				Response r = Controller.getInstance().enviarMensaje(m);
 				System.out.println(r.getStatus());
+
+
 				System.out.println("Mensaje enviado");
 			}
 		});

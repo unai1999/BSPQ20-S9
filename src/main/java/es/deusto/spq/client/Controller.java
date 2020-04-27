@@ -141,10 +141,14 @@ public class Controller {
     }
 
     public Response enviarMensaje(MensajePrivado mp){
+
  
         WebTarget publicarTarget = webTarget.path("pisos/mensajes/enviar");
         Entity<MensajePrivado> entity = Entity.entity(mp, MediaType.APPLICATION_JSON);
         Response response = publicarTarget.request().post(entity);
+
+
+
         return response;
         
    }

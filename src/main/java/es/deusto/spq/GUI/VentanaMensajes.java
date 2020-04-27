@@ -12,7 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 
 
+
 import es.deusto.spq.client.Controller;
+
 import es.deusto.spq.data.MensajePrivado;
 import es.deusto.spq.data.Usuario;
 

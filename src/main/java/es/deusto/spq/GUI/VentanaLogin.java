@@ -63,10 +63,9 @@ public class VentanaLogin {
 	 */
 	private void initialize() {
 		
-//		DAOFactory.getInstance().createPisoDAO().crearAlgunosDatos();
-//        DAOFactory.getInstance().createPostDAO().crearPosts();
-
-        
+		//DAOFactory.getInstance().createPisoDAO().crearAlgunosDatos();
+        //DAOFactory.getInstance().createPostDAO().crearPosts();
+       
         
 		frame = new JFrame();
 		frame.setBounds(100, 100, 637, 456);
@@ -182,6 +181,10 @@ public class VentanaLogin {
 						pisos = Controller.getInstance().getPisos();
 						String password = new String(tFCont.getPassword());
 						Usuario u1 = new Usuario(tFLogin.getText(), password);
+
+						Controller.getInstance().setUsuario(u1);
+
+
 						new VentanaListaPisos(pisos, pisos, u1);
 						frame.dispose();
 						

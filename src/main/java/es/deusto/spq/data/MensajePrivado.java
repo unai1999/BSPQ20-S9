@@ -1,6 +1,9 @@
 package es.deusto.spq.data;
 
+
 import javax.jdo.annotations.PersistenceCapable;
+
+
 
 
 
