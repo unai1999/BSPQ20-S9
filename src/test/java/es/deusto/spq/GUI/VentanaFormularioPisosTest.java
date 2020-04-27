@@ -8,7 +8,7 @@ public class VentanaFormularioPisosTest {
 	
 	@Test
 	public void comprobarVentana() {
-		VentanaFormularioPisos v1 = new VentanaFormularioPisos();
+		VentanaFormularioPisos v1 = new VentanaFormularioPisos("", "");
 		assertTrue(v1 != null);
 	}
 
