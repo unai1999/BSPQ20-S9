@@ -7,6 +7,9 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JTextField;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+
 import org.junit.Before;
 import org.junit.Test;
 import es.deusto.spq.GUI.MetodosGUI.Resp;
@@ -174,10 +177,20 @@ public class MetodosGUITest {
 	
 
 	
-//	@Test
-//	public void validarGetPisos() {
-//		
-//	}
+	@Test
+	public void validarGetPisos() {
+		List<Piso> pisos = new ArrayList<Piso>();
+		Client client = ClientBuilder.newClient();
+		pisos = mGUI.getPisos(client.target(String.format("http://%s:%s/rest", "127.0.0.1", "8080")));
+		assertTrue(pisos.size() > 0);
+	}
 	
+	@Test
+	public void validarGetPosts() {
+		List<Post> posts = new ArrayList<Post>();
+		Client client = ClientBuilder.newClient();
+		posts = mGUI.getPost(client.target(String.format("http://%s:%s/rest", "127.0.0.1", "8080")));
+		assertTrue(posts.size() > 0);
+	}
 	
 }

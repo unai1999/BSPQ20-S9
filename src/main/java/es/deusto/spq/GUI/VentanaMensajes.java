@@ -93,19 +93,19 @@ public class VentanaMensajes extends JFrame{
 		});
 	}
 	
-	public static void main(String[] args) {
-		
-		Usuario user = new Usuario("Hola", "1234");
-		
-		ArrayList<Mensaje> mensajes = new ArrayList<>();
-		Mensaje m = new Mensaje("1", "Correo", "Blablablabla");
-		Mensaje mw = new Mensaje("2", "Apuntes", "Ayudame porfavor");
-		mensajes.add(m);
-		mensajes.add(mw);
-		user.setMensajes(mensajes);
-		
-		VentanaMensajes vm = new VentanaMensajes(null, null, user);
-	}
+//	public static void main(String[] args) {
+//		
+//		Usuario user = new Usuario("Hola", "1234");
+//		
+//		ArrayList<Mensaje> mensajes = new ArrayList<>();
+//		Mensaje m = new Mensaje("1", "Correo", "Blablablabla");
+//		Mensaje mw = new Mensaje("2", "Apuntes", "Ayudame porfavor");
+//		mensajes.add(m);
+//		mensajes.add(mw);
+//		user.setMensajes(mensajes);
+//		
+//		VentanaMensajes vm = new VentanaMensajes(null, null, user);
+//	}
 	
 
 }
