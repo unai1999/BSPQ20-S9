@@ -25,11 +25,11 @@ public class VentanaCompararTest {
 		p3.setImagenes(imagenes);
 		p4.setImagenes(imagenes);
 		Usuario u1 = new Usuario("aa", "bb", "cc", "cd", "dd");
-		VentanaComparar v1 = new VentanaComparar(p1, p2, "", "", u1);
+		VentanaComparar v1 = new VentanaComparar(p1, p2, u1);
 		assertTrue(v1 != null);
-		v1 = new VentanaComparar(p1, p3, "", "", u1);
+		v1 = new VentanaComparar(p1, p3, u1);
 		assertTrue(v1 != null);
-		v1 = new VentanaComparar(p3, p2, "", "", u1);
+		v1 = new VentanaComparar(p3, p2, u1);
 		assertTrue(v1 != null);
 	}
 }

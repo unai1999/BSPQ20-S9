@@ -175,22 +175,5 @@ public class MetodosGUITest {
 		assertTrue(mGUI.obtenerPost("Likes: AAA", posts).getTitulo() == "AAA" );
 	}
 	
-
-	
-	@Test
-	public void validarGetPisos() {
-		List<Piso> pisos = new ArrayList<Piso>();
-		Client client = ClientBuilder.newClient();
-		pisos = mGUI.getPisos(client.target(String.format("http://%s:%s/rest", "127.0.0.1", "8080")));
-		assertTrue(pisos.size() > 0);
-	}
-	
-	@Test
-	public void validarGetPosts() {
-		List<Post> posts = new ArrayList<Post>();
-		Client client = ClientBuilder.newClient();
-		posts = mGUI.getPost(client.target(String.format("http://%s:%s/rest", "127.0.0.1", "8080")));
-		assertTrue(posts.size() > 0);
-	}
 	
 }

@@ -52,17 +52,17 @@ public class VentanaInformacionTest {
 		p6.setImagenes(imagenes5);
 		Usuario u1 = new Usuario("aa", "bb", "cc", "cd", "dd");
 		
-		VentanaInformacion v1 = new VentanaInformacion(p1, u1, "aaa", "aaa");
+		VentanaInformacion v1 = new VentanaInformacion(p1, u1);
 		assertTrue(v1 != null);
-		v1 = new VentanaInformacion(p2, u1, "aaa", "aaa");
+		v1 = new VentanaInformacion(p2, u1);
 		assertTrue(v1 != null);
-		v1 = new VentanaInformacion(p3, u1, "aaa", "aaa");
+		v1 = new VentanaInformacion(p3, u1);
 		assertTrue(v1 != null);
-		v1 = new VentanaInformacion(p4, u1, "aaa", "aaa");
+		v1 = new VentanaInformacion(p4, u1);
 		assertTrue(v1 != null);
-		v1 = new VentanaInformacion(p5, u1, "aaa", "aaa");
+		v1 = new VentanaInformacion(p5, u1);
 		assertTrue(v1 != null);
-		v1 = new VentanaInformacion(p6, u1, "aaa", "aaa");
+		v1 = new VentanaInformacion(p6, u1);
 		assertTrue(v1 != null);
 	}
 

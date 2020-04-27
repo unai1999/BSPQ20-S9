@@ -25,6 +25,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
+import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 
@@ -41,24 +42,22 @@ public class VentanaComparar {
 	private JFrame jFComp;
 	private JScrollPane scroll;
 	private JTextArea tADesc1, tADesc2;
-	private  Client client;
-	private MetodosGUI m = new MetodosGUI();
+
 	
 
 
 	/**
 	 * Create the application.
 	 */
-	public VentanaComparar(Piso piso1, Piso piso2, String hostname, String port, Usuario u1) {
-		initialize(piso1, piso2, hostname, port, u1);
+	public VentanaComparar(Piso piso1, Piso piso2, Usuario u1) {
+		initialize(piso1, piso2, u1);
 		jFComp.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(Piso piso1, Piso piso2, String hostname, String port, Usuario u1) {
-		client = ClientBuilder.newClient();
+	private void initialize(Piso piso1, Piso piso2, Usuario u1) {
         
 		jFComp = new JFrame();
 		jFComp.setTitle("Comparación");
@@ -241,8 +240,8 @@ public class VentanaComparar {
 				List<Piso> pisos = new ArrayList<Piso>();
 				jFComp.dispose();
 				
-				pisos = m.getPisos(client.target(String.format("http://%s:%s/rest", hostname, port)));
-				new VentanaListaPisos(pisos, pisos, hostname, port, u1);
+				pisos = Controller.getInstance().getPisos();
+				new VentanaListaPisos(pisos, pisos, u1);
 			}
 		});
 	}
