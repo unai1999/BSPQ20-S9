@@ -128,17 +128,22 @@ public class VentanaLogin {
 		btnEnviar.setBounds(309, 380, 89, 23);
 		panelPrincipal.add(btnEnviar);
 
+		MetodosGUI mgui = new MetodosGUI();
 		btnEnviar.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String generatedCode = SendEmail.enviarMail(tFCorreo.getText());
-				String inputCode = JOptionPane.showInputDialog(frame, "Introduce el código recibido: ");
+				if(mgui.validarEmail(tFCorreo.getText())){
+					String generatedCode = SendEmail.enviarMail(tFCorreo.getText());
+					String inputCode = JOptionPane.showInputDialog(frame, "Introduce el código recibido: ");
 
-				if(generatedCode.equals(inputCode)){
-					new VentanaResetPassword();
+					if(generatedCode.equals(inputCode)){
+						new VentanaResetPassword();
+					}else{
+						JOptionPane.showMessageDialog(null, "Wrong code", "oops", JOptionPane.ERROR_MESSAGE);
+					}
 				}else{
-					JOptionPane.showMessageDialog(null, "Wrong code", "oops", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Invalid email", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 
 			}
