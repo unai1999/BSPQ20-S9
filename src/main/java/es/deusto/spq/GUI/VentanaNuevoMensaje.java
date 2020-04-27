@@ -18,7 +18,6 @@ public class VentanaNuevoMensaje extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Client client;
 	private MetodosGUI m = new MetodosGUI();
 	
 	private int ancho = 620;
@@ -26,7 +25,7 @@ public class VentanaNuevoMensaje extends JFrame {
 	
 	private JScrollPane scroll;
 	
-	public VentanaNuevoMensaje(String hostname, String port) {
+	public VentanaNuevoMensaje() {
 		
 		setSize(ancho, alto);
 		setTitle("Lista de mensajes");
@@ -77,7 +76,7 @@ public class VentanaNuevoMensaje extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-		new VentanaNuevoMensaje(null, null);
+		new VentanaNuevoMensaje();
 	}
 
 }

@@ -2,7 +2,6 @@ package es.deusto.spq.GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,8 +15,6 @@ import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 
 import es.deusto.spq.data.Post;
 
@@ -29,17 +26,14 @@ public class VentanaInfoPost {
 	private JTextArea taComents;
 	private JScrollPane scroll;
 	private final static String LINEA_NUEVA = "\n";
-	private Client client;
-	private MetodosGUI mGUI = new MetodosGUI();
 	
-	public VentanaInfoPost(Post post, String hostname, String port) {
-		initialize(post, hostname, port);
+	public VentanaInfoPost(Post post) {
+		initialize(post);
 		jFPost.setVisible(true);
 	}
 
-	private void initialize(Post post, String hostname, String port) {
+	private void initialize(Post post) {
 		
-		client = ClientBuilder.newClient();
 		
 		jFPost = new JFrame();
 		jFPost.setTitle("Información de Post");
@@ -182,6 +176,7 @@ public class VentanaInfoPost {
 				taComents.setCaretPosition(taComents.getDocument().getLength());	
 			}
 		});
+		
 		
 	}
 }

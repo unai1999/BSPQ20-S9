@@ -1,26 +1,15 @@
 package es.deusto.spq.GUI;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Insets;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextPane;
-import javax.swing.border.Border;
-import javax.ws.rs.client.Client;
+
 
 import es.deusto.spq.data.Mensaje;
-import es.deusto.spq.data.Usuario;
+
 
 public class VentanaVerMensaje extends JFrame {
-	private Client client;
 	private static final long serialVersionUID = 1L;
-	private MetodosGUI m = new MetodosGUI();
 	
 	private int ancho = 620;
 	private int alto = 480;

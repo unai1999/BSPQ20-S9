@@ -1,12 +1,15 @@
 package es.deusto.spq.client;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -95,5 +98,27 @@ public class Controller {
         Response response = loginTarget.request().post(entity);
          
         return response;
+    }
+    
+    public List<Piso> getPisos(){
+        List<Piso> pisos = new ArrayList<Piso>();
+        WebTarget pisosWebTarget = webTarget.path("pisos");
+        GenericType<List<Piso>> genericType = new GenericType<List<Piso>>(){}; 
+        pisos = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+        for (Piso p : pisos){
+            System.out.println(p);
+        }
+        return pisos;
+    }
+	
+	public List<Post> getPost(){
+        List<Post> posts = new ArrayList<Post>();
+        WebTarget pisosWebTarget = webTarget.path("pisos/post");
+        GenericType<List<Post>> genericType = new GenericType<List<Post>>(){}; 
+        posts = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+        for (Post p : posts){
+            System.out.println(p);
+        }
+        return posts;
     }
 }

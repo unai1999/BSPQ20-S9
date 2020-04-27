@@ -4,17 +4,20 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import javax.swing.JTextField;
-import es.deusto.spq.data.Piso;
+
+import es.deusto.spq.client.Controller;
+
 import es.deusto.spq.data.Usuario;
 import javax.swing.JPasswordField;
 
@@ -27,7 +30,6 @@ public class VentanaRegistro {
 	private JPasswordField tFPass2;
 	private JTextField tFNombre;
 	private JTextField tFApellido;
-	private Client client;
 	MetodosGUI mGUI = new MetodosGUI();
 
 	/**
@@ -49,16 +51,15 @@ public class VentanaRegistro {
 	/**
 	 * Create the application.
 	 */
-	public VentanaRegistro(String hostname, String port) {
-		initialize(hostname, port);
+	public VentanaRegistro() {
+		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(String hostname, String port) {
-		
-		client = ClientBuilder.newClient();
+	private void initialize() {
+	
 		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 500, 575);
@@ -168,16 +169,14 @@ public class VentanaRegistro {
 					mGUI.mensajeError(tFEmail, "Escribe un Email valido");
 				}else {
 					Usuario usuario = new Usuario(tFUs.getText(), tFNombre.getText(), tFApellido.getText(), tFEmail.getText(), password1);
-					List<Piso> pisos = new ArrayList<Piso>();
-					pisos = mGUI.getPisos(client.target(String.format("http://%s:%s/rest", hostname, port)));
-					frame.dispose();
-					new VentanaListaPisos(pisos, pisos, hostname, port, usuario);
-//					Response response = Controller.getInstance().registrarUsuario(usuario);
-//				        if (response.getStatus() == Status.OK.getStatusCode()) {
-//				            JOptionPane.showMessageDialog(null, "Usuario creado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-//				        } else {
-//				            JOptionPane.showMessageDialog(null, "ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
-//				        }
+					Response response = Controller.getInstance().registrarUsuario(usuario);
+				        if (response.getStatus() == Status.OK.getStatusCode()) {
+				            JOptionPane.showMessageDialog(null, "Usuario creado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+				            frame.dispose();
+				            new VentanaLogin();
+				        } else {
+				            JOptionPane.showMessageDialog(null, "ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
+				        }
 				}
 			}
 		});

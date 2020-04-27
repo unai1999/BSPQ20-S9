@@ -11,7 +11,7 @@ public class VentanaInfoPostTest {
 	@Test
 	public void comprobarVentana() {
 		Post p1 = new Post("aaa", "bbb", "cc");
-		VentanaInfoPost v1 = new VentanaInfoPost(p1, "", "8080");
+		VentanaInfoPost v1 = new VentanaInfoPost(p1);
 		assertTrue(v1 !=null);
 	}
 

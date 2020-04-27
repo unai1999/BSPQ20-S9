@@ -15,6 +15,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
+import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 
@@ -28,11 +29,10 @@ public class VentanaInfoUsuario extends JFrame {
 	private JTextField textFieldEmail;
 	private JTextField textFieldNick;
 	private JTextField textFieldPass;
-	private MetodosGUI m = new MetodosGUI();
+	
 
-	public VentanaInfoUsuario(String hostname, String port, Usuario u1) {
-		
-		Client client = ClientBuilder.newClient();
+	public VentanaInfoUsuario(Usuario u1) {
+	
         
 		setSize(480, 400);
 		setTitle("Perfil de usuario");
@@ -144,7 +144,7 @@ public class VentanaInfoUsuario extends JFrame {
 				Usuario user = new Usuario(u1.getNickname(), textFieldNombre.getText(), textFieldApellido.getText(), textFieldEmail.getText(), textFieldPass.getText());
 				dispose();
 				//guardar datos en la base de datos
-				new VentanaInfoUsuario(hostname, port, user);
+				new VentanaInfoUsuario(user);
 			}
 		});
 	    botonAtras.addActionListener(new ActionListener() {
@@ -153,9 +153,9 @@ public class VentanaInfoUsuario extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				List<Piso> pisos = new ArrayList<Piso>();
-				pisos = m.getPisos(client.target(String.format("http://%s:%s/rest", hostname, port)));
+				pisos = Controller.getInstance().getPisos();
 				dispose();
-				new VentanaListaPisos(pisos, pisos, hostname, port, u1);
+				new VentanaListaPisos(pisos, pisos, u1);
 				
 			}
 		});
