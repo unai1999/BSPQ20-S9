@@ -16,6 +16,8 @@ import java.util.List;
 import javax.swing.border.LineBorder;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+
+import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 
@@ -33,12 +35,11 @@ public class VentanaInformacion {
 	private JTextArea tAComent, tADesc;
 	private JScrollPane scroll;
 	private final static String LINEA_NUEVA = "\n";
-	private Client client;
-	private MetodosGUI m = new MetodosGUI();
+
 
 	
-	public VentanaInformacion(Piso piso, Usuario user, String hostname, String port) {
-		initialize(piso, user, hostname, port);
+	public VentanaInformacion(Piso piso, Usuario user) {
+		initialize(piso, user);
 		jFInfo.setVisible(true);
 	}
 	
@@ -46,10 +47,9 @@ public class VentanaInformacion {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(Piso piso, Usuario usuario, String hostname, String port) {
+	private void initialize(Piso piso, Usuario usuario) {
 		
-		client = ClientBuilder.newClient();
-    	
+
 		jFInfo = new JFrame();
 		jFInfo.setTitle("Información");
 		jFInfo.setBounds(100, 100, 500, 500);
@@ -259,8 +259,8 @@ public class VentanaInformacion {
 				List<Piso> pisos = new ArrayList<Piso>();
 				jFInfo.dispose();
 				
-				pisos = m.getPisos(client.target(String.format("http://%s:%s/rest", hostname, port)));
-				new VentanaListaPisos(pisos, pisos, hostname, port, usuario);
+				pisos = Controller.getInstance().getPisos();
+				new VentanaListaPisos(pisos, pisos, usuario);
 				
 			}
 		});

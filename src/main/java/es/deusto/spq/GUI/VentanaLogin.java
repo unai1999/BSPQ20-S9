@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,9 +19,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import es.deusto.spq.client.Controller;
-
-
-import es.deusto.spq.server.DAOFactory;
+import es.deusto.spq.data.Mensaje;
+import es.deusto.spq.data.Piso;
+import es.deusto.spq.data.Usuario;
 import es.deusto.spq.server.SendEmail;
 
 public class VentanaLogin {
@@ -35,12 +37,12 @@ public class VentanaLogin {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		String hostname = args[0];
-		String port = args[1];
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaLogin window = new VentanaLogin(hostname, port);
+					//System.out.println("Puerto: " + port);
+					//System.out.println("Hostname: "+ hostname);
+					VentanaLogin window = new VentanaLogin();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,17 +54,17 @@ public class VentanaLogin {
 	/**
 	 * Create the application.
 	 */
-	public VentanaLogin(String hostname, String port) {
-		initialize(hostname, port);
+	public VentanaLogin() {
+		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(String hostname, String port) {
+	private void initialize() {
 		
-		DAOFactory.getInstance().createPisoDAO().crearAlgunosDatos();
-        DAOFactory.getInstance().createPostDAO().crearPosts();
+//		DAOFactory.getInstance().createPisoDAO().crearAlgunosDatos();
+//        DAOFactory.getInstance().createPostDAO().crearPosts();
 
         
         
@@ -124,17 +126,23 @@ public class VentanaLogin {
 		btnEnviar.setBounds(309, 380, 89, 23);
 		panelPrincipal.add(btnEnviar);
 
+		frame.setVisible(true);
+		MetodosGUI mgui = new MetodosGUI();
 		btnEnviar.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String generatedCode = SendEmail.enviarMail(tFCorreo.getText());
-				String inputCode = JOptionPane.showInputDialog(frame, "Introduce el código recibido: ");
+				if(mgui.validarEmail(tFCorreo.getText())){
+					String generatedCode = SendEmail.enviarMail(tFCorreo.getText());
+					String inputCode = JOptionPane.showInputDialog(frame, "Introduce el código recibido: ");
 
-				if(generatedCode.equals(inputCode)){
-					new VentanaResetPassword();
+					if(generatedCode.equals(inputCode)){
+						new VentanaResetPassword();
+					}else{
+						JOptionPane.showMessageDialog(null, "Wrong code", "oops", JOptionPane.ERROR_MESSAGE);
+					}
 				}else{
-					JOptionPane.showMessageDialog(null, "Wrong code", "oops", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Invalid email", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 
 			}
@@ -147,7 +155,7 @@ public class VentanaLogin {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				new VentanaRegistro(hostname, port);
+				new VentanaRegistro();
 				
 			}
 		});
@@ -158,7 +166,7 @@ public class VentanaLogin {
 			public void actionPerformed(ActionEvent e) {
 				MetodosGUI mGUI = new MetodosGUI();
 				String password1 = new String(tFCont.getPassword());
-				if(mGUI.validarUsuario(tFLogin.getText())) {
+				if(!mGUI.validarUsuario(tFLogin.getText())) {
 					mGUI.mensajeError(tFLogin, "Introduce un usuario valido");
 				}
 				
@@ -170,22 +178,24 @@ public class VentanaLogin {
 					System.out.println(r);
 					if(r.getStatus() == Status.OK.getStatusCode()){
 						JOptionPane.showMessageDialog(null, "Login", "Successful", JOptionPane.INFORMATION_MESSAGE);
+						List<Piso> pisos = new ArrayList<Piso>();
+						pisos = Controller.getInstance().getPisos();
+						String password = new String(tFCont.getPassword());
+						Usuario u1 = new Usuario(tFLogin.getText(), password);
+						ArrayList<Mensaje> mensajes = new ArrayList<>();
+						Mensaje m = new Mensaje("1", "Correo", "Blablablabla");
+						Mensaje mw = new Mensaje("2", "Apuntes", "Ayudame porfavor");
+						mensajes.add(m);
+						mensajes.add(mw);
+						u1.setMensajes(mensajes);
+						new VentanaListaPisos(pisos, pisos, u1);
+						frame.dispose();
+						
+						pisos = Controller.getInstance().getPisos();
 					}else{
 						JOptionPane.showMessageDialog(null, "Login", "Error", JOptionPane.ERROR_MESSAGE);
 					}
-				}
-
-
-				//TODO los metodos que estan en metodosGUI son del controller
-				// if(mGUI.validarUsuario(tFLogin.getText()) && mGUI.validarContrasenya(password1)) {
-				// 	List<Piso> pisos = new ArrayList<Piso>();
-				// 	pisos = mGUI.getPisos(client.target(String.format("http://%s:%s/rest", hostname, port)));
-				// 	String password = new String(tFCont.getPassword());
-				// 	Usuario u1 = new Usuario(tFLogin.getText(), password);
-				// 	frame.dispose();
-				// 	new VentanaListaPisos(pisos, pisos, hostname, port, u1);
-				// }
-				
+				}				
 				
 			}
 		});

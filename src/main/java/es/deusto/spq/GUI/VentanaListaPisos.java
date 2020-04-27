@@ -17,10 +17,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.text.BadLocationException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 
-import es.deusto.spq.client.Cliente;
+import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 import es.deusto.spq.data.Usuario;
@@ -35,11 +33,9 @@ public class VentanaListaPisos extends JFrame {
     private JTextField textBuscarPiso;
 	private JScrollPane scroll;
 	private MetodosGUI m = new MetodosGUI();
-	private Client client;
-	
-	public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2, String hostname, String port, Usuario u1) {
+
+	public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2, Usuario u1) {
     	
-		client = ClientBuilder.newClient();
 		
         setSize(620, 480);
         setLocationRelativeTo(null);
@@ -59,7 +55,7 @@ public class VentanaListaPisos extends JFrame {
         JLabel labelFotoMensaje = new JLabel("");
         labelFotoMensaje.setBounds(520, 10, 25, 25);
         getContentPane().add(labelFotoMensaje);
-        labelFotoMensaje.setIcon(new ImageIcon("resources/descarga.png"));
+        labelFotoMensaje.setIcon(new ImageIcon("resources/mensaje.png"));
         
         JLabel labelFotoUsuario = new JLabel("");
         labelFotoUsuario.setBounds(562, 10, 25, 25);
@@ -122,7 +118,7 @@ public class VentanaListaPisos extends JFrame {
 					
 					if(text.contains("piso")) {
 						dispose();
-						new VentanaInformacion(m.obtenerPiso(text, pisos), u1, hostname, port);
+						new VentanaInformacion(m.obtenerPiso(text, pisos), u1);
 						
 					}else if(text.contains("Precio")) {
 						line = line - 1;
@@ -130,14 +126,14 @@ public class VentanaListaPisos extends JFrame {
 						end = textoPisos.getLineEndOffset( line );
 						text = textoPisos.getDocument().getText(start, end - start);
 						dispose();
-						new VentanaInformacion(m.obtenerPiso(text, pisos), u1, hostname, port);
+						new VentanaInformacion(m.obtenerPiso(text, pisos), u1);
 					}else if(text.contains("Valora")) {
 						line = line - 2;
 						start = textoPisos.getLineStartOffset( line );
 						end = textoPisos.getLineEndOffset( line );
 						text = textoPisos.getDocument().getText(start, end - start);
 						dispose();
-						new VentanaInformacion(m.obtenerPiso(text, pisos), u1, hostname, port);
+						new VentanaInformacion(m.obtenerPiso(text, pisos), u1);
 					}
 				} catch (BadLocationException e1) {
 					// TODO Auto-generated catch block
@@ -157,8 +153,8 @@ public class VentanaListaPisos extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				List<Post> posts = new ArrayList<Post>();
-				posts = m.getPost(client.target(String.format("http://%s:%s/rest", hostname, port)));
-				new VentanaListaPosts(posts, posts, hostname, port);
+				posts = Controller.getInstance().getPost();
+				new VentanaListaPosts(posts, posts);
 				
 			}
 		});
@@ -166,7 +162,7 @@ public class VentanaListaPisos extends JFrame {
         	 @Override
         	    public void mousePressed(MouseEvent e) {
         		 dispose();
-        		 new VentanaInfoUsuario(hostname, port, u1);
+        		 new VentanaInfoUsuario(u1);
         	      
         	    }
 		});
@@ -175,7 +171,7 @@ public class VentanaListaPisos extends JFrame {
         	
         	public void mousePressed(MouseEvent e) {
         		
-        		new VentanaMensajes(hostname, port, u1);
+        		new VentanaMensajes(u1);
         		
         	}
         	
@@ -184,13 +180,13 @@ public class VentanaListaPisos extends JFrame {
         botonVolverAtras.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		dispose();
-        		new Cliente(hostname, port);
+        		new VentanaLogin();
         	}
         });
         btnBuscar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		dispose();
-        		new VentanaListaPisos(pisos, m.buscarPisos(textBuscarPiso, pisos), hostname, port, u1);
+        		new VentanaListaPisos(pisos, m.buscarPisos(textBuscarPiso, pisos), u1);
         		
         	}
         });
@@ -198,14 +194,14 @@ public class VentanaListaPisos extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-                new VentanaListaPisos(pisos, pisos, hostname, port, u1);
+                new VentanaListaPisos(pisos, pisos, u1);
                 dispose();
 			}
 		});
         botonComparar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new VentanaComparar(pisos.get(0), pisos.get(1), hostname, port, u1);
+				new VentanaComparar(pisos.get(0), pisos.get(1), u1);
 				dispose();
 				
 			}

@@ -17,10 +17,8 @@ import es.deusto.spq.data.Mensaje;
 import es.deusto.spq.data.Usuario;
 
 public class VentanaMensajes extends JFrame{
-	
-	private Client client;
+
 	private static final long serialVersionUID = 1L;
-	private MetodosGUI m = new MetodosGUI();
 	
 	private int ancho = 620;
 	private int alto = 480;
@@ -30,10 +28,8 @@ public class VentanaMensajes extends JFrame{
 	private static DefaultListModel<String> listaModelo = new DefaultListModel<String>();
 	private static ArrayList<Mensaje> mensajes = new ArrayList<>();
 	
-	public VentanaMensajes(String hostname, String port, Usuario user) {
+	public VentanaMensajes(Usuario user) {
 		
-//		client = ClientBuilder.newClient();
-//		client.target(String.format("http://%s:%s/rest", hostname, port));
 	    
 		setSize(ancho, alto);
 		setTitle("Lista de mensajes");
@@ -91,25 +87,25 @@ public class VentanaMensajes extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				new VentanaNuevoMensaje(hostname, port);
+				new VentanaNuevoMensaje();
 				
 			}
 		});
 	}
 	
-	public static void main(String[] args) {
-		
-		Usuario user = new Usuario("Hola", "1234");
-		
-		ArrayList<Mensaje> mensajes = new ArrayList<>();
-		Mensaje m = new Mensaje("1", "Correo", "Blablablabla");
-		Mensaje mw = new Mensaje("2", "Apuntes", "Ayudame porfavor");
-		mensajes.add(m);
-		mensajes.add(mw);
-		user.setMensajes(mensajes);
-		
-		VentanaMensajes vm = new VentanaMensajes(null, null, user);
-	}
+//	public static void main(String[] args) {
+//		
+//		Usuario user = new Usuario("Hola", "1234");
+//		
+//		ArrayList<Mensaje> mensajes = new ArrayList<>();
+//		Mensaje m = new Mensaje("1", "Correo", "Blablablabla");
+//		Mensaje mw = new Mensaje("2", "Apuntes", "Ayudame porfavor");
+//		mensajes.add(m);
+//		mensajes.add(mw);
+//		user.setMensajes(mensajes);
+//		
+//		VentanaMensajes vm = new VentanaMensajes(null, null, user);
+//	}
 	
 
 }

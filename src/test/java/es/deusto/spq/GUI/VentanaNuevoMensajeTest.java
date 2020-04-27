@@ -10,7 +10,7 @@ public class VentanaNuevoMensajeTest {
 
 	@Test
 	public void comprobarVentana() {
-		VentanaNuevoMensaje v1 = new VentanaNuevoMensaje("aaaa", "aaaa");
+		VentanaNuevoMensaje v1 = new VentanaNuevoMensaje();
 		assertTrue(v1 != null);
 	}
 	

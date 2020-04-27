@@ -7,6 +7,9 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JTextField;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+
 import org.junit.Before;
 import org.junit.Test;
 import es.deusto.spq.GUI.MetodosGUI.Resp;
@@ -171,13 +174,6 @@ public class MetodosGUITest {
 		assertTrue(mGUI.obtenerPost("Dutor: AAA", posts).getTitulo() == "AAA" );
 		assertTrue(mGUI.obtenerPost("Likes: AAA", posts).getTitulo() == "AAA" );
 	}
-	
-
-	
-//	@Test
-//	public void validarGetPisos() {
-//		
-//	}
 	
 	
 }

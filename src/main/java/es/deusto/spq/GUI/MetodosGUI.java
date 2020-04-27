@@ -143,25 +143,4 @@ public class MetodosGUI {
 		return p;
 	}
 	
-	public List<Piso> getPisos(WebTarget webTarget){
-        List<Piso> pisos = new ArrayList<Piso>();
-        WebTarget pisosWebTarget = webTarget.path("pisos");
-        GenericType<List<Piso>> genericType = new GenericType<List<Piso>>(){}; 
-        pisos = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
-        for (Piso p : pisos){
-            System.out.println(p);
-        }
-        return pisos;
-    }
-	
-	public List<Post> getPost(WebTarget webTarget){
-        List<Post> posts = new ArrayList<Post>();
-        WebTarget pisosWebTarget = webTarget.path("pisos/post");
-        GenericType<List<Post>> genericType = new GenericType<List<Post>>(){}; 
-        posts = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
-        for (Post p : posts){
-            System.out.println(p);
-        }
-        return posts;
-    }
 }

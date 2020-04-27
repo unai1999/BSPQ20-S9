@@ -13,7 +13,9 @@ public class PostAssemblerTest {
 	
 	Post post;
 	PostDTO postDTO;
+	PostDTO postDTO2;
 	PostAssembler as;
+	PostAssembler as2;
 	
 	 public static junit.framework.Test suite() {
          return new JUnit4TestAdapter(PostAssemblerTest.class);
@@ -29,6 +31,7 @@ public class PostAssemblerTest {
     	 post.setTitulo("Mi piso nuevo");
     	 
     	 as = new PostAssembler();
+    	 as2 = new PostAssembler();
      }
      
      @Test
@@ -37,8 +40,14 @@ public class PostAssemblerTest {
     	postDTO = as.assemble(post);
     	
     	assertEquals(postDTO.getTitulo(), post.getTitulo()); 
+    	assertEquals(postDTO.getAutor(), post.getAutor()); 
+    	assertEquals(postDTO.getContenido(), post.getContenido()); 
+    	assertEquals(postDTO.getFecha(), post.getFecha()); 
+    	assertEquals(postDTO.getLikes(), post.getLikes());
+
+    	postDTO2 = as.assemble(null);
+    	assertEquals(postDTO2, null);
     	
-    	 
      }
 	
 }
