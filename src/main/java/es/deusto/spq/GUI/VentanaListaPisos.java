@@ -47,14 +47,19 @@ public class VentanaListaPisos extends JFrame {
         getContentPane().setLayout(null);
         
         textBuscarPiso = new JTextField();
-        textBuscarPiso.setBounds(10, 11, 397, 20);
+        textBuscarPiso.setBounds(10, 11, 360, 20);
         new TextPrompt("Introduce cuidad para buscar piso", textBuscarPiso);
         getContentPane().add(textBuscarPiso);
         
         
         JButton btnBuscar = new JButton("Buscar");
-        btnBuscar.setBounds(432, 10, 100, 23);
+        btnBuscar.setBounds(410, 10, 100, 23);
         getContentPane().add(btnBuscar);
+        
+        JLabel labelFotoMensaje = new JLabel("");
+        labelFotoMensaje.setBounds(520, 10, 25, 25);
+        getContentPane().add(labelFotoMensaje);
+        labelFotoMensaje.setIcon(new ImageIcon("resources/descarga.png"));
         
         JLabel labelFotoUsuario = new JLabel("");
         labelFotoUsuario.setBounds(562, 10, 25, 25);
@@ -165,6 +170,17 @@ public class VentanaListaPisos extends JFrame {
         	      
         	    }
 		});
+        
+        labelFotoMensaje.addMouseListener(new MouseAdapter() {
+        	
+        	public void mousePressed(MouseEvent e) {
+        		
+        		new VentanaMensajes(hostname, port, u1);
+        		
+        	}
+        	
+		});
+        
         botonVolverAtras.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		dispose();

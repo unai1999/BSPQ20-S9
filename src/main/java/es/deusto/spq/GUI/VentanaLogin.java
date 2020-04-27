@@ -40,6 +40,8 @@ public class VentanaLogin {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					System.out.println("Puerto: " + port);
+					System.out.println("Hostname: "+ hostname);
 					VentanaLogin window = new VentanaLogin(hostname, port);
 					window.frame.setVisible(true);
 				} catch (Exception e) {

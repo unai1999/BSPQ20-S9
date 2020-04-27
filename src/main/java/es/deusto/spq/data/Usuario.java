@@ -1,5 +1,8 @@
 package es.deusto.spq.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.PersistenceCapable;
@@ -20,6 +23,10 @@ public class Usuario {
 	private String pw1;				//TODO encriptar pw.
 	private Piso piso;				//Si el usuario solo puede tener un piso alquilado.
 	private boolean tienePiso;		
+	
+	private ArrayList<Mensaje> mensajes;
+	
+	
 	
 	public Piso getPiso() {
 		return piso;
@@ -123,6 +130,17 @@ public class Usuario {
 		this.pw1 = pw1;
 	}
 
-	
+
+
+	public ArrayList<Mensaje> getMensajes() {
+		return mensajes;
+	}
+
+
+
+	public void setMensajes(ArrayList<Mensaje> mensajes) {
+		this.mensajes = mensajes;
+	}
+
 	
 }
