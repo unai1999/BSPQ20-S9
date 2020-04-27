@@ -1,9 +1,10 @@
 package es.deusto.spq.data;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.PrimaryKey;
+
+
+
 
 
 import javax.jdo.annotations.Inheritance;
