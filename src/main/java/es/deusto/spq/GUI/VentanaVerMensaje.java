@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 
 
 import es.deusto.spq.data.Mensaje;
+import es.deusto.spq.data.MensajePrivado;
 
 
 public class VentanaVerMensaje extends JFrame {
@@ -14,7 +15,7 @@ public class VentanaVerMensaje extends JFrame {
 	private int ancho = 620;
 	private int alto = 480;
 	
-	public VentanaVerMensaje(Mensaje m) {
+	public VentanaVerMensaje(MensajePrivado m) {
 		
 		setSize(ancho, alto);
 		setTitle("Lista de mensajes");
@@ -24,13 +25,13 @@ public class VentanaVerMensaje extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel cuerpo = new JLabel();
-	    cuerpo.setText(m.getCuerpo());
+	    cuerpo.setText(m.getContenido());
 	    cuerpo.setBounds(23,  -150, ancho , 500);
 	    getContentPane().add(cuerpo);
 	    
 	    
 		JLabel titulo = new JLabel();
-		titulo.setText(m.getTitulo());
+		titulo.setText(m.getOrigen());
         titulo.setBounds(23, 20, 200, 20);
         
         
@@ -46,8 +47,8 @@ public class VentanaVerMensaje extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-		Mensaje m = new Mensaje("1", "Deberes", "Hola noseque toma");
-		VentanaVerMensaje vm = new VentanaVerMensaje(m);
+		
+		
 	}
 	
 }

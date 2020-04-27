@@ -182,12 +182,6 @@ public class VentanaLogin {
 						pisos = Controller.getInstance().getPisos();
 						String password = new String(tFCont.getPassword());
 						Usuario u1 = new Usuario(tFLogin.getText(), password);
-						ArrayList<Mensaje> mensajes = new ArrayList<>();
-						Mensaje m = new Mensaje("1", "Correo", "Blablablabla");
-						Mensaje mw = new Mensaje("2", "Apuntes", "Ayudame porfavor");
-						mensajes.add(m);
-						mensajes.add(mw);
-						u1.setMensajes(mensajes);
 						new VentanaListaPisos(pisos, pisos, u1);
 						frame.dispose();
 						

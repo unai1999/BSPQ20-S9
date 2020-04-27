@@ -10,10 +10,10 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 
-import es.deusto.spq.data.Mensaje;
+
+import es.deusto.spq.client.Controller;
+import es.deusto.spq.data.MensajePrivado;
 import es.deusto.spq.data.Usuario;
 
 public class VentanaMensajes extends JFrame{
@@ -26,11 +26,11 @@ public class VentanaMensajes extends JFrame{
 	
 	private static JList<String> lista = new JList<String>();
 	private static DefaultListModel<String> listaModelo = new DefaultListModel<String>();
-	private static ArrayList<Mensaje> mensajes = new ArrayList<>();
+	private static ArrayList<MensajePrivado> mensajes = new ArrayList<>();
 	
 	public VentanaMensajes(Usuario user) {
 		
-	    
+	    mensajes = (ArrayList<MensajePrivado>) Controller.getInstance().getMensajes(Controller.getInstance().getUsuario().getNickname());
 		setSize(ancho, alto);
 		setTitle("Lista de mensajes");
 		setLocationRelativeTo(null);
@@ -47,12 +47,11 @@ public class VentanaMensajes extends JFrame{
 		
         lista.setBounds(0,  100, 620, 353);    
        
-        mensajes =  user.getMensajes();
         
         
-        for(Mensaje m : mensajes) {
+        for(MensajePrivado m : mensajes) {
         	
-        	listaModelo.addElement(" " + m.getId() + ":  " + m.getTitulo()+ "             ");
+        	listaModelo.addElement(" " + m.getOrigen() + ":  " + m.getContenido()+ "             ");
         	
         }
         

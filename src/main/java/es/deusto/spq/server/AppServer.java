@@ -43,6 +43,17 @@ public class AppServer {
 		
 		return posts;
 	}
+
+	@Path("/mensajes/{usuario}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<MensajePrivado> getMensajes(@PathParam("usuario") final String usuario){
+		List<MensajePrivado> mensajes = new ArrayList<MensajePrivado>();
+
+		mensajes = DAOFactory.getInstance().createMensajeDAO().getMensaje(usuario);
+		
+		return mensajes;
+	}
 	
 	@Path("/1")
 	@GET
@@ -71,6 +82,15 @@ public class AppServer {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response crearPost(final Post post){
 	 	DAOFactory.getInstance().createForoDAO().guardar(post);
+	 	return Response.status(Response.Status.OK).build();
+
+	}
+
+	@Path("/mensajes/enviar")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response enviarMensaje(MensajePrivado mp){
+	 	DAOFactory.getInstance().createMensajeDAO().guardar(mp);
 	 	return Response.status(Response.Status.OK).build();
 
 	 }
