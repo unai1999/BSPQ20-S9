@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -19,7 +20,10 @@ import javax.swing.text.BadLocationException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 
+import es.deusto.spq.client.Controller;
+import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
+import es.deusto.spq.data.Usuario;
 
 public class VentanaListaPosts extends JFrame{
 	
@@ -29,7 +33,7 @@ public class VentanaListaPosts extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private MetodosGUI m = new MetodosGUI();
 	
-	public VentanaListaPosts(List<Post> posts, List<Post> posts2) {
+	public VentanaListaPosts(List<Post> posts, List<Post> posts2, Usuario u1) {
 	    
 		setSize(620, 480);
 		setTitle("Lista de posts");
@@ -63,6 +67,14 @@ public class VentanaListaPosts extends JFrame{
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		panelListaPost.add(scroll);
 		
+		JButton btnPisos = new JButton("Pisos");
+		btnPisos.setBounds(20, 417, 89, 23);
+		getContentPane().add(btnPisos);
+		
+		JButton btnInicio = new JButton("Inicio");
+		btnInicio.setBounds(208, 417, 89, 23);
+		getContentPane().add(btnInicio);
+		
 		
 		if(posts2.size() > 0) {
 			textoPost.setText("Titulo: " + posts2.get(0).getTitulo().toUpperCase() + "\n" + "Descripción: " + posts2.get(0).getContenido() +"\n" + "Autor: " + posts2.get(0).getAutor() + "\n" + "Likes: " + posts2.get(0).getLikes() +"\n\n");
@@ -76,12 +88,32 @@ public class VentanaListaPosts extends JFrame{
         	labelNoPost.setBounds(200, 50, 200, 50);
         	getContentPane().add(labelNoPost);
         }
+		btnPisos.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				List<Piso> pisos = new ArrayList<Piso>();
+				pisos = Controller.getInstance().getPisos();
+				new VentanaListaPisos(pisos, pisos, u1);
+				
+			}
+		});
+		btnInicio.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				List<Post> posts = new ArrayList<Post>();
+				posts = Controller.getInstance().getPost();
+				new VentanaListaPosts(posts, posts, u1);
+				
+			}
+		});
 		btnBuscar.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-        		new VentanaListaPosts(posts, m.buscarPosts(textBuscarPost, posts));
+        		new VentanaListaPosts(posts, m.buscarPosts(textBuscarPost, posts), u1);
 				
 			}
 		});
@@ -96,27 +128,30 @@ public class VentanaListaPosts extends JFrame{
 						int end = textoPost.getLineEndOffset( line );
 						String text = textoPost.getDocument().getText(start, end - start).toLowerCase();
 						if(text.contains("titulo")) {
-							System.out.println(m.obtenerPost(text, posts).getTitulo());
+							new VentanaInfoPost(m.obtenerPost(text, posts), u1);
+							dispose();
 						}else if(text.contains("descripción")) {
 							line = line - 1;
 							start = textoPost.getLineStartOffset( line );
 							end = textoPost.getLineEndOffset( line );
 							text = textoPost.getDocument().getText(start, end - start).toLowerCase();
-							System.out.println(m.obtenerPost(text, posts).getTitulo());
+							new VentanaInfoPost(m.obtenerPost(text, posts), u1);
+							dispose();
 							
 						}else if(text.contains("autor")) {
 							line = line - 2;
 							start = textoPost.getLineStartOffset( line );
 							end = textoPost.getLineEndOffset( line );
 							text = textoPost.getDocument().getText(start, end - start).toLowerCase();
-							System.out.println(m.obtenerPost(text, posts).getTitulo());
-							
+							new VentanaInfoPost(m.obtenerPost(text, posts), u1);
+							dispose();
 						}else if(text.contains("likes")) {
 							line = line - 3;
 							start = textoPost.getLineStartOffset( line );
 							end = textoPost.getLineEndOffset( line );
 							text = textoPost.getDocument().getText(start, end - start).toLowerCase();
-							System.out.println(m.obtenerPost(text, posts).getTitulo());
+							new VentanaInfoPost(m.obtenerPost(text, posts), u1);
+							dispose();
 							
 						}
 					} catch (BadLocationException e1) {
@@ -133,6 +168,4 @@ public class VentanaListaPosts extends JFrame{
 		setVisible(true);
 		
 	}
-	
-
 }

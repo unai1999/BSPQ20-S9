@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,7 +18,9 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Post;
+import es.deusto.spq.data.Usuario;
 
 public class VentanaInfoPost {
 	
@@ -27,12 +31,12 @@ public class VentanaInfoPost {
 	private JScrollPane scroll;
 	private final static String LINEA_NUEVA = "\n";
 	
-	public VentanaInfoPost(Post post) {
-		initialize(post);
+	public VentanaInfoPost(Post post, Usuario u1) {
+		initialize(post, u1);
 		jFPost.setVisible(true);
 	}
 
-	private void initialize(Post post) {
+	private void initialize(Post post, Usuario u1) {
 		
 		
 		jFPost = new JFrame();
@@ -174,6 +178,17 @@ public class VentanaInfoPost {
 				taComents.append(texto + LINEA_NUEVA);
 				tfNewComent.selectAll();
 				taComents.setCaretPosition(taComents.getDocument().getLength());	
+			}
+		});
+		btnAtras.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				List<Post> posts = new ArrayList<Post>();
+				posts = Controller.getInstance().getPost();
+				new VentanaListaPosts(posts, posts, u1);
+				jFPost.dispose();
+				
 			}
 		});
 		

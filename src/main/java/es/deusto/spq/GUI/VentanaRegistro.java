@@ -145,6 +145,14 @@ public class VentanaRegistro {
 		tFApellido.setBounds(246, 255, 133, 20);
 		panelPrincipal.add(tFApellido);
 		
+		btnAtras.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new VentanaLogin();
+				
+			}
+		});
 		btnRegistrar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

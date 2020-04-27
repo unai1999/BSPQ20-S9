@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.Test;
 
 import es.deusto.spq.data.Post;
+import es.deusto.spq.data.Usuario;
 
 public class VentanaListaPostsTest {
 
@@ -19,10 +20,11 @@ public class VentanaListaPostsTest {
 		posts.add(p1);
 		posts.add(p2);
 		List<Post> posts2 = new ArrayList<Post>();
+		Usuario u1 = new Usuario("aa", "aa", "aa", "aa", "aa");
 		
-		VentanaListaPosts v1 = new VentanaListaPosts(posts, posts);
+		VentanaListaPosts v1 = new VentanaListaPosts(posts, posts, u1);
 		assertTrue(v1 != null);
-		VentanaListaPosts v2 = new VentanaListaPosts(posts2, posts2);
+		VentanaListaPosts v2 = new VentanaListaPosts(posts2, posts2, u1);
 		assertTrue(v2 != null);
 	}
 }

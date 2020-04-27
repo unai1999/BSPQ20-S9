@@ -154,7 +154,7 @@ public class VentanaListaPisos extends JFrame {
 				dispose();
 				List<Post> posts = new ArrayList<Post>();
 				posts = Controller.getInstance().getPost();
-				new VentanaListaPosts(posts, posts);
+				new VentanaListaPosts(posts, posts, u1);
 				
 			}
 		});
