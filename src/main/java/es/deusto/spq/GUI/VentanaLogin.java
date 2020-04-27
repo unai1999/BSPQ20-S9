@@ -19,9 +19,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import es.deusto.spq.client.Controller;
+import es.deusto.spq.data.Mensaje;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
-import es.deusto.spq.server.DAOFactory;
 import es.deusto.spq.server.SendEmail;
 
 public class VentanaLogin {
@@ -37,13 +37,11 @@ public class VentanaLogin {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		String hostname = args[0];
-		String port = args[1];
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					System.out.println("Puerto: " + port);
-					System.out.println("Hostname: "+ hostname);
+					//System.out.println("Puerto: " + port);
+					//System.out.println("Hostname: "+ hostname);
 					VentanaLogin window = new VentanaLogin();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -65,8 +63,8 @@ public class VentanaLogin {
 	 */
 	private void initialize() {
 		
-		DAOFactory.getInstance().createPisoDAO().crearAlgunosDatos();
-        DAOFactory.getInstance().createPostDAO().crearPosts();
+//		DAOFactory.getInstance().createPisoDAO().crearAlgunosDatos();
+//        DAOFactory.getInstance().createPostDAO().crearPosts();
 
         
         
@@ -128,6 +126,7 @@ public class VentanaLogin {
 		btnEnviar.setBounds(309, 380, 89, 23);
 		panelPrincipal.add(btnEnviar);
 
+		frame.setVisible(true);
 		MetodosGUI mgui = new MetodosGUI();
 		btnEnviar.addActionListener(new ActionListener(){
 
@@ -183,6 +182,12 @@ public class VentanaLogin {
 						pisos = Controller.getInstance().getPisos();
 						String password = new String(tFCont.getPassword());
 						Usuario u1 = new Usuario(tFLogin.getText(), password);
+						ArrayList<Mensaje> mensajes = new ArrayList<>();
+						Mensaje m = new Mensaje("1", "Correo", "Blablablabla");
+						Mensaje mw = new Mensaje("2", "Apuntes", "Ayudame porfavor");
+						mensajes.add(m);
+						mensajes.add(mw);
+						u1.setMensajes(mensajes);
 						new VentanaListaPisos(pisos, pisos, u1);
 						frame.dispose();
 						
@@ -190,19 +195,7 @@ public class VentanaLogin {
 					}else{
 						JOptionPane.showMessageDialog(null, "Login", "Error", JOptionPane.ERROR_MESSAGE);
 					}
-				}
-
-
-				//TODO los metodos que estan en metodosGUI son del controller
-				// if(mGUI.validarUsuario(tFLogin.getText()) && mGUI.validarContrasenya(password1)) {
-				// 	List<Piso> pisos = new ArrayList<Piso>();
-				// 	pisos = mGUI.getPisos(client.target(String.format("http://%s:%s/rest", hostname, port)));
-				// 	String password = new String(tFCont.getPassword());
-				// 	Usuario u1 = new Usuario(tFLogin.getText(), password);
-				// 	frame.dispose();
-				// 	new VentanaListaPisos(pisos, pisos, hostname, port, u1);
-				// }
-				
+				}				
 				
 			}
 		});
