@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import es.deusto.spq.data.Mensaje;
+
 import es.deusto.spq.data.MensajePrivado;
 import es.deusto.spq.data.Usuario;
 

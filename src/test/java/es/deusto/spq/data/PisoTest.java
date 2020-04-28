@@ -52,7 +52,6 @@ public class PisoTest {
     	 assertEquals("bb", piso.getDesc());
     	 assertTrue(piso.getId() == 1);
     	 assertTrue(piso.getImagenes().get(0).getId() == "1");
-    	 //assertTrue(piso.getInquilinos().size() == 5);
     	 assertEquals("cc", piso.getLocalizacion());
     	 assertTrue(piso.getnHab() == 3);
     	 assertEquals("cc", piso.getNombre());
@@ -60,7 +59,9 @@ public class PisoTest {
     	 assertEquals("aa", piso.getPropiertario().getNombre());
     	 assertTrue(piso.getValoracion() == 3);
     	 assertEquals(true, piso.isAlquilado());
-
+    	 assertEquals("Piso [alquilado=true, coste=4.0, id=1, localizacion=cc, nombre=cc, valoracion=3]",piso.toString());
+    	 
+    	 
     	 assertEquals("aa", piso2.getNombre());
     	 assertTrue(piso2.getCoste() == 3);
     	 
