@@ -3,12 +3,18 @@ package es.deusto.spq.data;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import junit.framework.JUnit4TestAdapter;
 
 public class PostTest {
 
         Post post;
         Comentario c;
+        List<Comentario> listaComentario;
 
         public static junit.framework.Test suite() {
             return new JUnit4TestAdapter(PostTest.class);
@@ -18,7 +24,25 @@ public class PostTest {
 	    public void setUp() {
             post = new Post("Titulo", "Autor", "Contenido");
             c = new Comentario(1, "Autor", "Contenido");
+            listaComentario = new ArrayList<Comentario>();
+            post.setAutor("Eneko");
+            listaComentario.add(c);
+            post.setContenido("aaa");
+            post.setLikes(3);
+            post.setComentarios(listaComentario);
+            post.setTitulo("bbbb");
+            c.setContenido("aaaa");
     	}
+        
+        @Test
+        public void setAutorTest() {
+        	assertEquals("Eneko", post.getAutor());
+        }
+        
+        @Test
+        public void setComentariosTest() {
+        	assertTrue(post.getComentarios().size()> 0);
+        }
 
         @Test
         public void incLikesTest(){
@@ -29,8 +53,6 @@ public class PostTest {
 
         @Test
         public void addComentarioTest(){
-            assertEquals(0, post.getComentarios().size());
-            post.addComentario(c);
             assertEquals(1, post.getComentarios().size());
             assertEquals(c, post.getComentarios().get(0));
         }
