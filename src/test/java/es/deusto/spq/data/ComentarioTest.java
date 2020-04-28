@@ -15,6 +15,7 @@ public class ComentarioTest {
 		c.setId(1);
 		c.setAutor("Eneko");
 		c.setFecha("28/04/2020");
+		c.setContenido("bb");
 	}
 
 	@Test
@@ -30,5 +31,9 @@ public class ComentarioTest {
 	@Test
 	public void setFechaTest() {
 		assertEquals("28/04/2020", c.getFecha());
+	}
+	@Test
+	public void setContenido() {
+		assertEquals("bb", c.getContenido());
 	}
 }
