@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import es.deusto.spq.data.Mensaje;
 import es.deusto.spq.data.MensajePrivado;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
