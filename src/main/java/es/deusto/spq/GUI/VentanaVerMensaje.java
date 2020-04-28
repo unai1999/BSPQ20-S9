@@ -5,7 +5,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 
-import es.deusto.spq.data.Mensaje;
 import es.deusto.spq.data.MensajePrivado;
 
 

@@ -120,7 +120,7 @@ public class Piso{
 
     @Override
     public String toString() {
-        return "Piso [alquilado=" + alquilado + ", coste=" + coste + ", id=" + id + ", imagenes=" + imagenes
+        return "Piso [alquilado=" + alquilado + ", coste=" + coste + ", id=" + id 
                 + ", localizacion=" + localizacion + ", nombre=" + nombre + ", valoracion=" + valoracion + "]";
     }
 
@@ -141,9 +141,9 @@ public class Piso{
 	}
 
 
-	public List<Usuario> getInquilinos() {
-		return inquilinos;
-	}
+//	public List<Usuario> getInquilinos() {
+//		return inquilinos;
+//	}
 
 //	public void setInquilinos(List<Usuario> inquilinos) {
 //		if(this.getInquilinos().size() <= this.numeroInquilinos) {
