@@ -25,7 +25,11 @@ public class MensajePrivado {
         this.contenido = contenido;
     }
 
-    public String getOrigen() {
+    public MensajePrivado() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getOrigen() {
         return origen;
     }
 

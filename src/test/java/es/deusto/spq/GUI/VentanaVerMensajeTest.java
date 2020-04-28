@@ -5,7 +5,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import es.deusto.spq.data.Mensaje;
 import es.deusto.spq.data.MensajePrivado;
 
 
