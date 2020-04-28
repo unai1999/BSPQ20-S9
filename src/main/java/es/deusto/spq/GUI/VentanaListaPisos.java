@@ -92,6 +92,11 @@ public class VentanaListaPisos extends JFrame {
 		botonListaPosts.setBounds(259, 390, 140, 23);
 		getContentPane().add(botonListaPosts);
 		
+		JButton btnFormulario = new JButton("Formulario");
+		btnFormulario.setBounds(40, 387, 120, 23);
+		getContentPane().add(btnFormulario);
+		
+		
         
         if(pisos2.size() > 0) {
         for(int i = 0; i < pisos2.size(); i++) {
@@ -105,6 +110,7 @@ public class VentanaListaPisos extends JFrame {
         	labelNoPisos.setBounds(200, 50, 150, 50);
         	getContentPane().add(labelNoPisos);
         }
+        
         textoPisos.addMouseListener(new MouseAdapter() {
 
 			@Override
@@ -146,7 +152,14 @@ public class VentanaListaPisos extends JFrame {
        	    }
 			}
 			});
-        
+        btnFormulario.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new VentanaFormularioPisos();
+				
+			}
+		});
         botonListaPosts.addActionListener(new ActionListener() {
 			
 			@Override
@@ -154,7 +167,7 @@ public class VentanaListaPisos extends JFrame {
 				dispose();
 				List<Post> posts = new ArrayList<Post>();
 				posts = Controller.getInstance().getPost();
-				new VentanaListaPosts(posts, posts);
+				new VentanaListaPosts(posts, posts, u1);
 				
 			}
 		});

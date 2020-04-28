@@ -13,6 +13,7 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import es.deusto.spq.data.MensajePrivado;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 import es.deusto.spq.data.Usuario;
@@ -24,8 +25,15 @@ public class Controller {
 
     private Client client;
     private WebTarget webTarget;
+    Usuario usuarioActual;
     //Usuario?
 
+    public void setUsuario(Usuario u){
+        instance.usuarioActual = u;
+    }
+    public Usuario getUsuario(){
+        return instance.usuarioActual;
+    }
     public Controller() {
 
         String hostname;
@@ -52,6 +60,7 @@ public class Controller {
     public static Controller getInstance(){
         if(instance == null){
             instance = new Controller();
+            instance.setUsuario(null);
         }
         return instance;
     }
@@ -121,4 +130,26 @@ public class Controller {
         }
         return posts;
     }
+
+    public List<MensajePrivado> getMensajes(String usuario){
+        List<MensajePrivado> mensajes = new ArrayList<MensajePrivado>();
+        String path = "pisos/mensajes/" + usuario;
+        WebTarget pisosWebTarget = webTarget.path(path);
+        GenericType<List<MensajePrivado>> genericType = new GenericType<List<MensajePrivado>>(){}; 
+        mensajes = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+        return mensajes;
+    }
+
+    public Response enviarMensaje(MensajePrivado mp){
+
+        WebTarget publicarTarget = webTarget.path("pisos/mensajes/enviar");
+        Entity<MensajePrivado> entity = Entity.entity(mp, MediaType.APPLICATION_JSON);
+        Response response = publicarTarget.request().post(entity);
+
+
+        return response;
+        
+   }
+
+   
 }

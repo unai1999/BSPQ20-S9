@@ -24,7 +24,7 @@ public class Usuario {
 	private Piso piso;				//Si el usuario solo puede tener un piso alquilado.
 	private boolean tienePiso;		
 	
-	private ArrayList<Mensaje> mensajes;
+	private ArrayList<MensajePrivado> mensajes;
 	
 	
 	
@@ -132,13 +132,13 @@ public class Usuario {
 
 
 
-	public ArrayList<Mensaje> getMensajes() {
+	public ArrayList<MensajePrivado> getMensajes() {
 		return mensajes;
 	}
 
 
 
-	public void setMensajes(ArrayList<Mensaje> mensajes) {
+	public void setMensajes(ArrayList<MensajePrivado> mensajes) {
 		this.mensajes = mensajes;
 	}
 

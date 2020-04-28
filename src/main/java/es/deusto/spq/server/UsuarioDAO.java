@@ -96,7 +96,10 @@ public class UsuarioDAO {
 				}
 			}
 		}
-		
+		public void crearUsuario() {
+			Usuario u1 = new Usuario("Iñi", "Iñigo", "Lopez", "lpezinigo@gmail.com", "12345678");
+			guardar(u1);
+		}
 		public void actualizarPassword(String email, String newPassword){
 
 			Usuario u = getUsuarioFromEmail(email);
