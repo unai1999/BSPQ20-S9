@@ -199,7 +199,7 @@ public class VentanaListaPisos extends JFrame {
         btnBuscar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		dispose();
-        		new VentanaListaPisos(pisos, m.buscarPisos(textBuscarPiso, pisos), u1);
+        		new VentanaListaPisos(pisos, m.buscarPisos(textBuscarPiso.getText(), pisos), u1);
         		
         	}
         });

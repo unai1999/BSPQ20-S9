@@ -105,6 +105,7 @@ public class VentanaListaPosts extends JFrame{
 				List<Post> posts = new ArrayList<Post>();
 				posts = Controller.getInstance().getPost();
 				new VentanaListaPosts(posts, posts, u1);
+				dispose();
 				
 			}
 		});
@@ -113,7 +114,7 @@ public class VentanaListaPosts extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-        		new VentanaListaPosts(posts, m.buscarPosts(textBuscarPost, posts), u1);
+        		new VentanaListaPosts(posts, m.buscarPosts(textBuscarPost.getText(), posts), u1);
 				
 			}
 		});
