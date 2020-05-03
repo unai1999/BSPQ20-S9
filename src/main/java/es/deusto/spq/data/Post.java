@@ -3,12 +3,12 @@ package es.deusto.spq.data;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.jdo.annotations.PersistenceCapable;
-
+import javax.jdo.annotations.Persistent;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 
@@ -17,6 +17,9 @@ import javax.jdo.annotations.InheritanceStrategy;
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Post {
 
+    @Persistent(valueStrategy=IdGeneratorStrategy.INCREMENT, primaryKey="true")
+    private long id;
+    
     private String titulo;
     private String autor; //Usuario?
     private String contenido;

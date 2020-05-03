@@ -1,7 +1,6 @@
 package es.deusto.spq.data;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
@@ -17,6 +16,7 @@ public class Usuario {
 	private String nombre;	
 	private String apellidos;		//Apellido1 + " " + Apellido2
 	
+	@PrimaryKey
 	private String email;
 	
 	

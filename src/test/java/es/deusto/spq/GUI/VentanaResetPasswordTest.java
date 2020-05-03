@@ -8,7 +8,7 @@ public class VentanaResetPasswordTest {
 	
 	@Test
 	public void comprobarVentana() {
-		VentanaResetPassword v1 = new VentanaResetPassword();
+		VentanaResetPassword v1 = new VentanaResetPassword("");
 		assertTrue(v1 != null);
 	}
 

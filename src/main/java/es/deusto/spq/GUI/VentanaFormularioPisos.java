@@ -1,7 +1,6 @@
 package es.deusto.spq.GUI;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,8 +12,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
@@ -31,7 +28,6 @@ public class VentanaFormularioPisos {
 	private JTextField tfNumHuespedes;
 	private JTextField tfNumHabs;
 	private JTextField tfCoste;
-	private Client client;
 	
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {

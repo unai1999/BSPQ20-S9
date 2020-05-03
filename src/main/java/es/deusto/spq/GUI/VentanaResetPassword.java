@@ -24,14 +24,17 @@ public class VentanaResetPassword extends JFrame implements ActionListener {
     JPasswordField password1_text, password2_text;
     JButton submit, cancel;
 
+    String email;
+
     // enum Resp {
     //     MISSMATCH,
     //     LENGTH,
     //     VALID
     // }
 
-    VentanaResetPassword() {
+    VentanaResetPassword(String e) {
         
+        email = e;
         // User Label
         passwprd_label1 = new JLabel();
         passwprd_label1.setText("New password :");
@@ -70,7 +73,7 @@ public class VentanaResetPassword extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new VentanaResetPassword();
+        new VentanaResetPassword("");
     }
 
     @Override
@@ -92,7 +95,7 @@ public class VentanaResetPassword extends JFrame implements ActionListener {
             case VALID:
             message.setText("Password reset :)");
             message.setForeground(Color.GREEN);
-            Response response = Controller.getInstance().resetPassword("e@e.es", password1);
+            Response response = Controller.getInstance().resetPassword(email, password1);
             this.dispose();
 
             if(response.getStatus() == Status.OK.getStatusCode()){

@@ -25,6 +25,7 @@ public class Controller {
 
     private Client client;
     private WebTarget webTarget;
+    private WebTarget requestTarget;
     Usuario usuarioActual;
     //Usuario?
 
@@ -33,6 +34,13 @@ public class Controller {
     }
     public Usuario getUsuario(){
         return instance.usuarioActual;
+    }
+    public void setWebTarget(WebTarget wt){
+        webTarget = wt;
+    }
+
+    public String m(){
+        return requestTarget.toString();
     }
     public Controller() {
 
@@ -65,20 +73,31 @@ public class Controller {
         return instance;
     }
 
+
     public Response publicarPost(String titulo, String autor, String contenido){
 
-         WebTarget publicarTarget = webTarget.path("pisos/foro/submit");
+         requestTarget = webTarget.path("pisos/foro/submit");
          Post post = new Post(titulo, autor, contenido);
          Entity<Post> entity = Entity.entity(post, MediaType.APPLICATION_JSON);
-         Response response = publicarTarget.request().post(entity);
+         Response response = requestTarget.request().post(entity);
          
          return response;
          
     }
 
-    public Response resetPassword(String nick, String newPassword){
+    public Response testMethod(String titulo, String autor, String contenido){
+         
+        
+         Post post = new Post("titulo", "autor", "contenido");
+         Entity<Post> entity = Entity.entity(post, MediaType.APPLICATION_JSON);
+         Response response = requestTarget.request().post(entity);
+         
+         return response;
+    }
+
+    public Response resetPassword(String email, String newPassword){
          WebTarget resetTrget = webTarget.path("pisos/reset");
-         UsuarioLogin ul = new UsuarioLogin(nick, newPassword);
+         UsuarioLogin ul = new UsuarioLogin(email, newPassword);
          System.out.println(ul);
          Entity<UsuarioLogin> entity = Entity.entity(ul, MediaType.APPLICATION_JSON);
          Response response = resetTrget.request().post(entity);

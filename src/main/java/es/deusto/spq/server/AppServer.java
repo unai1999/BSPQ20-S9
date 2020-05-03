@@ -11,8 +11,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import es.deusto.spq.data.*;
+import es.deusto.spq.data.dto.PisoAssembler;
+import es.deusto.spq.data.dto.PisoDTO;
 import es.deusto.spq.data.dto.UsuarioLogin;
-import es.deusto.spq.server.DAOFactory;
+
 
 
 @Path("/pisos")
@@ -72,7 +74,8 @@ public class AppServer {
 		Piso p = null;
 		p = DAOFactory.getInstance().createPisoDAO().getPiso(id);
 
-
+		//PisoAssembler pa = new PisoAssembler();
+		//PisoDTO piso = pa.assemble(p);
 		return p;
 	}
 

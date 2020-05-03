@@ -17,8 +17,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.text.BadLocationException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;

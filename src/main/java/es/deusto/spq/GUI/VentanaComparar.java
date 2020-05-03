@@ -19,11 +19,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.border.MatteBorder;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
+
 
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;

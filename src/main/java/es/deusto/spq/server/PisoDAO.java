@@ -146,5 +146,27 @@ public class PisoDAO{
         }
         
         return piso;
-    }
+	}
+	
+	public Piso getPisoByIdBien(long id){
+		Piso piso = null;
+
+		Transaction tx = pm.currentTransaction();
+
+        try {
+            tx.begin();
+            piso = pm.getObjectById(Piso.class, id);
+            tx.commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            if (tx != null && tx.isActive()){
+                tx.rollback();
+            }
+            pm.close();
+        }
+
+		return piso;
+	}
 }

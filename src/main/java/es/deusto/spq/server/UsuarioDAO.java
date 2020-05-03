@@ -11,7 +11,7 @@ import es.deusto.spq.data.Usuario;
 public class UsuarioDAO {
 
 	 private PersistenceManagerFactory pmf;
-	    private PersistenceManager pm;
+	 private PersistenceManager pm;
 	    
 	    protected UsuarioDAO(){
 	        pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
@@ -103,7 +103,7 @@ public class UsuarioDAO {
 		public void actualizarPassword(String email, String newPassword){
 
 			Usuario u = getUsuarioFromEmail(email);
-			System.out.println("----------DAO--------");
+			
 			Transaction tx = pm.currentTransaction();
 	    	try {
 				tx.begin();

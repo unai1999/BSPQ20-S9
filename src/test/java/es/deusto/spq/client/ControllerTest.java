@@ -1,6 +1,9 @@
 package es.deusto.spq.client;
 
+import org.databene.contiperf.PerfTest;
+import org.databene.contiperf.Required;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -35,14 +38,10 @@ import junit.framework.JUnit4TestAdapter;
 
 public class ControllerTest {
 
-    // @Mock
     Controller controller;
 
-    // @Mock
-    // Client client;
-
-    // @Mock
-    // WebTarget WebTarget;
+    @Mock
+    WebTarget webTarget;
 
     // public static junit.framework.Test suite() {
     //     return new JUnit4TestAdapter(ControllerTest.class);
@@ -56,288 +55,286 @@ public class ControllerTest {
     }
 
     @Test
-    public void publicarPostTest2(){
+    public void publicarPostTest(){
 
-        //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
         Response mockResponse = mock(Response.class);
-
-        when(controller.publicarPost(anyString(), anyString(), anyString())).thenReturn(mockResponse);
         when(mockResponse.getStatus()).thenReturn(200);
 
-        //when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
+        WebTarget wt = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+        when(wt.request().post(any(Entity.class))).thenReturn(mockResponse);
 
-        //Post post = new Post();
-        //Entity<Post> entity = Entity.entity(post, MediaType.APPLICATION_JSON);
-        //Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
+        webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+        controller.setWebTarget(webTarget);
+        when(webTarget.path(anyString())).thenReturn(wt);
+    
         Response response = controller.publicarPost("titulo", "autor", "contenido");
 
         assertEquals(200, response.getStatus());
     }
 
     @Test
-    public void publicarPostTest(){
+    public void publicarPostTest2(){
 
-        // WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        // Response mockResponse = mock(Response.class);
+        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+        Response mockResponse = mock(Response.class);
 
-        // when(mockResponse.getStatus()).thenReturn(200);
+        when(mockResponse.getStatus()).thenReturn(200);
 
-        // when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
+        when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
 
-        // Post post = new Post();
-        // Entity<Post> entity = Entity.entity(post, MediaType.APPLICATION_JSON);
-        // //Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
-        // Response response = controller.publicarPost("titulo", "autor", "contenido");
+        Post post = new Post();
+        Entity<Post> entity = Entity.entity(post, MediaType.APPLICATION_JSON);
+        //Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
+        Response response = controller.publicarPost("titulo", "autor", "contenido");
 
-        // assertEquals(200, response.getStatus());
+        assertEquals(200, response.getStatus());
         assertTrue(true);
     }
 
-    @Test
-    public void resetPasswordTest2(){
+    // @Test
+    // public void resetPasswordTest2(){
 
-        //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
-        Response mockResponse = mock(Response.class);
+    //     //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
+    //     Response mockResponse = mock(Response.class);
 
-        when(controller.resetPassword(anyString(), anyString())).thenReturn(mockResponse);
-        when(mockResponse.getStatus()).thenReturn(200);
+    //     when(controller.resetPassword(anyString(), anyString())).thenReturn(mockResponse);
+    //     when(mockResponse.getStatus()).thenReturn(200);
 
-        Response response = controller.resetPassword("titulo", "autor");
+    //     Response response = controller.resetPassword("titulo", "autor");
 
-        assertEquals(200, response.getStatus());
-    }
+    //     assertEquals(200, response.getStatus());
+    // }
 
-    @Test
-    public void resetPasswordTest(){
+    // @Test
+    // public void resetPasswordTest(){
 
-        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        Response mockResponse = mock(Response.class);
+    //     WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     Response mockResponse = mock(Response.class);
 
-        when(mockResponse.getStatus()).thenReturn(200);
+    //     when(mockResponse.getStatus()).thenReturn(200);
 
-        when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
+    //     when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
 
-        UsuarioLogin ul = new UsuarioLogin("nick", "password");
-        Entity<UsuarioLogin> entity = Entity.entity(ul, MediaType.APPLICATION_JSON);
-        Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
+    //     UsuarioLogin ul = new UsuarioLogin("nick", "password");
+    //     Entity<UsuarioLogin> entity = Entity.entity(ul, MediaType.APPLICATION_JSON);
+    //     Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
 
-        assertEquals(200, response.getStatus());
+    //     assertEquals(200, response.getStatus());
 
-    }
+    // }
 
-    @Test
-    public void registrarUsuarioTest2(){
+    // @Test
+    // public void registrarUsuarioTest2(){
 
-        //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
-        Response mockResponse = mock(Response.class);
+    //     //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
+    //     Response mockResponse = mock(Response.class);
 
-        when(controller.registrarUsuario(any(Usuario.class))).thenReturn(mockResponse);
-        when(mockResponse.getStatus()).thenReturn(200);
-        Usuario u = new Usuario("nickname", "nombre", "apellidos", "email", "pw1");
+    //     when(controller.registrarUsuario(any(Usuario.class))).thenReturn(mockResponse);
+    //     when(mockResponse.getStatus()).thenReturn(200);
+    //     Usuario u = new Usuario("nickname", "nombre", "apellidos", "email", "pw1");
 
-        Response response = controller.registrarUsuario(u);
+    //     Response response = controller.registrarUsuario(u);
 
-        assertEquals(200, response.getStatus());
-    }
+    //     assertEquals(200, response.getStatus());
+    // }
 
-    @Test
-    public void registrarUsuarioTest(){
-        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        Response mockResponse = mock(Response.class);
+    // @Test
+    // public void registrarUsuarioTest(){
+    //     WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     Response mockResponse = mock(Response.class);
 
-        when(mockResponse.getStatus()).thenReturn(200);
+    //     when(mockResponse.getStatus()).thenReturn(200);
 
-        when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
+    //     when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
 
-        Usuario usuario = new Usuario("nickname", "nombre", "apellidos", "email", "pw1");
-        Entity<Usuario> entity = Entity.entity(usuario, MediaType.APPLICATION_JSON);
-        Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
+    //     Usuario usuario = new Usuario("nickname", "nombre", "apellidos", "email", "pw1");
+    //     Entity<Usuario> entity = Entity.entity(usuario, MediaType.APPLICATION_JSON);
+    //     Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
 
-        assertEquals(200, response.getStatus());
-    }
+    //     assertEquals(200, response.getStatus());
+    // }
 
-    @Test
-    public void guardarNuevoPisoTest2(){
+    // @Test
+    // public void guardarNuevoPisoTest2(){
 
-        //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
-        Response mockResponse = mock(Response.class);
+    //     //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
+    //     Response mockResponse = mock(Response.class);
 
-        when(controller.guardarNuevoPiso(any(Piso.class))).thenReturn(mockResponse);
-        when(mockResponse.getStatus()).thenReturn(200);
-        Piso p = new Piso();
+    //     when(controller.guardarNuevoPiso(any(Piso.class))).thenReturn(mockResponse);
+    //     when(mockResponse.getStatus()).thenReturn(200);
+    //     Piso p = new Piso();
 
-        Response response = controller.guardarNuevoPiso(p);
+    //     Response response = controller.guardarNuevoPiso(p);
 
-        assertEquals(200, response.getStatus());
-    }
-    @Test
-    public void guardarNuevoPisoTest(){
-        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        Response mockResponse = mock(Response.class);
+    //     assertEquals(200, response.getStatus());
+    // }
+    // @Test
+    // public void guardarNuevoPisoTest(){
+    //     WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     Response mockResponse = mock(Response.class);
 
-        when(mockResponse.getStatus()).thenReturn(200);
+    //     when(mockResponse.getStatus()).thenReturn(200);
 
-        when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
+    //     when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
 
-        Piso piso  = new Piso();
-        Entity<Piso> entity = Entity.entity(piso, MediaType.APPLICATION_JSON);
-        Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
+    //     Piso piso  = new Piso();
+    //     Entity<Piso> entity = Entity.entity(piso, MediaType.APPLICATION_JSON);
+    //     Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
 
-        assertEquals(200, response.getStatus());
-    }
+    //     assertEquals(200, response.getStatus());
+    // }
 
-    @Test
-    public void loginTest2(){
+    // @Test
+    // public void loginTest2(){
 
-        //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
-        Response mockResponse = mock(Response.class);
+    //     //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
+    //     Response mockResponse = mock(Response.class);
 
-        when(controller.login(anyString(), anyString())).thenReturn(mockResponse);
-        when(mockResponse.getStatus()).thenReturn(200);
+    //     when(controller.login(anyString(), anyString())).thenReturn(mockResponse);
+    //     when(mockResponse.getStatus()).thenReturn(200);
         
-        Response response = controller.login("asd","asd");
+    //     Response response = controller.login("asd","asd");
 
-        assertEquals(200, response.getStatus());
-    }
-    @Test
-    public void loginTest(){
+    //     assertEquals(200, response.getStatus());
+    // }
+    // @Test
+    // public void loginTest(){
 
-        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        Response mockResponse = mock(Response.class);
+    //     WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     Response mockResponse = mock(Response.class);
 
-        when(mockResponse.getStatus()).thenReturn(200);
+    //     when(mockResponse.getStatus()).thenReturn(200);
 
-        when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
+    //     when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
 
-        UsuarioLogin ul = new UsuarioLogin("nick", "password");
-        Entity<UsuarioLogin> entity = Entity.entity(ul, MediaType.APPLICATION_JSON);
-        Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
+    //     UsuarioLogin ul = new UsuarioLogin("nick", "password");
+    //     Entity<UsuarioLogin> entity = Entity.entity(ul, MediaType.APPLICATION_JSON);
+    //     Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
 
-        assertEquals(200, response.getStatus());
-    }
+    //     assertEquals(200, response.getStatus());
+    // }
 
-    @Test
-    public void getPisosTest2(){
+    // @Test
+    // public void getPisosTest2(){
 
-        //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
-        List<Piso> lp = new ArrayList<Piso>();
+    //     //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
+    //     List<Piso> lp = new ArrayList<Piso>();
 
-        when(controller.getPisos()).thenReturn(lp);
+    //     when(controller.getPisos()).thenReturn(lp);
 
-        assertEquals(lp, controller.getPisos());
-    }
+    //     assertEquals(lp, controller.getPisos());
+    // }
 
-    @Test
-    public void getPisosTest(){
+    // @Test
+    // public void getPisosTest(){
 
-        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        Response mockResponse = mock(Response.class);
+    //     WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     Response mockResponse = mock(Response.class);
 
-        when(mockResponse.getStatus()).thenReturn(200);
+    //     when(mockResponse.getStatus()).thenReturn(200);
 
-        when(webTarget.request(anyString()).get()).thenReturn(mockResponse);
-
-        
-        Response response = webTarget.request(MediaType.APPLICATION_JSON).get();
-
-        assertEquals(200, response.getStatus());
-    }
-
-    @Test
-    public void getPostTest2(){
-
-        //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
-        List<Post> lp = new ArrayList<Post>();
-
-        when(controller.getPost()).thenReturn(lp);
-
-        assertEquals(lp, controller.getPisos());
-    }
-    
-    @Test
-    public void getPostTest(){
-
-        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        Response mockResponse = mock(Response.class);
-
-        when(mockResponse.getStatus()).thenReturn(200);
-
-        when(webTarget.request(anyString()).get()).thenReturn(mockResponse);
+    //     when(webTarget.request(anyString()).get()).thenReturn(mockResponse);
 
         
-        Response response = webTarget.request(MediaType.APPLICATION_JSON).get();
+    //     Response response = webTarget.request(MediaType.APPLICATION_JSON).get();
 
-        assertEquals(200, response.getStatus());
-    }
+    //     assertEquals(200, response.getStatus());
+    // }
 
+    // @Test
+    // public void getPostTest2(){
 
-    @Test
-    public void getMensajesTest2(){
+    //     //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
+    //     List<Post> lp = new ArrayList<Post>();
 
-        //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
-        List<MensajePrivado> lp = new ArrayList<MensajePrivado>();
+    //     when(controller.getPost()).thenReturn(lp);
 
-        when(controller.getMensajes(anyString())).thenReturn(lp);
-
-        assertEquals(lp, controller.getMensajes("ey"));
-    }
+    //     assertEquals(lp, controller.getPisos());
+    // }
     
+    // @Test
+    // public void getPostTest(){
 
-    public void getMensajesTest(){
+    //     WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     Response mockResponse = mock(Response.class);
 
-        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        Response mockResponse = mock(Response.class);
+    //     when(mockResponse.getStatus()).thenReturn(200);
 
-        when(mockResponse.getStatus()).thenReturn(200);
-
-        when(webTarget.request(anyString()).get()).thenReturn(mockResponse);
+    //     when(webTarget.request(anyString()).get()).thenReturn(mockResponse);
 
         
-        Response response = webTarget.request(MediaType.APPLICATION_JSON).get();
+    //     Response response = webTarget.request(MediaType.APPLICATION_JSON).get();
 
-        assertEquals(200, response.getStatus());
-    }
+    //     assertEquals(200, response.getStatus());
+    // }
+
+
+    // @Test
+    // public void getMensajesTest2(){
+
+    //     //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
+    //     List<MensajePrivado> lp = new ArrayList<MensajePrivado>();
+
+    //     when(controller.getMensajes(anyString())).thenReturn(lp);
+
+    //     assertEquals(lp, controller.getMensajes("ey"));
+    // }
     
-    @Test
-    public void enviarMensajeTest2(){
 
-        //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
-        MensajePrivado mp = new MensajePrivado("a","a","a");
-        Response mockResponse = mock(Response.class);
+    // public void getMensajesTest(){
 
-        when(mockResponse.getStatus()).thenReturn(200);
+    //     WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     Response mockResponse = mock(Response.class);
 
+    //     when(mockResponse.getStatus()).thenReturn(200);
 
-        when(controller.enviarMensaje(any(MensajePrivado.class))).thenReturn(mockResponse);
+    //     when(webTarget.request(anyString()).get()).thenReturn(mockResponse);
 
-        Response response = controller.enviarMensaje(mp);
-        assertEquals(200, response.getStatus());
-    }
+        
+    //     Response response = webTarget.request(MediaType.APPLICATION_JSON).get();
+
+    //     assertEquals(200, response.getStatus());
+    // }
     
-    @Test
-    public void enviarMensajeTest(){
+    // @Test
+    // public void enviarMensajeTest2(){
 
-        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        Response mockResponse = mock(Response.class);
+    //     //WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     controller = mock(Controller.class, Mockito.RETURNS_DEEP_STUBS);
+    //     MensajePrivado mp = new MensajePrivado("a","a","a");
+    //     Response mockResponse = mock(Response.class);
 
-        when(mockResponse.getStatus()).thenReturn(200);
+    //     when(mockResponse.getStatus()).thenReturn(200);
 
-        when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
 
-        MensajePrivado mp = new MensajePrivado("asd","nick", "password");
-        Entity<MensajePrivado> entity = Entity.entity(mp, MediaType.APPLICATION_JSON);
-        Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
+    //     when(controller.enviarMensaje(any(MensajePrivado.class))).thenReturn(mockResponse);
 
-        assertEquals(200, response.getStatus());
-    }
+    //     Response response = controller.enviarMensaje(mp);
+    //     assertEquals(200, response.getStatus());
+    // }
+    
+    // @Test
+    // public void enviarMensajeTest(){
+
+    //     WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+    //     Response mockResponse = mock(Response.class);
+
+    //     when(mockResponse.getStatus()).thenReturn(200);
+
+    //     when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
+
+    //     MensajePrivado mp = new MensajePrivado("asd","nick", "password");
+    //     Entity<MensajePrivado> entity = Entity.entity(mp, MediaType.APPLICATION_JSON);
+    //     Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
+
+    //     assertEquals(200, response.getStatus());
+    // }
 
 }

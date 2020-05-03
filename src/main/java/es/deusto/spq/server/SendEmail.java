@@ -19,8 +19,7 @@ public class SendEmail {
     static String address;
     static String password;
 
-    public static String enviarMail(String destination){
- 
+    public SendEmail(){
         try (InputStream input = new FileInputStream("src/main/resources/gmail.properties")) {
 
             Properties prop = new Properties();
@@ -36,6 +35,11 @@ public class SendEmail {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public static String enviarMail(String destination){
+ 
+        
         String code = generateString();
          // Recipient's email ID needs to be mentioned.
          String to = destination;
@@ -117,6 +121,6 @@ public class SendEmail {
 
         SendEmail e = new SendEmail();
         String destino = "enekocuencafernandez@gmail.com";
-        e.enviarMail(destino);
+        SendEmail.enviarMail(destino);
     }
 }

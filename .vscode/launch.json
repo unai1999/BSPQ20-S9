@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - SecurityUtils",
+            "request": "launch",
+            "mainClass": "es.deusto.spq.server.SecurityUtils",
+            "projectName": "alquiler-app"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - VentanaFormularioPisos",
             "request": "launch",
             "mainClass": "es.deusto.spq.GUI.VentanaFormularioPisos",
