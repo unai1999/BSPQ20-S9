@@ -88,11 +88,11 @@ public class MetodosGUI {
 		}
 	}
 	
-	public List<Piso> buscarPisos(JTextField texto, List<Piso> pisos) {
-		String ciudad = texto.getText().toLowerCase();
+	public List<Piso> buscarPisos(String texto, List<Piso> pisos) {
+		texto = texto.toLowerCase();
 		ArrayList<Piso> pisosBuscados = new ArrayList<Piso>();
 		for(int i = 0 ; i < pisos.size(); i++) {
-			if(pisos.get(i).getLocalizacion().toLowerCase().contentEquals(ciudad)) {
+			if(pisos.get(i).getLocalizacion().toLowerCase().contentEquals(texto)) {
 				pisosBuscados.add(new Piso(pisos.get(i)));
 			}
 		}
@@ -113,11 +113,11 @@ public class MetodosGUI {
 		return p;
 	}
 	
-	public List<Post> buscarPosts(JTextField texto, List<Post> posts) {
-		String usuario = texto.getText().toLowerCase();
+	public List<Post> buscarPosts(String texto, List<Post> posts) {
+		texto = texto.toLowerCase();
 		ArrayList<Post> postsBuscados = new ArrayList<Post>();
 		for(int i = 0 ; i < posts.size(); i++) {
-			if(posts.get(i).getAutor().toLowerCase().contentEquals(usuario)) {
+			if(posts.get(i).getAutor().toLowerCase().contentEquals(texto)) {
 				postsBuscados.add(new Post(posts.get(i)));
 			}
 		}

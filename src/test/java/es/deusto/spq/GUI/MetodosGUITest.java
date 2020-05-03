@@ -89,14 +89,9 @@ public class MetodosGUITest {
 	
 	@Test
 	public void validarBuscarPisos() {
-		JTextField texto = new JTextField();
-		texto.setText("Bilbao");
-		JTextField texto2 = new JTextField();
-		texto2.setText("Sevilla");
-		JTextField texto3 = new JTextField();
-		texto3.setText("Barcelona");
-		JTextField texto4 = new JTextField();
-		texto4.setText("Bilbao");
+		String texto = "Bilbao";
+		String texto2 = "Sevilla";
+		String texto3 = "Barcelona";
 		
 		Piso p1 = new Piso("AAA", 2.0);
 		Piso p2 = new Piso("BBB", 3.0);
@@ -112,18 +107,15 @@ public class MetodosGUITest {
 		assertTrue(mGUI.buscarPisos(texto, pisos).size() == 2);
 		assertTrue(mGUI.buscarPisos(texto2, pisos).size() == 1);
 		assertTrue(mGUI.buscarPisos(texto3, pisos).size() == 0);
-		assertTrue(mGUI.buscarPisos(texto4, pisos).size() == 2);
 		
 	}
 	
 	@Test
 	public void validarBuscarPosts() {
-		JTextField texto = new JTextField();
-		texto.setText("Aitor");
-		JTextField texto2 = new JTextField();
-		texto2.setText("Ander");
-		JTextField texto3 = new JTextField();
-		texto3.setText("Iñigo");
+		
+		String texto = "Aitor";
+		String texto2 = "Ander";
+		String texto3 = "Iñigo";
 		
 		Post p1 = new Post("AAA", "Aitor", "AAAAA");
 		Post p2 = new Post("CCC", "Aitor", "CCCCC");
