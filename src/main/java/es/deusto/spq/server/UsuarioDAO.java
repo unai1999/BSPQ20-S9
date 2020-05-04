@@ -11,7 +11,7 @@ import es.deusto.spq.data.Usuario;
 public class UsuarioDAO {
 
 	 private PersistenceManagerFactory pmf;
-	    private PersistenceManager pm;
+	 private PersistenceManager pm;
 	    
 	    protected UsuarioDAO(){
 	        pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
@@ -103,7 +103,7 @@ public class UsuarioDAO {
 		public void actualizarPassword(String email, String newPassword){
 
 			Usuario u = getUsuarioFromEmail(email);
-			System.out.println("----------DAO--------");
+			
 			Transaction tx = pm.currentTransaction();
 	    	try {
 				tx.begin();
@@ -119,5 +119,45 @@ public class UsuarioDAO {
 				}
 			}
 
+		}
+		
+		public void realizarPago(int precio, String email) {
+			
+			Usuario u = getUsuarioFromEmail(email);
+			Transaction tx = pm.currentTransaction();
+			try {
+				tx.begin();
+				System.out.println(" * Comprobando monedero...");
+				if (u.pagar(precio) == true) {
+					System.out.println(" * Realizando pago...");
+					pm.makePersistent(u);
+					tx.commit();
+				}
+			} catch (Exception e) {
+				System.out.println(" $ Error en el pago: " + e.getMessage());
+			} finally {
+				if (tx != null && tx.isActive()) {
+					tx.rollback();
+				}
+			}
+		}
+		
+		public void anyadirFondos(String email, int cantidad) {
+			
+			Usuario u = getUsuarioFromEmail(email);
+			Transaction tx = pm.currentTransaction();
+			try {
+				tx.begin();
+				System.out.println(" * Añadiendo fondos...");
+				u.setMonedero(u.getMonedero() + cantidad);
+				pm.makePersistent(u);
+				tx.commit();
+			} catch (Exception e) {
+				System.out.println(" $ Error añadiendo fondos: " + e.getMessage());
+			} finally {
+				if (tx != null && tx.isActive()) {
+					tx.rollback();
+				}
+			}
 		}
 }

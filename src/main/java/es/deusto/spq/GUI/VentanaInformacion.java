@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.border.LineBorder;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;

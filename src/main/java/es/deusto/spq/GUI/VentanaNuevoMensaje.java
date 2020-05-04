@@ -8,7 +8,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.ws.rs.client.Client;
 import javax.ws.rs.core.Response;
 
 import es.deusto.spq.client.Controller;

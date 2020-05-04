@@ -135,7 +135,7 @@ public class VentanaLogin {
 					String inputCode = JOptionPane.showInputDialog(frame, "Introduce el código recibido: ");
 
 					if(generatedCode.equals(inputCode)){
-						new VentanaResetPassword();
+						new VentanaResetPassword(tFCorreo.getText());
 					}else{
 						JOptionPane.showMessageDialog(null, "Wrong code", "oops", JOptionPane.ERROR_MESSAGE);
 					}
@@ -165,7 +165,7 @@ public class VentanaLogin {
 				MetodosGUI mGUI = new MetodosGUI();
 				String password1 = new String(tFCont.getPassword());
 				if(!mGUI.validarUsuario(tFLogin.getText())) {
-					mGUI.mensajeError(tFLogin, "Introduce un usuario valido");
+					//mGUI.mensajeError(tFLogin, "Introduce un usuario valido");
 				}
 				
 				if(!mGUI.validarContrasenya(password1)){
