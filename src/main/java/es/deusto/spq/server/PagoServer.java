@@ -13,7 +13,6 @@ import es.deusto.spq.data.Usuario;
 public class PagoServer {
 	
 	public PagoServer() {
-		
 	}
 	
 	@Path("/realizarPago")
