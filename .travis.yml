@@ -3,7 +3,12 @@ language: java
 jdk:
   - openjdk8
 
-
+services: 
+  - mysql
+before_script: 
+  - mysql -u root -e 'CREATE DATABASE pisosDB;'
+  - mysql -u root -e "CREATE USER 'spq'@'localhost' IDENTIFIED BY 'spq';"
+  - mysql -u root -e "GRANT ALL ON pisosDB.* TO 'spq'@'localhost';"
 
 
 
