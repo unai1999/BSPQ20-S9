@@ -72,24 +72,24 @@ public class ControllerTest {
         assertEquals(200, response.getStatus());
     }
 
-    @Test
-    public void publicarPostTest2(){
-
-        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
-        Response mockResponse = mock(Response.class);
-
-        when(mockResponse.getStatus()).thenReturn(200);
-
-        when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
-
-        Post post = new Post();
-        Entity<Post> entity = Entity.entity(post, MediaType.APPLICATION_JSON);
-        //Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
-        Response response = controller.publicarPost("titulo", "autor", "contenido");
-
-        assertEquals(200, response.getStatus());
-        assertTrue(true);
-    }
+//    @Test
+//    public void publicarPostTest2(){
+//
+//        WebTarget webTarget = mock(WebTarget.class, Mockito.RETURNS_DEEP_STUBS);
+//        Response mockResponse = mock(Response.class);
+//
+//        when(mockResponse.getStatus()).thenReturn(200);
+//
+//        when(webTarget.request(anyString()).post(any(Entity.class))).thenReturn(mockResponse);
+//
+//        Post post = new Post();
+//        Entity<Post> entity = Entity.entity(post, MediaType.APPLICATION_JSON);
+//        //Response response = webTarget.request(MediaType.APPLICATION_JSON).post(entity);
+//        Response response = controller.publicarPost("titulo", "autor", "contenido");
+//
+//        assertEquals(200, response.getStatus());
+//        assertTrue(true);
+//    }
 
     // @Test
     // public void resetPasswordTest2(){
