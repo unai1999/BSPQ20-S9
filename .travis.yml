@@ -11,7 +11,7 @@ dist: precise
 test:
   adapter: mysql
   database: test
-  username: spq;
+  username: spq
   encoding: utf8
 
 
