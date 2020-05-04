@@ -8,6 +8,11 @@ before_install:
 services:
   - mysql
 dist: precise
+test:
+  adapter: mysql
+  database: test
+  username: spq;
+  encoding: utf8
 
 
 
