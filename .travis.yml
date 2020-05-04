@@ -3,11 +3,7 @@ language: java
 jdk:
   - openjdk8
 
-before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
-services:
-  - mysql
-dist: precise
+
 
 
 
