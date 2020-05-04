@@ -120,4 +120,44 @@ public class UsuarioDAO {
 			}
 
 		}
+		
+		public void realizarPago(int precio, String email) {
+			
+			Usuario u = getUsuarioFromEmail(email);
+			Transaction tx = pm.currentTransaction();
+			try {
+				tx.begin();
+				System.out.println(" * Comprobando monedero...");
+				if (u.pagar(precio) == true) {
+					System.out.println(" * Realizando pago...");
+					pm.makePersistent(u);
+					tx.commit();
+				}
+			} catch (Exception e) {
+				System.out.println(" $ Error en el pago: " + e.getMessage());
+			} finally {
+				if (tx != null && tx.isActive()) {
+					tx.rollback();
+				}
+			}
+		}
+		
+		public void anyadirFondos(String email, int cantidad) {
+			
+			Usuario u = getUsuarioFromEmail(email);
+			Transaction tx = pm.currentTransaction();
+			try {
+				tx.begin();
+				System.out.println(" * Añadiendo fondos...");
+				u.setMonedero(u.getMonedero() + cantidad);
+				pm.makePersistent(u);
+				tx.commit();
+			} catch (Exception e) {
+				System.out.println(" $ Error añadiendo fondos: " + e.getMessage());
+			} finally {
+				if (tx != null && tx.isActive()) {
+					tx.rollback();
+				}
+			}
+		}
 }
