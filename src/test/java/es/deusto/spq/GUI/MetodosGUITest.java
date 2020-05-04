@@ -77,15 +77,15 @@ public class MetodosGUITest {
 //		assertFalse(mGUI.mensajeError(tF, mensaje));
 //	}
 	
-	@Test
-	public void comprobarVacioTest() {
-		JTextField tF1 = new JTextField();
-		tF1.setText("Prueba True");
-		JTextField tF2 = new JTextField();
-		tF2.setText("");
-		assertTrue(mGUI.comprobarVacio(tF1));
-		assertFalse(mGUI.comprobarVacio(tF2));
-	}
+//	@Test
+//	public void comprobarVacioTest() {
+//		JTextField tF1 = new JTextField();
+//		tF1.setText("Prueba True");
+//		JTextField tF2 = new JTextField();
+//		tF2.setText("");
+//		assertTrue(mGUI.comprobarVacio(tF1));
+//		assertFalse(mGUI.comprobarVacio(tF2));
+//	}
 	
 	@Test
 	public void validarBuscarPisos() {
