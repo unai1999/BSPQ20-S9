@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import es.deusto.spq.data.MensajePrivado;
+import es.deusto.spq.data.Pago;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 import es.deusto.spq.data.Usuario;
@@ -169,6 +170,16 @@ public class Controller {
         return response;
         
    }
+    
+    public Response realizarPago(int precio, String email) {
+    	WebTarget publicarTarget = webTarget.path("pagos/realizarPago");
+    	Pago pago = new Pago();
+    	pago.setEmail(email); pago.setPrecio(precio);
+    	Entity<Pago> entity = Entity.entity(pago, MediaType.APPLICATION_JSON);
+    	Response response = publicarTarget.request().post(entity);
+    	
+    	return response;
+    }
 	
 
    
