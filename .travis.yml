@@ -8,3 +8,9 @@ services:
   
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+test:
+  adapter: mysql
+  database: test
+  username: 'spq'@'localhost';
+  encoding: utf8
+dist: precise
