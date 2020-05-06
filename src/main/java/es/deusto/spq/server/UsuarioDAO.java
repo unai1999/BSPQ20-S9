@@ -96,10 +96,10 @@ public class UsuarioDAO {
 				}
 			}
 		}
-		public void crearUsuario() {
-			Usuario u1 = new Usuario("Iñi", "Iñigo", "Lopez", "lpezinigo@gmail.com", "12345678");
-			guardar(u1);
-		}
+//		public void crearUsuario() {
+//			Usuario u1 = new Usuario("Iñi", "Iñigo", "Lopez", "lpezinigo@gmail.com", "12345678");
+//			guardar(u1);
+//		}
 		public void actualizarPassword(String email, String newPassword){
 
 			Usuario u = getUsuarioFromEmail(email);
@@ -119,6 +119,29 @@ public class UsuarioDAO {
 				}
 			}
 
+		}
+		public void actaulizarDatosUsuario(String nick, String nombre, String apellidos, String email, String password) {
+			
+			Usuario u1 = getUsuario(nick);
+			Transaction tx = pm.currentTransaction();
+
+	    	try {
+				tx.begin();
+				System.out.println("  * Editando los datos del usuario: " + u1);
+				u1.setNombre(nombre);
+				u1.setApellidos(apellidos);
+				u1.setEmail(email); //no se guarda el email
+				u1.setPw1(password);
+				pm.makePersistent(u1);
+				tx.commit();
+			} catch (Exception e) {
+				System.out.println("  $ Error editando los datos de usuario: " + e.getMessage());
+			} finally {
+				if (tx != null && tx.isActive()) {
+					tx.rollback();
+				}
+			}
+			
 		}
 		
 		public void realizarPago(int precio, String email) {

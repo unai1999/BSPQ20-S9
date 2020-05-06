@@ -6,7 +6,7 @@ public class MeterDatosBaseDeDatos {
 		
 		DAOFactory.getInstance().createPisoDAO().crearAlgunosDatos();
 		DAOFactory.getInstance().createPostDAO().crearPosts();
-		DAOFactory.getInstance().createUsuarioDAO().crearUsuario();
+		
 		
 
 	}

@@ -111,7 +111,7 @@ public class VentanaPago {
 						pisos = Controller.getInstance().getPisos();
 						Usuario u = Controller.getInstance().getUsuario();
 						
-						new VentanaListaPisos(pisos, pisos, u);
+						new VentanaListaPisos(pisos, pisos);
 						frame.dispose();
 						
 						pisos = Controller.getInstance().getPisos();

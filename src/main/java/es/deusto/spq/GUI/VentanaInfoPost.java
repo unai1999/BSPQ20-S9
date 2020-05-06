@@ -31,12 +31,12 @@ public class VentanaInfoPost {
 	private JScrollPane scroll;
 	private final static String LINEA_NUEVA = "\n";
 	
-	public VentanaInfoPost(Post post, Usuario u1) {
-		initialize(post, u1);
+	public VentanaInfoPost(Post post) {
+		initialize(post);
 		jFPost.setVisible(true);
 	}
 
-	private void initialize(Post post, Usuario u1) {
+	private void initialize(Post post) {
 		
 		
 		jFPost = new JFrame();
@@ -186,7 +186,7 @@ public class VentanaInfoPost {
 			public void actionPerformed(ActionEvent e) {
 				List<Post> posts = new ArrayList<Post>();
 				posts = Controller.getInstance().getPost();
-				new VentanaListaPosts(posts, posts, u1);
+				new VentanaListaPosts(posts, posts);
 				jFPost.dispose();
 				
 			}

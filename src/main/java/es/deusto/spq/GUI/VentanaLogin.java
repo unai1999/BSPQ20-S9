@@ -21,6 +21,7 @@ import javax.ws.rs.core.Response.Status;
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
+import es.deusto.spq.server.DAOFactory;
 import es.deusto.spq.server.SendEmail;
 
 public class VentanaLogin {
@@ -178,13 +179,12 @@ public class VentanaLogin {
 						JOptionPane.showMessageDialog(null, "Login", "Successful", JOptionPane.INFORMATION_MESSAGE);
 						List<Piso> pisos = new ArrayList<Piso>();
 						pisos = Controller.getInstance().getPisos();
-						String password = new String(tFCont.getPassword());
-						Usuario u1 = new Usuario(tFLogin.getText(), password);
+						Usuario u1 = DAOFactory.getInstance().createUsuarioDAO().getUsuario(tFLogin.getText());
 
 						Controller.getInstance().setUsuario(u1);
 
 
-						new VentanaListaPisos(pisos, pisos, u1);
+						new VentanaListaPisos(pisos, pisos);
 						frame.dispose();
 						
 						pisos = Controller.getInstance().getPisos();

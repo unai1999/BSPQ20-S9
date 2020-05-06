@@ -18,6 +18,7 @@ import javax.swing.border.LineBorder;
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
+import es.deusto.spq.server.DAOFactory;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -47,7 +48,7 @@ public class VentanaInformacion {
 	 */
 	private void initialize(Piso piso, Usuario usuario) {
 		
-
+		
 		jFInfo = new JFrame();
 		jFInfo.setTitle("Información");
 		jFInfo.setBounds(100, 100, 500, 500);
@@ -250,6 +251,35 @@ public class VentanaInformacion {
 		btnReservar.setBounds(215, 398, 89, 23);
 		panelInfo.add(btnReservar);
 		
+		JButton btnMapa = new JButton("Ver mapa");
+		btnMapa.setBounds(389, 398, 89, 23);
+		panelInfo.add(btnMapa);
+		
+		JButton btnEstadisticas = new JButton("Ver estadisticas");
+		btnEstadisticas.setBounds(29, 398, 128, 23);
+		panelInfo.add(btnEstadisticas);
+		
+		btnEstadisticas.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				jFInfo.dispose();
+				//System.out.println(piso.getVecesVisitado());
+				new VentanaEstadisticasPiso(piso, usuario);
+				
+			}
+		});
+		
+		btnMapa.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				jFInfo.dispose();
+				new Mapa(piso, usuario);
+				
+			}
+		});
+		
 		btnAtras.addActionListener(new ActionListener() {
 			
 			@Override
@@ -258,7 +288,7 @@ public class VentanaInformacion {
 				jFInfo.dispose();
 				
 				pisos = Controller.getInstance().getPisos();
-				new VentanaListaPisos(pisos, pisos, usuario);
+				new VentanaListaPisos(pisos, pisos);
 				
 			}
 		});
@@ -288,5 +318,4 @@ public class VentanaInformacion {
 		
 		
 	}
-   
 }
