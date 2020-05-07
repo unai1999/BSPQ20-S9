@@ -25,8 +25,56 @@ public class Piso{
     private int numeroInquilinos;
     private int nHab;
     
+    
+    
     private double lat;
     private double lon;
+    
+    private int vecesComprado;
+    private int likes;
+    private int vecesVisitado;
+    
+	private List<Imagen> imagenes; //Array de imagenes que tendra el piso para posteriormente mostrarlas en GUI
+    
+	@NotPersistent
+	private List<Usuario> inquilinos; 
+	@NotPersistent
+	private Propietario propiertario;
+	
+    private boolean alquilado;
+    
+    public int getVecesComprado() {
+		return vecesComprado;
+	}
+
+	public void setVecesComprado(int vecesComprado) {
+		this.vecesComprado = vecesComprado;
+	}
+
+	public int getLikes() {
+		return likes;
+	}
+
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
+
+	public int getVecesVisitado() {
+		return vecesVisitado;
+	}
+
+	public void setVecesVisitado(int vecesVisitado) {
+		this.vecesVisitado = vecesVisitado;
+	}
+
+	public List<Usuario> getInquilinos() {
+		return inquilinos;
+	}
+
+	public void setInquilinos(List<Usuario> inquilinos) {
+		this.inquilinos = inquilinos;
+	}
+
 
 	public double getLat() {
 		return lat;
@@ -44,14 +92,6 @@ public class Piso{
 		this.lon = lon;
 	}
 
-	private List<Imagen> imagenes; //Array de imagenes que tendra el piso para posteriormente mostrarlas en GUI
-    
-	@NotPersistent
-	private List<Usuario> inquilinos; 
-	@NotPersistent
-	private Propietario propiertario;
-	
-    private boolean alquilado;
     public Piso(){
 
     }

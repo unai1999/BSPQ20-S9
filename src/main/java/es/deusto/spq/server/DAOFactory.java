@@ -21,6 +21,7 @@ public class DAOFactory{
         foroDAO = new ForoDAO();
         pisoDAO = new PisoDAO();
         mensajeDAO = new MensajeDAO();
+        postDAO = new PostDAO();
     }
     public static DAOFactory getInstance(){
         if(instance == null){

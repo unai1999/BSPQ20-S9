@@ -72,6 +72,7 @@ public class PostDAO {
 					tx.rollback();
 				}
 			}
+	    	System.out.println(posts.size());
 	    	return posts;
 	    }
 	    

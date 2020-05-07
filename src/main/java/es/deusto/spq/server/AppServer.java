@@ -11,8 +11,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import es.deusto.spq.data.*;
-import es.deusto.spq.data.dto.PisoAssembler;
-import es.deusto.spq.data.dto.PisoDTO;
 import es.deusto.spq.data.dto.UsuarioLogin;
 
 
@@ -39,6 +37,7 @@ public class AppServer {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Post> getPosts(){
+
 		List<Post> posts = new ArrayList<Post>();
 
 		posts = DAOFactory.getInstance().createPostDAO().getPosts();

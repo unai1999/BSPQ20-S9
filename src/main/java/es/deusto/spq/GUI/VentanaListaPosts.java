@@ -31,7 +31,7 @@ public class VentanaListaPosts extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private MetodosGUI m = new MetodosGUI();
 	
-	public VentanaListaPosts(List<Post> posts, List<Post> posts2, Usuario u1) {
+	public VentanaListaPosts(List<Post> posts, List<Post> posts2) {
 	    
 		setSize(620, 480);
 		setTitle("Lista de posts");
@@ -92,7 +92,7 @@ public class VentanaListaPosts extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				List<Piso> pisos = new ArrayList<Piso>();
 				pisos = Controller.getInstance().getPisos();
-				new VentanaListaPisos(pisos, pisos, u1);
+				new VentanaListaPisos(pisos, pisos);
 				
 			}
 		});
@@ -102,7 +102,7 @@ public class VentanaListaPosts extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				List<Post> posts = new ArrayList<Post>();
 				posts = Controller.getInstance().getPost();
-				new VentanaListaPosts(posts, posts, u1);
+				new VentanaListaPosts(posts, posts);
 				dispose();
 				
 			}
@@ -112,7 +112,7 @@ public class VentanaListaPosts extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-        		new VentanaListaPosts(posts, m.buscarPosts(textBuscarPost.getText(), posts), u1);
+        		new VentanaListaPosts(posts, m.buscarPosts(textBuscarPost.getText(), posts));
 				
 			}
 		});
@@ -127,14 +127,14 @@ public class VentanaListaPosts extends JFrame{
 						int end = textoPost.getLineEndOffset( line );
 						String text = textoPost.getDocument().getText(start, end - start).toLowerCase();
 						if(text.contains("titulo")) {
-							new VentanaInfoPost(m.obtenerPost(text, posts), u1);
+							new VentanaInfoPost(m.obtenerPost(text, posts));
 							dispose();
 						}else if(text.contains("descripción")) {
 							line = line - 1;
 							start = textoPost.getLineStartOffset( line );
 							end = textoPost.getLineEndOffset( line );
 							text = textoPost.getDocument().getText(start, end - start).toLowerCase();
-							new VentanaInfoPost(m.obtenerPost(text, posts), u1);
+							new VentanaInfoPost(m.obtenerPost(text, posts));
 							dispose();
 							
 						}else if(text.contains("autor")) {
@@ -142,14 +142,14 @@ public class VentanaListaPosts extends JFrame{
 							start = textoPost.getLineStartOffset( line );
 							end = textoPost.getLineEndOffset( line );
 							text = textoPost.getDocument().getText(start, end - start).toLowerCase();
-							new VentanaInfoPost(m.obtenerPost(text, posts), u1);
+							new VentanaInfoPost(m.obtenerPost(text, posts));
 							dispose();
 						}else if(text.contains("likes")) {
 							line = line - 3;
 							start = textoPost.getLineStartOffset( line );
 							end = textoPost.getLineEndOffset( line );
 							text = textoPost.getDocument().getText(start, end - start).toLowerCase();
-							new VentanaInfoPost(m.obtenerPost(text, posts), u1);
+							new VentanaInfoPost(m.obtenerPost(text, posts));
 							dispose();
 							
 						}

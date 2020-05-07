@@ -51,6 +51,7 @@ public class Post {
 	}
 
 	public Post() {
+		
 	}
 
 	public void addComentario(Comentario c){

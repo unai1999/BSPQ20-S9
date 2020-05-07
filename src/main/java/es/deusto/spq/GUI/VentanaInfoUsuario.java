@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
+import es.deusto.spq.server.DAOFactory;
 
 import javax.swing.JButton;
 
@@ -127,7 +128,6 @@ public class VentanaInfoUsuario extends JFrame {
 				textFieldNombre.setEditable(true);
 				textFieldApellido.setEditable(true);
 				textFieldEmail.setEditable(true);
-				textFieldPass.setEditable(true);
 				botonEditarDatos.setVisible(false);
 				botonGuardar.setVisible(true);
 				
@@ -137,9 +137,10 @@ public class VentanaInfoUsuario extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Usuario user = new Usuario(u1.getNickname(), textFieldNombre.getText(), textFieldApellido.getText(), textFieldEmail.getText(), textFieldPass.getText());
 				dispose();
 				//guardar datos en la base de datos
+				DAOFactory.getInstance().createUsuarioDAO().actaulizarDatosUsuario(textFieldNick.getText(), textFieldNombre.getText(), textFieldApellido.getText(), textFieldEmail.getText(), textFieldPass.getText());
+				Usuario user = DAOFactory.getInstance().createUsuarioDAO().getUsuario(textFieldNick.getText());
 				new VentanaInfoUsuario(user);
 			}
 		});
@@ -151,7 +152,7 @@ public class VentanaInfoUsuario extends JFrame {
 				List<Piso> pisos = new ArrayList<Piso>();
 				pisos = Controller.getInstance().getPisos();
 				dispose();
-				new VentanaListaPisos(pisos, pisos, u1);
+				new VentanaListaPisos(pisos, pisos);
 				
 			}
 		});

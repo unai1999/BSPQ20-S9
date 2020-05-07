@@ -22,6 +22,8 @@ import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 import es.deusto.spq.data.Usuario;
+import es.deusto.spq.server.DAOFactory;
+
 import javax.swing.JLabel;
 
 
@@ -34,9 +36,8 @@ public class VentanaListaPisos extends JFrame {
 	private JScrollPane scroll;
 	private MetodosGUI m = new MetodosGUI();
 
-	public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2, Usuario u1) {
+	public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2) {
     	
-		
         setSize(620, 480);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -124,7 +125,8 @@ public class VentanaListaPisos extends JFrame {
 					
 					if(text.contains("piso")) {
 						dispose();
-						new VentanaInformacion(m.obtenerPiso(text, pisos), u1);
+						DAOFactory.getInstance().createPisoDAO().actualizarVisitasPiso(m.obtenerPiso(text, pisos).getNombre());
+						new VentanaInformacion(m.obtenerPiso(text, pisos),Controller.getInstance().getUsuario());
 						
 					}else if(text.contains("Precio")) {
 						line = line - 1;
@@ -132,14 +134,16 @@ public class VentanaListaPisos extends JFrame {
 						end = textoPisos.getLineEndOffset( line );
 						text = textoPisos.getDocument().getText(start, end - start);
 						dispose();
-						new VentanaInformacion(m.obtenerPiso(text, pisos), u1);
+						DAOFactory.getInstance().createPisoDAO().actualizarVisitasPiso(m.obtenerPiso(text, pisos).getNombre());
+						new VentanaInformacion(m.obtenerPiso(text, pisos), Controller.getInstance().getUsuario());
 					}else if(text.contains("Valora")) {
 						line = line - 2;
 						start = textoPisos.getLineStartOffset( line );
 						end = textoPisos.getLineEndOffset( line );
 						text = textoPisos.getDocument().getText(start, end - start);
 						dispose();
-						new VentanaInformacion(m.obtenerPiso(text, pisos), u1);
+						DAOFactory.getInstance().createPisoDAO().actualizarVisitasPiso(m.obtenerPiso(text, pisos).getNombre());
+						new VentanaInformacion(m.obtenerPiso(text, pisos), Controller.getInstance().getUsuario());
 					}
 				} catch (BadLocationException e1) {
 					// TODO Auto-generated catch block
@@ -167,7 +171,7 @@ public class VentanaListaPisos extends JFrame {
 				dispose();
 				List<Post> posts = new ArrayList<Post>();
 				posts = Controller.getInstance().getPost();
-				new VentanaListaPosts(posts, posts, u1);
+				new VentanaListaPosts(posts, posts);
 				
 			}
 		});
@@ -175,7 +179,7 @@ public class VentanaListaPisos extends JFrame {
         	 @Override
         	    public void mousePressed(MouseEvent e) {
         		 dispose();
-        		 new VentanaInfoUsuario(u1);
+        		 new VentanaInfoUsuario(Controller.getInstance().getUsuario());
         	      
         	    }
 		});
@@ -184,7 +188,7 @@ public class VentanaListaPisos extends JFrame {
         	
         	public void mousePressed(MouseEvent e) {
         		
-        		new VentanaMensajes(u1);
+        		new VentanaMensajes(Controller.getInstance().getUsuario());
         		
         	}
         	
@@ -199,7 +203,7 @@ public class VentanaListaPisos extends JFrame {
         btnBuscar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		dispose();
-        		new VentanaListaPisos(pisos, m.buscarPisos(textBuscarPiso.getText(), pisos), u1);
+        		new VentanaListaPisos(pisos, m.buscarPisos(textBuscarPiso.getText(), pisos));
         		
         	}
         });
@@ -207,14 +211,14 @@ public class VentanaListaPisos extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-                new VentanaListaPisos(pisos, pisos, u1);
+                new VentanaListaPisos(pisos, pisos);
                 dispose();
 			}
 		});
         botonComparar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new VentanaComparar(pisos.get(0), pisos.get(1), u1);
+				new VentanaComparar(pisos.get(0), pisos.get(1));
 				dispose();
 				
 			}

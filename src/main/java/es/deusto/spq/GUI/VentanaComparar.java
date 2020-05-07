@@ -45,15 +45,15 @@ public class VentanaComparar {
 	/**
 	 * Create the application.
 	 */
-	public VentanaComparar(Piso piso1, Piso piso2, Usuario u1) {
-		initialize(piso1, piso2, u1);
+	public VentanaComparar(Piso piso1, Piso piso2) {
+		initialize(piso1, piso2);
 		jFComp.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(Piso piso1, Piso piso2, Usuario u1) {
+	private void initialize(Piso piso1, Piso piso2) {
         
 		jFComp = new JFrame();
 		jFComp.setTitle("Comparación");
@@ -237,7 +237,7 @@ public class VentanaComparar {
 				jFComp.dispose();
 				
 				pisos = Controller.getInstance().getPisos();
-				new VentanaListaPisos(pisos, pisos, u1);
+				new VentanaListaPisos(pisos, pisos);
 			}
 		});
 	}

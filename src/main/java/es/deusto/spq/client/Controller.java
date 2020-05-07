@@ -142,9 +142,10 @@ public class Controller {
 	
 	public List<Post> getPost(){
         List<Post> posts = new ArrayList<Post>();
-        WebTarget pisosWebTarget = webTarget.path("pisos/post");
+        String path = "pisos/post";
+        WebTarget postWebTarget = webTarget.path(path);
         GenericType<List<Post>> genericType = new GenericType<List<Post>>(){}; 
-        posts = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+        posts = postWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
         for (Post p : posts){
             System.out.println(p);
         }
