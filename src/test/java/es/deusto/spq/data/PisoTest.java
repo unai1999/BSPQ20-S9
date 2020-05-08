@@ -17,6 +17,7 @@ public class PisoTest {
 	 Piso piso2;
 	 Imagen i;
 	 Propietario p;
+	 Usuario u;
 
      public static junit.framework.Test suite() {
          return new JUnit4TestAdapter(PisoTest.class);
@@ -24,6 +25,9 @@ public class PisoTest {
 
      @Before
      public void setUp() {
+    	 u = new Usuario("aaa", "aaa");
+    	 List<Usuario> usuarios = new ArrayList<Usuario>();
+    	 usuarios.add(u);
     	 i = new Imagen("1","url");
     	 List<Imagen> imagenes = new ArrayList<Imagen>();
     	 imagenes.add(i);
@@ -40,6 +44,12 @@ public class PisoTest {
     	 p = new Propietario("aa", "aa", "aa", "aa", "aa");
     	 piso.setPropiertario(p);
     	 piso.setValoracion(3);
+    	 piso.setVecesComprado(2);
+    	 piso.setLikes(30);
+    	 piso.setVecesVisitado(3);
+    	 piso.setLat(23.0);
+    	 piso.setLon(23.0);
+    	 piso.setInquilinos(usuarios);
     	 
     	 piso2 = new Piso("aa", 3.0);
     	 
@@ -60,10 +70,16 @@ public class PisoTest {
     	 assertTrue(piso.getValoracion() == 3);
     	 assertEquals(true, piso.isAlquilado());
     	 assertEquals("Piso [alquilado=true, coste=4.0, id=1, localizacion=cc, nombre=cc, valoracion=3]",piso.toString());
-    	 
+    	 assertTrue(piso.getVecesComprado() == 2);
+    	 assertTrue(piso.getLikes() == 30);
+    	 assertTrue(piso.getVecesVisitado() == 3);
+    	 assertTrue(piso.getLat() == 23.0);
+    	 assertTrue(piso.getLon() == 23.0);
+    	 assertEquals("aaa",piso.getInquilinos().get(0).getNickname());
     	 
     	 assertEquals("aa", piso2.getNombre());
     	 assertTrue(piso2.getCoste() == 3);
+    	 
     	 
     	 
      }

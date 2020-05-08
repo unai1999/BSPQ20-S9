@@ -61,25 +61,5 @@ public class PisoDTO implements Serializable {
 		this.nHab = nHab;
 	}
     
-    
-    public static void main(String[] args) {
-		PisoDTO pisoDTO = new PisoDTO();
-		
-		PisoAssembler as = new PisoAssembler();
-		
-		Piso piso = new Piso();
-		 piso.setCoste(50.0);   
-    	 piso.setDesc("Piso bonito");
-    	 piso.setLocalizacion("calle");
-    	 piso.setnHab(2);
-    	 piso.setNombre("Piso");
-    	 piso.setNumeroInquilinos(3);
-    	 piso.setValoracion(5);
-    	 
-    	pisoDTO = as.assemble(piso);
-    	
-    	System.out.println("Un " + piso.getNombre() + "  aaa " + pisoDTO.getNombre());
-	}
-
 }
 

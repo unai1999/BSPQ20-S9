@@ -64,22 +64,22 @@ public class UsuarioDAO {
 			return usuario;
 		}
 		
-		public Usuario getUsuarioFromId(String nick) {
-	    	Usuario usuario = null;
-	    	Transaction tx = pm.currentTransaction();
-	    	try {
-				tx.begin();
-				usuario = pm.getObjectById(Usuario.class, nick);
-				tx.commit();
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (tx != null && tx.isActive()) {
-		    		tx.rollback();
-		    	}
-			}
-			return usuario;
-	    }
+//		public Usuario getUsuarioFromId(String nick) {
+//	    	Usuario usuario = null;
+//	    	Transaction tx = pm.currentTransaction();
+//	    	try {
+//				tx.begin();
+//				usuario = pm.getObjectById(Usuario.class, nick);
+//				tx.commit();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			} finally {
+//				if (tx != null && tx.isActive()) {
+//		    		tx.rollback();
+//		    	}
+//			}
+//			return usuario;
+//	    }
 	    
 	    public void guardar(Object o) {
 	    	Transaction tx = pm.currentTransaction();

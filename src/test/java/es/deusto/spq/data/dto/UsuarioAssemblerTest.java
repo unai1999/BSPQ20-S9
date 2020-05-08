@@ -13,7 +13,9 @@ public class UsuarioAssemblerTest {
 	
 	
 	Usuario usuario;
+	Usuario u2;
 	UsuarioDTO usuarioDTO;
+	UsuarioDTO usuarioDTO2;
 	UsuarioAssembler as;
 	
 	 public static junit.framework.Test suite() {
@@ -30,9 +32,20 @@ public class UsuarioAssemblerTest {
      public void assembleTest(){
     	
     	usuarioDTO = as.assemble(usuario);
+    	usuarioDTO.setPw2("aa");
+    	usuarioDTO.setTienePiso(true);
     	
     	assertEquals(usuarioDTO.getNombre(), usuario.getNombre()); 
-    	 
+    	assertEquals(usuarioDTO.getNickname(), usuario.getNickname());
+    	assertEquals(usuarioDTO.getApellidos(), usuario.getApellidos());
+    	assertEquals(usuarioDTO.getEmail(), usuario.getEmail());
+    	assertEquals(usuarioDTO.getPw1(), usuario.getPw1());
+    	assertEquals(usuarioDTO.getPw2(), "aa");
+    	assertEquals(true, usuarioDTO.isTienePiso());
+    	
+    	usuarioDTO2 = as.assemble(u2);
+    	assertEquals(null, usuarioDTO2);
+    	
      }
 
 }

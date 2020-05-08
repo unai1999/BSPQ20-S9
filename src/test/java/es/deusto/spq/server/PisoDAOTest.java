@@ -10,11 +10,13 @@ import es.deusto.spq.data.Piso;
 public class PisoDAOTest {
     
     PisoDAO pisoDAO;
+    PisoDAO pisoDAO2;
     Piso p1, p2;
     @Before
     public void setUp(){
 
         pisoDAO = new PisoDAO();
+        pisoDAO2 = new PisoDAO();
         p1 = new Piso();
     	p1.setNombre("Piso 1"); p1.setCoste(800.0); p1.setAlquilado(false);
     	p1.setLocalizacion("Bilbao"); p1.setValoracion(4);
@@ -30,7 +32,10 @@ public class PisoDAOTest {
     @Test
     public void guardarTest(){
         pisoDAO.guardar(p1);
+        pisoDAO2.guardar(p2);
         assertEquals(p1, pisoDAO.getPisoByIdBien(p1.getId()));
+        assertEquals(p2.getLocalizacion(), pisoDAO2.getPisoByNombre(p2.getNombre()).getLocalizacion());
+        pisoDAO2.crearAlgunosDatos();
     }
 
 }
