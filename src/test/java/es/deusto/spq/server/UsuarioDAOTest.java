@@ -26,4 +26,22 @@ public class UsuarioDAOTest {
 		usuarioDAO.actaulizarDatosUsuario("aa", "cc", "dd", "ee", "ff");
 	}
     
+	UsuarioDAO uDAO;
+	Usuario u;
+	
+	@Before
+	public void setUp() {
+		uDAO = new UsuarioDAO();
+		u = new Usuario();
+		u.setNickname("jonuraga"); u.setEmail("aa@gmail.com"); u.setNombre("Jon"); u.setApellidos("Uraga Escapa");
+		u.setPw1("12345678"); u.setTienePiso(false);
+		
+		
+	}
+	
+	@Test
+	public void guardarTest() {
+		uDAO.guardar(u);
+		assertEquals(u, uDAO.getUsuarioFromEmail(u.getEmail()));
+	}
 }

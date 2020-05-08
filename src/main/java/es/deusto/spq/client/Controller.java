@@ -181,6 +181,15 @@ public class Controller {
     	
     	return response;
     }
+    
+    public Response anyadirFondos(Usuario u, int cantidad) {
+    	WebTarget publicarTarget = webTarget.path("pagos/anyadirFondos");
+    	u.setMonedero(u.getMonedero() + cantidad);
+    	Entity<Usuario> entity = Entity.entity(u, MediaType.APPLICATION_JSON);
+    	Response response = publicarTarget.request().post(entity);
+    	
+    	return response;
+    }
 	
 
    

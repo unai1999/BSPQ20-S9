@@ -87,6 +87,14 @@ public class Usuario {
 		this.setNickname(nickname);
 		this.setPw1(pw1);
 	}
+	
+	public Usuario(String nombre) {
+		this.setNombre(nombre);
+	}
+
+	public Usuario() {
+		
+	}
 
 	public String getNickname() {
 		return nickname;

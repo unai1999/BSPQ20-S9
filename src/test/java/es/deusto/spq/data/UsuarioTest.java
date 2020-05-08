@@ -21,13 +21,14 @@ public class UsuarioTest {
 		u1.setPiso(p);
 		u1.setTienePiso(true);
 		u1.setMensajes(m);
+		u1.setMonedero(1000);
 	}
 	
 	@Test
 	public void ComprobarUsuario() {
 		assertEquals("ccc", u1.getPiso().getNombre());
 		assertTrue((u1.getMensajes().size() > 0));
-
+		assertTrue(u1.getMonedero() == 1000);
 
 		
 	}
