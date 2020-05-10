@@ -17,17 +17,22 @@ import javax.swing.JTextPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.LineBorder;
 
+import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
+import es.deusto.spq.data.Usuario;
 
 import java.awt.Color;
+
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 public class VentanaDatosPost {
 
 	private JFrame frmDatos;
 	private JScrollPane scroll;
-	private JTextPane tACont;
+	private JTextPane tACont, tADescP;
 	private Post post;
+	private Piso piso;
 
 	/**
 	 * Launch the application.
@@ -36,7 +41,9 @@ public class VentanaDatosPost {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaDatosPost window = new VentanaDatosPost();
+					Post post = new Post();
+					Piso piso = new Piso();
+					VentanaDatosPost window = new VentanaDatosPost(post, piso);
 					window.frmDatos.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,18 +55,18 @@ public class VentanaDatosPost {
 	/**
 	 * Create the application.
 	 */
-	public VentanaDatosPost() {
-		initialize();
+	public VentanaDatosPost(Post post, Piso piso) {
+		initialize(post, piso);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Post post, Piso piso) {
 		frmDatos = new JFrame();
 		frmDatos.setResizable(false);
 		frmDatos.setTitle("Datos");
-		frmDatos.setBounds(100, 100, 566, 345);
+		frmDatos.setBounds(100, 100, 566, 594);
 		frmDatos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel lblTitDatos = new JLabel("Datos del Post");
@@ -135,8 +142,88 @@ public class VentanaDatosPost {
 		
 		JButton btnCerrar = new JButton("Cerrar");
 		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnCerrar.setBounds(20, 249, 89, 23);
+		btnCerrar.setFocusPainted(false);
+		btnCerrar.setBounds(10, 496, 89, 23);
 		subPDatos.add(btnCerrar);
+		
+		JPanel panelDatosPiso = new JPanel();
+		panelDatosPiso.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelDatosPiso.setBounds(10, 306, 529, 160);
+		subPDatos.add(panelDatosPiso);
+		panelDatosPiso.setLayout(new BorderLayout(0, 0));
+		
+		JLabel lblPisoTit = new JLabel("PISO");
+		lblPisoTit.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.black));
+		lblPisoTit.setHorizontalAlignment(SwingConstants.CENTER);
+		panelDatosPiso.add(lblPisoTit, BorderLayout.NORTH);
+		
+		JPanel subPDatosPiso = new JPanel();
+		panelDatosPiso.add(subPDatosPiso, BorderLayout.CENTER);
+		subPDatosPiso.setLayout(null);
+		
+		JPanel panelNombrePiso = new JPanel();
+		panelNombrePiso.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelNombrePiso.setBounds(10, 11, 132, 24);
+		subPDatosPiso.add(panelNombrePiso);
+		
+		JLabel lblNombrePTit = new JLabel("Nombre:");
+		panelNombrePiso.add(lblNombrePTit);
+		
+		JLabel lblNombreP = new JLabel(piso.getNombre());
+		panelNombrePiso.add(lblNombreP);
+		
+		JPanel panelCosteP = new JPanel();
+		panelCosteP.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelCosteP.setBounds(10, 46, 132, 24);
+		subPDatosPiso.add(panelCosteP);
+		
+		JLabel lblCosteTit = new JLabel("Coste:");
+		panelCosteP.add(lblCosteTit);
+		
+		JLabel lblCoste = new JLabel(piso.getCoste()+"€");
+		panelCosteP.add(lblCoste);
+		
+		JPanel panelLocP = new JPanel();
+		panelLocP.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelLocP.setBounds(182, 11, 204, 24);
+		subPDatosPiso.add(panelLocP);
+		
+		JLabel lblLocPTit = new JLabel("Localización:");
+		panelLocP.add(lblLocPTit);
+		
+		JLabel lblLocP = new JLabel(piso.getLocalizacion());
+		panelLocP.add(lblLocP);
+		
+		JPanel panelDescP = new JPanel();
+		panelDescP.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelDescP.setBounds(10, 81, 507, 52);
+		subPDatosPiso.add(panelDescP);
+		panelDescP.setLayout(new BorderLayout(0, 0));
+		
+		tADescP = new JTextPane();
+		tADescP.setEditable(false);
+		scroll = new JScrollPane(tADescP);
+		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		panelDescP.add(scroll, BorderLayout.CENTER);
+		
+		JLabel lblDescPTit = new JLabel("Descripción");
+		panelDescP.add(lblDescPTit, BorderLayout.NORTH);
+		
+		JPanel panelValP = new JPanel();
+		panelValP.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelValP.setBounds(182, 46, 132, 24);
+		subPDatosPiso.add(panelValP);
+		
+		JLabel lblValPTit = new JLabel("Valoración:");
+		panelValP.add(lblValPTit);
+		
+		JLabel lblValP = new JLabel(piso.getValoracion()+"");
+		panelValP.add(lblValP);
+		
+		JButton btnContactar = new JButton("Contactar");
+		btnContactar.setFocusPainted(false);
+		btnContactar.setBounds(432, 496, 107, 23);
+		subPDatos.add(btnContactar);
 		
 		btnCerrar.addActionListener(new ActionListener() {
 			
@@ -146,6 +233,17 @@ public class VentanaDatosPost {
 				
 			}
 		});
+		
+		btnContactar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Usuario usuario = new Usuario();
+				new VentanaDatosUsPost(usuario);
+				frmDatos.dispose();
+			}
+		});
+		
+		frmDatos.setVisible(true);
 	}
-	
 }
