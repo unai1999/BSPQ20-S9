@@ -299,8 +299,7 @@ public class VentanaInformacion {
 			public void actionPerformed(ActionEvent e) {
 				jFInfo.dispose();
 				// aqui implementaremos la funcionalidad para reservar
-				int precioPago = (int) piso.getCoste().doubleValue();
-				new VentanaPago(precioPago);
+				new VentanaPago(piso);
 				
 			}
 		});
