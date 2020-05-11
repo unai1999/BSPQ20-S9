@@ -6,6 +6,12 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.InheritanceStrategy;
 
+
+/**
+ * Esta clase es una clase basica de una Factura.
+ * @author eneko
+ *
+ */
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Factura {
@@ -19,6 +25,14 @@ public class Factura {
     private Usuario arrendador;
     
 
+    /**
+     * Constructor de la clase Factura. 
+     * @param id
+     * @param fecha
+     * @param piso
+     * @param cliente
+     * @param arrendador
+     */
     public Factura(long id, String fecha, Piso piso, Usuario cliente, Usuario arrendador) {
         this.id = id;
         this.fecha = fecha;

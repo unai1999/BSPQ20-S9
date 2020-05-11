@@ -9,6 +9,11 @@ import javax.swing.JTextField;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 
+/**
+ * Clase que contiene metodos que se usan en las interfaces.
+ * @author eneko
+ *
+ */
 public class MetodosGUI {
 
 	enum Resp {
@@ -17,6 +22,11 @@ public class MetodosGUI {
         VALID
     }
 
+	/**
+	 * Función que valida el nombre del usuario si no está vacio
+	 * @param nombre
+	 * @return true si el nombre no está vacio
+	 */
 	public boolean validarNombre(String nombre) {
 		if(nombre.equals("")) {
 			return false;
@@ -24,6 +34,12 @@ public class MetodosGUI {
 			return true;
 		}
 	}
+	
+	/**
+	 * Función que valida el nickname del usuario
+	 * @param usuario
+	 * @return true si el nickname no está vacio o tiene 5 letras o menos
+	 */
 	public boolean validarUsuario(String usuario){
 		
 		 if (usuario.equals("") || usuario.length() <= 5 ){
@@ -32,7 +48,12 @@ public class MetodosGUI {
 			  return true;
 		  }  
 	}
-		
+	
+	/**
+	 * Función que valida la contraseña de la usuario
+	 * @param pass1
+	 * @return true si la contraseña no está vacia o tiene al menos 8 letras
+	 */
 	public boolean validarContrasenya(String pass1){
 		  if (pass1.equals("") || pass1.length() < 8) {
 			  return false;
@@ -40,6 +61,13 @@ public class MetodosGUI {
 			  return true;
 		  }  
 	}
+	
+	/**
+	 * Función que valida la confirmación de la contraseña.
+	 * @param pass1
+	 * @param pass2
+	 * @return true si la contraseña es igual a la confirmación de contraseña.
+	 */
 	public boolean validarConfContrasenya(String pass1, String pass2) {
 		if(pass1.equals(pass2)) {
 			return true;
@@ -49,6 +77,11 @@ public class MetodosGUI {
 		
 	}
 
+	/**
+	 * Función que valida el email del usuario.
+	 * @param email
+	 * @return true si el email concuerda con el patrón.
+	 */
 	public boolean validarEmail(String email) {
 		String regex = "^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$";
 		if (Pattern.matches(regex, email)) {
@@ -58,6 +91,12 @@ public class MetodosGUI {
 		}
 	}
 
+	/**
+	 * Función que muestra un Popup al usuario si hay algún error.
+	 * @param tF
+	 * @param mensaje
+	 * @return un Popup al usuario si hay algún error.
+	 */
 	public boolean mensajeError(JTextField tF, String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje); 
 		tF.requestFocus();

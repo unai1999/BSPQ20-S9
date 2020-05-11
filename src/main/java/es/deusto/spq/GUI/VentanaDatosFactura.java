@@ -26,6 +26,11 @@ import es.deusto.spq.data.Usuario;
 import javax.swing.border.BevelBorder;
 import javax.swing.JTabbedPane;
 
+/**
+ * Clase de la interfaz de los datos de la factura.
+ * @author eneko
+ *
+ */
 public class VentanaDatosFactura {
 
 	private JFrame frmDatos;
@@ -59,7 +64,8 @@ public class VentanaDatosFactura {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Constructor de la ventana de la factura.
+	 * @param factura
 	 */
 	private void initialize(Factura factura) {
 		this.factura = factura;
