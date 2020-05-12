@@ -19,6 +19,11 @@ import javax.swing.border.LineBorder;
 import es.deusto.spq.data.Usuario;
 import javax.swing.JButton;
 
+/**
+ * Clase que contiene la interfaz de los datos del usuario del post.
+ * @author eneko
+ *
+ */
 public class VentanaDatosUsPost {
 
 	private JFrame frmDatos;
@@ -49,7 +54,8 @@ public class VentanaDatosUsPost {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Contructor de la ventana que recibe un usuario.
+	 * @param usuario
 	 */
 	private void initialize(Usuario usuario) {
 		frmDatos = new JFrame();

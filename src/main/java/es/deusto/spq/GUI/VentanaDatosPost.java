@@ -26,6 +26,11 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
+/**
+ * Clase que contiene la interfaz de los datos del post (datos del post y datos del piso)
+ * @author eneko
+ *
+ */
 public class VentanaDatosPost {
 
 	private JFrame frmDatos;
@@ -60,7 +65,9 @@ public class VentanaDatosPost {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Contructor de la ventana que recibe un post y un piso
+	 * @param post
+	 * @param piso
 	 */
 	private void initialize(Post post, Piso piso) {
 		frmDatos = new JFrame();
