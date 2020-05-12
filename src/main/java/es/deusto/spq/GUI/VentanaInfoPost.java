@@ -22,6 +22,11 @@ import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Post;
 import es.deusto.spq.data.Usuario;
 
+/**
+ * Esta ventana contiene los detalles correspondientes de un Post concreto
+ * @author jonuraga
+ *
+ */
 public class VentanaInfoPost {
 	
 	private JFrame jFPost;
@@ -31,11 +36,19 @@ public class VentanaInfoPost {
 	private JScrollPane scroll;
 	private final static String LINEA_NUEVA = "\n";
 	
+	/**
+	 * Constructor de la ventana que llama al método que inicializa todas sus variables y hace visible la ventana
+	 * @param post Post del que se quiere visualizar la información
+	 */
 	public VentanaInfoPost(Post post) {
 		initialize(post);
 		jFPost.setVisible(true);
 	}
 
+	/**
+	 * Método que inicializa las variables de la ventana
+	 * @param post Post del que se quiere visualizar la información
+	 */
 	private void initialize(Post post) {
 		
 		

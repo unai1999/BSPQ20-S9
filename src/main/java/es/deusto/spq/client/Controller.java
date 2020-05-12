@@ -63,6 +63,7 @@ public class Controller {
 
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+        System.out.println(String.format("http://%s:%s/rest", hostname, port));
 
     }
     

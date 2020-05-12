@@ -20,6 +20,12 @@ import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 
+
+/**
+ * Esta ventana se utiliza para realizar la acción de pagar
+ * @author jonuraga
+ *
+ */
 public class VentanaPago {
 	
 	private JFrame frame;
@@ -44,9 +50,18 @@ public class VentanaPago {
 		});
 	}
 	
+	/**
+	 * Constructor de la clase que recibe el piso con el precio a pagar y llama al método de inicializar 
+	 * @param piso
+	 */
 	public VentanaPago(Piso piso) {
 		initialize(piso);
 	}
+	
+	/**
+	 * Con este método se inicializan las variables de la ventana y se manejan las acciones al pulsar los botones
+	 * @param piso
+	 */
 
 	private void initialize(Piso piso) {
 		frame = new JFrame("Pago");

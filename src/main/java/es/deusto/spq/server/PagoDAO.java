@@ -11,6 +11,11 @@ import javax.jdo.Transaction;
 
 import es.deusto.spq.data.Pago;
 
+/**
+ * Esta clase contiene los métodos para guardar pagos u obtener la lista de pagos de un usuario
+ * @author jonuraga
+ *
+ */
 public class PagoDAO {
     
     private PersistenceManagerFactory pmf;
@@ -21,6 +26,10 @@ public class PagoDAO {
         pm = pmf.getPersistenceManager();
     }
     
+    /**
+     * Método que se utiliza para guardar un objeto, en este caso será un pago
+     * @param o Objeto a guardar en la base de datos
+     */
     public void guardarPago(Object o) {
     	Transaction tx = pm.currentTransaction();
     	try {
@@ -37,6 +46,11 @@ public class PagoDAO {
 		}
     }
     
+    /**
+     * Este método se utiliza para obtener la lista de pagos asociadas a un usuario concreto dado su email
+     * @param email Email del usuario del que se quieren obtener los pagos
+     * @return Devuelve la lista de pagos que corresponden al email pasado por parámetro
+     */
     public List<Pago> getPagosByEmail(String email) {
     	List<Pago> pagos = new ArrayList<Pago>();
     	Transaction tx = pm.currentTransaction();
