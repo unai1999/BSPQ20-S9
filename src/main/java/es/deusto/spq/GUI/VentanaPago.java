@@ -17,6 +17,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import es.deusto.spq.client.Controller;
+import es.deusto.spq.data.Pago;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 
@@ -119,7 +120,10 @@ public class VentanaPago {
 				if (!mgui.validarEmail(tfEmail.getText())) {
 					mgui.mensajeError(tfEmail, "El email introducido no es válido");
 				} else {
-					Response r = Controller.getInstance().realizarPago((int) piso.getCoste().doubleValue(), tfEmail.getText());
+					Pago p = new Pago();
+					p.setEmail(tfEmail.getText());
+					p.setPrecio((int) piso.getCoste().doubleValue());
+					Response r = Controller.getInstance().realizarPago(p);
 					System.out.println(r);
 					if (r.getStatus() == Status.OK.getStatusCode()) {
 						JOptionPane.showMessageDialog(null, "Pago", "Exitoso", JOptionPane.INFORMATION_MESSAGE);

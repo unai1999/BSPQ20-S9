@@ -6,6 +6,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
+import es.deusto.spq.data.Pago;
 import es.deusto.spq.data.Usuario;
 
 public class UsuarioDAO {
@@ -149,14 +150,14 @@ public class UsuarioDAO {
 		 * @param precio El precio del piso que se desea comprar
 		 * @param email Email del usuario que va a pagar
 		 */
-		public void realizarPago(int precio, String email) {
+		public void realizarPago(Pago p) {
 			
-			Usuario u = getUsuarioFromEmail(email);
+			Usuario u = getUsuarioFromEmail(p.getEmail());
 			Transaction tx = pm.currentTransaction();
 			try {
 				tx.begin();
 				System.out.println(" * Comprobando monedero...");
-				if (u.pagar(precio) == true) {
+				if (u.pagar(p.getPrecio()) == true) {
 					System.out.println(" * Realizando pago...");
 					pm.makePersistent(u);
 					tx.commit();
