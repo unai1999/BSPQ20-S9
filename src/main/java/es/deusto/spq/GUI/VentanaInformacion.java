@@ -299,7 +299,7 @@ public class VentanaInformacion {
 			public void actionPerformed(ActionEvent e) {
 				jFInfo.dispose();
 				// aqui implementaremos la funcionalidad para reservar
-				
+				new VentanaPago(piso);
 				
 			}
 		});

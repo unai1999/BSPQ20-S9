@@ -134,6 +134,12 @@ public class AppServer {
 		
 			 
 	 }
+	
+	/**
+	 * Método servidor que guarda un piso nuevo en la base de datos
+	 * @param piso Piso que se va a guardar en la base de datos
+	 * @return Devuelve la response del servidor tras intentar el guardado en base de datos
+	 */
 	@Path("/newPiso")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)

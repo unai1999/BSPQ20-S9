@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle.Control;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,6 +20,12 @@ import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 
+
+/**
+ * Esta ventana se utiliza para realizar la acción de pagar
+ * @author jonuraga
+ *
+ */
 public class VentanaPago {
 	
 	private JFrame frame;
@@ -36,7 +41,7 @@ public class VentanaPago {
 			@Override
 			public void run() {
 				try {
-					VentanaPago window = new VentanaPago(0);
+					VentanaPago window = new VentanaPago(new Piso("", 0.0));
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,11 +50,20 @@ public class VentanaPago {
 		});
 	}
 	
-	public VentanaPago(int precio) {
-		initialize(precio);
+	/**
+	 * Constructor de la clase que recibe el piso con el precio a pagar y llama al método de inicializar 
+	 * @param piso
+	 */
+	public VentanaPago(Piso piso) {
+		initialize(piso);
 	}
+	
+	/**
+	 * Con este método se inicializan las variables de la ventana y se manejan las acciones al pulsar los botones
+	 * @param piso
+	 */
 
-	private void initialize(int precio) {
+	private void initialize(Piso piso) {
 		frame = new JFrame("Pago");
 		frame.setBounds(100, 100, 400, 230);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,7 +84,7 @@ public class VentanaPago {
 		lblPrecioTit.setBounds(97, 52, 120, 30);
 		panel.add(lblPrecioTit);
 		
-		lblPrecio = new JLabel(Integer.toString(precio));
+		lblPrecio = new JLabel(Double.toString(piso.getCoste().doubleValue()));
 		lblPrecio.setBounds(229, 52, 70, 30);
 		panel.add(lblPrecio);
 		
@@ -88,7 +102,9 @@ public class VentanaPago {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				frame.dispose();
+				Usuario u = Controller.getInstance().getUsuario();
+				new VentanaInformacion(piso, u);
 				
 			}
 		});
@@ -103,13 +119,12 @@ public class VentanaPago {
 				if (!mgui.validarEmail(tfEmail.getText())) {
 					mgui.mensajeError(tfEmail, "El email introducido no es válido");
 				} else {
-					Response r = Controller.getInstance().realizarPago(precio, tfEmail.getText());
+					Response r = Controller.getInstance().realizarPago((int) piso.getCoste().doubleValue(), tfEmail.getText());
 					System.out.println(r);
 					if (r.getStatus() == Status.OK.getStatusCode()) {
 						JOptionPane.showMessageDialog(null, "Pago", "Exitoso", JOptionPane.INFORMATION_MESSAGE);
 						List<Piso> pisos = new ArrayList<Piso>();
 						pisos = Controller.getInstance().getPisos();
-						Usuario u = Controller.getInstance().getUsuario();
 						
 						new VentanaListaPisos(pisos, pisos);
 						frame.dispose();

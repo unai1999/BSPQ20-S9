@@ -144,6 +144,11 @@ public class UsuarioDAO {
 			
 		}
 		
+		/**
+		 * Este método se utiliza para realizar el pago de un piso por parte de un usuario
+		 * @param precio El precio del piso que se desea comprar
+		 * @param email Email del usuario que va a pagar
+		 */
 		public void realizarPago(int precio, String email) {
 			
 			Usuario u = getUsuarioFromEmail(email);
@@ -165,6 +170,11 @@ public class UsuarioDAO {
 			}
 		}
 		
+		/**
+		 * Este método sirve para poder añadir dinero al monedero de un usuario
+		 * @param email Email del usuario que quiere añadir fondos
+		 * @param cantidad dinero que se quiere añadir al monedero
+		 */
 		public void anyadirFondos(String email, int cantidad) {
 			
 			Usuario u = getUsuarioFromEmail(email);

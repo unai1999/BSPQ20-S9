@@ -18,7 +18,11 @@ import javax.ws.rs.core.Response.Status;
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 
-
+/**
+ * Esta clase se utiliza para crear nuevos pisos y añadirlos a la base de datos
+ * @author jonuraga
+ *
+ */
 
 public class VentanaFormularioPisos {
 	
@@ -45,10 +49,17 @@ public class VentanaFormularioPisos {
 //		});
 //	}
 	
+	/**
+	 * Constructor de la ventana que lo que hace es llamar al método initialize() 
+	 */
+	
 	public VentanaFormularioPisos() {
 		initialize();
 	}
 
+	/**
+	 * Método que inicializa las variables de la ventana
+	 */
 	private void initialize() {
 		
 		
@@ -161,6 +172,11 @@ public class VentanaFormularioPisos {
 		});
 		
 	}
+	
+	/**
+	 * Este método se utiliza para hacer visible la ventana
+	 * @param b true para que la ventana sea visible o false en caso contrario
+	 */
 	
 	public void setVisible(boolean b) {
 		frame.setVisible(true);
