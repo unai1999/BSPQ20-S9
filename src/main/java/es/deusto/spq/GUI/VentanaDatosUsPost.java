@@ -22,7 +22,6 @@ import javax.swing.JButton;
 /**
  * Clase que contiene la interfaz de los datos del usuario del post.
  * @author eneko
- *
  */
 public class VentanaDatosUsPost {
 
@@ -54,7 +53,7 @@ public class VentanaDatosUsPost {
 	}
 
 	/**
-	 * Contructor de la ventana que recibe un usuario.
+	 * Contructor de la ventana que recibe un usuario
 	 * @param usuario
 	 */
 	private void initialize(Usuario usuario) {

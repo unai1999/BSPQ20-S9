@@ -29,7 +29,6 @@ import javax.swing.JButton;
 /**
  * Clase que contiene la interfaz de los datos del post (datos del post y datos del piso)
  * @author eneko
- *
  */
 public class VentanaDatosPost {
 
@@ -65,7 +64,7 @@ public class VentanaDatosPost {
 	}
 
 	/**
-	 * Contructor de la ventana que recibe un post y un piso
+	 * Contructor de la ventana que recibe un post y un piso.
 	 * @param post
 	 * @param piso
 	 */
