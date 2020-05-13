@@ -10,7 +10,6 @@ import javax.jdo.annotations.InheritanceStrategy;
 /**
  * Esta clase es una clase basica de una Factura.
  * @author eneko
- *
  */
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
@@ -26,7 +25,7 @@ public class Factura {
     
 
     /**
-     * Constructor de la clase Factura. 
+     * Constructor basico de la clase Factura. 
      * @param id
      * @param fecha
      * @param piso

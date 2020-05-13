@@ -13,7 +13,6 @@ import javax.jdo.annotations.NotPersistent;
 /**
  * Clase basica de un Piso.
  * @author eneko
- *
  */
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
@@ -103,7 +102,7 @@ public class Piso{
     }
     
     /**
-     * Constructor de un piso
+     * Constructor basico de un piso.
      * @param piso
      */
     public Piso(Piso piso) {

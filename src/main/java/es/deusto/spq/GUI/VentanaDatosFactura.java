@@ -29,7 +29,6 @@ import javax.swing.JTabbedPane;
 /**
  * Clase de la interfaz de los datos de la factura.
  * @author eneko
- *
  */
 public class VentanaDatosFactura {
 

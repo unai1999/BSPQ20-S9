@@ -12,7 +12,6 @@ import es.deusto.spq.data.Post;
 /**
  * Clase que contiene metodos que se usan en las interfaces.
  * @author eneko
- *
  */
 public class MetodosGUI {
 
@@ -25,7 +24,7 @@ public class MetodosGUI {
 	/**
 	 * Función que valida el nombre del usuario si no está vacio
 	 * @param nombre
-	 * @return true si el nombre no está vacio
+	 * @return true si el nombre no está vacio.
 	 */
 	public boolean validarNombre(String nombre) {
 		if(nombre.equals("")) {
@@ -38,7 +37,7 @@ public class MetodosGUI {
 	/**
 	 * Función que valida el nickname del usuario
 	 * @param usuario
-	 * @return true si el nickname no está vacio o tiene 5 letras o menos
+	 * @return true si el nickname no está vacio o tiene 5 letras o menos.
 	 */
 	public boolean validarUsuario(String usuario){
 		
@@ -52,7 +51,7 @@ public class MetodosGUI {
 	/**
 	 * Función que valida la contraseña de la usuario
 	 * @param pass1
-	 * @return true si la contraseña no está vacia o tiene al menos 8 letras
+	 * @return true si la contraseña no está vacia o tiene al menos 8 letras.
 	 */
 	public boolean validarContrasenya(String pass1){
 		  if (pass1.equals("") || pass1.length() < 8) {
