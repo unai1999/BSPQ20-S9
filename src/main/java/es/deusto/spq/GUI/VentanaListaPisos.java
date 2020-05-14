@@ -21,11 +21,13 @@ import javax.swing.text.BadLocationException;
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
-import es.deusto.spq.data.Usuario;
 import es.deusto.spq.server.DAOFactory;
 
 import javax.swing.JLabel;
-
+/**
+ * Clase de la interfaz de la lista de pisos.
+ * @author unai
+ */
 
 public class VentanaListaPisos extends JFrame {
 
@@ -36,6 +38,11 @@ public class VentanaListaPisos extends JFrame {
 	private JScrollPane scroll;
 	private MetodosGUI m = new MetodosGUI();
 
+	/**
+	 * Constructor de la ventana de la lista de pisos.
+	 * @param pisos
+	 * @param pisos2
+	 */
 	public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2) {
     	
         setSize(620, 480);
