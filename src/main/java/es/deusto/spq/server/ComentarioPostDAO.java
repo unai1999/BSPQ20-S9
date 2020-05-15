@@ -59,7 +59,7 @@ public class ComentarioPostDAO {
     	List<ComentarioPost> comentarios = new ArrayList<ComentarioPost>();
     	Transaction tx = pm.currentTransaction();
     	try {
-			System.out.println(" * Retrieving an extent for ComentarioPiso");
+			System.out.println(" * Retrieving an extent for ComentarioPost");
 			tx.begin();
 			Extent<ComentarioPost> extent = pm.getExtent(ComentarioPost.class, true);
 			for (ComentarioPost c : extent) {
