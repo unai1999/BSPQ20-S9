@@ -18,7 +18,6 @@ import javax.swing.border.LineBorder;
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
-import es.deusto.spq.server.DAOFactory;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -264,8 +263,7 @@ public class VentanaInformacion {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				jFInfo.dispose();
-				//System.out.println(piso.getVecesVisitado());
-				new VentanaEstadisticasPiso(piso, usuario);
+				new VentanaEstadisticasPiso(piso);
 				
 			}
 		});
@@ -275,7 +273,7 @@ public class VentanaInformacion {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				jFInfo.dispose();
-				new Mapa(piso, usuario);
+				new Mapa(piso);
 				
 			}
 		});

@@ -7,20 +7,24 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
-import es.deusto.spq.data.Usuario;
 
 import javax.swing.JButton;
 
-
+/**
+ * Clase de la interfaz que muestra las estadisticas de un piso
+ * @author unai
+ */
 public class VentanaEstadisticasPiso extends JFrame {
 	
 	/**
-	 * 
+	 * Constructor de la ventana que muestra las estadisticas del piso.
+	 * @param piso
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public VentanaEstadisticasPiso(Piso p, Usuario u) {
+	public VentanaEstadisticasPiso(Piso p) {
 		Font fuente1 = new Font("Times New Roman", Font.PLAIN, 14);
 		Font fuente2 = new Font("Times New Roman", Font.BOLD, 14);
 		Font fuente3 = new Font("Arial", Font.BOLD, 17);
@@ -85,7 +89,7 @@ public class VentanaEstadisticasPiso extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new VentanaInformacion(p, u);
+				new VentanaInformacion(p, Controller.getInstance().getUsuario());
 				
 			}
 		});

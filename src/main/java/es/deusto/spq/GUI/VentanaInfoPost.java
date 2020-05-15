@@ -20,7 +20,6 @@ import javax.swing.border.LineBorder;
 
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Post;
-import es.deusto.spq.data.Usuario;
 
 /**
  * Esta ventana contiene los detalles correspondientes de un Post concreto
