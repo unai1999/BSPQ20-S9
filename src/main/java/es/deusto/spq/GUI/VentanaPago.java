@@ -57,6 +57,7 @@ public class VentanaPago {
 	 */
 	public VentanaPago(Piso piso) {
 		initialize(piso);
+		frame.setVisible(true);
 	}
 	
 	/**

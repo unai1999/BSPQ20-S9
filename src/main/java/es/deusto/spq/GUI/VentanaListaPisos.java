@@ -108,8 +108,10 @@ public class VentanaListaPisos extends JFrame {
         
         if(pisos2.size() > 0) {
         for(int i = 0; i < pisos2.size(); i++) {
-        	textoPisos.append("Nombre del piso:" + pisos2.get(i).getNombre().toUpperCase() + "\n" + "Precio: " + pisos2.get(i).getCoste()+ "\n"+ "Valoración: " + pisos2.get(i).getValoracion()+ "/5"+ "\n\n");
-         
+        	if(pisos2.get(i).isAlquilado() == false) {
+        		textoPisos.append("Nombre del piso:" + pisos2.get(i).getNombre().toUpperCase() + "\n" + "Precio: " + pisos2.get(i).getCoste()+ "\n"+ "Valoración: " + pisos2.get(i).getValoracion()+ "/5"+ "\n\n");
+        	}
+        	
         }
         }else {
         	scroll.setVisible(false);
