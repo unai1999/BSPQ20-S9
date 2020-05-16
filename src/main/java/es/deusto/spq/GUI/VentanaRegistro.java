@@ -124,7 +124,7 @@ public class VentanaRegistro {
 		tFPass2.setBounds(246, 392, 133, 20);
 		panelPrincipal.add(tFPass2);
 		
-		JLabel lblNombre = new JLabel("Nombre:");
+		JLabel lblNombre = new JLabel(idioma.getProperty("Nombre") + ":");
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNombre.setBounds(79, 210, 78, 22);
 		panelPrincipal.add(lblNombre);
@@ -134,7 +134,7 @@ public class VentanaRegistro {
 		tFNombre.setBounds(246, 212, 133, 20);
 		panelPrincipal.add(tFNombre);
 		
-		JLabel lblApellido = new JLabel("Apellido:");
+		JLabel lblApellido = new JLabel(idioma.getProperty("Apellido") + ":");
 		lblApellido.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblApellido.setBounds(79, 253, 78, 22);
 		panelPrincipal.add(lblApellido);
