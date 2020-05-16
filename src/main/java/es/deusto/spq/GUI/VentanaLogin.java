@@ -30,6 +30,7 @@ public class VentanaLogin {
 	private JTextField tFLogin;
 	private JPasswordField tFCont;
 	private JTextField tFCorreo;
+	
 
 	MetodosGUI mGUI = new MetodosGUI();
 

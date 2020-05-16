@@ -24,35 +24,25 @@ import org.jxmapviewer.viewer.TileFactoryInfo;
 import org.jxmapviewer.viewer.Waypoint;
 import org.jxmapviewer.viewer.WaypointPainter;
 
+import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
-import es.deusto.spq.data.Usuario;
 
 import org.jxmapviewer.painter.CompoundPainter;
 import org.jxmapviewer.painter.Painter;
 import javax.swing.JButton;
 
-//import com.byteowls.jopencage.JOpenCageGeocoder;
-//import com.byteowls.jopencage.model.JOpenCageForwardRequest;
-//import com.byteowls.jopencage.model.JOpenCageLatLng;
-//import com.byteowls.jopencage.model.JOpenCageResponse;
-
+/**
+ * Clase de la interfaz que muestra un mapa de la localizacón de un piso.
+ * @author unai
+ */
 public class Mapa {
 	
-//	public static JOpenCageLatLng obtenerCoordenadasMedianteLocalizacion(){
-//		JOpenCageGeocoder jOpenCageGeocoder = new JOpenCageGeocoder("aeb74f54239a447daa7f661fb5ee5a97");
-//		JOpenCageForwardRequest request = new JOpenCageForwardRequest("Plaza Emilio Campuzano, 48011 Bilbao, España");
-//
-//		JOpenCageResponse response = jOpenCageGeocoder.forward(request);
-//		JOpenCageLatLng firstResultLatLng = response.getFirstPosition(); 
-//		
-//		return firstResultLatLng;
-//	}
-	
-	public Mapa(Piso p, Usuario u) {
+	/**
+	 * Constructor de la ventana del mapa de un piso.
+	 * @param piso
+	 */
+	public Mapa(Piso p) {
 		
-//		JOpenCageLatLng coordenadas = obtenerCoordenadasMedianteLocalizacion();
-//		 double latitud = coordenadas.getLat();
-//		 double longitud = coordenadas.getLng();
 		double latitud = p.getLat();
 		double longitud = p.getLon();
 		System.out.println(latitud);
@@ -108,7 +98,7 @@ public class Mapa {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				new VentanaInformacion(p, u);
+				new VentanaInformacion(p, Controller.getInstance().getUsuario());
 				
 			}
 		});

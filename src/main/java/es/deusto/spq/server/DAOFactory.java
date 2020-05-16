@@ -13,7 +13,8 @@ public class DAOFactory{
     private PisoDAO pisoDAO;
     private MensajeDAO mensajeDAO;
     private PostDAO postDAO;
-
+    private ComentarioPisoDAO comentarioPisoDAO;
+    private ComentarioPostDAO comentarioPostDAO;
      
     private DAOFactory(){
         
@@ -22,6 +23,8 @@ public class DAOFactory{
         pisoDAO = new PisoDAO();
         mensajeDAO = new MensajeDAO();
         postDAO = new PostDAO();
+        comentarioPisoDAO = new ComentarioPisoDAO();
+        comentarioPostDAO = new ComentarioPostDAO();
     }
     public static DAOFactory getInstance(){
         if(instance == null){
@@ -54,5 +57,14 @@ public class DAOFactory{
     public MensajeDAO createMensajeDAO(){
 
         return mensajeDAO;
+    }
+    public ComentarioPisoDAO createComentarioPisoDAO() {
+    	
+    	return comentarioPisoDAO;
+    }
+    
+    public ComentarioPostDAO createComentarioPostDAO() {
+    	
+    	return comentarioPostDAO;
     }
 }

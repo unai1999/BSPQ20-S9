@@ -25,7 +25,7 @@ public class Post {
     private String contenido;
     private int likes;
     private String fecha;
-    private List<Comentario> comentarios;
+   // private List<Comentario> comentarios;
 
     public Post(String titulo, String autor, String contenido) {
        
@@ -38,12 +38,12 @@ public class Post {
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myObj.format(myFormatObj);
         this.fecha = formattedDate;
-        this.comentarios = new ArrayList<Comentario>();
+       // this.comentarios = new ArrayList<Comentario>();
     }
 
     public Post(Post post) {
 		this.autor = post.autor;
-		this.comentarios = post.comentarios;
+		//this.comentarios = post.comentarios;
 		this.contenido = post.contenido;
 		this.fecha = post.fecha;
 		this.likes = post.likes;
@@ -54,9 +54,9 @@ public class Post {
 		
 	}
 
-	public void addComentario(Comentario c){
-        this.comentarios.add(c);
-    }
+//	public void addComentario(Comentario c){
+//        this.comentarios.add(c);
+//    }
 
   
 
@@ -104,13 +104,13 @@ public class Post {
         this.fecha = fecha;
     }
 
-    public List<Comentario> getComentarios() {
-        return comentarios;
-    }
-
-    public void setComentarios(List<Comentario> comentarios) {
-        this.comentarios = comentarios;
-    }
+//    public List<Comentario> getComentarios() {
+//        return comentarios;
+//    }
+//
+//    public void setComentarios(List<Comentario> comentarios) {
+//        this.comentarios = comentarios;
+//    }
 
     
 

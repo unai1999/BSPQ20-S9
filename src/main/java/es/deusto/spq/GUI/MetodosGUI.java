@@ -125,7 +125,12 @@ public class MetodosGUI {
             return r;
 		}
 	}
-	
+	/**
+	 * Esta función buscará en todos los pisos aquellos que coincidan con el nombre que pasamos por parametro (texto)
+	 * @param texto 
+	 * @param posts 
+	 * @return la lista de pisos que tengan el como nombre el parametro texto
+	 */
 	public List<Piso> buscarPisos(String texto, List<Piso> pisos) {
 		texto = texto.toLowerCase();
 		ArrayList<Piso> pisosBuscados = new ArrayList<Piso>();
@@ -136,7 +141,12 @@ public class MetodosGUI {
 		}
 		return pisosBuscados;	
 	}
-	
+	/**
+	 * Esta función obtendrá el piso que coindida con el nombre que se sacará del parametro text
+	 * @param texto 
+	 * @param posts 
+	 * @return el piso con todos sus datos.
+	 */
 	public Piso obtenerPiso(String text, List<Piso> pisos) {
 		Piso p = new Piso();
 		String[] partes = text.split(":");
@@ -151,6 +161,12 @@ public class MetodosGUI {
 		return p;
 	}
 	
+	/**
+	 * Esta función buscará en todos los posts aquellos que coincidan con el nombre del autor que pasamos por parametro (texto)
+	 * @param texto 
+	 * @param posts 
+	 * @return la lista de post que tengan el usuario que hemos pasado como parametro texto
+	 */
 	public List<Post> buscarPosts(String texto, List<Post> posts) {
 		texto = texto.toLowerCase();
 		ArrayList<Post> postsBuscados = new ArrayList<Post>();
@@ -162,6 +178,12 @@ public class MetodosGUI {
 		return postsBuscados;	
 	}
 	
+	/**
+	 * Esta función obtendrá el post que coindida con el titulo que se sacará del parametro text
+	 * @param texto 
+	 * @param posts 
+	 * @return el post con todos sus datos.
+	 */
 	public Post obtenerPost(String text, List<Post> posts) {
 		Post p = new Post();
 	
