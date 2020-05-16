@@ -32,7 +32,6 @@ public class PagoServerTest {
 		df = mock(DAOFactory.class, Mockito.RETURNS_DEEP_STUBS);
 		Pago p = new Pago();
 		p.setEmail("ju@gmail.com"); p.setPrecio(300);
-		
 		Response r = server.realizarPago(p);
 		assertEquals(200, r.getStatus());
 		
