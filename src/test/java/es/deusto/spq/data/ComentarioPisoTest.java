@@ -18,9 +18,10 @@ public class ComentarioPisoTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		comentario = new ComentarioPiso(piso, "Prueba");
 		piso = new Piso();
 		piso.setCoste(200.0);
+		comentario = new ComentarioPiso(piso, "Prueba");
+		
 	}
 	
 	@Test

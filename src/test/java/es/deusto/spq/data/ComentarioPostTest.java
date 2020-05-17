@@ -17,9 +17,10 @@ public class ComentarioPostTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		comentario = new ComentarioPost(post, "Prueba");
 		post = new Post();
 		post.setAutor("Alvar");
+		comentario = new ComentarioPost(post, "Prueba");
+	
 	}
 	
 	@Test
