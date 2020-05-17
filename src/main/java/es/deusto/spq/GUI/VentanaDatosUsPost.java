@@ -19,6 +19,10 @@ import javax.swing.border.LineBorder;
 import es.deusto.spq.data.Usuario;
 import javax.swing.JButton;
 
+/**
+ * Clase que contiene la interfaz de los datos del usuario del post.
+ * @author eneko
+ */
 public class VentanaDatosUsPost {
 
 	private JFrame frmDatos;
@@ -49,19 +53,20 @@ public class VentanaDatosUsPost {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Contructor de la ventana que recibe un usuario
+	 * @param usuario
 	 */
 	private void initialize(Usuario usuario) {
 		frmDatos = new JFrame();
 		frmDatos.setResizable(false);
 		frmDatos.setTitle("Datos");
-		frmDatos.setBounds(100, 100, 476, 291);
+		frmDatos.setBounds(100, 100, 476, 288);
 		frmDatos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		JPanel panelPrincipal = new JPanel();
 		frmDatos.getContentPane().add(panelPrincipal, BorderLayout.NORTH);
 		
-		JLabel lblTit = new JLabel("Datos de Usuario");
+		JLabel lblTit = new JLabel("Datos del Post");
 		lblTit.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		panelPrincipal.add(lblTit);
 		
@@ -126,7 +131,7 @@ public class VentanaDatosUsPost {
 		panelNick.add(lblNick);
 		
 		JButton btnCerrar = new JButton("Cerrar");
-		btnCerrar.setBounds(20, 181, 89, 23);
+		btnCerrar.setBounds(10, 185, 89, 23);
 		btnCerrar.setFocusPainted(false);
 		subPanPrincipal.add(btnCerrar);
 		
@@ -137,5 +142,7 @@ public class VentanaDatosUsPost {
 				frmDatos.dispose();
 			}
 		});
+		
+		frmDatos.setVisible(true);
 	}
 }

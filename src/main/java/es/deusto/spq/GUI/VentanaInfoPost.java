@@ -19,9 +19,16 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import es.deusto.spq.client.Controller;
+import es.deusto.spq.data.ComentarioPiso;
+import es.deusto.spq.data.ComentarioPost;
 import es.deusto.spq.data.Post;
-import es.deusto.spq.data.Usuario;
+import es.deusto.spq.server.DAOFactory;
 
+/**
+ * Esta ventana contiene los detalles correspondientes de un Post concreto
+ * @author jonuraga
+ *
+ */
 public class VentanaInfoPost {
 	
 	private JFrame jFPost;
@@ -31,11 +38,19 @@ public class VentanaInfoPost {
 	private JScrollPane scroll;
 	private final static String LINEA_NUEVA = "\n";
 	
+	/**
+	 * Constructor de la ventana que llama al método que inicializa todas sus variables y hace visible la ventana
+	 * @param post Post del que se quiere visualizar la información
+	 */
 	public VentanaInfoPost(Post post) {
 		initialize(post);
 		jFPost.setVisible(true);
 	}
 
+	/**
+	 * Método que inicializa las variables de la ventana
+	 * @param post Post del que se quiere visualizar la información
+	 */
 	private void initialize(Post post) {
 		
 		
@@ -164,6 +179,14 @@ public class VentanaInfoPost {
 		newComentPanel.setLayout( new BorderLayout(0, 0));
 		
 		tfNewComent = new JTextField();
+		List<ComentarioPost> comentarios = DAOFactory.getInstance().createComentarioPostDAO().getComentarios(post);
+		if(comentarios != null) {
+			for(ComentarioPost s : comentarios) {
+				taComents.append(s.getTexto() + LINEA_NUEVA);
+				tfNewComent.selectAll();
+				taComents.setCaretPosition(taComents.getDocument().getLength());	
+			}
+		}
 		newComentPanel.add(tfNewComent);
 		tfNewComent.setColumns(10);
 		
@@ -177,9 +200,11 @@ public class VentanaInfoPost {
 				String texto = tfNewComent.getText();
 				taComents.append(texto + LINEA_NUEVA);
 				tfNewComent.selectAll();
-				taComents.setCaretPosition(taComents.getDocument().getLength());	
+				taComents.setCaretPosition(taComents.getDocument().getLength());
+				DAOFactory.getInstance().createComentarioPostDAO().guardarComentario(new ComentarioPost(post, texto));
 			}
 		});
+		
 		btnAtras.addActionListener(new ActionListener() {
 			
 			@Override

@@ -63,6 +63,7 @@ public class Controller {
 
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+        System.out.println(String.format("http://%s:%s/rest", hostname, port));
 
     }
     
@@ -168,11 +169,20 @@ public class Controller {
         
    }
     
-    public Response realizarPago(int precio, String email) {
+    public Response realizarPago(Pago p) {
     	WebTarget publicarTarget = webTarget.path("pagos/realizarPago");
     	Pago pago = new Pago();
-    	pago.setEmail(email); pago.setPrecio(precio);
+    	pago.setEmail(p.getEmail()); pago.setPrecio(p.getPrecio());
     	Entity<Pago> entity = Entity.entity(pago, MediaType.APPLICATION_JSON);
+    	Response response = publicarTarget.request().post(entity);
+    	
+    	return response;
+    }
+    
+    public Response anyadirFondos(Usuario u, int cantidad) {
+    	WebTarget publicarTarget = webTarget.path("pagos/anyadirFondos");
+    	u.setMonedero(u.getMonedero() + cantidad);
+    	Entity<Usuario> entity = Entity.entity(u, MediaType.APPLICATION_JSON);
     	Response response = publicarTarget.request().post(entity);
     	
     	return response;

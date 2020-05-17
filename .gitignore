@@ -16,3 +16,4 @@ buildNumber.properties
 src/main/resources/gmail.properties
 datanucleus.log
 salt.txt
+/bin/

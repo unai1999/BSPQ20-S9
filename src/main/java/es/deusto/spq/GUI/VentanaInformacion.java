@@ -16,6 +16,7 @@ import java.util.List;
 import javax.swing.border.LineBorder;
 
 import es.deusto.spq.client.Controller;
+import es.deusto.spq.data.ComentarioPiso;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 import es.deusto.spq.server.DAOFactory;
@@ -241,6 +242,14 @@ public class VentanaInformacion {
 		panelEsc.setLayout(new BorderLayout(0, 0));
 		
 		tFComent = new JTextField();
+		
+		List<ComentarioPiso> comentarios = DAOFactory.getInstance().createComentarioPisoDAO().getComentarios(piso);
+		for(ComentarioPiso s : comentarios) {
+			tAComent.append(s.getTexto() + LINEA_NUEVA); 
+			tFComent.selectAll();
+			tAComent.setCaretPosition(tAComent.getDocument().getLength());
+		}
+		
 		panelEsc.add(tFComent);
 		tFComent.setColumns(10);
 		
@@ -264,8 +273,7 @@ public class VentanaInformacion {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				jFInfo.dispose();
-				//System.out.println(piso.getVecesVisitado());
-				new VentanaEstadisticasPiso(piso, usuario);
+				new VentanaEstadisticasPiso(piso);
 				
 			}
 		});
@@ -275,7 +283,7 @@ public class VentanaInformacion {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				jFInfo.dispose();
-				new Mapa(piso, usuario);
+				new Mapa(piso);
 				
 			}
 		});
@@ -299,7 +307,7 @@ public class VentanaInformacion {
 			public void actionPerformed(ActionEvent e) {
 				jFInfo.dispose();
 				// aqui implementaremos la funcionalidad para reservar
-				
+				new VentanaPago(piso);
 				
 			}
 		});
@@ -312,7 +320,8 @@ public class VentanaInformacion {
 				tAComent.append(texto + LINEA_NUEVA); 
 				tFComent.selectAll();
 				tAComent.setCaretPosition(tAComent.getDocument().getLength());
-				
+				//ComentariosDAO.guardarComentario(new Comentario(piso, texto))
+				DAOFactory.getInstance().createComentarioPisoDAO().guardarComentario(new ComentarioPiso(piso, texto));
 			}
 		});
 		

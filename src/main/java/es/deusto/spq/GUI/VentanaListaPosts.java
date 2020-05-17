@@ -21,8 +21,11 @@ import javax.swing.text.BadLocationException;
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
-import es.deusto.spq.data.Usuario;
 
+/**
+ * Clase de la interfaz de la lista de posts.
+ * @author unai
+ */
 public class VentanaListaPosts extends JFrame{
 	
 
@@ -31,6 +34,11 @@ public class VentanaListaPosts extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private MetodosGUI m = new MetodosGUI();
 	
+	/**
+	 * Constructor de la ventana de la lista de pisos.
+	 * @param posts
+	 * @param posts2
+	 */
 	public VentanaListaPosts(List<Post> posts, List<Post> posts2) {
 	    
 		setSize(620, 480);

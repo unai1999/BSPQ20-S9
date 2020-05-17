@@ -18,6 +18,11 @@ import es.deusto.spq.server.DAOFactory;
 
 import javax.swing.JButton;
 
+/**
+ * Clase de la interfaz de la información de un usuario.
+ * @author unai
+ */
+
 public class VentanaInfoUsuario extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
@@ -27,7 +32,10 @@ public class VentanaInfoUsuario extends JFrame {
 	private JTextField textFieldNick;
 	private JTextField textFieldPass;
 	
-
+	/**
+	 * Constructor de la ventana que muestra la información de un usuario.
+	 * @param u1
+	 */
 	public VentanaInfoUsuario(Usuario u1) {
 	
         

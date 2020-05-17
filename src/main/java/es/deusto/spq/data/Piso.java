@@ -10,6 +10,10 @@ import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.NotPersistent;
 
+/**
+ * Clase basica de un Piso.
+ * @author eneko
+ */
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Piso{
@@ -24,12 +28,8 @@ public class Piso{
     private String desc;
     private int numeroInquilinos;
     private int nHab;
-    
-    
-    
     private double lat;
     private double lon;
-    
     private int vecesComprado;
     private int likes;
     private int vecesVisitado;
@@ -101,7 +101,10 @@ public class Piso{
         this.coste = coste;
     }
     
-    
+    /**
+     * Constructor basico de un piso.
+     * @param piso
+     */
     public Piso(Piso piso) {
 		this.nombre = piso.nombre;
 		this.coste = piso.coste;

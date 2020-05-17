@@ -19,13 +19,16 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.text.BadLocationException;
 
 import es.deusto.spq.client.Controller;
+import es.deusto.spq.data.Idioma;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
-import es.deusto.spq.data.Usuario;
 import es.deusto.spq.server.DAOFactory;
 
 import javax.swing.JLabel;
-
+/**
+ * Clase de la interfaz de la lista de pisos.
+ * @author unai
+ */
 
 public class VentanaListaPisos extends JFrame {
 
@@ -36,6 +39,11 @@ public class VentanaListaPisos extends JFrame {
 	private JScrollPane scroll;
 	private MetodosGUI m = new MetodosGUI();
 
+	/**
+	 * Constructor de la ventana de la lista de pisos.
+	 * @param pisos
+	 * @param pisos2
+	 */
 	public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2) {
     	
         setSize(620, 480);
@@ -101,8 +109,10 @@ public class VentanaListaPisos extends JFrame {
         
         if(pisos2.size() > 0) {
         for(int i = 0; i < pisos2.size(); i++) {
-        	textoPisos.append("Nombre del piso:" + pisos2.get(i).getNombre().toUpperCase() + "\n" + "Precio: " + pisos2.get(i).getCoste()+ "\n"+ "Valoración: " + pisos2.get(i).getValoracion()+ "/5"+ "\n\n");
-         
+        	if(pisos2.get(i).isAlquilado() == false) {
+        		textoPisos.append("Nombre del piso:" + pisos2.get(i).getNombre().toUpperCase() + "\n" + "Precio: " + pisos2.get(i).getCoste()+ "\n"+ "Valoración: " + pisos2.get(i).getValoracion()+ "/5"+ "\n\n");
+        	}
+        	
         }
         }else {
         	scroll.setVisible(false);
@@ -197,7 +207,7 @@ public class VentanaListaPisos extends JFrame {
         botonVolverAtras.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		dispose();
-        		new VentanaLogin();
+        		new VentanaLogin(new Idioma("Español"));
         	}
         });
         btnBuscar.addActionListener(new ActionListener() {

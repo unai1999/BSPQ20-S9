@@ -12,15 +12,12 @@ public class DAOFactory{
     private PisoDAO pisoDAO;
     private MensajeDAO mensajeDAO;
     private PostDAO postDAO;
-
+    private ComentarioPisoDAO comentarioPisoDAO;
+    private ComentarioPostDAO comentarioPostDAO;
      
     public DAOFactory(){
         
-        //usuarioDAO = new UsuarioDAO();
-        //foroDAO = new ForoDAO();
-        //pisoDAO = new PisoDAO();
-        //mensajeDAO = new MensajeDAO();
-        //postDAO = new PostDAO();
+
     }
 
     public static DAOFactory getInstance(){
@@ -95,4 +92,13 @@ public class DAOFactory{
 	}
 
     
+    public ComentarioPisoDAO createComentarioPisoDAO() {
+    	
+    	return comentarioPisoDAO;
+    }
+    
+    public ComentarioPostDAO createComentarioPostDAO() {
+    	
+    	return comentarioPostDAO;
+    }
 }

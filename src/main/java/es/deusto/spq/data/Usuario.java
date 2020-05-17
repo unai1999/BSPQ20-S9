@@ -92,6 +92,10 @@ public class Usuario {
 		this.setNombre(nombre);
 	}
 
+	public Usuario() {
+		
+	}
+
 	public String getNickname() {
 		return nickname;
 	}

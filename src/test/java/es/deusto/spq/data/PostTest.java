@@ -23,15 +23,10 @@ public class PostTest {
         @Before
 	    public void setUp() {
             post = new Post("Titulo", "Autor", "Contenido");
-            c = new Comentario(1, "Autor", "Contenido");
-            listaComentario = new ArrayList<Comentario>();
             post.setAutor("Eneko");
-            listaComentario.add(c);
             post.setContenido("aaa");
             post.setLikes(3);
-            post.setComentarios(listaComentario);
             post.setTitulo("bbbb");
-            c.setContenido("aaaa");
     	}
         
         @Test
@@ -39,11 +34,7 @@ public class PostTest {
         	assertEquals("Eneko", post.getAutor());
         }
         
-        @Test
-        public void setComentariosTest() {
-        	assertTrue(post.getComentarios().size()> 0);
-        }
-
+       
         @Test
         public void incLikesTest(){
             int likesP = post.getLikes();
@@ -51,9 +42,5 @@ public class PostTest {
             assertEquals(likesP + 1, post.getLikes());
         }
 
-        @Test
-        public void addComentarioTest(){
-            assertEquals(1, post.getComentarios().size());
-            assertEquals(c, post.getComentarios().get(0));
-        }
+  
 }

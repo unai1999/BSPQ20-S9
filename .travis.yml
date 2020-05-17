@@ -1,16 +1,17 @@
 language: java
-
+env:
+  - JDK=oraclejdk8
+  - JDK=openjdk8
 jdk:
   - openjdk8
-
 services: 
   - mysql
 before_script: 
   - mysql -u root -e 'CREATE DATABASE pisosDB;'
   - mysql -u root -e "CREATE USER 'spq'@'localhost' IDENTIFIED BY 'spq';"
   - mysql -u root -e "GRANT ALL ON pisosDB.* TO 'spq'@'localhost';"
+  - jdk_switcher use $JDK
 
-
-
-
-
+script:
+  - jdk_switcher use openjdk8
+dist: trusty

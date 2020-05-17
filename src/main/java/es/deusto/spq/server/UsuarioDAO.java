@@ -6,6 +6,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
+import es.deusto.spq.data.Pago;
 import es.deusto.spq.data.Usuario;
 
 public class UsuarioDAO {
@@ -68,22 +69,22 @@ public class UsuarioDAO {
 			return usuario;
 		}
 		
-		public Usuario getUsuarioFromId(String nick) {
-	    	Usuario usuario = null;
-	    	Transaction tx = pm.currentTransaction();
-	    	try {
-				tx.begin();
-				usuario = pm.getObjectById(Usuario.class, nick);
-				tx.commit();
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (tx != null && tx.isActive()) {
-		    		tx.rollback();
-		    	}
-			}
-			return usuario;
-	    }
+//		public Usuario getUsuarioFromId(String nick) {
+//	    	Usuario usuario = null;
+//	    	Transaction tx = pm.currentTransaction();
+//	    	try {
+//				tx.begin();
+//				usuario = pm.getObjectById(Usuario.class, nick);
+//				tx.commit();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			} finally {
+//				if (tx != null && tx.isActive()) {
+//		    		tx.rollback();
+//		    	}
+//			}
+//			return usuario;
+//	    }
 	    
 	    public boolean guardar(Object o) {
 			boolean b = true;
@@ -154,14 +155,19 @@ public class UsuarioDAO {
 			
 		}
 		
-		public void realizarPago(int precio, String email) {
+		/**
+		 * Este método se utiliza para realizar el pago de un piso por parte de un usuario
+		 * @param precio El precio del piso que se desea comprar
+		 * @param email Email del usuario que va a pagar
+		 */
+		public void realizarPago(Pago p) {
 			
-			Usuario u = getUsuarioFromEmail(email);
+			Usuario u = getUsuarioFromEmail(p.getEmail());
 			Transaction tx = pm.currentTransaction();
 			try {
 				tx.begin();
 				System.out.println(" * Comprobando monedero...");
-				if (u.pagar(precio) == true) {
+				if (u.pagar(p.getPrecio()) == true) {
 					System.out.println(" * Realizando pago...");
 					pm.makePersistent(u);
 					tx.commit();
@@ -175,6 +181,11 @@ public class UsuarioDAO {
 			}
 		}
 		
+		/**
+		 * Este método sirve para poder añadir dinero al monedero de un usuario
+		 * @param email Email del usuario que quiere añadir fondos
+		 * @param cantidad dinero que se quiere añadir al monedero
+		 */
 		public void anyadirFondos(String email, int cantidad) {
 			
 			Usuario u = getUsuarioFromEmail(email);

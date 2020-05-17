@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response.Status;
 import javax.swing.JTextField;
 
 import es.deusto.spq.client.Controller;
-
+import es.deusto.spq.data.Idioma;
 import es.deusto.spq.data.Usuario;
 import javax.swing.JPasswordField;
 
@@ -31,7 +31,6 @@ public class VentanaRegistro {
 	private JTextField tFNombre;
 	private JTextField tFApellido;
 	MetodosGUI mGUI = new MetodosGUI();
-
 	/**
 	 * Launch the application.
 	 */
@@ -51,14 +50,14 @@ public class VentanaRegistro {
 	/**
 	 * Create the application.
 	 */
-	public VentanaRegistro() {
-		initialize();
+	public VentanaRegistro(Idioma idioma) {
+		initialize(idioma);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Idioma idioma) {
 	
 		
 		frame = new JFrame();
@@ -69,32 +68,32 @@ public class VentanaRegistro {
 		frame.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
 		panelPrincipal.setLayout(null);
 		
-		JLabel lblUsTit = new JLabel("Usuario:");
+		JLabel lblUsTit = new JLabel(idioma.getProperty("Usuario") + ":");
 		lblUsTit.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblUsTit.setBounds(79, 161, 78, 22);
 		panelPrincipal.add(lblUsTit);
 		
-		JLabel lblEmail = new JLabel("Email:");
+		JLabel lblEmail = new JLabel(idioma.getProperty("Email") + ":");
 		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblEmail.setBounds(79, 300, 78, 22);
 		panelPrincipal.add(lblEmail);
 		
-		JLabel lblContr = new JLabel("Contraseña:");
+		JLabel lblContr = new JLabel(idioma.getProperty("Contrasenya") + ":");
 		lblContr.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblContr.setBounds(79, 346, 78, 22);
 		panelPrincipal.add(lblContr);
 		
-		JLabel lblConfContr = new JLabel("Confirmar Contraseña:");
+		JLabel lblConfContr = new JLabel(idioma.getProperty("ConfirmarContrasenya") + ":");
 		lblConfContr.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblConfContr.setBounds(79, 390, 146, 22);
 		panelPrincipal.add(lblConfContr);
 		
-		JButton btnAtras = new JButton("Atrás");
+		JButton btnAtras = new JButton(idioma.getProperty("Atras"));
 		btnAtras.setFocusPainted(false);
 		btnAtras.setBounds(79, 453, 89, 23);
 		panelPrincipal.add(btnAtras);
 		
-		JButton btnRegistrar = new JButton("Registrarse");
+		JButton btnRegistrar = new JButton(idioma.getProperty("Registrarse"));
 		btnRegistrar.setFocusPainted(false);
 		btnRegistrar.setBounds(301, 453, 108, 23);
 		panelPrincipal.add(btnRegistrar);
@@ -125,7 +124,7 @@ public class VentanaRegistro {
 		tFPass2.setBounds(246, 392, 133, 20);
 		panelPrincipal.add(tFPass2);
 		
-		JLabel lblNombre = new JLabel("Nombre:");
+		JLabel lblNombre = new JLabel(idioma.getProperty("Nombre") + ":");
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblNombre.setBounds(79, 210, 78, 22);
 		panelPrincipal.add(lblNombre);
@@ -135,7 +134,7 @@ public class VentanaRegistro {
 		tFNombre.setBounds(246, 212, 133, 20);
 		panelPrincipal.add(tFNombre);
 		
-		JLabel lblApellido = new JLabel("Apellido:");
+		JLabel lblApellido = new JLabel(idioma.getProperty("Apellido") + ":");
 		lblApellido.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblApellido.setBounds(79, 253, 78, 22);
 		panelPrincipal.add(lblApellido);
@@ -149,7 +148,8 @@ public class VentanaRegistro {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new VentanaLogin();
+				frame.dispose();
+				new VentanaLogin(idioma);
 				
 			}
 		});
@@ -181,7 +181,7 @@ public class VentanaRegistro {
 				        if (response.getStatus() == Status.OK.getStatusCode()) {
 				        	
 				            JOptionPane.showMessageDialog(null, "Usuario creado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-				            new VentanaLogin();
+				            new VentanaLogin(idioma);
 				            frame.dispose();
 				            
 				        } else {
