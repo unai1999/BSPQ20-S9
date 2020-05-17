@@ -86,7 +86,6 @@ public class ControllerTest {
     @Test
     public void publicarPostTest(){
 
-        logger.debug("test");
         
     
         Response response = controller.publicarPost("titulo", "autor", "contenido");

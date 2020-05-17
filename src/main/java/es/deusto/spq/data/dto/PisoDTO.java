@@ -2,7 +2,6 @@ package es.deusto.spq.data.dto;
 
 import java.io.Serializable;
 
-import es.deusto.spq.data.Piso;
 
 public class PisoDTO implements Serializable {
 	

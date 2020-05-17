@@ -244,11 +244,14 @@ public class VentanaInformacion {
 		tFComent = new JTextField();
 		
 		List<ComentarioPiso> comentarios = DAOFactory.getInstance().createComentarioPisoDAO().getComentarios(piso);
-		for(ComentarioPiso s : comentarios) {
-			tAComent.append(s.getTexto() + LINEA_NUEVA); 
-			tFComent.selectAll();
-			tAComent.setCaretPosition(tAComent.getDocument().getLength());
+		if(comentarios != null){
+			for(ComentarioPiso s : comentarios) {
+				tAComent.append(s.getTexto() + LINEA_NUEVA); 
+				tFComent.selectAll();
+				tAComent.setCaretPosition(tAComent.getDocument().getLength());
+			}
 		}
+		
 		
 		panelEsc.add(tFComent);
 		tFComent.setColumns(10);

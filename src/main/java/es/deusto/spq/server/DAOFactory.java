@@ -1,9 +1,14 @@
 package es.deusto.spq.server;
 
-
-
-
-public class DAOFactory{
+/**
+ * Clase que gestiona la instanciación de clases que interactúan con la base de
+ * datos Clase Singleton, se accede a su instancia de forma estática para hacer
+ * uso de sus métodos
+ *
+ * @author Kike
+ * 
+ */
+public class DAOFactory {
 
     private static DAOFactory instance;
 
@@ -14,91 +19,96 @@ public class DAOFactory{
     private PostDAO postDAO;
     private ComentarioPisoDAO comentarioPisoDAO;
     private ComentarioPostDAO comentarioPostDAO;
-     
-    public DAOFactory(){
-        
+
+
+    public DAOFactory() {
 
     }
 
-    public static DAOFactory getInstance(){
-        if(instance == null){
-            instance = new DAOFactory(); 
+    public static DAOFactory getInstance() {
+        if (instance == null) {
+            instance = new DAOFactory();
         }
-        return instance;      
+        return instance;
     }
-// Revisar este metodo crear instancia
-//cambiar nombres
-    public PisoDAO createPisoDAO(){
 
-        if (pisoDAO == null){
+    // Revisar este metodo crear instancia
+    // cambiar nombres
+    public PisoDAO createPisoDAO() {
+
+        if (pisoDAO == null) {
             pisoDAO = new PisoDAO();
         }
         return pisoDAO;
     }
 
-    
-    public UsuarioDAO createUsuarioDAO(){
+    public UsuarioDAO createUsuarioDAO() {
 
-        if (usuarioDAO == null){
+        if (usuarioDAO == null) {
             usuarioDAO = new UsuarioDAO();
         }
         return usuarioDAO;
     }
 
-    public PostDAO createPostDAO(){
+    public PostDAO createPostDAO() {
 
-        if (postDAO == null){
+        if (postDAO == null) {
             postDAO = new PostDAO();
         }
         return postDAO;
     }
 
-    public MensajeDAO createMensajeDAO(){
+    public MensajeDAO createMensajeDAO() {
 
-        if (mensajeDAO == null){
+        if (mensajeDAO == null) {
             mensajeDAO = new MensajeDAO();
         }
         return mensajeDAO;
     }
 
-    public ForoDAO createForoDAO(){
+    public ForoDAO createForoDAO() {
 
-        if (foroDAO == null){
+        if (foroDAO == null) {
             foroDAO = new ForoDAO();
         }
         return foroDAO;
     }
 
-    
-
-	public void setUsuarioDAO(UsuarioDAO usuarioDAO) {
-		this.usuarioDAO = usuarioDAO;
-	}
-	
-	public void setForoDAO(ForoDAO foroDAO) {
-		this.foroDAO = foroDAO;
-	}
-	
-	public void setPisoDAO(PisoDAO pisoDAO) {
-		this.pisoDAO = pisoDAO;
-	}
-	
-	public void setMensajeDAO(MensajeDAO mensajeDAO) {
-		this.mensajeDAO = mensajeDAO;
-	}
-	
-	public void setPostDAO(PostDAO postDAO) {
-		this.postDAO = postDAO;
-	}
-
-    
     public ComentarioPisoDAO createComentarioPisoDAO() {
-    	
-    	return comentarioPisoDAO;
+
+        if(comentarioPisoDAO == null){
+            comentarioPisoDAO = new ComentarioPisoDAO();
+        }
+        return comentarioPisoDAO;
     }
-    
+
     public ComentarioPostDAO createComentarioPostDAO() {
-    	
-    	return comentarioPostDAO;
+
+        if(comentarioPostDAO == null){
+            comentarioPostDAO = new ComentarioPostDAO();
+        }
+        return comentarioPostDAO;
     }
+
+    public void setUsuarioDAO(UsuarioDAO usuarioDAO) {
+        this.usuarioDAO = usuarioDAO;
+    }
+
+    public void setForoDAO(ForoDAO foroDAO) {
+        this.foroDAO = foroDAO;
+    }
+
+    public void setPisoDAO(PisoDAO pisoDAO) {
+        this.pisoDAO = pisoDAO;
+    }
+
+    public void setMensajeDAO(MensajeDAO mensajeDAO) {
+        this.mensajeDAO = mensajeDAO;
+    }
+
+    public void setPostDAO(PostDAO postDAO) {
+        this.postDAO = postDAO;
+    }
+
+    
 }

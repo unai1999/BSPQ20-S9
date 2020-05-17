@@ -65,7 +65,7 @@ public class VentanaFormularioPisos {
 		
 		frame = new JFrame("Nuevo piso");
 		frame.setBounds(100, 100, 500, 650);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel globalPanel = new JPanel();
 		frame.getContentPane().add(globalPanel, BorderLayout.CENTER);

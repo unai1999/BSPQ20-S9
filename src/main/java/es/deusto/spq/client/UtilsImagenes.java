@@ -2,8 +2,6 @@ package es.deusto.spq.client;
 
 import javax.imageio.ImageIO;
 import java.awt.BorderLayout;
-import java.awt.Image;
-import java.awt.LayoutManager;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;

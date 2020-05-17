@@ -165,8 +165,11 @@ public class VentanaLogin {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
+				
 				if(mgui.validarEmail(tFCorreo.getText())){
-					String generatedCode = SendEmail.enviarMail(tFCorreo.getText());
+					SendEmail se = new SendEmail();
+					String generatedCode = se.enviarMail(tFCorreo.getText());
 					String inputCode = JOptionPane.showInputDialog(frame, "Introduce el código recibido: ");
 
 					if(generatedCode.equals(inputCode)){

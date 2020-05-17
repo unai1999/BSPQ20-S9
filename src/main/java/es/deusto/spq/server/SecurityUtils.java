@@ -5,9 +5,19 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.io.*;
 
+/**
+* Clase con métodos útiles para la gestión de seguridad de datos
+* @author Kike00
+* @see <a href = "https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/">Almacenar contraseñas de forma segura en Java</a>
+* 
+*/
 public class SecurityUtils {
 
-    // Add salt
+     /**
+     * Método que genera un array de bytes que forman el 'Salt' 
+     * 'Salt' comprende bits aleatorios que se usan como una de las entradas en una función derivadora de claves
+     * @return array de bytes que forman el 'Salt'
+     */
     public static byte[] getSalt() throws NoSuchAlgorithmException {
         SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
         byte[] salt = new byte[16];
@@ -31,6 +41,14 @@ public class SecurityUtils {
 
     }
 
+     /**
+     * Método que genera un hash tipo SHA 256 del string deseado
+     * @param passwordToHash contraseña que se desea hashear
+     * @param salt 'salt' usada para la generación del hash
+     * 
+     * @return hash de la contraseña indicada
+     *
+     */
     public static String get_SHA_256_SecurePassword(String passwordToHash, byte[] salt) {
         String generatedPassword = null;
         try {
@@ -48,6 +66,15 @@ public class SecurityUtils {
         return generatedPassword;
     }
 
+     /**
+     * Método que genera un hash tipo SHA 256 del string deseado
+     * @param p1 contraseña 1 que se desea validar
+     * @param p2 contraseña 2 que se desea validar 
+     * @param salt 'salt' usada para la generación del hash
+     * 
+     * @return true si las contraseñas coinciden, false si no.
+     *
+     */
     public static boolean validatePassword(String p1, String p2, byte[] salt) throws NoSuchAlgorithmException {
 
         String securePassword = get_SHA_256_SecurePassword(p1, salt);
@@ -58,6 +85,12 @@ public class SecurityUtils {
             return false;
     }
 
+     /**
+     * Método que devuelve el 'salt' que peretenece al usuario
+     * 
+     * @return array de bytes que contiene el 'salt' guardado
+     *
+     */
     public static byte[] getStoredSalt() throws IOException {
     
       InputStream is = null;
@@ -98,6 +131,10 @@ public class SecurityUtils {
       return buffer;
     }
 
+     /**
+     * Método que guarda un 'salt' aleatorio personal del usuario
+     * Escribe los datos en el fichero salt.txt situado en la raiz del proyecto
+     */
     public static void writeSalt() throws IOException, NoSuchAlgorithmException {
 
         try (FileOutputStream fos = new FileOutputStream("salt.txt")) {

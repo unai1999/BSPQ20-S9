@@ -14,11 +14,30 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+/**
+* SendEmail gestiona el envio de correos vía gmail
+*Requiere un archivo gmail.properties localizado en src/main/resources/ en el que se indiquen la dirección y la contraseña
+*de la cuenta de la que se desea que se envien los correos.
+* 
+* @author Kike00
+* 
+*/
 public class SendEmail {
 
+    /**
+    * dirección de la dirección de origen
+    */
     static String address;
+    /**
+    * contraseña de lal dirección de origen
+    */
     static String password;
 
+    /**
+     * Constructor de la clase SendEmail
+     * asigna las variables del correo de origen dependiendo de la información del archivo gmail.properties 
+     *
+     */
     public SendEmail(){
         try (InputStream input = new FileInputStream("src/main/resources/gmail.properties")) {
 
@@ -37,7 +56,13 @@ public class SendEmail {
         }
     }
 
-    public static String enviarMail(String destination){
+     /**
+     * Metodo encargado de enviar el correo
+     * @param destination dirección de correo destino
+     * @return código de recuperación enviado el destino
+
+     */
+    public String enviarMail(String destination){
  
         
         String code = generateString();
@@ -101,6 +126,10 @@ public class SendEmail {
  
     }
 
+        /**
+     * Método de generación de código alfanumérico aleatorio
+     * @return código alfanumérico de 10 caracteres aleatorio
+     */
     public static String generateString(){
 
         int leftLimit = 48; // numeral '0'
@@ -120,7 +149,7 @@ public class SendEmail {
     public static void main(String[] args) {
 
         SendEmail e = new SendEmail();
-        String destino = "enekocuencafernandez@gmail.com";
-        SendEmail.enviarMail(destino);
+        String destino = "kikelc8@gmail.com";
+        e.enviarMail(destino);
     }
 }

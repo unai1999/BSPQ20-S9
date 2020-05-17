@@ -260,6 +260,16 @@
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>3.11.0</version>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.17</version>
+				<configuration>
+				  <excludes>
+					<exclude>**/ControllerTestPerf.java</exclude>
+				  </excludes>
+				</configuration>
+			  </plugin>
 		</plugins>
 	</reporting>
 
@@ -311,7 +321,7 @@
 						<artifactId>exec-maven-plugin</artifactId>
 						<version>1.2.1</version>
 						<configuration>
-							<mainClass>es.deusto.spq.data.Main</mainClass>
+							<mainClass>es.deusto.spq.server.MeterDatosBaseDeDatos</mainClass>
 						</configuration>
 					</plugin>
 				</plugins>

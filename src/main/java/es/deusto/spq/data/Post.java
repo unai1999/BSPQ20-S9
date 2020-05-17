@@ -12,21 +12,36 @@ import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 
-
+/**
+* La clase contiene información de cada Post creado
+* 
+* @author Kike00
+* 
+*/
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Post {
 
+    /** identificador único del post
+    */
     @Persistent(valueStrategy=IdGeneratorStrategy.INCREMENT, primaryKey="true")
     private long id;
     
     private String titulo;
-    private String autor; //Usuario?
+    private String autor;
     private String contenido;
     private int likes;
+    /** Fecha y hora decreación del post
+    */
     private String fecha;
    // private List<Comentario> comentarios;
 
+
+   /**	Constructor de la clase Post
+	 * @param titulo título del post	
+	 * @param autor autor del post
+     * @param contenido contenido del texto del post
+	 */
     public Post(String titulo, String autor, String contenido) {
        
     

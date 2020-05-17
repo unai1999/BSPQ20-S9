@@ -29,6 +29,7 @@ public class ControllerTestPerf {
     @Required(max = 120, average = 30)
     public void getPisosTestPerf() {
 
+        
         List<Piso> pisos = new ArrayList<Piso>();
         pisos = Controller.getInstance().getPisos();
 
