@@ -23,12 +23,10 @@ public class PostTest {
         @Before
 	    public void setUp() {
             post = new Post("Titulo", "Autor", "Contenido");
-            c = new Comentario(1, "Autor", "Contenido");
             post.setAutor("Eneko");
             post.setContenido("aaa");
             post.setLikes(3);
             post.setTitulo("bbbb");
-            c.setContenido("aaaa");
     	}
         
         @Test

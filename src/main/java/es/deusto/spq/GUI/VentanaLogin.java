@@ -11,6 +11,9 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -19,6 +22,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import es.deusto.spq.client.Controller;
+import es.deusto.spq.data.Idioma;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 import es.deusto.spq.server.DAOFactory;
@@ -30,7 +34,6 @@ public class VentanaLogin {
 	private JTextField tFLogin;
 	private JPasswordField tFCont;
 	private JTextField tFCorreo;
-	
 
 	MetodosGUI mGUI = new MetodosGUI();
 
@@ -43,7 +46,7 @@ public class VentanaLogin {
 				try {
 					//System.out.println("Puerto: " + port);
 					//System.out.println("Hostname: "+ hostname);
-					VentanaLogin window = new VentanaLogin();
+					VentanaLogin window = new VentanaLogin(new Idioma("Español"));
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,28 +58,58 @@ public class VentanaLogin {
 	/**
 	 * Create the application.
 	 */
-	public VentanaLogin() {
-		initialize();
+	public VentanaLogin(Idioma idioma) {
+		initialize(idioma);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Idioma idioma) {
 		
 		//DAOFactory.getInstance().createPisoDAO().crearAlgunosDatos();
         //DAOFactory.getInstance().createPostDAO().crearPosts();
-       
-        
+		
 		frame = new JFrame();
-		frame.setBounds(100, 100, 637, 456);
+		frame.setBounds(100, 100, 637, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panelPrincipal = new JPanel();
 		frame.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
 		panelPrincipal.setLayout(null);
+	
 		
-		JLabel lblLoginTit = new JLabel("Usuario:");
+		JMenuBar mb = new JMenuBar();       
+        JMenu m1 = new JMenu(idioma.getProperty("Idioma"));       
+        mb.add(m1);       
+        JMenuItem m11 = new JMenuItem(idioma.getProperty("Español"));       
+        JMenuItem m22 = new JMenuItem(idioma.getProperty("Ingles"));       
+        m1.add(m11);       
+        m1.add(m22);        
+		
+        frame.getContentPane().add(mb, BorderLayout.NORTH);
+        
+        m11.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				new VentanaLogin(new Idioma("Español"));
+				
+			}
+		});
+        
+        m22.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				new VentanaLogin(new Idioma("Ingles"));
+			}
+		});
+        
+        
+		JLabel lblLoginTit = new JLabel(idioma.getProperty("Usuario") + ":");
 		lblLoginTit.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblLoginTit.setBounds(124, 136, 90, 30);
 		panelPrincipal.add(lblLoginTit);
@@ -86,7 +119,7 @@ public class VentanaLogin {
 		panelPrincipal.add(tFLogin);
 		tFLogin.setColumns(10);
 		
-		JLabel lblContrasenya = new JLabel("Contraseña:");
+		JLabel lblContrasenya = new JLabel(idioma.getProperty("Contrasenya") + ":");
 		lblContrasenya.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblContrasenya.setBounds(123, 199, 90, 30);
 		panelPrincipal.add(lblContrasenya);
@@ -96,22 +129,22 @@ public class VentanaLogin {
 		tFCont.setBounds(293, 205, 140, 20);
 		panelPrincipal.add(tFCont);
 		
-		JButton btnLogin = new JButton("Login");
+		JButton btnLogin = new JButton(idioma.getProperty("Login"));
 		btnLogin.setFocusPainted(false);
 		btnLogin.setBounds(356, 262, 89, 23);
 		panelPrincipal.add(btnLogin);
 		
-		JButton btnRegistrarse = new JButton("Registrarse");
+		JButton btnRegistrarse = new JButton(idioma.getProperty("Registrarse"));
 		btnRegistrarse.setFocusPainted(false);
 		btnRegistrarse.setBounds(107, 262, 107, 23);
 		panelPrincipal.add(btnRegistrarse);
 		
-		JLabel lblRecContr = new JLabel("¿No recuerdas tu contraseña?");
+		JLabel lblRecContr = new JLabel(idioma.getProperty("NoRecuerdasTuContrasenya"));
 		lblRecContr.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblRecContr.setBounds(10, 353, 204, 20);
 		panelPrincipal.add(lblRecContr);
 		
-		JLabel lblCorreoTit = new JLabel("Introduce tu correo:");
+		JLabel lblCorreoTit = new JLabel(idioma.getProperty("Introducetucorreo"));
 		lblCorreoTit.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblCorreoTit.setBounds(10, 383, 122, 20);
 		panelPrincipal.add(lblCorreoTit);
@@ -121,7 +154,7 @@ public class VentanaLogin {
 		tFCorreo.setBounds(142, 381, 140, 20);
 		panelPrincipal.add(tFCorreo);
 		
-		JButton btnEnviar = new JButton("Enviar");
+		JButton btnEnviar = new JButton(idioma.getProperty("Enviar"));
 		btnEnviar.setFocusPainted(false);
 		btnEnviar.setBounds(309, 380, 89, 23);
 		panelPrincipal.add(btnEnviar);
@@ -155,7 +188,7 @@ public class VentanaLogin {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				new VentanaRegistro();
+				new VentanaRegistro(idioma);
 				
 			}
 		});

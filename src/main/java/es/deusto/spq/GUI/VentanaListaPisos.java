@@ -19,6 +19,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.text.BadLocationException;
 
 import es.deusto.spq.client.Controller;
+import es.deusto.spq.data.Idioma;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 import es.deusto.spq.server.DAOFactory;
@@ -206,7 +207,7 @@ public class VentanaListaPisos extends JFrame {
         botonVolverAtras.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		dispose();
-        		new VentanaLogin();
+        		new VentanaLogin(new Idioma("Español"));
         	}
         });
         btnBuscar.addActionListener(new ActionListener() {
