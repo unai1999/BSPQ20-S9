@@ -5,6 +5,10 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+/** Clase para comprobar que los comentarios se crean correctamente
+ * @author alvar
+ *
+ */
 public class ComentarioPostTest {
 
 	

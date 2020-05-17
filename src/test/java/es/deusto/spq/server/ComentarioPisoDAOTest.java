@@ -10,6 +10,10 @@ import org.junit.Test;
 import es.deusto.spq.data.ComentarioPiso;
 import es.deusto.spq.data.Piso;
 
+/** Clase para comprobar que los comentarios de la base de datos se almacenan y obtienen correctamente
+ * @author alvar
+ *
+ */
 public class ComentarioPisoDAOTest {
 	
 	
