@@ -8,6 +8,11 @@ import org.junit.Test;
 
 import es.deusto.spq.data.Pago;
 
+/**
+ * Test que comprueba el correcto guardado de un Pago
+ * @author jonuraga
+ *
+ */
 public class PagoDaoTest {
 	
 	PagoDAO pDao;
@@ -22,6 +27,9 @@ public class PagoDaoTest {
 	}
 	
 	
+	/**
+	 * Test de los métodos guardar un pago y obtener la lista de pagos a partir de un email
+	 */
 	@Test
 	public void guardarYGetPagosTest() {
 		pDao.guardarPago(pago);

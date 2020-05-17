@@ -7,6 +7,11 @@ import org.junit.Test;
 
 import es.deusto.spq.data.Usuario;
 
+/**
+ * Clase que testea el correcto guardado de un usuario en la base de datos
+ * @author jonuraga
+ *
+ */
 public class UsuarioDAOTest {
 	
 	UsuarioDAO uDAO;
@@ -22,6 +27,9 @@ public class UsuarioDAOTest {
 		
 	}
 	
+	/**
+	 * Test del método que guarda un usuario en la base de datos
+	 */
 	@Test
 	public void guardarTest() {
 		uDAO.guardar(u);

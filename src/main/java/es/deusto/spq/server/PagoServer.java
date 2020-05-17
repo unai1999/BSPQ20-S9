@@ -10,6 +10,12 @@ import javax.ws.rs.core.Response;
 import es.deusto.spq.data.Pago;
 import es.deusto.spq.data.Usuario;
 
+/**
+ * Esta clase sirve como servidor de Pago para poder realizar los pagos correspondientes a las reservas
+ * @author jonuraga
+ *
+ */
+
 @Path("/pagos")
 @Produces(MediaType.APPLICATION_JSON)
 public class PagoServer {
@@ -17,6 +23,11 @@ public class PagoServer {
 	public PagoServer() {
 	}
 	
+	/**
+	 * Método que se utiliza para realizar un pago tras recibir el path correspondiente a este método 
+	 * @param p Pago que se va a realizar
+	 * @return Devuelve la response del servidor
+	 */
 	@Path("/realizarPago")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
