@@ -86,20 +86,19 @@ public class Controller {
          
     }
 
-    public Response testMethod(String titulo, String autor, String contenido){
+    // public Response testMethod(String titulo, String autor, String contenido){
          
         
-         Post post = new Post("titulo", "autor", "contenido");
-         Entity<Post> entity = Entity.entity(post, MediaType.APPLICATION_JSON);
-         Response response = requestTarget.request().post(entity);
+    //      Post post = new Post("titulo", "autor", "contenido");
+    //      Entity<Post> entity = Entity.entity(post, MediaType.APPLICATION_JSON);
+    //      Response response = requestTarget.request().post(entity);
          
-         return response;
-    }
+    //      return response;
+    // }
 
     public Response resetPassword(String email, String newPassword){
          WebTarget resetTrget = webTarget.path("pisos/reset");
          UsuarioLogin ul = new UsuarioLogin(email, newPassword);
-         System.out.println(ul);
          Entity<UsuarioLogin> entity = Entity.entity(ul, MediaType.APPLICATION_JSON);
          Response response = resetTrget.request().post(entity);
          return response;
@@ -134,9 +133,6 @@ public class Controller {
         WebTarget pisosWebTarget = webTarget.path("pisos");
         GenericType<List<Piso>> genericType = new GenericType<List<Piso>>(){}; 
         pisos = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
-        for (Piso p : pisos){
-            System.out.println(p);
-        }
         return pisos;
     }
 	

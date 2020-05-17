@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Imagenes",
+            "request": "launch",
+            "mainClass": "es.deusto.spq.client.Imagenes",
+            "projectName": "alquiler-app"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - SecurityUtils",
             "request": "launch",
             "mainClass": "es.deusto.spq.server.SecurityUtils",

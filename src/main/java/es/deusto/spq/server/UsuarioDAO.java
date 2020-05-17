@@ -16,7 +16,11 @@ public class UsuarioDAO {
 	    protected UsuarioDAO(){
 	        pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 	        pm = pmf.getPersistenceManager();
-	    }
+		}
+		
+		public UsuarioDAO(String s){
+			
+		}
 	    
 	    public Usuario getUsuario(String nick) {
 	    	Usuario usuario = null;
@@ -81,7 +85,8 @@ public class UsuarioDAO {
 			return usuario;
 	    }
 	    
-	    public void guardar(Object o) {
+	    public boolean guardar(Object o) {
+			boolean b = true;
 	    	Transaction tx = pm.currentTransaction();
 	    	try {
 				tx.begin();
@@ -90,20 +95,23 @@ public class UsuarioDAO {
 				tx.commit();
 			} catch (Exception e) {
 				System.out.println("  $ Error guardando un objeto: " + e.getMessage());
+				b = false;
 			} finally {
 				if (tx != null && tx.isActive()) {
 					tx.rollback();
 				}
+				
 			}
+			return b;
 		}
 //		public void crearUsuario() {
 //			Usuario u1 = new Usuario("Iñi", "Iñigo", "Lopez", "lpezinigo@gmail.com", "12345678");
 //			guardar(u1);
 //		}
-		public void actualizarPassword(String email, String newPassword){
+		public boolean actualizarPassword(String email, String newPassword){
 
 			Usuario u = getUsuarioFromEmail(email);
-			
+			boolean b = true;
 			Transaction tx = pm.currentTransaction();
 	    	try {
 				tx.begin();
@@ -113,11 +121,13 @@ public class UsuarioDAO {
 				tx.commit();
 			} catch (Exception e) {
 				System.out.println("  $ Error guardando un objeto: " + e.getMessage());
+				b = false;
 			} finally {
 				if (tx != null && tx.isActive()) {
 					tx.rollback();
 				}
 			}
+			return b;
 
 		}
 		public void actaulizarDatosUsuario(String nick, String nombre, String apellidos, String email, String password) {

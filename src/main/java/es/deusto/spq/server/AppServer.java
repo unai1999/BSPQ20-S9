@@ -14,7 +14,7 @@ import es.deusto.spq.data.*;
 import es.deusto.spq.data.dto.UsuarioLogin;
 
 
-
+//cambiar URL
 @Path("/pisos")
 @Produces(MediaType.APPLICATION_JSON)
 public class AppServer {
@@ -48,7 +48,7 @@ public class AppServer {
 	@Path("/mensajes/{usuario}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<MensajePrivado> getMensajes(@PathParam("usuario") final String usuario){
+	public List<MensajePrivado> getMensajes(@PathParam("usuario")  String usuario){
 		List<MensajePrivado> mensajes = new ArrayList<MensajePrivado>();
 
 		mensajes = DAOFactory.getInstance().createMensajeDAO().getMensaje(usuario);
@@ -56,14 +56,6 @@ public class AppServer {
 		return mensajes;
 	}
 	
-	@Path("/1")
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getDonationInfo() {
-		
-		return Response.ok("respuesta servidor").build();
-	}
-
 	
 	@GET
 	@Path("/{id}")
@@ -83,8 +75,12 @@ public class AppServer {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response crearPost(final Post post){
-	 	DAOFactory.getInstance().createForoDAO().guardar(post);
-	 	return Response.status(Response.Status.OK).build();
+	 	if(DAOFactory.getInstance().createForoDAO().guardar(post)){
+			return Response.status(Response.Status.OK).build();
+		 }else{
+			return Response.status(Response.Status.CONFLICT).build();
+		 }
+	 	
 
 	}
 

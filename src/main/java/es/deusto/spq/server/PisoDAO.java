@@ -17,11 +17,20 @@ public class PisoDAO{
     private PersistenceManager pm;
     
     protected PisoDAO(){
-        pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+		        
+		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
         pm = pmf.getPersistenceManager();
-    }
+	}
+
+	public PisoDAO(String s){
+
+	}
+
+
+	
     
-    public void guardar(Object o) {
+    public boolean guardar(Object o) {
+		boolean b = true;
     	Transaction tx = pm.currentTransaction();
     	try {
 			tx.begin();
@@ -30,11 +39,13 @@ public class PisoDAO{
 			tx.commit();
 		} catch (Exception e) {
 			System.out.println("  $ Error guardando un objeto: " + e.getMessage());
+			b = false;
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
 			}
 		}
+		return b;
     }
     
     public void crearAlgunosDatos() {

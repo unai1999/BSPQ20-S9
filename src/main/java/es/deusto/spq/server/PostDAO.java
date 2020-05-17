@@ -14,12 +14,16 @@ import es.deusto.spq.data.Post;
 public class PostDAO {
 
 	 private PersistenceManagerFactory pmf;
-	    private PersistenceManager pm;
+	 private PersistenceManager pm;
 	    
 	    protected PostDAO(){
 	        pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 	        pm = pmf.getPersistenceManager();
-	    }
+		}
+		
+		public PostDAO(String s){
+			
+		}
 	    
 	    public void guardarPost(Object o) {
 	    	Transaction tx = pm.currentTransaction();
