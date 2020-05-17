@@ -9,7 +9,7 @@ before_script:
   - mysql -u root -e "GRANT ALL ON pisosDB.* TO 'spq'@'localhost';"
 
 script:
-  - jdk_switcher use oraclejdk8
+  - jdk_switcher use openjdk8
 
 
 
