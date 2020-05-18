@@ -11,7 +11,9 @@ before_script:
   - mysql -u root -e "CREATE USER 'spq'@'localhost' IDENTIFIED BY 'spq';"
   - mysql -u root -e "GRANT ALL ON pisosDB.* TO 'spq'@'localhost';"
   - jdk_switcher use $JDK
-
-script:
-  - jdk_switcher use openjdk8
 dist: trusty
+addons:
+  sonarcloud:
+    organization: "unai1999"
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=unai1999_BSPQ20-S9
