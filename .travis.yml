@@ -17,3 +17,4 @@ addons:
     organization: "unai1999"
 script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=unai1999_BSPQ20-S9
+
