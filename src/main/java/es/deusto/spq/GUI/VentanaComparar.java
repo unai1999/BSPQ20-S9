@@ -20,10 +20,8 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.border.MatteBorder;
 
-
 import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Piso;
-import es.deusto.spq.data.Usuario;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;

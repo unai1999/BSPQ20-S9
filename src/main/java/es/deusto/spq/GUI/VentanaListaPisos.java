@@ -156,7 +156,7 @@ public class VentanaListaPisos extends JFrame {
 						new VentanaInformacion(m.obtenerPiso(text, pisos), Controller.getInstance().getUsuario());
 					}
 				} catch (BadLocationException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 				}
 				

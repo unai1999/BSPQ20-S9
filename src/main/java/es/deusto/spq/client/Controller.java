@@ -20,6 +20,9 @@ import es.deusto.spq.data.Post;
 import es.deusto.spq.data.Usuario;
 import es.deusto.spq.data.dto.UsuarioLogin;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Controller es la clase que gestiona la interacción de la UI con el servidor
  * Se trata de una clase tipo Singleton, por lo que solo existe una instancia de
@@ -41,6 +44,8 @@ public class Controller {
      * Usuario que ha iniciado sesión.
      */
     Usuario usuarioActual;
+
+    Logger logger = LoggerFactory.getLogger(Controller.class);
 
     public void setUsuario(Usuario u) {
         instance.usuarioActual = u;
@@ -72,8 +77,10 @@ public class Controller {
             props.load(Controller.class.getClassLoader().getResourceAsStream("server.properties"));
             hostname = props.getProperty("server.hostname");
             port = props.getProperty("server.port");
+
+            logger.info("Servidor arrancado");
         } catch (IOException e) {
-            System.out.println("ERROR INICIANDO SERVER");
+           logger.error("ERROR INICIANDO SERVER");
             e.printStackTrace();
             hostname = props.getProperty("127.0.0.1");
             port = props.getProperty("8080");
@@ -88,6 +95,7 @@ public class Controller {
     /**
      * Método para obtener la instancia activa del controller.
      * Representa la forma de llamar a todos los métodos disponibles
+     * @return instancia del Controller actual
      */
     public static Controller getInstance() {
         if (instance == null) {
@@ -147,7 +155,7 @@ public class Controller {
     /**
      * Método encargado de registrar un nuevo piso
      * 
-     * @param usuario piso con la información necesaria para guardarlo en la base de datos
+     * @param piso piso con la información necesaria para guardarlo en la base de datos
      * @return contiene la respuesta del servidor
      */
     public Response guardarNuevoPiso(Piso piso) {

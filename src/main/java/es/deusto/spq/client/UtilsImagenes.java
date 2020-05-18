@@ -16,11 +16,11 @@ import java.io.IOException;
 
 public class UtilsImagenes {
 
-    public static void imageIoWrite(final String imagename) {
-        final BufferedImage bImage = null;
+    public static void imageIoWrite(String imagename, BufferedImage bImage) {
+        
         try {
 
-            final String path = "resources/images/" + imagename;
+            final String path = "resources/images/" + imagename +".jpg";
             // File initialImage = new File(path);
             // bImage = ImageIO.read(initialImage);
 

@@ -10,7 +10,6 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
 import es.deusto.spq.data.ComentarioPost;
-import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 
 /**	Clase para guardar los comentarios en la base de datos

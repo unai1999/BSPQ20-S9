@@ -17,7 +17,8 @@ public class SecurityUtils {
      * Método que genera un array de bytes que forman el 'Salt' 
      * 'Salt' comprende bits aleatorios que se usan como una de las entradas en una función derivadora de claves
      * @return array de bytes que forman el 'Salt'
-     */
+     * @throws NoSuchAlgorithmException excepción del algoritmo
+     *      */
     public static byte[] getSalt() throws NoSuchAlgorithmException {
         SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
         byte[] salt = new byte[16];
@@ -73,7 +74,8 @@ public class SecurityUtils {
      * @param salt 'salt' usada para la generación del hash
      * 
      * @return true si las contraseñas coinciden, false si no.
-     *
+     * @throws NoSuchAlgorithmException excepción del algoritmo
+     * 
      */
     public static boolean validatePassword(String p1, String p2, byte[] salt) throws NoSuchAlgorithmException {
 
@@ -89,6 +91,7 @@ public class SecurityUtils {
      * Método que devuelve el 'salt' que peretenece al usuario
      * 
      * @return array de bytes que contiene el 'salt' guardado
+     * @throws IOException error relacionado con la lectura de fichero
      *
      */
     public static byte[] getStoredSalt() throws IOException {
@@ -134,6 +137,8 @@ public class SecurityUtils {
      /**
      * Método que guarda un 'salt' aleatorio personal del usuario
      * Escribe los datos en el fichero salt.txt situado en la raiz del proyecto
+     * @throws NoSuchAlgorithmException excepción del algoritmo
+     * @throws IOException error en la escritura del archivo
      */
     public static void writeSalt() throws IOException, NoSuchAlgorithmException {
 

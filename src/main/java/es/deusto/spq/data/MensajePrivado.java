@@ -26,7 +26,7 @@ public class MensajePrivado {
     }
 
     public MensajePrivado() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public String getOrigen() {

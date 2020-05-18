@@ -35,7 +35,7 @@ public class Piso{
     private int vecesVisitado;
     
 	private List<Imagen> imagenes; //Array de imagenes que tendra el piso para posteriormente mostrarlas en GUI
-    
+	private List<String> imagenes2;
 	@NotPersistent
 	private List<Usuario> inquilinos; 
 	@NotPersistent
@@ -227,5 +227,15 @@ public class Piso{
 	}
 
 
+	public void setImagenes2(List<String> imagenes2){
+		this.imagenes2 = imagenes2;
+	}
 
+	public List<String> getImagenes2(){
+		return this.imagenes2;
+	}
+
+	public void addImagen2(String e){
+		imagenes2.add(e);
+	}
 }

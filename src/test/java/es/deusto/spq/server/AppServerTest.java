@@ -1,7 +1,5 @@
 package es.deusto.spq.server;
 
-import org.databene.contiperf.PerfTest;
-import org.databene.contiperf.Required;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -14,7 +12,7 @@ import es.deusto.spq.data.Usuario;
 import es.deusto.spq.data.dto.UsuarioLogin;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;

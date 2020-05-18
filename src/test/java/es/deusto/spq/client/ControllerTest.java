@@ -1,42 +1,28 @@
 package es.deusto.spq.client;
 
-
-import org.databene.contiperf.PerfTest;
-import org.databene.contiperf.Required;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import es.deusto.spq.data.MensajePrivado;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 import es.deusto.spq.data.Usuario;
-import es.deusto.spq.data.dto.UsuarioLogin;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.anyList;
 
 import junit.framework.JUnit4TestAdapter;
 
@@ -59,8 +45,7 @@ public class ControllerTest {
     //     return new JUnit4TestAdapter(ControllerTest.class);
     // }
 
-    final Logger logger = LoggerFactory.getLogger(ControllerTest.class);
-
+    
     @Before
     public void setUp(){
         

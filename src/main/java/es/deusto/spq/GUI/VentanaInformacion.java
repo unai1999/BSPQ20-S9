@@ -173,20 +173,20 @@ public class VentanaInformacion {
 		lblFoto4.setBounds(338, 0, 119, 131);
 		panelFotos.add(lblFoto4);
 		
-		if(piso.getImagenes() != null) {
-		if(piso.getImagenes().size() == 1) {
-			lblFoto1.setIcon(new ImageIcon(piso.getImagenes().get(0).getUrl()));
+		if(piso.getImagenes2() != null) {
+		if(piso.getImagenes2().size() == 1) {
+			lblFoto1.setIcon(new ImageIcon(piso.getImagenes2().get(0)));
 			lblFoto2.setText("Sin imagen");
 			lblFoto3.setText("Sin imagen");
 			lblFoto4.setText("Sin imagen");
 		}
-		else if(piso.getImagenes().size() == 2) {
+		else if(piso.getImagenes2().size() == 2) {
 			lblFoto1.setIcon(new ImageIcon(piso.getImagenes().get(0).getUrl()));
 			lblFoto2.setIcon(new ImageIcon(piso.getImagenes().get(1).getUrl()));
 			lblFoto3.setText("Sin imagen");
 			lblFoto4.setText("Sin imagen");
 			
-		}else if(piso.getImagenes().size() == 3) {
+		}else if(piso.getImagenes2().size() == 3) {
 			lblFoto2.setIcon(new ImageIcon(piso.getImagenes().get(1).getUrl()));
 			lblFoto3.setIcon(new ImageIcon(piso.getImagenes().get(2).getUrl()));
 			lblFoto4.setText("Sin imagen");
