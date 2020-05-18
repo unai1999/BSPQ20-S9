@@ -102,6 +102,7 @@ public class VentanaListaPosts extends JFrame{
 				List<Piso> pisos = new ArrayList<Piso>();
 				pisos = Controller.getInstance().getPisos();
 				new VentanaListaPisos(pisos, pisos);
+				dispose();
 				
 			}
 		});

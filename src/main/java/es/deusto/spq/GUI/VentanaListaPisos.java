@@ -75,6 +75,10 @@ public class VentanaListaPisos extends JFrame {
         botonVolverAtras.setBounds(480, 417, 120, 23);
         getContentPane().add(botonVolverAtras);
         
+        JButton btnFacturas = new JButton("Facturas");
+        btnFacturas.setBounds(480, 390, 120, 23);
+		getContentPane().add(btnFacturas);
+        
         JButton botonComparar = new JButton("Comparar Pisos");
         botonComparar.setBounds(259, 417, 140, 23);
 		getContentPane().add(botonComparar);
@@ -106,6 +110,8 @@ public class VentanaListaPisos extends JFrame {
 		getContentPane().add(btnFormulario);
 		
 		
+		
+		
         
         if(pisos2.size() > 0) {
         for(int i = 0; i < pisos2.size(); i++) {
@@ -121,7 +127,15 @@ public class VentanaListaPisos extends JFrame {
         	labelNoPisos.setBounds(200, 50, 150, 50);
         	getContentPane().add(labelNoPisos);
         }
-        
+        btnFacturas.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new VentanaFacturas(Controller.getInstance().getUsuario());
+				
+			}
+		});
         textoPisos.addMouseListener(new MouseAdapter() {
 
 			@Override

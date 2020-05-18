@@ -39,6 +39,10 @@ public class VentanaFacturas extends JFrame{
 		getContentPane().setLayout(null);
 		
 	    
+
+		
+        
+        
 		
         lista.setBounds(0,  100, 620, 353);    
        
