@@ -11,6 +11,11 @@ import javax.jdo.Transaction;
 
 import es.deusto.spq.data.Post;
 
+/**
+ * Esta clase contiene los métodos para guardar post, crear unos datos de post y obtener posts
+ * @author unai
+ *
+ */
 public class PostDAO {
 
 	 private PersistenceManagerFactory pmf;

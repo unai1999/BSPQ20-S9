@@ -34,7 +34,7 @@ public class VentanaInfoUsuario extends JFrame {
 	
 	/**
 	 * Constructor de la ventana que muestra la información de un usuario.
-	 * @param u1
+	 * @param u1 el usuario del cual se va a mostrar la informacion
 	 */
 	public VentanaInfoUsuario(Usuario u1) {
 	

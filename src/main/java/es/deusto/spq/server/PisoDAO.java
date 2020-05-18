@@ -10,7 +10,11 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
 import es.deusto.spq.data.Piso;
-
+/**
+ * Esta clase contiene los métodos para guardar pisos, crear unos datos de pisos y obtener pisos
+ * @author unai
+ *
+ */
 public class PisoDAO{
 
     private PersistenceManagerFactory pmf;

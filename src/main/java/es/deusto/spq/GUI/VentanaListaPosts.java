@@ -36,8 +36,8 @@ public class VentanaListaPosts extends JFrame{
 	
 	/**
 	 * Constructor de la ventana de la lista de pisos.
-	 * @param posts
-	 * @param posts2
+	 * @param posts lista de post
+	 * @param posts2 lista de post
 	 */
 	public VentanaListaPosts(List<Post> posts, List<Post> posts2) {
 	    

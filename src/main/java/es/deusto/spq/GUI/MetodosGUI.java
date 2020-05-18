@@ -127,8 +127,8 @@ public class MetodosGUI {
 	}
 	/**
 	 * Esta función buscará en todos los pisos aquellos que coincidan con el nombre que pasamos por parametro (texto)
-	 * @param texto 
-	 * @param posts 
+	 * @param texto localizacion del piso
+	 * @param pisos la lista de pisos 
 	 * @return la lista de pisos que tengan el como nombre el parametro texto
 	 */
 	public List<Piso> buscarPisos(String texto, List<Piso> pisos) {
@@ -143,8 +143,8 @@ public class MetodosGUI {
 	}
 	/**
 	 * Esta función obtendrá el piso que coindida con el nombre que se sacará del parametro text
-	 * @param texto 
-	 * @param posts 
+	 * @param texto nombre del piso
+	 * @param pisos la lista de pisos
 	 * @return el piso con todos sus datos.
 	 */
 	public Piso obtenerPiso(String text, List<Piso> pisos) {
@@ -163,8 +163,8 @@ public class MetodosGUI {
 	
 	/**
 	 * Esta función buscará en todos los posts aquellos que coincidan con el nombre del autor que pasamos por parametro (texto)
-	 * @param texto 
-	 * @param posts 
+	 * @param texto el nombre del autor 
+	 * @param posts la lista de posts
 	 * @return la lista de post que tengan el usuario que hemos pasado como parametro texto
 	 */
 	public List<Post> buscarPosts(String texto, List<Post> posts) {
@@ -180,8 +180,8 @@ public class MetodosGUI {
 	
 	/**
 	 * Esta función obtendrá el post que coindida con el titulo que se sacará del parametro text
-	 * @param texto 
-	 * @param posts 
+	 * @param texto el titulo del post
+	 * @param posts la lista de posts 
 	 * @return el post con todos sus datos.
 	 */
 	public Post obtenerPost(String text, List<Post> posts) {

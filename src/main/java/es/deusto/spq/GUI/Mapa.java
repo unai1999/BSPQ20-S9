@@ -39,7 +39,7 @@ public class Mapa {
 	
 	/**
 	 * Constructor de la ventana del mapa de un piso.
-	 * @param piso
+	 * @param piso el piso que se va a mostrar en el mapa
 	 */
 	public Mapa(Piso p) {
 		

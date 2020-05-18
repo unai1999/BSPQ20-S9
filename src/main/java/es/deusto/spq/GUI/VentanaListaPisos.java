@@ -41,8 +41,8 @@ public class VentanaListaPisos extends JFrame {
 
 	/**
 	 * Constructor de la ventana de la lista de pisos.
-	 * @param pisos
-	 * @param pisos2
+	 * @param pisos array de pisos
+	 * @param pisos2 array de pisos
 	 */
 	public VentanaListaPisos(List<Piso> pisos, List<Piso> pisos2) {
     	
