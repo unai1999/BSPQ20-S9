@@ -64,7 +64,7 @@ public class VentanaDatosFactura {
 
 	/**
 	 * Constructor de la ventana de la factura.
-	 * @param factura
+	 * @param factura Objeto factura que se pasa a la ventana cuando se conecta.
 	 */
 	private void initialize(Factura factura) {
 		this.factura = factura;
