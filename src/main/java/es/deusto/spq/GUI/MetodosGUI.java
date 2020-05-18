@@ -23,7 +23,7 @@ public class MetodosGUI {
 
 	/**
 	 * Función que valida el nombre del usuario si no está vacio
-	 * @param nombre
+	 * @param nombre String en forma de nombre para validarlo.
 	 * @return true si el nombre no está vacio.
 	 */
 	public boolean validarNombre(String nombre) {
@@ -36,7 +36,7 @@ public class MetodosGUI {
 	
 	/**
 	 * Función que valida el nickname del usuario
-	 * @param usuario
+	 * @param usuario String en forma de usuario para validarlo.
 	 * @return true si el nickname no está vacio o tiene 5 letras o menos.
 	 */
 	public boolean validarUsuario(String usuario){
@@ -50,7 +50,7 @@ public class MetodosGUI {
 	
 	/**
 	 * Función que valida la contraseña de la usuario
-	 * @param pass1
+	 * @param pass1 Contraseña que se pasa como parametro para validarla.
 	 * @return true si la contraseña no está vacia o tiene al menos 8 letras.
 	 */
 	public boolean validarContrasenya(String pass1){
@@ -63,8 +63,8 @@ public class MetodosGUI {
 	
 	/**
 	 * Función que valida la confirmación de la contraseña.
-	 * @param pass1
-	 * @param pass2
+	 * @param pass1 Contraseña 
+	 * @param pass2 Confirmación de contraseña, se comprueban y se validan las dos.
 	 * @return true si la contraseña es igual a la confirmación de contraseña.
 	 */
 	public boolean validarConfContrasenya(String pass1, String pass2) {
@@ -78,7 +78,7 @@ public class MetodosGUI {
 
 	/**
 	 * Función que valida el email del usuario.
-	 * @param email
+	 * @param email String como Email que se valida.
 	 * @return true si el email concuerda con el patrón.
 	 */
 	public boolean validarEmail(String email) {
@@ -92,8 +92,8 @@ public class MetodosGUI {
 
 	/**
 	 * Función que muestra un Popup al usuario si hay algún error.
-	 * @param tF
-	 * @param mensaje
+	 * @param tF TextField del error. 
+	 * @param mensaje String como mensaje que sale en el Popup.
 	 * @return un Popup al usuario si hay algún error.
 	 */
 	public boolean mensajeError(JTextField tF, String mensaje) {

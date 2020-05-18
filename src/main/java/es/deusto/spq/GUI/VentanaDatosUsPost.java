@@ -54,7 +54,7 @@ public class VentanaDatosUsPost {
 
 	/**
 	 * Contructor de la ventana que recibe un usuario
-	 * @param usuario
+	 * @param usuario Objeto usuario que se pasa cuando se conecta la ventana.
 	 */
 	private void initialize(Usuario usuario) {
 		frmDatos = new JFrame();
