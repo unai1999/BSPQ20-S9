@@ -12,19 +12,15 @@ import java.awt.event.ActionListener;
 
 import javax.swing.SwingConstants;
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
-import javax.swing.border.SoftBevelBorder;
+
 
 import es.deusto.spq.data.Factura;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
-
-import javax.swing.border.BevelBorder;
-import javax.swing.JTabbedPane;
 
 /**
  * Clase de la interfaz de los datos de la factura.

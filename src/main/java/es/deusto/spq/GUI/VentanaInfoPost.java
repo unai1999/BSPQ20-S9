@@ -19,7 +19,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import es.deusto.spq.client.Controller;
-import es.deusto.spq.data.ComentarioPiso;
 import es.deusto.spq.data.ComentarioPost;
 import es.deusto.spq.data.Post;
 import es.deusto.spq.server.DAOFactory;

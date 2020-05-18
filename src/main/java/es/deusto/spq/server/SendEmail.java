@@ -14,6 +14,9 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
 * SendEmail gestiona el envio de correos vía gmail
 *Requiere un archivo gmail.properties localizado en src/main/resources/ en el que se indiquen la dirección y la contraseña
@@ -32,6 +35,9 @@ public class SendEmail {
     * contraseña de lal dirección de origen
     */
     static String password;
+
+    Logger logger = LoggerFactory.getLogger(AppServer.class);
+    
 
     /**
      * Constructor de la clase SendEmail
@@ -114,10 +120,10 @@ public class SendEmail {
              // Now set the actual message
              message.setText("Código de recuperación de contraseña: "+ code);
  
-             System.out.println("sending...");
+             logger.info("sending...");
              // Send message
              Transport.send(message);
-             System.out.println("Sent message successfully....");
+             logger.info("Sent message successfully....");
          } catch (MessagingException mex) {
              mex.printStackTrace();
          }
@@ -149,7 +155,7 @@ public class SendEmail {
     public static void main(String[] args) {
 
         SendEmail e = new SendEmail();
-        String destino = "kikelc8@gmail.com";
+        String destino = "test";
         e.enviarMail(destino);
     }
 }

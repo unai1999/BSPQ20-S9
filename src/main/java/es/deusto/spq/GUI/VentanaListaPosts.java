@@ -162,7 +162,7 @@ public class VentanaListaPosts extends JFrame{
 							
 						}
 					} catch (BadLocationException e1) {
-						// TODO Auto-generated catch block
+						
 						e1.printStackTrace();
 					}
 					

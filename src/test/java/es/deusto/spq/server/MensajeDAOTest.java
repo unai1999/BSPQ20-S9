@@ -7,10 +7,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.deusto.spq.data.Piso;
-import es.deusto.spq.data.ComentarioPost;
 import es.deusto.spq.data.MensajePrivado;
-import es.deusto.spq.data.Usuario;
+
 
 public class MensajeDAOTest {
 
