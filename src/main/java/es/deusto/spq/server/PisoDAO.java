@@ -9,7 +9,9 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
+import es.deusto.spq.data.Factura;
 import es.deusto.spq.data.Piso;
+import es.deusto.spq.data.Usuario;
 /**
  * Esta clase contiene los métodos para guardar pisos, crear unos datos de pisos y obtener pisos
  * @author unai
@@ -238,4 +240,28 @@ public class PisoDAO{
 			}
 		 
 	 }
+
+
+	 public List<Factura> getFacturas(String u) {
+    	List<Factura> fs = new ArrayList<Factura>();
+    	Transaction tx = pm.currentTransaction();
+    	try {
+			System.out.println(" * Retrieving an extent for Factura.");
+			tx.begin();
+			Extent<Factura> extent = pm.getExtent(Factura.class, true);
+			for (Factura f : extent) {
+				if(f.getCliente().getNickname().equals(u)){
+					fs.add(f);
+				}
+			}
+			tx.commit();
+		} catch (Exception e) {
+			System.out.println(" $ Error retrieving Factura: " + e.getMessage());
+		} finally {
+			if(tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+		}
+    	return fs;
+    }
 }

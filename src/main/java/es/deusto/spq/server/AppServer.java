@@ -204,7 +204,18 @@ public class AppServer {
 
 	}
 
+	
 
+	@Path("/facturas/{usuario}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Factura> getFacturas(@PathParam("usuario")  String usuario){
+
+		logger.info("Obteniendo lista de posts...");
+		List<Factura> fs = DAOFactory.getInstance().createPisoDAO().getFacturas(usuario);
+		
+		return fs;
+	}
 	
 
 }

@@ -41,7 +41,7 @@ public class VentanaDatosFactura {
 				try {
 					Usuario us = new Usuario("");
 					Piso p = new Piso();
-					Factura f = new Factura(new Long(100), "", p, us, us);
+					Factura f = new Factura("", p, us, us);
 					VentanaDatosFactura window = new VentanaDatosFactura(f);
 					window.frmDatos.setVisible(true);
 				} catch (Exception e) {

@@ -17,9 +17,11 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import es.deusto.spq.client.Controller;
+import es.deusto.spq.data.Factura;
 import es.deusto.spq.data.Pago;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
+import es.deusto.spq.server.DAOFactory;
 
 
 /**
@@ -129,6 +131,8 @@ public class VentanaPago {
 					System.out.println(r);
 					if (r.getStatus() == Status.OK.getStatusCode()) {
 						JOptionPane.showMessageDialog(null, "Pago", "Exitoso", JOptionPane.INFORMATION_MESSAGE);
+						Factura f = new Factura("fecha", piso, Controller.getInstance().getUsuario(), new Usuario());
+						DAOFactory.getInstance().createPisoDAO().guardar(f);
 						List<Piso> pisos = new ArrayList<Piso>();
 						pisos = Controller.getInstance().getPisos();
 						

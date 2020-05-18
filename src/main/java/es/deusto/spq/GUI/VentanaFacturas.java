@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 
+import es.deusto.spq.client.Controller;
 import es.deusto.spq.data.Factura;
 
 import es.deusto.spq.data.Usuario;
@@ -29,20 +30,15 @@ public class VentanaFacturas extends JFrame{
 	
 	public VentanaFacturas(Usuario user) {
 		setLocationRelativeTo(null);
-	    //facturas = (ArrayList<MensajePrivado>) Controller.getInstance().getFacturas());
+	    facturas = (ArrayList<Factura>) Controller.getInstance().getFacturas(user.getNickname());
 		setSize(ancho, alto);
-		setTitle("Lista de mensajes");
+		setTitle("Lista de facturas");
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		getContentPane().setLayout(null);
 		
-		JButton btnNuevoMensaje = new JButton("Nuevo Mensaje");
-        btnNuevoMensaje.setBounds(23, 11, 200, 20);
-        getContentPane().add(btnNuevoMensaje);
-		
-        
-        
+	    
 		
         lista.setBounds(0,  100, 620, 353);    
        
@@ -82,14 +78,6 @@ public class VentanaFacturas extends JFrame{
 		});
 		
 		
-		btnNuevoMensaje.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				new VentanaNuevoMensaje();
-				
-			}
-        });
+		
     }
 }

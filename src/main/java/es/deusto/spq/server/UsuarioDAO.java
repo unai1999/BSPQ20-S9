@@ -6,6 +6,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
+import es.deusto.spq.data.Factura;
 import es.deusto.spq.data.Pago;
 import es.deusto.spq.data.Usuario;
 
@@ -169,6 +170,8 @@ public class UsuarioDAO {
 				System.out.println(" * Comprobando monedero...");
 				if (u.pagar(p.getPrecio()) == true) {
 					System.out.println(" * Realizando pago...");
+
+					
 					pm.makePersistent(u);
 					tx.commit();
 				}

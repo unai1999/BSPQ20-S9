@@ -72,7 +72,9 @@ public class PagoDAO {
 			}
 		}
     	return pagos;
-    }
+	}
+	
+	
 
     
     

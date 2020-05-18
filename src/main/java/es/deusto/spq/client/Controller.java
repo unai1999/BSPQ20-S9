@@ -13,6 +13,7 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import es.deusto.spq.data.Factura;
 import es.deusto.spq.data.MensajePrivado;
 import es.deusto.spq.data.Pago;
 import es.deusto.spq.data.Piso;
@@ -193,6 +194,16 @@ public class Controller {
         };
         pisos = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
         return pisos;
+    }
+
+    public List<Factura> getFacturas(String n) {
+        List<Factura> f = new ArrayList<Factura>();
+        String path = "pisos/facturas/" + n;
+        WebTarget pisosWebTarget = webTarget.path(path);
+        GenericType<List<Factura>> genericType = new GenericType<List<Factura>>() {
+        };
+        f = pisosWebTarget.request(MediaType.APPLICATION_JSON).get(genericType);
+        return f;
     }
 
     /**

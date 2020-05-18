@@ -26,14 +26,13 @@ public class Factura {
 
     /**
      * Constructor basico de la clase Factura. 
-     * @param id ID de la factura
      * @param fecha Fecha de la factura
      * @param piso Piso de la factura
      * @param cliente Cliente de la factura
      * @param arrendador Arrendador de la factura
      */
-    public Factura(long id, String fecha, Piso piso, Usuario cliente, Usuario arrendador) {
-        this.id = id;
+    public Factura(String fecha, Piso piso, Usuario cliente, Usuario arrendador) {
+        
         this.fecha = fecha;
         this.piso = piso;
         this.cliente = cliente;
