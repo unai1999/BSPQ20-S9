@@ -73,7 +73,7 @@ public class VentanaDatosFactura {
 		frmDatos.setResizable(false);
 		frmDatos.setBounds(100, 100, 525, 311);
 		frmDatos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
+		frmDatos.setLocationRelativeTo(null);
 		JPanel panel = new JPanel();
 		frmDatos.getContentPane().add(panel, BorderLayout.NORTH);
 		

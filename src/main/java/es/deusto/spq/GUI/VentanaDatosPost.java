@@ -74,7 +74,7 @@ public class VentanaDatosPost {
 		frmDatos.setTitle("Datos");
 		frmDatos.setBounds(100, 100, 566, 594);
 		frmDatos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		frmDatos.setLocationRelativeTo(null);
 		JLabel lblTitDatos = new JLabel("Datos del Post");
 		lblTitDatos.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitDatos.setFont(new Font("Tahoma", Font.PLAIN, 16));

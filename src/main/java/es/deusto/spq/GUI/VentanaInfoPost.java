@@ -60,7 +60,7 @@ public class VentanaInfoPost {
 		jFPost.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jFPost.setResizable(true);
 		jFPost.getContentPane().setLayout(new BorderLayout(0, 0));
-		
+		jFPost.setLocationRelativeTo(null);
 		JPanel globalPanel = new JPanel();
 		jFPost.getContentPane().add(globalPanel, BorderLayout.CENTER);
 		globalPanel.setLayout( new BorderLayout(0, 0));

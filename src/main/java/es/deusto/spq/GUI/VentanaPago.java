@@ -69,6 +69,7 @@ public class VentanaPago {
 		frame = new JFrame("Pago");
 		frame.setBounds(100, 100, 400, 230);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);

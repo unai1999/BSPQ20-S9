@@ -63,6 +63,7 @@ public class VentanaRegistro {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 500, 575);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 		
 		JPanel panelPrincipal = new JPanel();
 		frame.getContentPane().add(panelPrincipal, BorderLayout.CENTER);

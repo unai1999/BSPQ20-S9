@@ -47,6 +47,7 @@ public class VentanaListaPosts extends JFrame{
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 		
 		textBuscarPost = new JTextField();
 		textBuscarPost.setBounds(23, 11, 397, 20);

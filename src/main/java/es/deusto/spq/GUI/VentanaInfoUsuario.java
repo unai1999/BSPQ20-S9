@@ -45,6 +45,7 @@ public class VentanaInfoUsuario extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 		
 		Font fuente = new Font("Arial", Font.BOLD, 17);
 		Font fuente1 = new Font("Arial", Font.BOLD, 13);

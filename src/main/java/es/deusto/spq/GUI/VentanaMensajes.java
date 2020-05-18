@@ -32,6 +32,7 @@ public class VentanaMensajes extends JFrame{
 		setSize(ancho, alto);
 		setTitle("Lista de mensajes");
 		setLocationRelativeTo(null);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		getContentPane().setLayout(null);

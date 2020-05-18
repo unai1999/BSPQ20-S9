@@ -62,7 +62,7 @@ public class VentanaDatosUsPost {
 		frmDatos.setTitle("Datos");
 		frmDatos.setBounds(100, 100, 476, 288);
 		frmDatos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
+		frmDatos.setLocationRelativeTo(null);
 		JPanel panelPrincipal = new JPanel();
 		frmDatos.getContentPane().add(panelPrincipal, BorderLayout.NORTH);
 		

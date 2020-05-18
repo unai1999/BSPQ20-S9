@@ -28,7 +28,7 @@ public class VentanaFacturas extends JFrame{
 	private static ArrayList<Factura> facturas = new ArrayList<>();
 	
 	public VentanaFacturas(Usuario user) {
-		
+		setLocationRelativeTo(null);
 	    //facturas = (ArrayList<MensajePrivado>) Controller.getInstance().getFacturas());
 		setSize(ancho, alto);
 		setTitle("Lista de mensajes");

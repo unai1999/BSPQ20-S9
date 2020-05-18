@@ -27,7 +27,7 @@ public class FormularioForo extends JFrame {
 
     public FormularioForo() {
 
-
+    	setLocationRelativeTo(null);
         panel = new JPanel(new FlowLayout());
         panel.setLayout(null);
         lTitulo = new JLabel("Título");

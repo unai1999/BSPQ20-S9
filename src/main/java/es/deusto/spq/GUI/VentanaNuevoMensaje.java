@@ -34,7 +34,7 @@ public class VentanaNuevoMensaje extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		getContentPane().setLayout(null);
-		
+		setLocationRelativeTo(null);
 		 
 		JLabel titulo = new JLabel();
 		titulo.setText("Titulo:");

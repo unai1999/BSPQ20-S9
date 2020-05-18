@@ -73,7 +73,7 @@ public class VentanaLogin {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 637, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		frame.setLocationRelativeTo(null);
 		JPanel panelPrincipal = new JPanel();
 		frame.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
 		panelPrincipal.setLayout(null);

@@ -57,7 +57,7 @@ public class VentanaInformacion {
 		jFInfo.setResizable(false);
 		jFInfo.getContentPane();
 		jFInfo.getContentPane().setLayout(new BorderLayout(0, 0));
-		
+		jFInfo.setLocationRelativeTo(null);
 		JPanel panelPrincipal = new JPanel();
 		jFInfo.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
 		panelPrincipal.setLayout(new BorderLayout(0, 0));

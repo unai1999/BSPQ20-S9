@@ -22,6 +22,7 @@ public class VentanaVerMensaje extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 		
 		JLabel cuerpo = new JLabel();
 	    cuerpo.setText(m.getContenido());

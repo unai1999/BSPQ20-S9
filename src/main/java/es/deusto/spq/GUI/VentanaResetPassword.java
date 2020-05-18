@@ -62,7 +62,7 @@ public class VentanaResetPassword extends JFrame implements ActionListener {
         panel.add(submit);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+        setLocationRelativeTo(null);
         // Adding the listeners to components..
         submit.addActionListener(this);
         add(panel, BorderLayout.CENTER);

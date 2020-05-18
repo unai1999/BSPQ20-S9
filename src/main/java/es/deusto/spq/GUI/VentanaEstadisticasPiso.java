@@ -29,7 +29,7 @@ public class VentanaEstadisticasPiso extends JFrame {
 		Font fuente2 = new Font("Times New Roman", Font.BOLD, 14);
 		Font fuente3 = new Font("Arial", Font.BOLD, 17);
 		
-		
+		setLocationRelativeTo(null);
 		setSize(480, 320);
 		getContentPane().setLayout(null);
 		

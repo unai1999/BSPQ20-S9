@@ -229,6 +229,7 @@ public class VentanaComparar {
 		JButton botonInicio = new JButton("Inicio");
 		botonInicio.setBounds(257, 413, 89, 23);
 		panelPrincipal.add(botonInicio);
+		jFComp.setLocationRelativeTo(null);
 		botonInicio.addActionListener(new ActionListener() {
 			
 			@Override
