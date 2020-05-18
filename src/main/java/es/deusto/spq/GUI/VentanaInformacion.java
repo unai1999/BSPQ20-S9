@@ -20,6 +20,7 @@ import es.deusto.spq.data.ComentarioPiso;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Usuario;
 import es.deusto.spq.server.DAOFactory;
+import es.deusto.spq.server.MapsTest;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -66,7 +67,7 @@ public class VentanaInformacion {
 		panelPrincipal.add(panelBotones, BorderLayout.NORTH);
 		panelBotones.setLayout(new BorderLayout(0, 0));
 		
-		JButton btnContactar = new JButton("Contactar");
+		JButton btnContactar = new JButton("Chrome");
 		btnContactar.setHorizontalAlignment(SwingConstants.LEFT);
 		btnContactar.setFocusPainted(false);
 		panelBotones.add(btnContactar, BorderLayout.EAST);
@@ -75,8 +76,8 @@ public class VentanaInformacion {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				jFInfo.dispose();
-				// aqui implementaremos la funcionalidad para que se pueda contactar con el dueño de la casa
+				//jFInfo.dispose();
+				MapsTest.openWebMsap(piso.getLocalizacion());
 				
 			}
 		});

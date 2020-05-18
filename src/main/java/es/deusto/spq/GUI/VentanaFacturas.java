@@ -31,15 +31,12 @@ public class VentanaFacturas extends JFrame{
 		setLocationRelativeTo(null);
 	    //facturas = (ArrayList<MensajePrivado>) Controller.getInstance().getFacturas());
 		setSize(ancho, alto);
-		setTitle("Lista de mensajes");
+		setTitle("Lista de facturas");
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		getContentPane().setLayout(null);
-		
-		JButton btnNuevoMensaje = new JButton("Nuevo Mensaje");
-        btnNuevoMensaje.setBounds(23, 11, 200, 20);
-        getContentPane().add(btnNuevoMensaje);
+
 		
         
         
@@ -81,15 +78,5 @@ public class VentanaFacturas extends JFrame{
 			
 		});
 		
-		
-		btnNuevoMensaje.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				new VentanaNuevoMensaje();
-				
-			}
-        });
     }
 }
