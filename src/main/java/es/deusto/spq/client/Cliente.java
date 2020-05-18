@@ -29,7 +29,7 @@
 //import es.deusto.spq.data.Post;
 //import es.deusto.spq.data.Usuario;
 //import es.deusto.spq.server.*;
-//import javax.swing.JTextArea;
+//import javax.swing.JTextArea;ddddd
 //
 //
 //
