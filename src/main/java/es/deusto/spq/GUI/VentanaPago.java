@@ -131,8 +131,8 @@ public class VentanaPago {
 					System.out.println(r);
 					if (r.getStatus() == Status.OK.getStatusCode()) {
 						JOptionPane.showMessageDialog(null, "Pago", "Exitoso", JOptionPane.INFORMATION_MESSAGE);
-						Factura f = new Factura("fecha", piso, Controller.getInstance().getUsuario(), new Usuario());
-						DAOFactory.getInstance().createPisoDAO().guardar(f);
+						Factura f = new Factura("fecha", piso, Controller.getInstance().getUsuario().getNickname(), new Usuario("a","p"));
+						DAOFactory.getInstance().createUsuarioDAO().guardar(f);
 						List<Piso> pisos = new ArrayList<Piso>();
 						pisos = Controller.getInstance().getPisos();
 						

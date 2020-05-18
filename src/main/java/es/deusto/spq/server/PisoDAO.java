@@ -250,7 +250,7 @@ public class PisoDAO{
 			tx.begin();
 			Extent<Factura> extent = pm.getExtent(Factura.class, true);
 			for (Factura f : extent) {
-				if(f.getCliente().getNickname().equals(u)){
+				if(f.getCliente().equals(u)){
 					fs.add(f);
 				}
 			}

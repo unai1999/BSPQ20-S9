@@ -35,7 +35,7 @@ public class VentanaDatosUsPost {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Usuario usuario = new Usuario(null);
+					Usuario usuario = new Usuario();
 					VentanaDatosUsPost window = new VentanaDatosUsPost(usuario);
 					window.frmDatos.setVisible(true);
 				} catch (Exception e) {

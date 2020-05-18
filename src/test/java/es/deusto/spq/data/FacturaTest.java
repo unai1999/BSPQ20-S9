@@ -17,7 +17,7 @@ public class FacturaTest {
 		u2 = new Usuario("Unai");
 		f = new Factura();
 		f.setArrendador(u2);
-		f.setCliente(u1);
+		f.setCliente("a");
 		f.setFecha("07/05/2020");
 		f.setId(120123);
 		f.setImporte(1200);

@@ -20,7 +20,7 @@ public class Factura {
     private String fecha;
     private Piso piso;
     private double importe;
-    private Usuario cliente;
+    private String cliente;
     private Usuario arrendador;
     
 
@@ -31,7 +31,7 @@ public class Factura {
      * @param cliente Cliente de la factura
      * @param arrendador Arrendador de la factura
      */
-    public Factura(String fecha, Piso piso, Usuario cliente, Usuario arrendador) {
+    public Factura(String fecha, Piso piso, String cliente, Usuario arrendador) {
         
         this.fecha = fecha;
         this.piso = piso;
@@ -75,11 +75,11 @@ public class Factura {
         this.piso = piso;
     }
 
-	public Usuario getCliente() {
+	public String getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Usuario cliente) {
+	public void setCliente(String cliente) {
 		this.cliente = cliente;
 	}
 
@@ -91,6 +91,13 @@ public class Factura {
 		this.arrendador = arrendador;
 	}
 
+    @Override
+    public String toString() {
+        return "Factura [arrendador=" + arrendador + ", cliente=" + cliente + ", fecha=" + fecha + ", id=" + id
+                + ", importe=" + importe + ", piso=" + piso + "]";
+    }
+
+    
     
     
     

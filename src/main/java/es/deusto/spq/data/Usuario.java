@@ -86,14 +86,26 @@ public class Usuario {
 	public Usuario(String nickname,String pw1) {
 		this.setNickname(nickname);
 		this.setPw1(pw1);
+		this.nombre = "";
+		this.apellidos = "";
+		this.email = "";
 	}
 	
 	public Usuario(String nombre) {
 		this.setNombre(nombre);
 	}
 
-	public Usuario() {
+	public Usuario(Usuario u){
 		
+
+	}
+
+	public Usuario() {
+		nickname = "";
+		nombre = "";
+		apellidos = "";
+		email = "";
+		pw1 = "";
 	}
 
 	public String getNickname() {
