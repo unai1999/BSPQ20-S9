@@ -12,5 +12,8 @@ before_script:
   - mysql -u root -e "GRANT ALL ON pisosDB.* TO 'spq'@'localhost';"
   - jdk_switcher use $JDK
 
+script:
+  - jdk_switcher use openjdk8
+dist: trusty
 
 
