@@ -20,7 +20,7 @@ public class VentanaEstadisticasPiso extends JFrame {
 	
 	/**
 	 * Constructor de la ventana que muestra las estadisticas del piso.
-	 * @param piso
+	 * @param piso el piso del que se van a mostrar sus datos
 	 */
 	private static final long serialVersionUID = 1L;
 

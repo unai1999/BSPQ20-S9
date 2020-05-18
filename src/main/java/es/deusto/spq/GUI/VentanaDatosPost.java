@@ -64,8 +64,8 @@ public class VentanaDatosPost {
 
 	/**
 	 * Contructor de la ventana que recibe un post y un piso.
-	 * @param post
-	 * @param piso
+	 * @param post Objeto post que se pasa cuando se conecta la ventana
+	 * @param piso Objeto piso que se pasa cuando se conecta la ventana
 	 */
 	private void initialize(Post post, Piso piso) {
 		frmDatos = new JFrame();

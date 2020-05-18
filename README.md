@@ -1,5 +1,6 @@
-# BSPQ20-S9
+# BSPQ20-S9   [![Build Status](https://travis-ci.com/unai1999/BSPQ20-S9.svg?branch=master)](https://travis-ci.com/unai1999/BSPQ20-S9)  [![Coverage Status](https://coveralls.io/repos/github/unai1999/BSPQ20-S9/badge.svg?branch=master)](https://coveralls.io/github/unai1999/BSPQ20-S9?branch=master)
 > Aplicación de gestión de alquiler de pisos.
+
 ## Tabla de contenido
 
 - [Instalación](#instalación)
@@ -34,6 +35,11 @@ mvn datanucleus:schema-create
 - Arranque de servidor Jetty
 ```shell
 mvn jetty:run
+```
+
+- Inicialización de datos
+```shell
+mvn exec:java -PdatosBD
 ```
 
 - Ejecución de la ventana del cliente

@@ -103,7 +103,7 @@ public class Piso{
     
     /**
      * Constructor basico de un piso.
-     * @param piso
+     * @param piso Piso que se le pasa al constructor cuando se crea.
      */
     public Piso(Piso piso) {
 		this.nombre = piso.nombre;

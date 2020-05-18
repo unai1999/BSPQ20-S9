@@ -15,3 +15,8 @@ before_script:
 script:
   - jdk_switcher use openjdk8
 dist: trusty
+
+after_success:
+  - mvn clean cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report
+  - mvn clean test jacoco:report coveralls:report
+
