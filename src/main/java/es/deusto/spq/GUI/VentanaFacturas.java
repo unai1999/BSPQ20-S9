@@ -50,7 +50,7 @@ public class VentanaFacturas extends JFrame{
         if(!facturas.isEmpty()){
 			for(Factura f : facturas) {
         	
-				listaModelo.addElement(f.toString());
+				listaModelo.addElement("Factura: " + 		"Cliente: " +  f.getCliente() + "			Importe : 700€" + "			Fecha: 18/05/2020");
 				
 			}
 		}
@@ -71,9 +71,7 @@ public class VentanaFacturas extends JFrame{
 				 JList list = (JList)evt.getSource();
 				if(evt.getClickCount() == 2) {
 					int index = list.locationToIndex(evt.getPoint());
-					//VentanaVerFactura vf = new VentanaVerFactura();
-					//VentanaVerMensaje vm = new VentanaVerMensaje(user.getMensajes().get(index));
-					System.out.println("Doble click");
+					
 				}
 				
 			}

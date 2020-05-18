@@ -49,8 +49,5 @@ public class FacturaTest {
 		assertEquals(u2, f.getArrendador());
 	}
 	
-	@Test
-	public void setClienteTest() {
-		assertEquals(u1, f.getCliente());
-	}
+
 }

@@ -131,7 +131,6 @@ public class VentanaListaPisos extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				new VentanaFacturas(Controller.getInstance().getUsuario());
 				
 			}
