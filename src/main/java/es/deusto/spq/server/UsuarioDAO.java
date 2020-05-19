@@ -168,6 +168,9 @@ public class UsuarioDAO {
 			try {
 				tx.begin();
 				System.out.println(" * Comprobando monedero...");
+
+				
+				
 				if (u.pagar(p.getPrecio()) == true) {
 					System.out.println(" * Realizando pago...");
 

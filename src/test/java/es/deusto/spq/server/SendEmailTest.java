@@ -1,8 +1,7 @@
+
 package es.deusto.spq.server;
 
 import static org.junit.Assert.assertEquals;
-
-import java.io.IOException;
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -31,3 +30,5 @@ public class SendEmailTest {
        se.enviarMail("test");
    }
 }
+
+

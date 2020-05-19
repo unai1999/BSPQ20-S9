@@ -81,6 +81,7 @@ public class Usuario {
 		this.setApellidos(apellidos);
 		this.setEmail(email);
 		this.setPw1(pw1);
+		this.monedero = 999999;
 	}
 
 	public Usuario(String nickname,String pw1) {

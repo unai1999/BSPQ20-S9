@@ -41,7 +41,7 @@ public class VentanaDatosFactura {
 				try {
 					Usuario us = new Usuario("");
 					Piso p = new Piso();
-					Factura f = new Factura("", p, "usuario", us);
+					Factura f = new Factura("", p, "usuario", "arr");
 					VentanaDatosFactura window = new VentanaDatosFactura(f);
 					window.frmDatos.setVisible(true);
 				} catch (Exception e) {
@@ -151,7 +151,7 @@ public class VentanaDatosFactura {
 		PanelAr.add(lblArrendador);
 		
 		JLabel lblAr = new JLabel();
-		lblAr.setText(factura.getArrendador().getNombre());
+		lblAr.setText(factura.getArrendador());
 		lblAr.setHorizontalAlignment(SwingConstants.CENTER);
 		PanelAr.add(lblAr);
 		

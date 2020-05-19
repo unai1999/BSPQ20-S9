@@ -16,7 +16,7 @@ public class FacturaTest {
 		u1 = new Usuario("Eneko");
 		u2 = new Usuario("Unai");
 		f = new Factura();
-		f.setArrendador(u2);
+		f.setArrendador("arr");
 		f.setCliente("a");
 		f.setFecha("07/05/2020");
 		f.setId(120123);
@@ -46,8 +46,9 @@ public class FacturaTest {
 	
 	@Test
 	public void setArrendadorTest() {
-		assertEquals(u2, f.getArrendador());
+		assertEquals("arr", f.getArrendador());
 	}
 	
 	
+
 }

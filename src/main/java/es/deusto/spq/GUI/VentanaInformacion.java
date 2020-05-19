@@ -176,7 +176,8 @@ public class VentanaInformacion {
 		
 		if(piso.getImagenes2() != null) {
 		if(piso.getImagenes2().size() == 1) {
-			lblFoto1.setIcon(new ImageIcon(piso.getImagenes2().get(0)));
+			
+			lblFoto1.setIcon(new ImageIcon("resources/images/" +piso.getImagenes2().get(0) +".jpg"));
 			lblFoto2.setText("Sin imagen");
 			lblFoto3.setText("Sin imagen");
 			lblFoto4.setText("Sin imagen");

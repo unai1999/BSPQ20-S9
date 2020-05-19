@@ -21,7 +21,7 @@ public class Factura {
     private Piso piso;
     private double importe;
     private String cliente;
-    private Usuario arrendador;
+    private String arrendador;
     
 
     /**
@@ -31,7 +31,7 @@ public class Factura {
      * @param cliente Cliente de la factura
      * @param arrendador Arrendador de la factura
      */
-    public Factura(String fecha, Piso piso, String cliente, Usuario arrendador) {
+    public Factura(String fecha, Piso piso, String cliente, String arrendador) {
         
         this.fecha = fecha;
         this.piso = piso;
@@ -83,11 +83,11 @@ public class Factura {
 		this.cliente = cliente;
 	}
 
-	public Usuario getArrendador() {
+	public String getArrendador() {
 		return arrendador;
 	}
 
-	public void setArrendador(Usuario arrendador) {
+	public void setArrendador(String arrendador) {
 		this.arrendador = arrendador;
 	}
 

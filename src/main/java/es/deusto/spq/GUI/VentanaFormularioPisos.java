@@ -172,6 +172,7 @@ public class VentanaFormularioPisos {
 					imagePath = fc.getSelectedFile().toString();
 					
 				} catch (Exception ex) {
+					
 					ex.printStackTrace();
 				}
 			}
@@ -195,8 +196,10 @@ public class VentanaFormularioPisos {
 					if (image != null) {
 						
 						List<String> imagenes = new ArrayList<String>();
-						imagenes.add(imagePath);
+						imagenes.add(Controller.getInstance().getUsuario().getNickname() + tfNombrePiso.getText());
+					
 						pisoNuevo.setImagenes2(imagenes);
+	
 
 					}
 					
@@ -213,7 +216,10 @@ public class VentanaFormularioPisos {
 					pisoNuevo.setId(id);
 					Response response = Controller.getInstance().guardarNuevoPiso(pisoNuevo);
 					if (response.getStatus() == Status.OK.getStatusCode()) {
-						UtilsImagenes.imageIoWrite(Controller.getInstance().getUsuario().getNickname(), image);
+						if(image != null){
+							UtilsImagenes.imageIoWrite(Controller.getInstance().getUsuario().getNickname() + pisoNuevo.getNombre(), image);
+						}
+						
 						JOptionPane.showMessageDialog(null, "Piso guardado correctamente", "Aviso",
 								JOptionPane.INFORMATION_MESSAGE);
 					} else {
