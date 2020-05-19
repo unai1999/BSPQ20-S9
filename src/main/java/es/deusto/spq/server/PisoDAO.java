@@ -11,7 +11,7 @@ import javax.jdo.Transaction;
 
 import es.deusto.spq.data.Factura;
 import es.deusto.spq.data.Piso;
-import es.deusto.spq.data.Usuario;
+
 /**
  * Esta clase contiene los métodos para guardar pisos, crear unos datos de pisos y obtener pisos
  * @author unai

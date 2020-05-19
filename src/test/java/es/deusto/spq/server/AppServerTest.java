@@ -146,7 +146,7 @@ public class AppServerTest {
         assertEquals(server.registrarUsuario(new Usuario("nickname", "nombre", "apellidos", "email", "pw1")).getStatus(), mockResponse.getStatus());
     }
 
-    //TODO
+  
     
     
     @Test

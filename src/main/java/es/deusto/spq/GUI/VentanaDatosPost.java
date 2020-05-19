@@ -34,8 +34,7 @@ public class VentanaDatosPost {
 	private JFrame frmDatos;
 	private JScrollPane scroll;
 	private JTextPane tACont, tADescP;
-	private Post post;
-	private Piso piso;
+
 
 	/**
 	 * Launch the application.

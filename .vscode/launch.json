@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - VentanaListaPosts",
+            "request": "launch",
+            "mainClass": "es.deusto.spq.GUI.VentanaListaPosts",
+            "projectName": "alquiler-app"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Imagenes",
             "request": "launch",
             "mainClass": "es.deusto.spq.client.Imagenes",

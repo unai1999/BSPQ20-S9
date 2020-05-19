@@ -17,6 +17,8 @@ import es.deusto.spq.data.MensajePrivado;
 import es.deusto.spq.data.Piso;
 import es.deusto.spq.data.Post;
 
+
+//estos tests estan ignorados en el pom porque neceistan que el servidor esté funcionando
 public class ControllerTestPerf {
 
     @Before

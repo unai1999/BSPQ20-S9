@@ -11,7 +11,7 @@ public class Propietario {
 	private String email;
 	
 	
-	private String pw;				//TODO encriptar pw.
+	private String pw;				
 	
 	private List<Piso> pisos;		//Lista de pisos que el propietario tiene para alquilar
 	

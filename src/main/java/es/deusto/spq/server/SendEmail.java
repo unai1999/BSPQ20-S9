@@ -58,7 +58,10 @@ public class SendEmail {
 
 
         } catch (IOException ex) {
-            ex.printStackTrace();
+            logger.error("File not found");
+            address = "test";
+            password = "test";
+            
         }
     }
 

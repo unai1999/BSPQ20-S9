@@ -17,7 +17,7 @@ public class UsuarioDTO implements Serializable {
 	private String email;
 	
 	
-	private String pw1;				//TODO encriptar pw.
+	private String pw1;				
 	private String pw2;
 	
 	private boolean tienePiso;

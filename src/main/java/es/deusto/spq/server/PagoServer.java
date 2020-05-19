@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import es.deusto.spq.data.Pago;
-import es.deusto.spq.data.Usuario;
+
 
 /**
  * Esta clase sirve como servidor de Pago para poder realizar los pagos correspondientes a las reservas

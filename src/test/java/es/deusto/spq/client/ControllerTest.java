@@ -24,8 +24,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
-import junit.framework.JUnit4TestAdapter;
-
 public class ControllerTest {
 
     Controller controller;

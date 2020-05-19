@@ -20,7 +20,7 @@ public class Usuario {
 	private String email;
 	
 	
-	private String pw1;				//TODO encriptar pw.
+	private String pw1;				
 	private Piso piso;				//Si el usuario solo puede tener un piso alquilado.
 	private boolean tienePiso;
 	

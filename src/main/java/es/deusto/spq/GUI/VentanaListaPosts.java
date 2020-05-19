@@ -27,6 +27,9 @@ import es.deusto.spq.data.Post;
  * @author unai
  */
 public class VentanaListaPosts extends JFrame{
+
+
+	
 	
 
 	private JScrollPane scroll;
@@ -177,4 +180,6 @@ public class VentanaListaPosts extends JFrame{
 		setVisible(true);
 		
 	}
+
+	
 }
